@@ -162,3 +162,15 @@ class Config:
                 return default
         
         return value
+
+    def set(self, key: str, value: Any):
+        keys = key.split('.')
+        config = self.config
+        
+        for k in keys[:-1]:
+            if k not in config:
+                config[k] = {}
+            config = config[k]
+        
+        config[keys[-1]] = value
+        self.save_config()
