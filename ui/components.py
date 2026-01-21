@@ -129,6 +129,8 @@ class NotificationBar(tk.Frame):
         self.message_label.config(bg=color, text=message)
         self.close_btn.config(bg=color)
         self.pack(fill='x', pady=(0, 5))
+        if duration > 0:
+            self.after(duration, self.hide)
     
     def hide(self):
         self.pack_forget()
