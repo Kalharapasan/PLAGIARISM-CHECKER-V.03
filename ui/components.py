@@ -91,5 +91,15 @@ class GradientFrame(tk.Frame):
                     self.canvas.create_line(width - i, height, width, height - i, fill=color)
     
     def _interpolate_color(self, colors: List[str], ratio: float) -> str:
+        if len(colors) == 1:
+            return colors[0]
+        
+        segment = ratio * (len(colors) - 1)
+        segment_int = int(segment)
+        segment_frac = segment - segment_int
+        
+        if segment_int >= len(colors) - 1:
+            return colors[-1]
+        
         
         
