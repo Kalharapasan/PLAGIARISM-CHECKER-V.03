@@ -115,6 +115,9 @@ class GradientFrame(tk.Frame):
         return f'#{r:02x}{g:02x}{b:02x}'
 
 class NotificationBar(tk.Frame):
+    
+    def show(self, message: str, type: str = 'info', duration: int = 5000):
+    
     def hide(self):
         self.pack_forget()
         
