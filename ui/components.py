@@ -115,6 +115,14 @@ class GradientFrame(tk.Frame):
         return f'#{r:02x}{g:02x}{b:02x}'
 
 class NotificationBar(tk.Frame):
+    def __init__(self, parent, **kwargs):
+        super().__init__(parent, **kwargs)
+        
+        self.config(bg=self['bg'], height=40)
+        self.pack_propagate(False)
+        
+        self._create_ui()
+        self.hide()
     
     def _create_ui(self):
         self.message_label = tk.Label(self, text="", font=('Segoe UI', 10),
