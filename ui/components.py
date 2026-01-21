@@ -120,6 +120,15 @@ class NotificationBar(tk.Frame):
         self.message_label = tk.Label(self, text="", font=('Segoe UI', 10),
                                      bg=self['bg'], fg='white')
         self.message_label.pack(side='left', padx=15)
+        self.close_btn = tk.Label(self, text="✕", font=('Segoe UI', 12),
+                                 bg=self['bg'], fg='white', cursor='hand2')
+        self.close_btn.pack(side='right', padx=15)
+        
+        self.close_btn.bind('<Button-1>', lambda e: self.hide())
+        self.close_btn.bind('<Enter>', 
+                           lambda e: self.close_btn.config(fg='#cbd5e0'))
+        self.close_btn.bind('<Leave>', 
+                           lambda e: self.close_btn.config(fg='white'))
     
     def show(self, message: str, type: str = 'info', duration: int = 5000):
         colors = {
