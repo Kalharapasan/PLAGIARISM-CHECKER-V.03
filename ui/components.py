@@ -76,3 +76,4 @@ class GradientFrame(tk.Frame):
             for i in range(width):
                 ratio = i / width
                 color = self._interpolate_color(self.colors, ratio)
+                self.canvas.create_line(i, 0, i, height, fill=color)
