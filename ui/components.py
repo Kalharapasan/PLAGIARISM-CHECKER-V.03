@@ -62,3 +62,6 @@ class GradientFrame(tk.Frame):
         self.canvas = tk.Canvas(self, highlightthickness=0)
         self.canvas.pack(fill='both', expand=True)
         self.bind('<Configure>', self._draw_gradient)
+    
+    def _draw_gradient(self, event=None):
+        
