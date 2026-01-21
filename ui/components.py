@@ -33,3 +33,7 @@ class Breadcrumb(tk.Frame):
         if self.items:
             self.items.pop()
             self.update_items(self.items)
+        
+    def clear(self):
+        self.items = []
+        self.update_items(self.items)
