@@ -113,5 +113,7 @@ class GradientFrame(tk.Frame):
         b = int(rgb1[2] + (rgb2[2] - rgb1[2]) * segment_frac)
         
         return f'#{r:02x}{g:02x}{b:02x}'
+
+class NotificationBar(tk.Frame):
         
         
