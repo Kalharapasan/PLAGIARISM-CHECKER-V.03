@@ -126,4 +126,7 @@ class Config:
             except Exception as e:
                 print(f"Error loading config: {e}. Using defaults.")
                 return self.default_config
+        else:
+            self.save_config(self.default_config)
+            return self.default_config
         
