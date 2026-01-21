@@ -122,7 +122,7 @@ class Config:
             try:
                 with open(config_path, 'r', encoding='utf-8') as f:
                     loaded_config = json.load(f)
-                    
+                    return self._merge_configs(self.default_config, loaded_config)
             except Exception as e:
                 print(f"Error loading config: {e}. Using defaults.")
                 return self.default_config
