@@ -118,4 +118,12 @@ class Config:
         }
     
     def load_config(self) -> Dict[str, Any]:
+        if config_path.exists():
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    loaded_config = json.load(f)
+                    
+            except Exception as e:
+                print(f"Error loading config: {e}. Using defaults.")
+                return self.default_config
         
