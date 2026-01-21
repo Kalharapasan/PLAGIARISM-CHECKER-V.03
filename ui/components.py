@@ -1,4 +1,16 @@
 class Breadcrumb(tk.Frame):
+    
+    def __init__(self, parent, items: List[Tuple[str, Callable]] = None,
+                 separator: str = "›", **kwargs):
+        super().__init__(parent, **kwargs)
+        
+        self.items = items or []
+        self.separator = separator
+        
+        self.config(bg=self['bg'])
+        
+        self._create_ui()
+        
     def _create_ui(self):
         for i, (text, callback) in enumerate(self.items):
             if i > 0:
