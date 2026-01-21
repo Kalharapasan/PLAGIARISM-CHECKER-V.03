@@ -64,4 +64,11 @@ class GradientFrame(tk.Frame):
         self.bind('<Configure>', self._draw_gradient)
     
     def _draw_gradient(self, event=None):
+        self.canvas.delete('all')
+        
+        width = self.winfo_width()
+        height = self.winfo_height()
+        
+        if width <= 1 or height <= 1:
+            return
         
