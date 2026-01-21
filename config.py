@@ -3,6 +3,10 @@ from pathlib import Path
 from typing import Dict, Any
 
 class Config:
+    def __init__(self, config_file: str = "config.json"):
+        self.config_file = config_file
+        self.default_config = self._get_default_config()
+        self.config = self.load_config()
     
     def _get_default_config(self) -> Dict[str, Any]:
         return {
