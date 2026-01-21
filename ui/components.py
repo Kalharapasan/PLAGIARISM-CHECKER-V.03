@@ -116,6 +116,8 @@ class GradientFrame(tk.Frame):
 
 class NotificationBar(tk.Frame):
     
+    def _create_ui(self):
+    
     def show(self, message: str, type: str = 'info', duration: int = 5000):
         colors = {
             'info': '#4299e1',
