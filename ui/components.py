@@ -57,3 +57,5 @@ class GradientFrame(tk.Frame):
         self.colors = colors or ['#667eea', '#764ba2']
         self.direction = direction
         self._create_gradient()
+    
+    def _create_gradient(self):
