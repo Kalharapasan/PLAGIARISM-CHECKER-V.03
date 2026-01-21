@@ -72,3 +72,5 @@ class GradientFrame(tk.Frame):
         if width <= 1 or height <= 1:
             return
         
+        if self.direction == 'horizontal':
+            for i in range(width):
