@@ -129,4 +129,14 @@ class Config:
         else:
             self.save_config(self.default_config)
             return self.default_config
+    
+    def _merge_configs(self, default: Dict, custom: Dict) -> Dict:
+        merged = default.copy()
         
+        for key, value in custom.items():
+            if key in merged and isinstance(merged[key], dict) and isinstance(value, dict):
+                merged[key] = self._merge_configs(merged[key], value)
+            else:
+                merged[key] = value
+        
+        return merged
