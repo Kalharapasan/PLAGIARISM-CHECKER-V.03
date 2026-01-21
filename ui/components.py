@@ -108,5 +108,10 @@ class GradientFrame(tk.Frame):
         
         rgb1 = hex_to_rgb(color1)
         rgb2 = hex_to_rgb(color2)
+        r = int(rgb1[0] + (rgb2[0] - rgb1[0]) * segment_frac)
+        g = int(rgb1[1] + (rgb2[1] - rgb1[1]) * segment_frac)
+        b = int(rgb1[2] + (rgb2[2] - rgb1[2]) * segment_frac)
+        
+        return f'#{r:02x}{g:02x}{b:02x}'
         
         
