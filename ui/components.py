@@ -19,3 +19,5 @@ class Breadcrumb(tk.Frame):
                                lambda e, lbl=item_label: lbl.config(fg='#4a5568', font=('Segoe UI', 10)))
     
     def update_items(self, items: List[Tuple[str, Callable]]):
+        for widget in self.winfo_children():
+            widget.destroy()
