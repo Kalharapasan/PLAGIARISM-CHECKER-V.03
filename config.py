@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, Any
 
 class Config:
+    
     def _get_default_config(self) -> Dict[str, Any]:
         return {
             "application": {
@@ -115,3 +116,6 @@ class Config:
                 "exports": "exports/"
             }
         }
+    
+    def load_config(self) -> Dict[str, Any]:
+        
