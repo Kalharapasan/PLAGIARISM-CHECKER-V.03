@@ -117,6 +117,17 @@ class GradientFrame(tk.Frame):
 class NotificationBar(tk.Frame):
     
     def show(self, message: str, type: str = 'info', duration: int = 5000):
+        colors = {
+            'info': '#4299e1',
+            'success': '#48bb78',
+            'warning': '#ed8936',
+            'error': '#f56565'
+        }
+        
+        color = colors.get(type, '#4299e1')
+        self.config(bg=color)
+        self.message_label.config(bg=color, text=message)
+        self.close_btn.config(bg=color)
     
     def hide(self):
         self.pack_forget()
