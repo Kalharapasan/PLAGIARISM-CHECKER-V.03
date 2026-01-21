@@ -59,3 +59,5 @@ class GradientFrame(tk.Frame):
         self._create_gradient()
     
     def _create_gradient(self):
+        self.canvas = tk.Canvas(self, highlightthickness=0)
+        self.canvas.pack(fill='both', expand=True)
