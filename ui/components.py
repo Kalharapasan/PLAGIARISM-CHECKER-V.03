@@ -128,6 +128,7 @@ class NotificationBar(tk.Frame):
         self.config(bg=color)
         self.message_label.config(bg=color, text=message)
         self.close_btn.config(bg=color)
+        self.pack(fill='x', pady=(0, 5))
     
     def hide(self):
         self.pack_forget()
