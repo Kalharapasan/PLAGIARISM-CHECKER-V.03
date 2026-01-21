@@ -102,5 +102,11 @@ class GradientFrame(tk.Frame):
             return colors[-1]
         color1 = colors[segment_int]
         color2 = colors[segment_int + 1]
+        def hex_to_rgb(hex_color):
+            hex_color = hex_color.lstrip('#')
+            return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        
+        rgb1 = hex_to_rgb(color1)
+        rgb2 = hex_to_rgb(color2)
         
         
