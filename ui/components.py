@@ -100,6 +100,7 @@ class GradientFrame(tk.Frame):
         
         if segment_int >= len(colors) - 1:
             return colors[-1]
-        
+        color1 = colors[segment_int]
+        color2 = colors[segment_int + 1]
         
         
