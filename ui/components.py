@@ -51,3 +51,9 @@ class Breadcrumb(tk.Frame):
         self.update_items(self.items)
 
 class GradientFrame(tk.Frame):
+    def __init__(self, parent, colors: List[str] = None,
+                 direction: str = 'horizontal', **kwargs):
+        super().__init__(parent, **kwargs)
+        self.colors = colors or ['#667eea', '#764ba2']
+        self.direction = direction
+        self._create_gradient()
