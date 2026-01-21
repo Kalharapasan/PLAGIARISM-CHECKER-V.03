@@ -74,3 +74,5 @@ class GradientFrame(tk.Frame):
         
         if self.direction == 'horizontal':
             for i in range(width):
+                ratio = i / width
+                color = self._interpolate_color(self.colors, ratio)
