@@ -28,3 +28,8 @@ class Breadcrumb(tk.Frame):
     def add_item(self, text: str, callback: Callable = None):
         self.items.append((text, callback))
         self.update_items(self.items)
+    
+    def remove_last(self):
+        if self.items:
+            self.items.pop()
+            self.update_items(self.items)
