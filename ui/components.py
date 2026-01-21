@@ -37,3 +37,5 @@ class Breadcrumb(tk.Frame):
     def clear(self):
         self.items = []
         self.update_items(self.items)
+
+class GradientFrame(tk.Frame):
