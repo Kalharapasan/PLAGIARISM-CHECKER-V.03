@@ -174,3 +174,5 @@ class Config:
         
         config[keys[-1]] = value
         self.save_config()
+
+config = Config()
