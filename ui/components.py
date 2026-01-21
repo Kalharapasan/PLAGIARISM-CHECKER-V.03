@@ -21,3 +21,6 @@ class Breadcrumb(tk.Frame):
     def update_items(self, items: List[Tuple[str, Callable]]):
         for widget in self.winfo_children():
             widget.destroy()
+        
+        self.items = items
+        self._create_ui()
