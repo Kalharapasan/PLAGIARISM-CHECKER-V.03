@@ -11,3 +11,9 @@ class Breadcrumb(tk.Frame):
                                  bg=self['bg'], fg='#4a5568',
                                  cursor='hand2')
             item_label.pack(side='left')
+            if callback:
+                item_label.bind('<Button-1>', lambda e, cb=callback: cb())
+                item_label.bind('<Enter>',
+                               lambda e, lbl=item_label: lbl.config(fg='#4299e1', font=('Segoe UI', 10, 'underline')))
+                item_label.bind('<Leave>',
+                               lambda e, lbl=item_label: lbl.config(fg='#4a5568', font=('Segoe UI', 10)))
