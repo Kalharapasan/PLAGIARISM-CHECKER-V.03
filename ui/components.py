@@ -24,3 +24,7 @@ class Breadcrumb(tk.Frame):
         
         self.items = items
         self._create_ui()
+    
+    def add_item(self, text: str, callback: Callable = None):
+        self.items.append((text, callback))
+        self.update_items(self.items)
