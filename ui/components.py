@@ -213,3 +213,5 @@ class Badge(tk.Frame):
         height = self.badge_frame.winfo_reqheight()
         self.badge_frame.config(width=width, height=height)
     
+    def update_text(self, text: str):
+    
