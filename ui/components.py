@@ -218,3 +218,5 @@ class Badge(tk.Frame):
         self.label.config(text=text)
         self._update_size()
     
+    def update_color(self, color: str):
+    
