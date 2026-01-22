@@ -174,3 +174,5 @@ class DataTable(tk.Frame):
     self.grid_rowconfigure(0, weight=1)
     self.grid_columnconfigure(0, weight=1)
     self._populate_data()
+    
+    def _populate_data(self):
