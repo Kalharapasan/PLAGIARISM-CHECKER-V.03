@@ -244,4 +244,6 @@ class Badge(tk.Frame):
         width = self.badge_frame.winfo_reqwidth()
         height = self.badge_frame.winfo_reqheight()
         self.badge_frame.config(width=width, height=height)
+
+class RatingStars(tk.Frame):
     
