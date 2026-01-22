@@ -165,3 +165,6 @@ class DataTable(tk.Frame):
             self.tree.heading(col['id'], text=col['text'])
             self.tree.column(col['id'], width=col.get('width', 100),
                             anchor=col.get('anchor', 'w'))
+    vsb = ttk.Scrollbar(self, orient="vertical", command=self.tree.yview)
+    hsb = ttk.Scrollbar(self, orient="horizontal", command=self.tree.xview)
+    self.tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
