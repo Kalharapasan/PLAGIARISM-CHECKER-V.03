@@ -292,3 +292,6 @@ class RatingStars(tk.Frame):
             if self.on_rating_change:
                 self.on_rating_change(rating)
     
+    def get_rating(self) -> float:
+        return self.rating
+    
