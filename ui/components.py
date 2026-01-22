@@ -338,3 +338,5 @@ class LoadingSpinner(tk.Frame):
             start_angle = self.angle + (i * 45)
             extent = 30  
             opacity = (i + 1) / 8
+            rgb_color = self._hex_to_rgb(self.color)
+            faded_color = self._fade_color(rgb_color, opacity)
