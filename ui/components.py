@@ -173,3 +173,4 @@ class DataTable(tk.Frame):
     hsb.grid(row=1, column=0, sticky='ew')
     self.grid_rowconfigure(0, weight=1)
     self.grid_columnconfigure(0, weight=1)
+    self._populate_data()
