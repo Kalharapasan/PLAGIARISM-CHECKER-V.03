@@ -168,3 +168,6 @@ class DataTable(tk.Frame):
     vsb = ttk.Scrollbar(self, orient="vertical", command=self.tree.yview)
     hsb = ttk.Scrollbar(self, orient="horizontal", command=self.tree.xview)
     self.tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    self.tree.grid(row=0, column=0, sticky='nsew')
+    vsb.grid(row=0, column=1, sticky='ns')
+    hsb.grid(row=1, column=0, sticky='ew')
