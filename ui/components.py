@@ -178,3 +178,5 @@ class DataTable(tk.Frame):
     def _populate_data(self):
         for item in self.tree.get_children():
             self.tree.delete(item)
+        for row in self.data:
+            self.tree.insert('', 'end', values=row)
