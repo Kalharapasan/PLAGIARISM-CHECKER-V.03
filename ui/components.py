@@ -337,3 +337,4 @@ class LoadingSpinner(tk.Frame):
         for i in range(8):
             start_angle = self.angle + (i * 45)
             extent = 30  
+            opacity = (i + 1) / 8
