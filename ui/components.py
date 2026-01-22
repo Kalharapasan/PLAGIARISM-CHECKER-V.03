@@ -265,3 +265,15 @@ class RatingStars(tk.Frame):
         
         self._update_stars()
     
+    def _update_stars(self):
+        full_stars = int(self.rating)
+        has_half = self.rating - full_stars >= 0.5
+        
+        for i, star in enumerate(self.stars):
+            if i < full_stars:
+                star.config(fg='#f6ad55') 
+            elif i == full_stars and has_half:
+                star.config(fg='#f6ad55')
+            else:
+                star.config(fg='#cbd5e0') 
+    
