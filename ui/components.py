@@ -247,3 +247,21 @@ class Badge(tk.Frame):
 
 class RatingStars(tk.Frame):
     
+    def _create_ui(self):
+        self.stars = []
+        
+        for i in range(self.max_stars):
+            star_label = tk.Label(self, text="★", font=('Segoe UI', 16),
+                                 bg=self['bg'], fg='#cbd5e0',
+                                 cursor='hand2' if self.editable else 'arrow')
+            star_label.pack(side='left', padx=1)
+            
+            if self.editable:
+                star_label.bind('<Enter>', lambda e, idx=i: self._on_star_hover(idx))
+                star_label.bind('<Leave>', lambda e: self._update_stars())
+                star_label.bind('<Button-1>', lambda e, idx=i: self._set_rating(idx + 1))
+            
+            self.stars.append(star_label)
+        
+        self._update_stars()
+    
