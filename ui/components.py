@@ -285,3 +285,10 @@ class RatingStars(tk.Frame):
                 else:
                     star.config(fg='#cbd5e0')
     
+    def _set_rating(self, rating: int):
+        if self.editable and 0 <= rating <= self.max_stars:
+            self.rating = rating
+            self._update_stars()
+            if self.on_rating_change:
+                self.on_rating_change(rating)
+    
