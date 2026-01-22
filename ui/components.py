@@ -349,3 +349,7 @@ class LoadingSpinner(tk.Frame):
             )
         self.angle = (self.angle + 10) % 360
         self.after(self.speed, self._animate)
+    
+    def _hex_to_rgb(self, hex_color: str):
+        hex_color = hex_color.lstrip('#')
+        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
