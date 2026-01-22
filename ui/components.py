@@ -199,6 +199,11 @@ class DataTable(tk.Frame):
 class Badge(tk.Frame):
     def __init__(self, parent, text: str = "", color: str = '#4299e1',
                  size: str = 'medium', **kwargs):
+        
+        super().__init__(parent, **kwargs)
+        
+        self.text = text
+        self.color = color
     
     def _create_ui(self):
         self.badge_frame = tk.Frame(self, bg=self.color, bd=0)
