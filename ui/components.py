@@ -197,7 +197,8 @@ class DataTable(tk.Frame):
         return None
 
 class Badge(tk.Frame):
-    
+    def __init__(self, parent, text: str = "", color: str = '#4299e1',
+                 size: str = 'medium', **kwargs):
     
     def _create_ui(self):
         self.badge_frame = tk.Frame(self, bg=self.color, bd=0)
@@ -224,4 +225,8 @@ class Badge(tk.Frame):
         self.label.config(bg=color)
     
     def _update_size(self):
+        self.badge_frame.update_idletasks()
+        width = self.badge_frame.winfo_reqwidth()
+        height = self.badge_frame.winfo_reqheight()
+        self.badge_frame.config(width=width, height=height)
     
