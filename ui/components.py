@@ -313,6 +313,18 @@ class RatingStars(tk.Frame):
             self._update_stars()
             
 class LoadingSpinner(tk.Frame):
+    def __init__(self, parent, size: int = 40, color: str = '#4299e1',
+                 speed: int = 50, **kwargs):
+        super().__init__(parent, **kwargs)
+        
+        self.size = size
+        self.color = color
+        self.speed = speed
+        self.angle = 0
+        self.running = False
+        
+        self.config(bg=self['bg'])
+        self._create_ui()
     
     def _create_ui(self):
         self.canvas = tk.Canvas(self, width=self.size, height=self.size,
