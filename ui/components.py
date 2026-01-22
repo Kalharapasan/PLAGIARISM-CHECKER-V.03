@@ -311,3 +311,5 @@ class RatingStars(tk.Frame):
         if 0 <= rating <= self.max_stars:
             self.rating = rating
             self._update_stars()
+            
+class LoadingSpinner(tk.Frame):
