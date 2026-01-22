@@ -277,3 +277,11 @@ class RatingStars(tk.Frame):
             else:
                 star.config(fg='#cbd5e0') 
     
+    def _on_star_hover(self, index: int):
+        if self.editable:
+            for i, star in enumerate(self.stars):
+                if i <= index:
+                    star.config(fg='#f6ad55')
+                else:
+                    star.config(fg='#cbd5e0')
+    
