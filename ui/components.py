@@ -195,3 +195,6 @@ class DataTable(tk.Frame):
         if selection:
             return self.tree.item(selection[0])['values']
         return None
+
+class Badge(tk.Frame):
+    
