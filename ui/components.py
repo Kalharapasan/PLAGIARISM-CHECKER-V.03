@@ -295,3 +295,7 @@ class RatingStars(tk.Frame):
     def get_rating(self) -> float:
         return self.rating
     
+    def set_rating(self, rating: float):
+        if 0 <= rating <= self.max_stars:
+            self.rating = rating
+            self._update_stars()
