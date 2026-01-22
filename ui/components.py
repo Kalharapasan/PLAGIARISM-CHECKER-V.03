@@ -246,6 +246,18 @@ class Badge(tk.Frame):
         self.badge_frame.config(width=width, height=height)
 
 class RatingStars(tk.Frame):
+    def __init__(self, parent, max_stars: int = 5, rating: float = 0,
+                 editable: bool = False, on_rating_change: Callable = None,
+                 **kwargs):
+        super().__init__(parent, **kwargs)
+        
+        self.max_stars = max_stars
+        self.rating = rating
+        self.editable = editable
+        self.on_rating_change = on_rating_change
+        
+        self.config(bg=self['bg'])
+        self._create_ui()
     
     def _create_ui(self):
         self.stars = []
