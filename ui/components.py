@@ -214,4 +214,7 @@ class Badge(tk.Frame):
         self.badge_frame.config(width=width, height=height)
     
     def update_text(self, text: str):
+        self.text = text
+        self.label.config(text=text)
+        self._update_size()
     
