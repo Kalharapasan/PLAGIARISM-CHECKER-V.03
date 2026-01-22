@@ -157,4 +157,6 @@ class NotificationBar(tk.Frame):
     def hide(self):
         self.pack_forget()
         
-        
+    
+class DataTable(tk.Frame):
+    
