@@ -189,3 +189,9 @@ class DataTable(tk.Frame):
         self.data = []
         for item in self.tree.get_children():
             self.tree.delete(item)
+    
+    def get_selected(self):
+        selection = self.tree.selection()
+        if selection:
+            return self.tree.item(selection[0])['values']
+        return None
