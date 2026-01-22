@@ -356,3 +356,10 @@ class LoadingSpinner(tk.Frame):
 
     def _fade_color(self, rgb: tuple, opacity: float) -> str:
         r, g, b = rgb
+        bg_r, bg_g, bg_b = 255, 255, 255
+        
+        r = int(r * opacity + bg_r * (1 - opacity))
+        g = int(g * opacity + bg_g * (1 - opacity))
+        b = int(b * opacity + bg_b * (1 - opacity))
+        
+        return f'#{r:02x}{g:02x}{b:02x}'
