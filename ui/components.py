@@ -184,3 +184,8 @@ class DataTable(tk.Frame):
     def add_row(self, row: List):
         self.data.append(row)
         self.tree.insert('', 'end', values=row)
+    
+    def clear(self):
+        self.data = []
+        for item in self.tree.get_children():
+            self.tree.delete(item)
