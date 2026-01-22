@@ -347,3 +347,4 @@ class LoadingSpinner(tk.Frame):
                 style='arc', width=3,
                 outline=faded_color
             )
+        self.angle = (self.angle + 10) % 360
