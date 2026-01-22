@@ -198,3 +198,6 @@ class DataTable(tk.Frame):
 
 class Badge(tk.Frame):
     
+    
+    def _create_ui(self):
+    
