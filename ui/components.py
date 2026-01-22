@@ -334,3 +334,6 @@ class LoadingSpinner(tk.Frame):
         self.canvas.delete('all')
         center = self.size // 2
         radius = self.size // 2 - 2
+        for i in range(8):
+            start_angle = self.angle + (i * 45)
+            extent = 30  
