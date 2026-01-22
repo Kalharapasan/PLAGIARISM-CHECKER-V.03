@@ -202,4 +202,10 @@ class Badge(tk.Frame):
     def _create_ui(self):
         self.badge_frame = tk.Frame(self, bg=self.color, bd=0)
         self.badge_frame.pack()
+        self.label = tk.Label(self.badge_frame, text=self.text,
+                             font=self.size_config['font'],
+                             bg=self.color, fg='white',
+                             padx=self.size_config['padding'][0],
+                             pady=self.size_config['padding'][1])
+        self.label.pack()
     
