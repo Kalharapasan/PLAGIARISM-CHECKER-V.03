@@ -340,3 +340,10 @@ class LoadingSpinner(tk.Frame):
             opacity = (i + 1) / 8
             rgb_color = self._hex_to_rgb(self.color)
             faded_color = self._fade_color(rgb_color, opacity)
+            self.canvas.create_arc(
+                center - radius, center - radius,
+                center + radius, center + radius,
+                start=start_angle, extent=extent,
+                style='arc', width=3,
+                outline=faded_color
+            )
