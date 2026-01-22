@@ -161,3 +161,7 @@ class NotificationBar(tk.Frame):
 class DataTable(tk.Frame):
     self.tree = ttk.Treeview(self, columns=[col['id'] for col in self.columns],
                                  show='headings', height=height)
+    for col in self.columns:
+            self.tree.heading(col['id'], text=col['text'])
+            self.tree.column(col['id'], width=col.get('width', 100),
+                            anchor=col.get('anchor', 'w'))
