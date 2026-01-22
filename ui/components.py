@@ -326,3 +326,9 @@ class LoadingSpinner(tk.Frame):
     
     def stop(self):
         self.running = False
+    
+    def _animate(self):
+        if not self.running:
+            return
+        
+        self.canvas.delete('all')
