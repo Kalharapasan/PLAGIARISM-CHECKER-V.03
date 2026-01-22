@@ -204,6 +204,16 @@ class Badge(tk.Frame):
         
         self.text = text
         self.color = color
+        sizes = {
+            'small': {'font': ('Segoe UI', 8), 'padding': (4, 2), 'radius': 8},
+            'medium': {'font': ('Segoe UI', 9), 'padding': (6, 3), 'radius': 10},
+            'large': {'font': ('Segoe UI', 10), 'padding': (8, 4), 'radius': 12}
+        }
+        
+        self.size_config = sizes.get(size, sizes['medium'])
+        
+        self.config(bg=self['bg'])
+        self._create_ui()
     
     def _create_ui(self):
         self.badge_frame = tk.Frame(self, bg=self.color, bd=0)
