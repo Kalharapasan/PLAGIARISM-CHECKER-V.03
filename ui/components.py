@@ -318,3 +318,8 @@ class LoadingSpinner(tk.Frame):
         self.canvas = tk.Canvas(self, width=self.size, height=self.size,
                                bg=self['bg'], highlightthickness=0)
         self.canvas.pack()
+    
+    def start(self):
+        if not self.running:
+            self.running = True
+            self._animate()
