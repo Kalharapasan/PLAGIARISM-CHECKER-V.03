@@ -208,4 +208,8 @@ class Badge(tk.Frame):
                              padx=self.size_config['padding'][0],
                              pady=self.size_config['padding'][1])
         self.label.pack()
+        self.badge_frame.update_idletasks()
+        width = self.badge_frame.winfo_reqwidth()
+        height = self.badge_frame.winfo_reqheight()
+        self.badge_frame.config(width=width, height=height)
     
