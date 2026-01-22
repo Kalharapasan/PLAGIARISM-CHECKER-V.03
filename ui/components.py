@@ -332,3 +332,5 @@ class LoadingSpinner(tk.Frame):
             return
         
         self.canvas.delete('all')
+        center = self.size // 2
+        radius = self.size // 2 - 2
