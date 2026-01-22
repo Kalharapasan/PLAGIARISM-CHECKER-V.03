@@ -348,3 +348,4 @@ class LoadingSpinner(tk.Frame):
                 outline=faded_color
             )
         self.angle = (self.angle + 10) % 360
+        self.after(self.speed, self._animate)
