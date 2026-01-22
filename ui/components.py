@@ -200,4 +200,6 @@ class Badge(tk.Frame):
     
     
     def _create_ui(self):
+        self.badge_frame = tk.Frame(self, bg=self.color, bd=0)
+        self.badge_frame.pack()
     
