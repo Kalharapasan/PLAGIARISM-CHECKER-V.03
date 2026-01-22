@@ -182,3 +182,5 @@ class DataTable(tk.Frame):
             self.tree.insert('', 'end', values=row)
     
     def add_row(self, row: List):
+        self.data.append(row)
+        self.tree.insert('', 'end', values=row)
