@@ -377,6 +377,19 @@ class LoadingSpinner(tk.Frame):
         return f'#{r:02x}{g:02x}{b:02x}'
 
 class SplitPane(tk.Frame):
+    def __init__(self, parent, left_widget: tk.Widget, right_widget: tk.Widget,
+                 orientation: str = 'horizontal', initial_split: float = 0.5,
+                 min_size: int = 50, **kwargs):
+        super().__init__(parent, **kwargs)
+        
+        self.left_widget = left_widget
+        self.right_widget = right_widget
+        self.orientation = orientation
+        self.split_ratio = initial_split
+        self.min_size = min_size
+        
+        self.config(bg=self['bg'])
+        self._create_ui()
     
     def _create_ui(self):
         self.left_pane = tk.Frame(self, bg=self['bg'])
