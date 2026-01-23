@@ -24,3 +24,10 @@ class BasicPlagiarismChecker:
                 attribution is essential.'''
             }
         ]
+    
+    def run(self):
+        self.root = tk.Tk()
+        self._setup_window()
+        self._create_ui()
+        self._center_window()
+        self.root.mainloop()
