@@ -398,8 +398,9 @@ class SplitPane(tk.Frame):
         
         if self.orientation == 'horizontal':
             left_width = int(self.winfo_width() * self.split_ratio)
-            
             self.left_pane.pack(side='left', fill='both', expand=True)
             self.splitter.pack(side='left', fill='y', padx=1)
             self.right_pane.pack(side='left', fill='both', expand=True)
+            self.left_pane.config(width=left_width)
+            self.splitter.config(width=4)
     
