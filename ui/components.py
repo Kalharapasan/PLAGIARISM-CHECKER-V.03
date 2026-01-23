@@ -440,4 +440,6 @@ class SplitPane(tk.Frame):
     
     def _stop_drag(self, event):
         self.dragging = False
+
+__all__ = []
     
