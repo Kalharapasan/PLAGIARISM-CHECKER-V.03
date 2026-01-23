@@ -9,6 +9,7 @@ class BasicPlagiarismChecker:
     def __init__(self, config):
         self.config = config
         self.engine = BasePlagiarismEngine(config)
+        self.database = self._get_sample_database()
     
     def _get_sample_database(self):
         return [
