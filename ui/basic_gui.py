@@ -61,5 +61,7 @@ class BasicPlagiarismChecker:
                 bg='#667eea', fg='white', font=('Arial', 10)).pack()
         main_container = tk.Frame(self.root, bg='#f0f0f0')
         main_container.pack(fill='both', expand=True, padx=20, pady=10)
+        left_frame = tk.Frame(main_container, bg='white', relief='raised', bd=1)
+        left_frame.pack(side='left', fill='both', expand=True, padx=(0, 10))
         
         
