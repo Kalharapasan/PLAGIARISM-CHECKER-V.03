@@ -120,4 +120,5 @@ class BasicPlagiarismChecker:
         self.score_desc = tk.Label(self.score_frame, text="Upload a document to begin", 
                                    bg='white', fg='#718096', font=('Arial', 10))
         self.score_desc.pack()
-        
+        self.stats_frame = tk.Frame(right_frame, bg='#f7fafc')
+        self.stats_frame.pack(fill='x', padx=15, pady=10)
