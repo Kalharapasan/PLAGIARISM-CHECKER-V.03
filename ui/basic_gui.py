@@ -103,4 +103,10 @@ class BasicPlagiarismChecker:
         self.check_button.pack(fill='x', padx=15, pady=(0, 15))
         right_frame = tk.Frame(main_container, bg='white', relief='raised', bd=1)
         right_frame.pack(side='right', fill='both', expand=True)
+        results_header = tk.Frame(right_frame, bg='#f7fafc', height=50)
+        results_header.pack(fill='x')
+        results_header.pack_propagate(False)
+        
+        tk.Label(results_header, text="📊 Analysis Results", 
+                bg='#f7fafc', fg='#2d3748', font=('Arial', 12, 'bold')).pack(pady=15, padx=15, anchor='w')
         
