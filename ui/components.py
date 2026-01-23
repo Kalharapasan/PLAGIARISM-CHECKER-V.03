@@ -438,3 +438,6 @@ class SplitPane(tk.Frame):
                 self.split_ratio = new_left_height / total_height
         self._update_layout()
     
+    def _stop_drag(self, event):
+        self.dragging = False
+    
