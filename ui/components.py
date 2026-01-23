@@ -392,3 +392,5 @@ class SplitPane(tk.Frame):
         self.dragging = False
         self.start_pos = 0
     
+    def _update_layout(self):
+    
