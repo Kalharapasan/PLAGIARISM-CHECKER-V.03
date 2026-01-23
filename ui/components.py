@@ -418,4 +418,8 @@ class SplitPane(tk.Frame):
     def _on_drag(self, event):
         if not self.dragging:
             return
+        if self.orientation == 'horizontal':
+            total_width = self.winfo_width()
+            delta = event.x - self.start_pos
+            new_left_width = int(total_width * self.split_ratio) + delta
     
