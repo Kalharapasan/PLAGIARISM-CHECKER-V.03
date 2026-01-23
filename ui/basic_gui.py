@@ -37,5 +37,9 @@ class BasicPlagiarismChecker:
         window_size = self.config.get('ui.basic.window_size', '1000x700')
         self.root.geometry(window_size)
         self.root.configure(bg='#f0f0f0')
+        try:
+            self.root.iconbitmap('icon.ico')
+        except:
+            pass
         
         
