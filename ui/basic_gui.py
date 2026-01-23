@@ -129,3 +129,9 @@ class BasicPlagiarismChecker:
                                                      font=('Arial', 9), wrap='word',
                                                      state='disabled')
         self.results_text.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        self.export_button = tk.Button(right_frame, text="💾 Export Report", 
+                                      bg='#667eea', fg='white', font=('Arial', 10, 'bold'),
+                                      command=self.export_report, cursor='hand2', relief='flat',
+                                      state='disabled', activebackground='#5a67d8',
+                                      activeforeground='white')
+        self.export_button.pack(fill='x', padx=15, pady=(0, 15))
