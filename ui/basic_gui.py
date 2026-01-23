@@ -31,3 +31,11 @@ class BasicPlagiarismChecker:
         self._create_ui()
         self._center_window()
         self.root.mainloop()
+    
+    def _setup_window(self):
+        self.root.title("Plagiarism Checker - Basic Version")
+        window_size = self.config.get('ui.basic.window_size', '1000x700')
+        self.root.geometry(window_size)
+        self.root.configure(bg='#f0f0f0')
+        
+        
