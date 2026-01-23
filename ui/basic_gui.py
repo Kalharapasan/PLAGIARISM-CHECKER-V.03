@@ -69,5 +69,23 @@ class BasicPlagiarismChecker:
         
         tk.Label(input_header, text="📄 Document Input", 
                 bg='#f7fafc', fg='#2d3748', font=('Arial', 12, 'bold')).pack(pady=15, padx=15, anchor='w')
+        upload_frame = tk.Frame(left_frame, bg='white')
+        upload_frame.pack(fill='x', padx=15, pady=15)
         
+        self.file_label = tk.Label(upload_frame, text="No file selected", 
+                                  bg='white', fg='#4a5568', font=('Arial', 10))
+        self.file_label.pack(pady=(0, 10))
+        
+        button_frame = tk.Frame(upload_frame, bg='white')
+        button_frame.pack()
+        
+        tk.Button(button_frame, text="📁 Choose File", 
+                 command=self.select_file, bg='#4299e1', fg='white',
+                 font=('Arial', 10, 'bold'), relief='flat', cursor='hand2',
+                 activebackground='#3182ce').pack(side='left', padx=5)
+        
+        tk.Button(button_frame, text="🗑️ Clear", 
+                 command=self.clear_file, bg='#e53e3e', fg='white',
+                 font=('Arial', 10, 'bold'), relief='flat', cursor='hand2',
+                 activebackground='#c53030').pack(side='left', padx=5)
         
