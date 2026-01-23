@@ -385,4 +385,7 @@ class SplitPane(tk.Frame):
         self.right_widget.pack(in_=self.right_pane, fill='both', expand=True)
         self.splitter = tk.Frame(self, bg='#cbd5e0', cursor='sb_h_double_arrow' 
                                  if self.orientation == 'horizontal' else 'sb_v_double_arrow')
+        self.splitter.bind('<Button-1>', self._start_drag)
+        self.splitter.bind('<B1-Motion>', self._on_drag)
+        self.splitter.bind('<ButtonRelease-1>', self._stop_drag)
     
