@@ -379,4 +379,6 @@ class LoadingSpinner(tk.Frame):
 class SplitPane(tk.Frame):
     
     def _create_ui(self):
+        self.left_pane = tk.Frame(self, bg=self['bg'])
+        self.right_pane = tk.Frame(self, bg=self['bg'])
     
