@@ -183,3 +183,12 @@ class BasicPlagiarismChecker:
         thread = threading.Thread(target=self.perform_check)
         thread.daemon = True
         thread.start()
+    
+    def perform_check(self):
+        try:
+            results = self.engine.analyze_basic(self.current_text, self.database)
+            self.results = results
+            self.root.after(0, self.display_results)
+        except Exception as e:
+            self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
+            self.root.after(0, lambda: self.check_button.config(state='normal', text="🔍 Check for Plagiarism"))
