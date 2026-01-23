@@ -196,3 +196,5 @@ class BasicPlagiarismChecker:
     def display_results(self):
         if not self.results:
             return
+        score = self.results['overall_similarity']
+        self.score_label.config(text=f"{score}%")
