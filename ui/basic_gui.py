@@ -268,3 +268,10 @@ class BasicPlagiarismChecker:
             return
         document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
         report = generate_basic_report(self.results, document_name)
+        try:
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(report)
+            messagebox.showinfo("Success", f"Report exported successfully!\n\n{filename}")
+            self.status_bar.config(text=f"Report exported to {Path(filename).name}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to export report: {str(e)}")
