@@ -90,4 +90,10 @@ class BasicPlagiarismChecker:
                  activebackground='#c53030').pack(side='left', padx=5)
         tk.Label(upload_frame, text="Supported: DOCX, PDF, TXT", 
                 bg='white', fg='#a0aec0', font=('Arial', 9)).pack(pady=(10, 0))
+        tk.Label(left_frame, text="Or paste text directly:", 
+                bg='white', fg='#4a5568', font=('Arial', 10)).pack(padx=15, pady=(10, 5), anchor='w')
+        
+        self.text_input = scrolledtext.ScrolledText(left_frame, height=15, 
+                                                    font=('Arial', 10), wrap='word')
+        self.text_input.pack(fill='both', expand=True, padx=15, pady=(0, 15))
         
