@@ -51,5 +51,13 @@ class BasicPlagiarismChecker:
         self.root.geometry(f'{width}x{height}+{x}+{y}')
     
     def _create_ui(self):
+        header_frame = tk.Frame(self.root, bg='#667eea', height=100)
+        header_frame.pack(fill='x', pady=(0, 10))
+        header_frame.pack_propagate(False)
+        
+        tk.Label(header_frame, text="🔍 Plagiarism Checker", 
+                bg='#667eea', fg='white', font=('Arial', 24, 'bold')).pack(pady=(15, 5))
+        tk.Label(header_frame, text="Basic Version - For Students", 
+                bg='#667eea', fg='white', font=('Arial', 10)).pack()
         
         
