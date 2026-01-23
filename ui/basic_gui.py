@@ -266,3 +266,5 @@ class BasicPlagiarismChecker:
         
         if not filename:
             return
+        document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+        report = generate_basic_report(self.results, document_name)
