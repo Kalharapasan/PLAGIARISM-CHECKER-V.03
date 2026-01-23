@@ -101,4 +101,6 @@ class BasicPlagiarismChecker:
                                      command=self.run_check, cursor='hand2', relief='flat',
                                      activebackground='#38a169', activeforeground='white')
         self.check_button.pack(fill='x', padx=15, pady=(0, 15))
+        right_frame = tk.Frame(main_container, bg='white', relief='raised', bd=1)
+        right_frame.pack(side='right', fill='both', expand=True)
         
