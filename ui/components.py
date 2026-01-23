@@ -435,4 +435,5 @@ class SplitPane(tk.Frame):
                 new_left_height = self.min_size
             if total_height - new_left_height < self.min_size:
                 new_left_height = total_height - self.min_size
+                self.split_ratio = new_left_height / total_height
     
