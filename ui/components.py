@@ -389,4 +389,6 @@ class SplitPane(tk.Frame):
         self.splitter.bind('<B1-Motion>', self._on_drag)
         self.splitter.bind('<ButtonRelease-1>', self._stop_drag)
         self._update_layout()
+        self.dragging = False
+        self.start_pos = 0
     
