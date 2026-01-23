@@ -10,6 +10,10 @@ class BasicPlagiarismChecker:
         self.config = config
         self.engine = BasePlagiarismEngine(config)
         self.database = self._get_sample_database()
+        self.root = None
+        self.current_file = None
+        self.current_text = None
+        self.results = None
     
     def _get_sample_database(self):
         return [
