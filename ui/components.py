@@ -383,4 +383,6 @@ class SplitPane(tk.Frame):
         self.right_pane = tk.Frame(self, bg=self['bg'])
         self.left_widget.pack(in_=self.left_pane, fill='both', expand=True)
         self.right_widget.pack(in_=self.right_pane, fill='both', expand=True)
+        self.splitter = tk.Frame(self, bg='#cbd5e0', cursor='sb_h_double_arrow' 
+                                 if self.orientation == 'horizontal' else 'sb_v_double_arrow')
     
