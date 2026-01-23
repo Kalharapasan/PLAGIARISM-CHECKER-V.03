@@ -180,3 +180,6 @@ class BasicPlagiarismChecker:
         self.current_text = text
         self.check_button.config(state='disabled', text="⏳ Analyzing...")
         self.status_bar.config(text="Analyzing document for plagiarism...")
+        thread = threading.Thread(target=self.perform_check)
+        thread.daemon = True
+        thread.start()
