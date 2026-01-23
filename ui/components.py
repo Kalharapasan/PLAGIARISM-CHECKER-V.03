@@ -375,3 +375,6 @@ class LoadingSpinner(tk.Frame):
         b = int(b * opacity + bg_b * (1 - opacity))
         
         return f'#{r:02x}{g:02x}{b:02x}'
+
+class SplitPane(tk.Frame):
+    
