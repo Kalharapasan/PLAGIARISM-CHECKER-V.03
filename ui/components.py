@@ -378,3 +378,5 @@ class LoadingSpinner(tk.Frame):
 
 class SplitPane(tk.Frame):
     
+    def _create_ui(self):
+    
