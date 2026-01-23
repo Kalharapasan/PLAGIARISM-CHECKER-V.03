@@ -59,5 +59,7 @@ class BasicPlagiarismChecker:
                 bg='#667eea', fg='white', font=('Arial', 24, 'bold')).pack(pady=(15, 5))
         tk.Label(header_frame, text="Basic Version - For Students", 
                 bg='#667eea', fg='white', font=('Arial', 10)).pack()
+        main_container = tk.Frame(self.root, bg='#f0f0f0')
+        main_container.pack(fill='both', expand=True, padx=20, pady=10)
         
         
