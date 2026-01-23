@@ -178,3 +178,5 @@ class BasicPlagiarismChecker:
             return
         
         self.current_text = text
+        self.check_button.config(state='disabled', text="⏳ Analyzing...")
+        self.status_bar.config(text="Analyzing document for plagiarism...")
