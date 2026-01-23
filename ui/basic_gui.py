@@ -6,6 +6,9 @@ from ..core.base_engine import BasePlagiarismEngine
 from ..reports.basic_report import generate_basic_report
 
 class BasicPlagiarismChecker:
+    def __init__(self, config):
+        self.config = config
+        self.engine = BasePlagiarismEngine(config)
     
     def _get_sample_database(self):
         return [
