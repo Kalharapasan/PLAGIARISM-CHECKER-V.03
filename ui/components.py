@@ -381,4 +381,6 @@ class SplitPane(tk.Frame):
     def _create_ui(self):
         self.left_pane = tk.Frame(self, bg=self['bg'])
         self.right_pane = tk.Frame(self, bg=self['bg'])
+        self.left_widget.pack(in_=self.left_pane, fill='both', expand=True)
+        self.right_widget.pack(in_=self.right_pane, fill='both', expand=True)
     
