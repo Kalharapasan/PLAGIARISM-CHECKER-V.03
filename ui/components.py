@@ -408,4 +408,6 @@ class SplitPane(tk.Frame):
             self.left_pane.pack(side='top', fill='both', expand=True)
             self.splitter.pack(side='top', fill='x', pady=1)
             self.right_pane.pack(side='top', fill='both', expand=True)
+            self.left_pane.config(height=left_height)
+            self.splitter.config(height=4)
     
