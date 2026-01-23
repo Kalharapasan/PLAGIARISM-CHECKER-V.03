@@ -393,4 +393,6 @@ class SplitPane(tk.Frame):
         self.start_pos = 0
     
     def _update_layout(self):
+        for widget in self.winfo_children():
+            widget.pack_forget()
     
