@@ -415,3 +415,7 @@ class SplitPane(tk.Frame):
         self.dragging = True
         self.start_pos = event.x if self.orientation == 'horizontal' else event.y
     
+    def _on_drag(self, event):
+        if not self.dragging:
+            return
+    
