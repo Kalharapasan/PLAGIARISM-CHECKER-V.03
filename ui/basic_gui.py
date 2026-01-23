@@ -88,4 +88,6 @@ class BasicPlagiarismChecker:
                  command=self.clear_file, bg='#e53e3e', fg='white',
                  font=('Arial', 10, 'bold'), relief='flat', cursor='hand2',
                  activebackground='#c53030').pack(side='left', padx=5)
+        tk.Label(upload_frame, text="Supported: DOCX, PDF, TXT", 
+                bg='white', fg='#a0aec0', font=('Arial', 9)).pack(pady=(10, 0))
         
