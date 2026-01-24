@@ -387,5 +387,14 @@ class AdvancedPlagiarismChecker:
                     self.results_text.insert(tk.END, f"🔗 {match['url']}\n")
                 self.results_text.insert(tk.END, f"Similarity: {match['similarity']}% | Confidence: {match.get('confidence', 'N/A')}\n\n")
                 self.results_text.insert(tk.END, "Algorithm Scores:\n")
+                
                 for algo, score in match.get('algorithm_scores', {}).items():
                     self.results_text.insert(tk.END, f"  • {algo.capitalize()}: {score}%\n")
+                
+                if match['matched_sequences']:
+                    self.results_text.insert(tk.END, f"\nMatched Sequences ({len(match['matched_sequences'])}):\n")
+                    for seq in match['matched_sequences'][:3]:
+                        text = seq['text'][:120] + '...' if len(seq['text']) > 120 else seq['text']
+                        self.results_text.insert(tk.END, f"• \"{text}\" ({seq['length']} words)\n")
+                
+                self.results_text.insert(tk.END, "\n")
