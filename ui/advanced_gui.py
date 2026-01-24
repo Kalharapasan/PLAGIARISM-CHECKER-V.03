@@ -246,3 +246,23 @@ class AdvancedPlagiarismChecker:
         
         tk.Label(tab, text="Check History & Analytics", 
                 font=('Arial', 16, 'bold')).pack(pady=20)
+        list_frame = tk.Frame(tab)
+        list_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        
+        columns = ('Date', 'File', 'Score', 'Words', 'Sources')
+        self.history_tree = ttk.Treeview(list_frame, columns=columns, show='headings', height=15)
+        
+        for col in columns:
+            self.history_tree.heading(col, text=col)
+        
+        self.history_tree.column('Date', width=150)
+        self.history_tree.column('File', width=250)
+        self.history_tree.column('Score', width=100)
+        self.history_tree.column('Words', width=100)
+        self.history_tree.column('Sources', width=100)
+        
+        self.history_tree.pack(side='left', fill='both', expand=True)
+        
+        scrollbar = tk.Scrollbar(list_frame, command=self.history_tree.yview)
+        scrollbar.pack(side='right', fill='y')
+        self.history_tree.config(yscrollcommand=scrollbar.set)
