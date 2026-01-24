@@ -53,3 +53,8 @@ class AdvancedPlagiarismChecker:
         self.create_batch_tab()
         self.create_database_tab()
         self.create_analytics_tab()
+        self.status_bar = tk.Label(self.root, 
+                                  text=f"Ready | Database: {len(self.database)} documents loaded", 
+                                  bd=1, relief='sunken', anchor='w', 
+                                  bg='#e2e8f0', font=('Arial', 9))
+        self.status_bar.pack(side='bottom', fill='x')
