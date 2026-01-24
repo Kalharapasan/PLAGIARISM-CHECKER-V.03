@@ -561,3 +561,12 @@ Algorithm Performance:
                 entry['words'],
                 entry['sources']
             ))
+    
+    def add_batch_files(self):
+        files = filedialog.askopenfilenames(
+            title="Select Documents",
+            filetypes=[('All Supported', '*.txt *.docx *.pdf')]
+        )
+        
+        for file in files:
+            self.batch_listbox.insert(tk.END, file)
