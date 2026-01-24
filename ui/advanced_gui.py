@@ -302,3 +302,20 @@ class AdvancedPlagiarismChecker:
         if not self.selected_algorithms:
             messagebox.showwarning("Warning", "Please select at least one detection algorithm")
             return
+        if self.current_file:
+            self.status_bar.config(text="Extracting text...")
+            try:
+                text = self.engine.extract_text(self.current_file)
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to read file: {str(e)}")
+                return
+        else:
+            text = self.text_input.get(1.0, tk.END).strip()
+        
+        if len(text) < 50:
+            messagebox.showwarning("Warning", "Text too short (minimum 50 characters)")
+            return
+        
+        self.current_text = text
+        self.check_button.config(state='disabled', text="⏳ Analyzing...")
+        self.status_bar.config(text="Running advanced analysis...")
