@@ -17,3 +17,9 @@ class AdvancedPlagiarismChecker:
         self._create_ui()
         self._center_window()
         self.root.mainloop()
+    
+    def _setup_window(self):
+        self.root.title("Plagiarism Checker Pro - Advanced Version")
+        window_size = self.config.get('ui.advanced.window_size', '1400x900')
+        self.root.geometry(window_size)
+        self.root.configure(bg='#f0f0f0')
