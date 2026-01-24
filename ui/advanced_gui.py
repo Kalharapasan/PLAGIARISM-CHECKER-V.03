@@ -47,3 +47,5 @@ class AdvancedPlagiarismChecker:
         help_menu.add_command(label="About", command=self.show_about)
     
     def _create_ui(self):
+        self.notebook = ttk.Notebook(self.root)
+        self.notebook.pack(fill='both', expand=True, padx=10, pady=10)
