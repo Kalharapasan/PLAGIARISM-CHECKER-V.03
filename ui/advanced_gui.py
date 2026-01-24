@@ -225,3 +225,17 @@ class AdvancedPlagiarismChecker:
         scrollbar.pack(side='right', fill='y')
         self.db_tree.config(yscrollcommand=scrollbar.set)
         self.refresh_database_view()
+        btn_frame = tk.Frame(tab)
+        btn_frame.pack(pady=10)
+        
+        tk.Button(btn_frame, text="Add Document", command=self.add_to_database,
+                 bg='#48bb78', fg='white', font=('Arial', 11, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+        tk.Button(btn_frame, text="Delete Selected", command=self.delete_from_database,
+                 bg='#f56565', fg='white', font=('Arial', 11, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+        tk.Button(btn_frame, text="Refresh", command=self.refresh_database_view,
+                 bg='#667eea', fg='white', font=('Arial', 11, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
