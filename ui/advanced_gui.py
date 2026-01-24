@@ -141,3 +141,5 @@ class AdvancedPlagiarismChecker:
         self.score_desc.grid(row=1, column=0)
         self.stats_frame = tk.Frame(right_frame, bg='#f7fafc')
         self.stats_frame.pack(fill='x', padx=15, pady=10)
+        results_notebook = ttk.Notebook(right_frame)
+        results_notebook.pack(fill='both', expand=True, padx=15, pady=10)
