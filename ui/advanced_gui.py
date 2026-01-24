@@ -13,6 +13,7 @@ class AdvancedPlagiarismChecker:
         self.config = config
         self.engine = AdvancedPlagiarismEngine(config)
         self.db_manager = DatabaseManager(config)
+        self.database = self.db_manager.get_all_documents()
     
     def run(self):
         self.root = tk.Tk()
