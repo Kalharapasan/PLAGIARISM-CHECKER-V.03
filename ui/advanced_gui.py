@@ -66,3 +66,9 @@ class AdvancedPlagiarismChecker:
         paned.pack(fill='both', expand=True)
         left_frame = tk.Frame(paned, bg='white', relief='raised', bd=1)
         paned.add(left_frame, weight=1)
+        input_header = tk.Frame(left_frame, bg='#f7fafc', height=50)
+        input_header.pack(fill='x')
+        input_header.pack_propagate(False)
+        
+        tk.Label(input_header, text="📄 Document Input", 
+                bg='#f7fafc', fg='#2d3748', font=('Arial', 13, 'bold')).pack(pady=15, padx=15, anchor='w')
