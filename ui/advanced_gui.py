@@ -1,11 +1,17 @@
+import sys
+import os
+from pathlib import Path
+
+parent_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(parent_dir))
+
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, scrolledtext
-from pathlib import Path
 import threading
 from datetime import datetime
-from ..core.advanced_engine import AdvancedPlagiarismEngine
-from ..core.database import DatabaseManager
-from ..reports.advanced_report import generate_advanced_report, generate_html_report
+from core.advanced_engine import AdvancedPlagiarismEngine
+from core.database import DatabaseManager
+from reports.advanced_report import generate_advanced_report, generate_html_report
 
 
 class AdvancedPlagiarismChecker:
