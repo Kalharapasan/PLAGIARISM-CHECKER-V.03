@@ -23,3 +23,7 @@ class AdvancedPlagiarismChecker:
         window_size = self.config.get('ui.advanced.window_size', '1400x900')
         self.root.geometry(window_size)
         self.root.configure(bg='#f0f0f0')
+    
+    def _create_menubar(self):
+        menubar = tk.Menu(self.root)
+        self.root.config(menu=menubar)
