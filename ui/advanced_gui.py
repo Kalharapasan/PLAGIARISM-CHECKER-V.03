@@ -239,3 +239,10 @@ class AdvancedPlagiarismChecker:
         tk.Button(btn_frame, text="Refresh", command=self.refresh_database_view,
                  bg='#667eea', fg='white', font=('Arial', 11, 'bold'),
                  relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+    def create_analytics_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📈 Analytics & History")
+        
+        tk.Label(tab, text="Check History & Analytics", 
+                font=('Arial', 16, 'bold')).pack(pady=20)
