@@ -474,3 +474,14 @@ Algorithm Performance:
                 with open(filepath, 'w', encoding='utf-8') as f:
                     f.write(report)
                 messagebox.showinfo("Success", f"HTML report exported to:\n{filepath}")   
+    
+    def refresh_database_view(self):
+        self.db_tree.delete(*self.db_tree.get_children())
+        self.database = self.db_manager.get_all_documents()
+        
+        for idx, doc in enumerate(self.database, 1):
+            word_count = len(self.engine.tokenize(doc['text']))
+            self.db_tree.insert('', 'end', text=str(idx),
+                               values=(doc['source'], doc.get('category', 'General'), word_count))
+        
+        self.status_bar.config(text=f"Database: {len(self.database)} documents loaded")
