@@ -615,4 +615,24 @@ Algorithm Performance:
         self.notebook.select(2)
     
     def show_db_stats(self):
+        total_docs = len(self.database)
+        total_words = sum(len(self.engine.tokenize(doc['text'])) for doc in self.database)
+        
+        stats_msg = f"""Database Statistics:
+        
+Total Documents: {total_docs}
+Total Words: {total_words:,}
+Average Words per Document: {total_words // total_docs if total_docs > 0 else 0:,}
+
+Categories:"""
+
+        categories = {}
+        for doc in self.database:
+            cat = doc.get('category', 'General')
+            categories[cat] = categories.get(cat, 0) + 1
+        
+        for cat, count in categories.items():
+            stats_msg += f"\n  {cat}: {count}"
+        
+        messagebox.showinfo("Database Statistics", stats_msg)
         
