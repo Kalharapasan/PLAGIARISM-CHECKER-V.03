@@ -64,3 +64,5 @@ class AdvancedPlagiarismChecker:
         self.notebook.add(tab, text="📝 Document Checker")
         paned = ttk.PanedWindow(tab, orient='horizontal')
         paned.pack(fill='both', expand=True)
+        left_frame = tk.Frame(paned, bg='white', relief='raised', bd=1)
+        paned.add(left_frame, weight=1)
