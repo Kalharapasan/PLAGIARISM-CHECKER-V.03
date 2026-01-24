@@ -427,3 +427,12 @@ Match Analysis:
 
 Algorithm Performance:
 """
+    if self.results.get('algorithm_scores'):
+            for algo, perf in self.results['algorithm_scores'].items():
+                stats_report += f"  {algo.capitalize()}: {perf.get('average', 0):.2f}% (avg)\n"
+        
+    self.stats_text.insert(tk.END, stats_report)
+    self.stats_text.config(state='disabled')
+        
+    self.check_button.config(state='normal', text="🔍 Analyze Document")
+    self.status_bar.config(text=f"Analysis complete - {score}% similarity | {len(self.results['matches'])} sources matched")
