@@ -386,3 +386,6 @@ class AdvancedPlagiarismChecker:
                 if match['url']:
                     self.results_text.insert(tk.END, f"🔗 {match['url']}\n")
                 self.results_text.insert(tk.END, f"Similarity: {match['similarity']}% | Confidence: {match.get('confidence', 'N/A')}\n\n")
+                self.results_text.insert(tk.END, "Algorithm Scores:\n")
+                for algo, score in match.get('algorithm_scores', {}).items():
+                    self.results_text.insert(tk.END, f"  • {algo.capitalize()}: {score}%\n")
