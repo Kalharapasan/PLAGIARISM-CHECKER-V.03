@@ -507,4 +507,27 @@ Algorithm Performance:
                                      values=["General", "Academic", "Technical", "Literature", "News"],
                                      width=47)
         category_combo.pack(padx=20, pady=5)
+        tk.Label(dialog, text="Document Text:").pack(anchor='w', padx=20)
+        text_widget = scrolledtext.ScrolledText(dialog, height=10, width=60)
+        text_widget.pack(padx=20, pady=5)
         
+        def save_document():
+            source = source_entry.get().strip()
+            url = url_entry.get().strip()
+            text = text_widget.get(1.0, tk.END).strip()
+            category = category_var.get()
+            
+            if not source or not text:
+                messagebox.showwarning("Warning", "Source name and text are required")
+                return
+            
+            if self.db_manager.add_document(source, text, url, category):
+                messagebox.showinfo("Success", "Document added to database")
+                self.refresh_database_view()
+                dialog.destroy()
+            else:
+                messagebox.showerror("Error", "Failed to add document (might be duplicate)")
+        
+        tk.Button(dialog, text="Save", command=save_document, bg='#48bb78', fg='white',
+                 font=('Arial', 11, 'bold'), relief='flat', cursor='hand2',
+                 padx=30, pady=10).pack(pady=10)
