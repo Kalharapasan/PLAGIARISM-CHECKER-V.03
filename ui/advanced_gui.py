@@ -487,4 +487,12 @@ Algorithm Performance:
         self.status_bar.config(text=f"Database: {len(self.database)} documents loaded")
     
     def add_to_database(self):
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Add Document to Database")
+        dialog.geometry("500x400")
+        dialog.transient(self.root)
+        dialog.grab_set()
+        
+        tk.Label(dialog, text="Add Reference Document", 
+                font=('Arial', 14, 'bold')).pack(pady=10)
         
