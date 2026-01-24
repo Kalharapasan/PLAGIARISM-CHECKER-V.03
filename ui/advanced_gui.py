@@ -172,3 +172,12 @@ class AdvancedPlagiarismChecker:
         
         tk.Label(tab, text="Batch Document Processing", 
                 font=('Arial', 16, 'bold')).pack(pady=20)
+        list_frame = tk.Frame(tab)
+        list_frame.pack(fill='both', expand=True, padx=20, pady=20)
+        
+        self.batch_listbox = tk.Listbox(list_frame, font=('Arial', 10), height=15)
+        self.batch_listbox.pack(side='left', fill='both', expand=True)
+        
+        scrollbar = tk.Scrollbar(list_frame, command=self.batch_listbox.yview)
+        scrollbar.pack(side='right', fill='y')
+        self.batch_listbox.config(yscrollcommand=scrollbar.set)
