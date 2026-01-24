@@ -669,3 +669,20 @@ Categories:"""
         
         messagebox.showinfo("User Guide", help_text)
         
+    def show_about(self):
+        about_text = """Advanced Plagiarism Checker Pro
+Version 2.0
+
+A comprehensive plagiarism detection suite with:
+✓ Multi-algorithm detection
+✓ Database management
+✓ Batch processing
+✓ Advanced analytics
+✓ Professional reports
+
+Built for academic integrity
+
+© 2024 - Educational Use"""
+        
+        messagebox.showinfo("About", about_text)
+        
