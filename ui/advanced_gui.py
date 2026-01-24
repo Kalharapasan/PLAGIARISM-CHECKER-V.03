@@ -322,3 +322,5 @@ class AdvancedPlagiarismChecker:
         thread = threading.Thread(target=self.perform_advanced_check)
         thread.daemon = True
         thread.start()
+    
+    def perform_advanced_check(self):
