@@ -319,3 +319,6 @@ class AdvancedPlagiarismChecker:
         self.current_text = text
         self.check_button.config(state='disabled', text="⏳ Analyzing...")
         self.status_bar.config(text="Running advanced analysis...")
+        thread = threading.Thread(target=self.perform_advanced_check)
+        thread.daemon = True
+        thread.start()
