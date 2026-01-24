@@ -427,12 +427,50 @@ Match Analysis:
 
 Algorithm Performance:
 """
-    if self.results.get('algorithm_scores'):
-            for algo, perf in self.results['algorithm_scores'].items():
-                stats_report += f"  {algo.capitalize()}: {perf.get('average', 0):.2f}% (avg)\n"
+        if self.results.get('algorithm_scores'):
+                for algo, perf in self.results['algorithm_scores'].items():
+                    stats_report += f"  {algo.capitalize()}: {perf.get('average', 0):.2f}% (avg)\n"
+            
+        self.stats_text.insert(tk.END, stats_report)
+        self.stats_text.config(state='disabled')
+            
+        self.check_button.config(state='normal', text="🔍 Analyze Document")
+        self.status_bar.config(text=f"Analysis complete - {score}% similarity | {len(self.results['matches'])} sources matched")
         
-    self.stats_text.insert(tk.END, stats_report)
-    self.stats_text.config(state='disabled')
+    
+    def export_report(self, format_type='txt'):
+        if not self.results:
+            messagebox.showwarning("Warning", "No results to export")
+            return
         
-    self.check_button.config(state='normal', text="🔍 Analyze Document")
-    self.status_bar.config(text=f"Analysis complete - {score}% similarity | {len(self.results['matches'])} sources matched")
+        filename = Path(self.current_file).stem if self.current_file else "analysis"
+        
+        if format_type == 'txt':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".txt",
+                filetypes=[("Text Files", "*.txt")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                report = generate_advanced_report(self.results, document_name, self.selected_algorithms)
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                messagebox.showinfo("Success", f"Report exported to:\n{filepath}")
+        
+        elif format_type == 'html':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".html",
+                filetypes=[("HTML Files", "*.html")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                report = generate_html_report(self.results, document_name, self.selected_algorithms)
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                messagebox.showinfo("Success", f"HTML report exported to:\n{filepath}")   
