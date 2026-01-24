@@ -125,3 +125,17 @@ class AdvancedPlagiarismChecker:
         
         tk.Label(results_header, text="📊 Analysis Results", 
                 bg='#f7fafc', fg='#2d3748', font=('Arial', 13, 'bold')).pack(pady=15, padx=15, anchor='w')
+        self.score_frame = tk.Frame(right_frame, bg='white', height=120)
+        self.score_frame.pack(fill='x', pady=15)
+        self.score_frame.pack_propagate(False)
+        
+        score_container = tk.Frame(self.score_frame, bg='white')
+        score_container.pack(expand=True)
+        
+        self.score_label = tk.Label(score_container, text="--", 
+                                   font=('Arial', 56, 'bold'), bg='white', fg='#718096')
+        self.score_label.grid(row=0, column=0, padx=20)
+        
+        self.score_desc = tk.Label(score_container, text="Ready to analyze", 
+                                  bg='white', fg='#718096', font=('Arial', 10))
+        self.score_desc.grid(row=1, column=0)
