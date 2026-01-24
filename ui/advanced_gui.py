@@ -266,3 +266,11 @@ class AdvancedPlagiarismChecker:
         scrollbar = tk.Scrollbar(list_frame, command=self.history_tree.yview)
         scrollbar.pack(side='right', fill='y')
         self.history_tree.config(yscrollcommand=scrollbar.set)
+        btn_frame = tk.Frame(tab)
+        btn_frame.pack(pady=10)
+        
+        tk.Button(btn_frame, text="Refresh History", command=self.refresh_history,
+                 bg='#667eea', fg='white', font=('Arial', 11, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+        self.refresh_history()
