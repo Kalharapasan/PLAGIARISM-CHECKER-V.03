@@ -50,3 +50,4 @@ class AdvancedPlagiarismChecker:
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill='both', expand=True, padx=10, pady=10)
         self.create_checker_tab()
+        self.create_batch_tab()
