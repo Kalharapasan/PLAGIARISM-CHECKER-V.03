@@ -579,3 +579,5 @@ Algorithm Performance:
         thread = threading.Thread(target=self._batch_process_thread, args=(files,))
         thread.daemon = True
         thread.start()
+    
+    def _batch_process_thread(self, files):
