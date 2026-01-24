@@ -570,3 +570,9 @@ Algorithm Performance:
         
         for file in files:
             self.batch_listbox.insert(tk.END, file)
+    
+    def process_batch(self):
+        files = self.batch_listbox.get(0, tk.END)
+        if not files:
+            messagebox.showwarning("Warning", "No files to process")
+            return
