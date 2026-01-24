@@ -36,3 +36,8 @@ class AdvancedPlagiarismChecker:
         file_menu.add_command(label="Export Report (HTML)", command=lambda: self.export_report('html'))
         file_menu.add_separator()
         file_menu.add_command(label="Exit", command=self.root.quit)
+        db_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="Database", menu=db_menu)
+        db_menu.add_command(label="Manage References", command=self.manage_database)
+        db_menu.add_command(label="Add Document", command=self.add_to_database)
+        db_menu.add_command(label="View Statistics", command=self.show_db_stats)
