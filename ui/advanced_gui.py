@@ -607,5 +607,8 @@ Algorithm Performance:
         
         self.root.after(0, lambda: self.batch_status.config(text=f"Complete! Processed {total} files"))
         self.root.after(0, lambda: messagebox.showinfo("Complete", f"Batch processing complete!\nProcessed {total} files"))
+    
+    def open_batch_mode(self):
+        self.notebook.select(1)
         
         
