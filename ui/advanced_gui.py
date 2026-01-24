@@ -398,3 +398,7 @@ class AdvancedPlagiarismChecker:
                         self.results_text.insert(tk.END, f"• \"{text}\" ({seq['length']} words)\n")
                 
                 self.results_text.insert(tk.END, "\n")
+        else:
+            self.results_text.insert(tk.END, "\n✓ No significant matches found\n")
+        
+        self.results_text.config(state='disabled')
