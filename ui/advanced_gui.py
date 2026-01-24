@@ -586,3 +586,25 @@ Algorithm Performance:
         
         for idx, filepath in enumerate(files, 1):
             self.root.after(0, lambda i=idx: self.batch_status.config(text=f"Processing {i}/{total}..."))
+            try:
+                text = self.engine.extract_text(filepath)
+                results = self.engine.analyze_text(text, self.database, self.selected_algorithms)
+                filename = Path(filepath).stem
+                report_path = f"batch_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+                document_name = Path(filepath).name
+                report = generate_advanced_report(results, document_name, self.selected_algorithms)
+                
+                with open(report_path, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                
+                self.db_manager.save_check_history(Path(filepath).name, results, report_path)
+                
+            except Exception as e:
+                print(f"Error processing {filepath}: {e}")
+            
+            self.root.after(0, lambda v=idx: self.batch_progress.config(value=v))
+        
+        self.root.after(0, lambda: self.batch_status.config(text=f"Complete! Processed {total} files"))
+        self.root.after(0, lambda: messagebox.showinfo("Complete", f"Batch processing complete!\nProcessed {total} files"))
+        
+        
