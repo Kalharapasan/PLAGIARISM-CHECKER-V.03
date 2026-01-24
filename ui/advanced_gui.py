@@ -613,4 +613,6 @@ Algorithm Performance:
     
     def manage_database(self):
         self.notebook.select(2)
+    
+    def show_db_stats(self):
         
