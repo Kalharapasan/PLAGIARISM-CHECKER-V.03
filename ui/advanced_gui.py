@@ -340,3 +340,7 @@ class AdvancedPlagiarismChecker:
             self.root.after(0, lambda: self.check_button.config(state='normal', text="🔍 Analyze Document"))
     
     def display_advanced_results(self):
+        if not self.results:
+            return
+        
+        score = self.results['overall_similarity']
