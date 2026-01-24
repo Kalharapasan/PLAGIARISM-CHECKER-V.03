@@ -113,3 +113,7 @@ class AdvancedPlagiarismChecker:
         self.text_input = scrolledtext.ScrolledText(left_frame, height=12, 
                                                    font=('Arial', 10), wrap='word')
         self.text_input.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        self.check_button = tk.Button(left_frame, text="🔍 Analyze Document", 
+                                     bg='#48bb78', fg='white', font=('Arial', 12, 'bold'),
+                                     command=self.run_advanced_check, cursor='hand2', relief='flat')
+        self.check_button.pack(fill='x', padx=15, pady=(0, 15))
