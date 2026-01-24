@@ -206,3 +206,21 @@ class AdvancedPlagiarismChecker:
                 font=('Arial', 16, 'bold')).pack(pady=20)
         list_frame = tk.Frame(tab)
         list_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        columns = ('Source', 'Category', 'Words')
+        self.db_tree = ttk.Treeview(list_frame, columns=columns, show='tree headings', height=15)
+        
+        self.db_tree.heading('#0', text='ID')
+        self.db_tree.heading('Source', text='Source')
+        self.db_tree.heading('Category', text='Category')
+        self.db_tree.heading('Words', text='Word Count')
+        
+        self.db_tree.column('#0', width=50)
+        self.db_tree.column('Source', width=300)
+        self.db_tree.column('Category', width=150)
+        self.db_tree.column('Words', width=100)
+        
+        self.db_tree.pack(side='left', fill='both', expand=True)
+        
+        scrollbar = tk.Scrollbar(list_frame, command=self.db_tree.yview)
+        scrollbar.pack(side='right', fill='y')
+        self.db_tree.config(yscrollcommand=scrollbar.set)
