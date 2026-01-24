@@ -635,4 +635,37 @@ Categories:"""
             stats_msg += f"\n  {cat}: {count}"
         
         messagebox.showinfo("Database Statistics", stats_msg)
+    
+    def show_help(self):
+        help_text = """Advanced Plagiarism Checker Pro - User Guide
+
+1. DOCUMENT CHECKING:
+   - Upload a document or paste text
+   - Select detection algorithms
+   - Click 'Analyze Document'
+   - Review results and export reports
+
+2. ALGORITHMS:
+   - Cosine Similarity: TF-IDF based comparison
+   - Jaccard Index: Set-based similarity
+   - N-Gram Analysis: Pattern matching
+   - Sequence Matching: Exact sequence detection
+
+3. DATABASE MANAGEMENT:
+   - Add reference documents
+   - Organize by categories
+   - Delete outdated references
+
+4. BATCH PROCESSING:
+   - Process multiple files at once
+   - Automatically generate reports
+   - Save to history
+
+5. REPORTS:
+   - Export as TXT or HTML
+   - Detailed algorithm breakdown
+   - Match highlighting
+   - Recommendations"""
+        
+        messagebox.showinfo("User Guide", help_text)
         
