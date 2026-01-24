@@ -6,3 +6,6 @@ from datetime import datetime
 from ..core.advanced_engine import AdvancedPlagiarismEngine
 from ..core.database import DatabaseManager
 from ..reports.advanced_report import generate_advanced_report, generate_html_report
+
+
+class AdvancedPlagiarismChecker:
