@@ -402,3 +402,28 @@ class AdvancedPlagiarismChecker:
             self.results_text.insert(tk.END, "\n✓ No significant matches found\n")
         
         self.results_text.config(state='disabled')
+        self.stats_text.config(state='normal')
+        self.stats_text.delete(1.0, tk.END)
+        
+        stats_report = f"""
+STATISTICAL ANALYSIS
+{'='*60}
+
+Document Metrics:
+  Total Words: {self.results['total_words']}
+  Total Sentences: {self.results['total_sentences']}
+  Citations Detected: {self.results.get('citations_found', 0)}
+
+Similarity Metrics:
+  Overall Score: {score}%
+  Matched Words: {stats.get('matched_words', 0)}
+  Unique Words: {stats.get('unique_words', 0)}
+  Unique Percentage: {stats.get('unique_percentage', 0)}%
+
+Match Analysis:
+  Sources Found: {len(self.results['matches'])}
+  Average Match Length: {stats.get('average_sequence_length', 0)} words
+  Longest Match: {stats.get('longest_sequence', 0)} words
+
+Algorithm Performance:
+"""
