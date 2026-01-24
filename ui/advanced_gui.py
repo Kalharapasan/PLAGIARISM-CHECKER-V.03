@@ -9,6 +9,10 @@ from ..reports.advanced_report import generate_advanced_report, generate_html_re
 
 
 class AdvancedPlagiarismChecker:
+    def __init__(self, config):
+        self.config = config
+        self.engine = AdvancedPlagiarismEngine(config)
+        self.db_manager = DatabaseManager(config)
     
     def run(self):
         self.root = tk.Tk()
