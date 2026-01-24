@@ -495,4 +495,7 @@ Algorithm Performance:
         
         tk.Label(dialog, text="Add Reference Document", 
                 font=('Arial', 14, 'bold')).pack(pady=10)
+        tk.Label(dialog, text="Source Name:").pack(anchor='w', padx=20)
+        source_entry = tk.Entry(dialog, font=('Arial', 10), width=50)
+        source_entry.pack(padx=20, pady=5)
         
