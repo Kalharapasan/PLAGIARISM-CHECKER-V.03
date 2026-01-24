@@ -324,3 +324,15 @@ class AdvancedPlagiarismChecker:
         thread.start()
     
     def perform_advanced_check(self):
+        try:
+            results = self.engine.analyze_text(
+                self.current_text, 
+                self.database,
+                self.selected_algorithms
+            )
+            self.results = results
+            self.root.after(0, self.display_advanced_results)
+        
+        except Exception as e:
+            self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
+            self.root.after(0, lambda: self.check_button.config(state='normal', text="🔍 Analyze Document"))
