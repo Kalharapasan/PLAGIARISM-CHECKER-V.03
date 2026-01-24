@@ -224,3 +224,4 @@ class AdvancedPlagiarismChecker:
         scrollbar = tk.Scrollbar(list_frame, command=self.db_tree.yview)
         scrollbar.pack(side='right', fill='y')
         self.db_tree.config(yscrollcommand=scrollbar.set)
+        self.refresh_database_view()
