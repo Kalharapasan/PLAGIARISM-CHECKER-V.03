@@ -181,3 +181,13 @@ class AdvancedPlagiarismChecker:
         scrollbar = tk.Scrollbar(list_frame, command=self.batch_listbox.yview)
         scrollbar.pack(side='right', fill='y')
         self.batch_listbox.config(yscrollcommand=scrollbar.set)
+        btn_frame = tk.Frame(tab)
+        btn_frame.pack(pady=10)
+        
+        tk.Button(btn_frame, text="Add Files", command=self.add_batch_files,
+                 bg='#48bb78', fg='white', font=('Arial', 11, 'bold'), 
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+        tk.Button(btn_frame, text="Process All", command=self.process_batch,
+                 bg='#667eea', fg='white', font=('Arial', 11, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
