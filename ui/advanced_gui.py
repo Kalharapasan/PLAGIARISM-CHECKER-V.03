@@ -41,3 +41,7 @@ class AdvancedPlagiarismChecker:
         db_menu.add_command(label="Manage References", command=self.manage_database)
         db_menu.add_command(label="Add Document", command=self.add_to_database)
         db_menu.add_command(label="View Statistics", command=self.show_db_stats)
+        help_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="Help", menu=help_menu)
+        help_menu.add_command(label="User Guide", command=self.show_help)
+        help_menu.add_command(label="About", command=self.show_about)
