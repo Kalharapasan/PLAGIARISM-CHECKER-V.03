@@ -501,4 +501,10 @@ Algorithm Performance:
         tk.Label(dialog, text="URL (optional):").pack(anchor='w', padx=20)
         url_entry = tk.Entry(dialog, font=('Arial', 10), width=50)
         url_entry.pack(padx=20, pady=5)
+        tk.Label(dialog, text="Category:").pack(anchor='w', padx=20)
+        category_var = tk.StringVar(value="General")
+        category_combo = ttk.Combobox(dialog, textvariable=category_var, 
+                                     values=["General", "Academic", "Technical", "Literature", "News"],
+                                     width=47)
+        category_combo.pack(padx=20, pady=5)
         
