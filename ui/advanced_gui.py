@@ -197,3 +197,10 @@ class AdvancedPlagiarismChecker:
         
         self.batch_status = tk.Label(tab, text="Ready", font=('Arial', 10))
         self.batch_status.pack()
+    
+    def create_database_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="💾 Reference Database")
+        
+        tk.Label(tab, text="Reference Document Database", 
+                font=('Arial', 16, 'bold')).pack(pady=20)
