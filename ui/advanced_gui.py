@@ -155,3 +155,13 @@ class AdvancedPlagiarismChecker:
         self.stats_text = scrolledtext.ScrolledText(stats_tab, font=('Courier', 9), 
                                                    wrap='word', state='disabled')
         self.stats_text.pack(fill='both', expand=True)
+        export_frame = tk.Frame(right_frame, bg='white')
+        export_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Button(export_frame, text="💾 Export TXT", bg='#667eea', fg='white', 
+                 font=('Arial', 10, 'bold'), command=lambda: self.export_report('txt'),
+                 relief='flat', cursor='hand2').pack(side='left', padx=5)
+        
+        tk.Button(export_frame, text="📄 Export HTML", bg='#667eea', fg='white',
+                 font=('Arial', 10, 'bold'), command=lambda: self.export_report('html'),
+                 relief='flat', cursor='hand2').pack(side='left', padx=5)
