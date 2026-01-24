@@ -139,3 +139,5 @@ class AdvancedPlagiarismChecker:
         self.score_desc = tk.Label(score_container, text="Ready to analyze", 
                                   bg='white', fg='#718096', font=('Arial', 10))
         self.score_desc.grid(row=1, column=0)
+        self.stats_frame = tk.Frame(right_frame, bg='#f7fafc')
+        self.stats_frame.pack(fill='x', padx=15, pady=10)
