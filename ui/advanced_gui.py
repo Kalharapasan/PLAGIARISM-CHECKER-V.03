@@ -576,3 +576,6 @@ Algorithm Performance:
         if not files:
             messagebox.showwarning("Warning", "No files to process")
             return
+        thread = threading.Thread(target=self._batch_process_thread, args=(files,))
+        thread.daemon = True
+        thread.start()
