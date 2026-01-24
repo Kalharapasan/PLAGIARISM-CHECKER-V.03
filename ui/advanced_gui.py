@@ -45,3 +45,5 @@ class AdvancedPlagiarismChecker:
         menubar.add_cascade(label="Help", menu=help_menu)
         help_menu.add_command(label="User Guide", command=self.show_help)
         help_menu.add_command(label="About", command=self.show_about)
+    
+    def _create_ui(self):
