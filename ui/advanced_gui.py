@@ -338,3 +338,5 @@ class AdvancedPlagiarismChecker:
         except Exception as e:
             self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
             self.root.after(0, lambda: self.check_button.config(state='normal', text="🔍 Analyze Document"))
+    
+    def display_advanced_results(self):
