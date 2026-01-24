@@ -375,3 +375,14 @@ class AdvancedPlagiarismChecker:
                     bg='white', fg='#667eea').pack(pady=(8, 0))
             tk.Label(box, text=label, font=('Arial', 8),
                     bg='white', fg='#718096').pack(pady=(0, 8))
+        
+        self.results_text.config(state='normal')
+        self.results_text.delete(1.0, tk.END)
+        
+        if self.results['matches']:
+            for idx, match in enumerate(self.results['matches'], 1):
+                self.results_text.insert(tk.END, f"\n━━━ Match #{idx} ━━━\n")
+                self.results_text.insert(tk.END, f"{match['source']}\n")
+                if match['url']:
+                    self.results_text.insert(tk.END, f"🔗 {match['url']}\n")
+                self.results_text.insert(tk.END, f"Similarity: {match['similarity']}% | Confidence: {match.get('confidence', 'N/A')}\n\n")
