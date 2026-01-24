@@ -117,3 +117,5 @@ class AdvancedPlagiarismChecker:
                                      bg='#48bb78', fg='white', font=('Arial', 12, 'bold'),
                                      command=self.run_advanced_check, cursor='hand2', relief='flat')
         self.check_button.pack(fill='x', padx=15, pady=(0, 15))
+        right_frame = tk.Frame(paned, bg='white', relief='raised', bd=1)
+        paned.add(right_frame, weight=2)
