@@ -204,3 +204,5 @@ class AdvancedPlagiarismChecker:
         
         tk.Label(tab, text="Reference Document Database", 
                 font=('Arial', 16, 'bold')).pack(pady=20)
+        list_frame = tk.Frame(tab)
+        list_frame.pack(fill='both', expand=True, padx=20, pady=10)
