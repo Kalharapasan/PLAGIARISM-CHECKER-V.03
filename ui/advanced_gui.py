@@ -107,3 +107,9 @@ class AdvancedPlagiarismChecker:
             cb = tk.Checkbutton(algo_frame, text=algo_name, variable=var, 
                               bg='white', font=('Arial', 9), anchor='w')
             cb.pack(fill='x', padx=10, pady=2)
+        tk.Label(left_frame, text="Or paste text directly:", 
+                bg='white', fg='#4a5568', font=('Arial', 10)).pack(padx=15, pady=(10, 5), anchor='w')
+        
+        self.text_input = scrolledtext.ScrolledText(left_frame, height=12, 
+                                                   font=('Arial', 10), wrap='word')
+        self.text_input.pack(fill='both', expand=True, padx=15, pady=(0, 15))
