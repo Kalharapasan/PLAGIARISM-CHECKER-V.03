@@ -581,3 +581,8 @@ Algorithm Performance:
         thread.start()
     
     def _batch_process_thread(self, files):
+        total = len(files)
+        self.batch_progress['maximum'] = total
+        
+        for idx, filepath in enumerate(files, 1):
+            self.root.after(0, lambda i=idx: self.batch_status.config(text=f"Processing {i}/{total}..."))
