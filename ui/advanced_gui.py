@@ -547,3 +547,17 @@ Algorithm Performance:
                 self.refresh_database_view()
             else:
                 messagebox.showerror("Error", "Failed to delete document")
+            
+    def refresh_history(self):
+        self.history_tree.delete(*self.history_tree.get_children())
+        history = self.db_manager.get_check_history()
+        
+        for entry in history:
+            date_str = datetime.fromisoformat(entry['date']).strftime('%Y-%m-%d %H:%M')
+            self.history_tree.insert('', 'end', values=(
+                date_str,
+                entry['filename'],
+                f"{entry['similarity']}%",
+                entry['words'],
+                entry['sources']
+            ))
