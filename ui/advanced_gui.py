@@ -290,3 +290,8 @@ class AdvancedPlagiarismChecker:
             self.file_label.config(text=f"📎 {Path(filename).name}")
             self.text_input.delete(1.0, tk.END)
             self.status_bar.config(text=f"File selected: {Path(filename).name}")
+    
+    def clear_file(self):
+        self.current_file = None
+        self.file_label.config(text="No file selected")
+        self.status_bar.config(text="Ready")
