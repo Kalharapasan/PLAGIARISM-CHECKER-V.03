@@ -9,3 +9,11 @@ from ..reports.advanced_report import generate_advanced_report, generate_html_re
 
 
 class AdvancedPlagiarismChecker:
+    
+    def run(self):
+        self.root = tk.Tk()
+        self._setup_window()
+        self._create_menubar()
+        self._create_ui()
+        self._center_window()
+        self.root.mainloop()
