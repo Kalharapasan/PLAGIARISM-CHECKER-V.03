@@ -27,3 +27,12 @@ class AdvancedPlagiarismChecker:
     def _create_menubar(self):
         menubar = tk.Menu(self.root)
         self.root.config(menu=menubar)
+        file_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="File", menu=file_menu)
+        file_menu.add_command(label="Open Document", command=self.select_file)
+        file_menu.add_command(label="Batch Check", command=self.open_batch_mode)
+        file_menu.add_separator()
+        file_menu.add_command(label="Export Report (TXT)", command=lambda: self.export_report('txt'))
+        file_menu.add_command(label="Export Report (HTML)", command=lambda: self.export_report('html'))
+        file_menu.add_separator()
+        file_menu.add_command(label="Exit", command=self.root.quit)
