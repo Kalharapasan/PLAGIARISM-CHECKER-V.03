@@ -498,4 +498,7 @@ Algorithm Performance:
         tk.Label(dialog, text="Source Name:").pack(anchor='w', padx=20)
         source_entry = tk.Entry(dialog, font=('Arial', 10), width=50)
         source_entry.pack(padx=20, pady=5)
+        tk.Label(dialog, text="URL (optional):").pack(anchor='w', padx=20)
+        url_entry = tk.Entry(dialog, font=('Arial', 10), width=50)
+        url_entry.pack(padx=20, pady=5)
         
