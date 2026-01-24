@@ -191,3 +191,9 @@ class AdvancedPlagiarismChecker:
         tk.Button(btn_frame, text="Process All", command=self.process_batch,
                  bg='#667eea', fg='white', font=('Arial', 11, 'bold'),
                  relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
+        
+        self.batch_progress = ttk.Progressbar(tab, mode='determinate')
+        self.batch_progress.pack(fill='x', padx=20, pady=10)
+        
+        self.batch_status = tk.Label(tab, text="Ready", font=('Arial', 10))
+        self.batch_status.pack()
