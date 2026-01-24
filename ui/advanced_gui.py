@@ -89,3 +89,21 @@ class AdvancedPlagiarismChecker:
         tk.Button(button_frame, text="🗑️ Clear", command=self.clear_file,
                  bg='#e53e3e', fg='white', font=('Arial', 10, 'bold'),
                  relief='flat', cursor='hand2').pack(side='left', padx=5)
+        algo_frame = tk.LabelFrame(left_frame, text="Detection Algorithms", 
+                                  bg='white', font=('Arial', 10, 'bold'))
+        algo_frame.pack(fill='x', padx=15, pady=10)
+        
+        self.algo_vars = {}
+        algorithms = [
+            ('cosine', 'Cosine Similarity (TF-IDF)'),
+            ('jaccard', 'Jaccard Index'),
+            ('ngram', 'N-Gram Analysis'),
+            ('sequence', 'Sequence Matching')
+        ]
+        
+        for algo_id, algo_name in algorithms:
+            var = tk.BooleanVar(value=algo_id in self.selected_algorithms)
+            self.algo_vars[algo_id] = var
+            cb = tk.Checkbutton(algo_frame, text=algo_name, variable=var, 
+                              bg='white', font=('Arial', 9), anchor='w')
+            cb.pack(fill='x', padx=10, pady=2)
