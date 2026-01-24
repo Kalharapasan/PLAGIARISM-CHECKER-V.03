@@ -274,3 +274,19 @@ class AdvancedPlagiarismChecker:
                  relief='flat', cursor='hand2', padx=20, pady=10).pack(side='left', padx=5)
         
         self.refresh_history()
+    
+    def select_file(self):
+        filetypes = [
+            ('All Supported', '*.txt *.docx *.pdf'),
+            ('Text Files', '*.txt'),
+            ('Word Documents', '*.docx'),
+            ('PDF Files', '*.pdf')
+        ]
+        
+        filename = filedialog.askopenfilename(title="Select Document", filetypes=filetypes)
+        
+        if filename:
+            self.current_file = filename
+            self.file_label.config(text=f"📎 {Path(filename).name}")
+            self.text_input.delete(1.0, tk.END)
+            self.status_bar.config(text=f"File selected: {Path(filename).name}")
