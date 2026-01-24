@@ -58,3 +58,7 @@ class AdvancedPlagiarismChecker:
                                   bd=1, relief='sunken', anchor='w', 
                                   bg='#e2e8f0', font=('Arial', 9))
         self.status_bar.pack(side='bottom', fill='x')
+    
+    def create_checker_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📝 Document Checker")
