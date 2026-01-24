@@ -355,3 +355,23 @@ class AdvancedPlagiarismChecker:
         
         self.score_label.config(fg=color)
         self.score_desc.config(text=desc, foreground=color)
+        for widget in self.stats_frame.winfo_children():
+            widget.destroy()
+        
+        stats = self.results.get('statistics', {})
+        stats_data = [
+            ("Total Words", self.results['total_words']),
+            ("Matched", stats.get('matched_words', 0)),
+            ("Unique", f"{stats.get('unique_percentage', 0)}%"),
+            ("Sources", len(self.results['matches'])),
+            ("Citations", self.results.get('citations_found', 0))
+        ]
+        
+        for label, value in stats_data:
+            box = tk.Frame(self.stats_frame, bg='white', relief='solid', bd=1)
+            box.pack(side='left', expand=True, fill='both', padx=3, pady=3)
+            
+            tk.Label(box, text=str(value), font=('Arial', 14, 'bold'),
+                    bg='white', fg='#667eea').pack(pady=(8, 0))
+            tk.Label(box, text=label, font=('Arial', 8),
+                    bg='white', fg='#718096').pack(pady=(0, 8))
