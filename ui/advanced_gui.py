@@ -485,3 +485,6 @@ Algorithm Performance:
                                values=(doc['source'], doc.get('category', 'General'), word_count))
         
         self.status_bar.config(text=f"Database: {len(self.database)} documents loaded")
+    
+    def add_to_database(self):
+        
