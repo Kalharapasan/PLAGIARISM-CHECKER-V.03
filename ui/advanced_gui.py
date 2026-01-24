@@ -295,3 +295,5 @@ class AdvancedPlagiarismChecker:
         self.current_file = None
         self.file_label.config(text="No file selected")
         self.status_bar.config(text="Ready")
+    
+    def run_advanced_check(self):
