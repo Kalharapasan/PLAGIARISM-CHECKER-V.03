@@ -531,3 +531,19 @@ Algorithm Performance:
         tk.Button(dialog, text="Save", command=save_document, bg='#48bb78', fg='white',
                  font=('Arial', 11, 'bold'), relief='flat', cursor='hand2',
                  padx=30, pady=10).pack(pady=10)
+    
+    def delete_from_database(self):
+        selected = self.db_tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select a document to delete")
+            return
+        
+        item = self.db_tree.item(selected[0])
+        source = item['values'][0]
+        
+        if messagebox.askyesno("Confirm", f"Delete '{source}' from database?"):
+            if self.db_manager.delete_document(source):
+                messagebox.showinfo("Success", "Document deleted")
+                self.refresh_database_view()
+            else:
+                messagebox.showerror("Error", "Failed to delete document")
