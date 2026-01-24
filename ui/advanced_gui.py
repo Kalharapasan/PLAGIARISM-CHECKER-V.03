@@ -586,6 +586,7 @@ Algorithm Performance:
         
         for idx, filepath in enumerate(files, 1):
             self.root.after(0, lambda i=idx: self.batch_status.config(text=f"Processing {i}/{total}..."))
+            
             try:
                 text = self.engine.extract_text(filepath)
                 results = self.engine.analyze_text(text, self.database, self.selected_algorithms)
