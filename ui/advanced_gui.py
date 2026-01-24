@@ -610,5 +610,7 @@ Algorithm Performance:
     
     def open_batch_mode(self):
         self.notebook.select(1)
-        
+    
+    def manage_database(self):
+        self.notebook.select(2)
         
