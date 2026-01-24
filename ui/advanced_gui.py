@@ -52,3 +52,4 @@ class AdvancedPlagiarismChecker:
         self.create_checker_tab()
         self.create_batch_tab()
         self.create_database_tab()
+        self.create_analytics_tab()
