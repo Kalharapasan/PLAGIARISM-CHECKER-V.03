@@ -149,3 +149,9 @@ class AdvancedPlagiarismChecker:
         self.results_text = scrolledtext.ScrolledText(matches_tab, font=('Arial', 9), 
                                                      wrap='word', state='disabled')
         self.results_text.pack(fill='both', expand=True)
+        stats_tab = ttk.Frame(results_notebook)
+        results_notebook.add(stats_tab, text="Statistics")
+        
+        self.stats_text = scrolledtext.ScrolledText(stats_tab, font=('Courier', 9), 
+                                                   wrap='word', state='disabled')
+        self.stats_text.pack(fill='both', expand=True)
