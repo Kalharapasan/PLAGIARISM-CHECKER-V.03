@@ -14,6 +14,12 @@ class AdvancedPlagiarismChecker:
         self.engine = AdvancedPlagiarismEngine(config)
         self.db_manager = DatabaseManager(config)
         self.database = self.db_manager.get_all_documents()
+        self.root = None
+        self.current_file = None
+        self.current_text = None
+        self.results = None
+        self.selected_algorithms = self.config.get('detection.advanced.algorithms', 
+                                                  ['cosine', 'jaccard', 'ngram', 'sequence'])
     
     def run(self):
         self.root = tk.Tk()
