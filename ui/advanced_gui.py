@@ -165,3 +165,10 @@ class AdvancedPlagiarismChecker:
         tk.Button(export_frame, text="📄 Export HTML", bg='#667eea', fg='white',
                  font=('Arial', 10, 'bold'), command=lambda: self.export_report('html'),
                  relief='flat', cursor='hand2').pack(side='left', padx=5)
+    
+    def create_batch_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📦 Batch Processing")
+        
+        tk.Label(tab, text="Batch Document Processing", 
+                font=('Arial', 16, 'bold')).pack(pady=20)
