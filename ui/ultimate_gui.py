@@ -317,3 +317,12 @@ class UltimatePlagiarismChecker:
                      bg='#4299e1', fg='white', padx=20, pady=10,
                      command=command, cursor='hand2').pack(side='left', padx=5)
         self.load_dashboard_data()
+    
+    def create_chart_card(self, parent, title):
+        card = tk.Frame(parent, bg='white', relief='raised', bd=1)
+        card.pack(fill='both', expand=True, pady=(0, 10))
+        
+        tk.Label(card, text=title, font=('Segoe UI', 11, 'bold'),
+                bg='white', fg='#2d3748').pack(anchor='w', padx=10, pady=10)
+        
+        return card
