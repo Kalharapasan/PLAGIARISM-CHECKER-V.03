@@ -282,3 +282,8 @@ class UltimatePlagiarismChecker:
         
         charts_frame = tk.Frame(tab, bg='#f8f9fa')
         charts_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        left_charts = tk.Frame(charts_frame, bg='#f8f9fa')
+        left_charts.pack(side='left', fill='both', expand=True, padx=(0, 10))
+        
+        right_charts = tk.Frame(charts_frame, bg='#f8f9fa')
+        right_charts.pack(side='right', fill='both', expand=True, padx=(10, 0))
