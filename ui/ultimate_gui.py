@@ -347,3 +347,6 @@ class UltimatePlagiarismChecker:
         self.create_results_metrics(right_panel)
         results_notebook = ttk.Notebook(right_panel)
         results_notebook.pack(fill='both', expand=True, padx=10, pady=10)
+        matches_tab = ttk.Frame(results_notebook)
+        results_notebook.add(matches_tab, text="🔍 Matches")
+        self.create_matches_section(matches_tab)
