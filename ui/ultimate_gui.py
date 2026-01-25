@@ -371,3 +371,13 @@ class UltimatePlagiarismChecker:
         self.file_label = tk.Label(upload_frame, text="No file selected", 
                                   font=self.fonts['normal'], bg='white', fg='#4a5568')
         self.file_label.pack(pady=(0, 10))
+        btn_frame = tk.Frame(upload_frame, bg='white')
+        btn_frame.pack()
+        
+        tk.Button(btn_frame, text="📁 Choose File", command=self.select_file,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2', padx=15, pady=8).pack(side='left', padx=5)
+        
+        tk.Button(btn_frame, text="📋 Paste", command=self.paste_text,
+                 bg='#38a169', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2', padx=15, pady=8).pack(side='left', padx=5)
