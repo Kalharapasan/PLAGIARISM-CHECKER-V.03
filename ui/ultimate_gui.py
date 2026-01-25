@@ -344,3 +344,4 @@ class UltimatePlagiarismChecker:
         
         tk.Label(results_header, text="📊 Analysis Results", 
                 font=self.fonts['header'], bg='#667eea', fg='white').pack(pady=15, padx=15, anchor='w')
+        self.create_results_metrics(right_panel)
