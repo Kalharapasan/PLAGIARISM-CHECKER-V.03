@@ -412,3 +412,8 @@ class UltimatePlagiarismChecker:
                                     font=self.fonts['header'], bg='white', 
                                     fg='#2d3748', padx=15, pady=15)
         config_frame.pack(fill='both', expand=True, padx=10, pady=10)
+        algo_frame = tk.Frame(config_frame, bg='white')
+        algo_frame.pack(fill='x', pady=(0, 15))
+        
+        tk.Label(algo_frame, text="Detection Algorithms:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w')
