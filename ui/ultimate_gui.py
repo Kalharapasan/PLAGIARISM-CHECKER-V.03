@@ -401,3 +401,8 @@ class UltimatePlagiarismChecker:
         tk.Button(quick_frame, text="🔬 Deep Analysis", command=self.deep_analysis,
                  bg='#9f7aea', fg='white', font=('Segoe UI', 10, 'bold'),
                  relief='flat', cursor='hand2').pack(side='left', padx=2)
+        self.analyze_button = tk.Button(input_frame, text="🚀 Run Ultimate Analysis", 
+                                       bg='#48bb78', fg='white', font=('Segoe UI', 12, 'bold'),
+                                       command=self.run_ultimate_check, cursor='hand2',
+                                       relief='flat', padx=20, pady=12)
+        self.analyze_button.pack(fill='x', pady=(15, 0))
