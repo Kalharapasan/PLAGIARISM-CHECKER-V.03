@@ -178,3 +178,12 @@ class UltimatePlagiarismChecker:
     def create_sidebar(self):
         self.sidebar = tk.Frame(self.main_container, bg='#2d3748', width=200)
         self.main_container.add(self.sidebar, width=200)
+        logo_frame = tk.Frame(self.sidebar, bg='#1a202c', height=80)
+        logo_frame.pack(fill='x', pady=(0, 10))
+        logo_frame.pack_propagate(False)
+        
+        tk.Label(logo_frame, text="🔍", font=('Segoe UI', 24), 
+                bg='#1a202c', fg='#63b3ed').pack(pady=(20, 5))
+        tk.Label(logo_frame, text="Plagiarism\nUltimate", 
+                font=('Segoe UI', 10, 'bold'), bg='#1a202c', fg='white',
+                justify='center').pack()
