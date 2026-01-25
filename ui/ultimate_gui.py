@@ -338,3 +338,9 @@ class UltimatePlagiarismChecker:
         self.create_configuration_section(left_panel)
         right_panel = tk.Frame(main_paned, bg='#f8f9fa')
         main_paned.add(right_panel, width=800)
+        results_header = tk.Frame(right_panel, bg='#667eea', height=60)
+        results_header.pack(fill='x')
+        results_header.pack_propagate(False)
+        
+        tk.Label(results_header, text="📊 Analysis Results", 
+                font=self.fonts['header'], bg='#667eea', fg='white').pack(pady=15, padx=15, anchor='w')
