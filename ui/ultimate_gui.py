@@ -326,3 +326,5 @@ class UltimatePlagiarismChecker:
                 bg='white', fg='#2d3748').pack(anchor='w', padx=10, pady=10)
         
         return card
+
+    def create_checker_tab(self):
