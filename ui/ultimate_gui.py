@@ -381,3 +381,5 @@ class UltimatePlagiarismChecker:
         tk.Button(btn_frame, text="📋 Paste", command=self.paste_text,
                  bg='#38a169', fg='white', font=('Segoe UI', 10, 'bold'),
                  relief='flat', cursor='hand2', padx=15, pady=8).pack(side='left', padx=5)
+        tk.Label(upload_frame, text="Supported formats: DOCX, PDF, TXT, RTF, HTML, EPUB", 
+                font=self.fonts['small'], bg='white', fg='#a0aec0').pack(pady=(10, 0))
