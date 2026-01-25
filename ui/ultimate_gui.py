@@ -290,3 +290,6 @@ class UltimatePlagiarismChecker:
         similarity_card = self.create_chart_card(left_charts, "Similarity Distribution")
         self.similarity_chart = tk.Frame(similarity_card, bg='white', height=200)
         self.similarity_chart.pack(fill='both', expand=True, padx=10, pady=10)
+        risk_card = self.create_chart_card(left_charts, "Risk Level Distribution")
+        self.risk_chart = tk.Frame(risk_card, bg='white', height=200)
+        self.risk_chart.pack(fill='both', expand=True, padx=10, pady=10)
