@@ -477,3 +477,15 @@ class UltimatePlagiarismChecker:
             cb = tk.Checkbutton(options_frame, text=option.replace('_', ' ').title(),
                                variable=var, bg='white', font=('Segoe UI', 9), anchor='w')
             cb.pack(anchor='w', pady=1)
+        
+        sensitivity_frame = tk.Frame(config_frame, bg='white')
+        sensitivity_frame.pack(fill='x', pady=(0, 15))
+        
+        tk.Label(sensitivity_frame, text="Detection Sensitivity:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w')
+        
+        self.sensitivity_var = tk.DoubleVar(value=5.0)
+        sensitivity_slider = tk.Scale(sensitivity_frame, from_=1, to=20, 
+                                     orient='horizontal', variable=self.sensitivity_var,
+                                     bg='white', fg='#2d3748', length=300)
+        sensitivity_slider.pack(fill='x', pady=5)
