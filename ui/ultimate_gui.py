@@ -489,3 +489,17 @@ class UltimatePlagiarismChecker:
                                      orient='horizontal', variable=self.sensitivity_var,
                                      bg='white', fg='#2d3748', length=300)
         sensitivity_slider.pack(fill='x', pady=5)
+        preset_frame = tk.Frame(config_frame, bg='white')
+        preset_frame.pack(fill='x')
+        
+        tk.Button(preset_frame, text="🎓 Academic", command=self.set_academic_preset,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(preset_frame, text="⚡ Fast", command=self.set_fast_preset,
+                 bg='#38a169', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(preset_frame, text="🔍 Thorough", command=self.set_thorough_preset,
+                 bg='#ed8936', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
