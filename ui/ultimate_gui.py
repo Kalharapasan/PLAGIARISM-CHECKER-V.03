@@ -253,3 +253,29 @@ class UltimatePlagiarismChecker:
                 font=self.fonts['title'], bg='#667eea', fg='white').pack(pady=(25, 5))
         tk.Label(header_frame, text="Comprehensive overview and analytics", 
                 font=self.fonts['subtitle'], bg='#667eea', fg='#e2e8f0').pack()
+        stats_frame = tk.Frame(tab, bg='#f8f9fa')
+        stats_frame.pack(fill='x', padx=20, pady=10)
+        
+        self.dashboard_stats = {}
+        stats_cards = [
+            ("Total Checks", "0", "#4c51bf"),
+            ("Avg Similarity", "0%", "#38a169"),
+            ("High Risk", "0", "#e53e3e"),
+            ("Database Size", f"{len(self.database)}", "#d69e2e"),
+            ("Files Today", "0", "#3182ce"),
+            ("Citations", "0", "#805ad5")
+        ]
+        
+        for i, (title, value, color) in enumerate(stats_cards):
+            card = tk.Frame(stats_frame, bg='white', relief='raised', bd=1)
+            card.grid(row=0, column=i, padx=5, pady=5, sticky='nsew')
+            stats_frame.columnconfigure(i, weight=1)
+            
+            tk.Label(card, text=title, font=('Segoe UI', 9),
+                    bg='white', fg='#718096').pack(pady=(10, 5))
+            
+            value_label = tk.Label(card, text=value, font=('Segoe UI', 24, 'bold'),
+                                  bg='white', fg=color)
+            value_label.pack(pady=(0, 10))
+            
+            self.dashboard_stats[title] = value_label
