@@ -159,4 +159,6 @@ class UltimatePlagiarismChecker:
         self.root.bind('<F5>', lambda e: self.refresh_all())
     
     def _create_ui(self):
+        self.main_container = tk.PanedWindow(self.root, orient='horizontal', sashwidth=5)
+        self.main_container.pack(fill='both', expand=True)
         
