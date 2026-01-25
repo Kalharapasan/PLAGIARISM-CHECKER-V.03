@@ -353,3 +353,6 @@ class UltimatePlagiarismChecker:
         stats_tab = ttk.Frame(results_notebook)
         results_notebook.add(stats_tab, text="📈 Statistics")
         self.create_statistics_section(stats_tab)
+        details_tab = ttk.Frame(results_notebook)
+        results_notebook.add(details_tab, text="📋 Details")
+        self.create_details_section(details_tab)
