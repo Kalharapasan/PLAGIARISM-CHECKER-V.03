@@ -15,3 +15,14 @@ from ..reports.pdf_report import generate_pdf_report
 from ..utils import ProgressTracker, format_file_size, format_percentage
 
 class UltimatePlagiarismChecker:
+    
+    def setup_fonts(self):
+        self.fonts = {
+            'title': ('Segoe UI', 26, 'bold'),
+            'subtitle': ('Segoe UI', 11),
+            'header': ('Segoe UI', 13, 'bold'),
+            'normal': ('Segoe UI', 10),
+            'small': ('Segoe UI', 9),
+            'monospace': ('Consolas', 9),
+            'large': ('Segoe UI', 14, 'bold')
+        }
