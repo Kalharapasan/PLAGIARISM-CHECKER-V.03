@@ -245,3 +245,11 @@ class UltimatePlagiarismChecker:
     def create_dashboard_tab(self):
         tab = ttk.Frame(self.notebook)
         self.notebook.add(tab, text="📊 Dashboard")
+        header_frame = tk.Frame(tab, bg='#667eea', height=100)
+        header_frame.pack(fill='x', pady=(0, 10))
+        header_frame.pack_propagate(False)
+        
+        tk.Label(header_frame, text="📊 Analytics Dashboard", 
+                font=self.fonts['title'], bg='#667eea', fg='white').pack(pady=(25, 5))
+        tk.Label(header_frame, text="Comprehensive overview and analytics", 
+                font=self.fonts['subtitle'], bg='#667eea', fg='#e2e8f0').pack()
