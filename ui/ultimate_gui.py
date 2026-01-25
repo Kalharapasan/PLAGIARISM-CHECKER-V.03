@@ -47,3 +47,7 @@ class UltimatePlagiarismChecker:
             pass
         
         self.root.minsize(1400, 800)
+    
+    def _create_menubar(self):
+        menubar = tk.Menu(self.root)
+        self.root.config(menu=menubar)
