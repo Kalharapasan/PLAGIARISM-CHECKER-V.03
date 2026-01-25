@@ -391,3 +391,13 @@ class UltimatePlagiarismChecker:
                                                    wrap='word', bg='#f7fafc', 
                                                    fg='#2d3748', bd=1, relief='solid')
         self.text_input.pack(fill='both', expand=True)
+        quick_frame = tk.Frame(input_frame, bg='white')
+        quick_frame.pack(fill='x', pady=(10, 0))
+        
+        tk.Button(quick_frame, text="🔍 Quick Check", command=self.quick_check,
+                 bg='#ed8936', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(quick_frame, text="🔬 Deep Analysis", command=self.deep_analysis,
+                 bg='#9f7aea', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
