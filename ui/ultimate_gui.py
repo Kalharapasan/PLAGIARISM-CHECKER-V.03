@@ -240,3 +240,6 @@ class UltimatePlagiarismChecker:
                        activebackground='#2d3748', activeforeground='white')
         btn.pack(fill='x', pady=2)
         return btn
+
+    
+    def create_dashboard_tab(self):
