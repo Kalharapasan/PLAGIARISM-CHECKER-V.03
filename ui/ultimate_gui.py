@@ -243,3 +243,5 @@ class UltimatePlagiarismChecker:
 
     
     def create_dashboard_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📊 Dashboard")
