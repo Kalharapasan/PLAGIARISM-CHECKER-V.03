@@ -287,3 +287,6 @@ class UltimatePlagiarismChecker:
         
         right_charts = tk.Frame(charts_frame, bg='#f8f9fa')
         right_charts.pack(side='right', fill='both', expand=True, padx=(10, 0))
+        similarity_card = self.create_chart_card(left_charts, "Similarity Distribution")
+        self.similarity_chart = tk.Frame(similarity_card, bg='white', height=200)
+        self.similarity_chart.pack(fill='both', expand=True, padx=10, pady=10)
