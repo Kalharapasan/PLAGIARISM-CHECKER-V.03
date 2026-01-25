@@ -361,3 +361,7 @@ class UltimatePlagiarismChecker:
         self.create_visualization_section(viz_tab)
     
     def create_input_section(self, parent):
+        input_frame = tk.LabelFrame(parent, text="📄 Document Input", 
+                                   font=self.fonts['header'], bg='white', 
+                                   fg='#2d3748', padx=15, pady=15)
+        input_frame.pack(fill='x', padx=10, pady=10)
