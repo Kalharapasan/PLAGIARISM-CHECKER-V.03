@@ -157,4 +157,6 @@ class UltimatePlagiarismChecker:
         self.root.bind('<Control-e>', lambda e: self.export_report('txt'))
         self.root.bind('<F1>', lambda e: self.show_user_guide())
         self.root.bind('<F5>', lambda e: self.refresh_all())
+    
+    def _create_ui(self):
         
