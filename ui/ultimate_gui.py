@@ -232,3 +232,11 @@ class UltimatePlagiarismChecker:
                                   bg='#2d3748', fg='#63b3ed', anchor='e')
             value_label.pack(side='right')
             self.stats_labels[label] = value_label
+    
+    def create_sidebar_button(self, parent, text, command):
+        btn = tk.Button(parent, text=text, font=('Segoe UI', 10),
+                       bg='#4a5568', fg='white', bd=0, padx=10, pady=8,
+                       command=command, anchor='w', cursor='hand2',
+                       activebackground='#2d3748', activeforeground='white')
+        btn.pack(fill='x', pady=2)
+        return btn
