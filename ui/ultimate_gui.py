@@ -406,3 +406,5 @@ class UltimatePlagiarismChecker:
                                        command=self.run_ultimate_check, cursor='hand2',
                                        relief='flat', padx=20, pady=12)
         self.analyze_button.pack(fill='x', pady=(15, 0))
+    
+    def create_configuration_section(self, parent):
