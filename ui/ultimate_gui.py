@@ -174,3 +174,5 @@ class UltimatePlagiarismChecker:
         self.create_analytics_tab()
         self.create_settings_tab()
         self.create_status_bar()
+    
+    def create_sidebar(self):
