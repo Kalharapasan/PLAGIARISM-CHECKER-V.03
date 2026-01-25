@@ -161,4 +161,5 @@ class UltimatePlagiarismChecker:
     def _create_ui(self):
         self.main_container = tk.PanedWindow(self.root, orient='horizontal', sashwidth=5)
         self.main_container.pack(fill='both', expand=True)
+        self.create_sidebar()
         
