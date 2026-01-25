@@ -408,3 +408,7 @@ class UltimatePlagiarismChecker:
         self.analyze_button.pack(fill='x', pady=(15, 0))
     
     def create_configuration_section(self, parent):
+        config_frame = tk.LabelFrame(parent, text="⚙️ Analysis Configuration", 
+                                    font=self.fonts['header'], bg='white', 
+                                    fg='#2d3748', padx=15, pady=15)
+        config_frame.pack(fill='both', expand=True, padx=10, pady=10)
