@@ -132,4 +132,12 @@ class UltimatePlagiarismChecker:
         tools_menu.add_separator()
         tools_menu.add_command(label="⚡ Performance Monitor", command=self.performance_monitor)
         tools_menu.add_command(label="🔒 Security Settings", command=self.security_settings)
+        history_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="History", menu=history_menu)
+        history_menu.add_command(label="📜 View History", command=lambda: self.notebook.select(3))
+        history_menu.add_command(label="📊 Analytics", command=self.show_history_analytics)
+        history_menu.add_command(label="📈 Trends", command=self.show_trends)
+        history_menu.add_separator()
+        history_menu.add_command(label="🧹 Clear History", command=self.clear_history)
+        history_menu.add_command(label="💾 Export History", command=self.export_history)
         
