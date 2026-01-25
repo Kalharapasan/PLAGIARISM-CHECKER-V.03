@@ -41,3 +41,7 @@ class UltimatePlagiarismChecker:
         window_size = self.config.get('ui.ultimate.window_size', '1600x1000')
         self.root.geometry(window_size)
         self.root.configure(bg='#f0f0f0')
+        try:
+            self.root.iconbitmap('icon.ico')
+        except:
+            pass
