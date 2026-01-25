@@ -88,3 +88,13 @@ class UltimatePlagiarismChecker:
         view_menu.add_command(label="👁️ Show Sidebar", command=self.toggle_sidebar)
         view_menu.add_command(label="📈 Show Analytics", command=self.toggle_analytics)
         view_menu.add_separator()
+        theme_menu = tk.Menu(view_menu, tearoff=0)
+        view_menu.add_cascade(label="🎨 Theme", menu=theme_menu)
+        theme_menu.add_command(label="🌞 Light Mode", command=lambda: self.switch_theme('light'))
+        theme_menu.add_command(label="🌙 Dark Mode", command=lambda: self.switch_theme('dark'))
+        theme_menu.add_command(label="🖥️ System Default", command=lambda: self.switch_theme('system'))
+        
+        view_menu.add_separator()
+        view_menu.add_command(label="🔍 Zoom In", accelerator="Ctrl++")
+        view_menu.add_command(label="🔍 Zoom Out", accelerator="Ctrl+-")
+        view_menu.add_command(label="🔍 Reset Zoom", accelerator="Ctrl+0")
