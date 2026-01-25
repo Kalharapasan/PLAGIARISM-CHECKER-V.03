@@ -299,3 +299,20 @@ class UltimatePlagiarismChecker:
         activity_card = self.create_chart_card(right_charts, "Recent Activity")
         self.activity_list = tk.Frame(activity_card, bg='white')
         self.activity_list.pack(fill='both', expand=True, padx=10, pady=10)
+        actions_frame = tk.Frame(tab, bg='#f8f9fa')
+        actions_frame.pack(fill='x', padx=20, pady=10)
+        
+        tk.Label(actions_frame, text="Quick Actions", font=self.fonts['header'],
+                bg='#f8f9fa', fg='#2d3748').pack(anchor='w', pady=(0, 10))
+        
+        action_buttons = [
+            ("🔍 New Check", self.select_file),
+            ("📊 Generate Report", self.generate_comprehensive_report),
+            ("📈 View Analytics", self.show_history_analytics),
+            ("⚙️ Settings", self.open_settings)
+        ]
+        
+        for text, command in action_buttons:
+            tk.Button(actions_frame, text=text, font=('Segoe UI', 10),
+                     bg='#4299e1', fg='white', padx=20, pady=10,
+                     command=command, cursor='hand2').pack(side='left', padx=5)
