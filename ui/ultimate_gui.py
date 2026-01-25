@@ -330,3 +330,5 @@ class UltimatePlagiarismChecker:
     def create_checker_tab(self):
         tab = ttk.Frame(self.notebook)
         self.notebook.add(tab, text="🔍 Document Checker")
+        main_paned = tk.PanedWindow(tab, orient='horizontal', sashwidth=5)
+        main_paned.pack(fill='both', expand=True)
