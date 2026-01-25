@@ -14,4 +14,4 @@ from ..reports.advanced_report import generate_advanced_report, generate_html_re
 from ..reports.pdf_report import generate_pdf_report
 from ..utils import ProgressTracker, format_file_size, format_percentage
 
-
+class UltimatePlagiarismChecker:
