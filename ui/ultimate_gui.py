@@ -35,3 +35,9 @@ class UltimatePlagiarismChecker:
         self._apply_theme()
         self._center_window()
         self.root.mainloop()
+    
+    def _setup_window(self):
+        self.root.title("Plagiarism Checker Ultimate - Enterprise Edition v3.0")
+        window_size = self.config.get('ui.ultimate.window_size', '1600x1000')
+        self.root.geometry(window_size)
+        self.root.configure(bg='#f0f0f0')
