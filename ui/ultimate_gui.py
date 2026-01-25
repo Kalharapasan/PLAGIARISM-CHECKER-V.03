@@ -206,3 +206,4 @@ class UltimatePlagiarismChecker:
         
         self.recent_files_list = tk.Frame(recent_frame, bg='#2d3748')
         self.recent_files_list.pack(fill='x')
+        self.load_recent_files()
