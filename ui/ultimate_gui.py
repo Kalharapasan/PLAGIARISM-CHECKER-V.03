@@ -359,3 +359,5 @@ class UltimatePlagiarismChecker:
         viz_tab = ttk.Frame(results_notebook)
         results_notebook.add(viz_tab, text="📊 Visualizations")
         self.create_visualization_section(viz_tab)
+    
+    def create_input_section(self, parent):
