@@ -296,3 +296,6 @@ class UltimatePlagiarismChecker:
         algo_card = self.create_chart_card(right_charts, "Algorithm Performance")
         self.algo_chart = tk.Frame(algo_card, bg='white', height=200)
         self.algo_chart.pack(fill='both', expand=True, padx=10, pady=10)
+        activity_card = self.create_chart_card(right_charts, "Recent Activity")
+        self.activity_list = tk.Frame(activity_card, bg='white')
+        self.activity_list.pack(fill='both', expand=True, padx=10, pady=10)
