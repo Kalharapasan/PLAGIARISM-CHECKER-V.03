@@ -83,3 +83,8 @@ class UltimatePlagiarismChecker:
         edit_menu.add_command(label="🔄 Replace", accelerator="Ctrl+H")
         edit_menu.add_separator()
         edit_menu.add_command(label="📝 Text Tools", command=self.open_text_tools)
+        view_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="View", menu=view_menu)
+        view_menu.add_command(label="👁️ Show Sidebar", command=self.toggle_sidebar)
+        view_menu.add_command(label="📈 Show Analytics", command=self.toggle_analytics)
+        view_menu.add_separator()
