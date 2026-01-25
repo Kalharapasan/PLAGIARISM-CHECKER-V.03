@@ -152,4 +152,9 @@ class UltimatePlagiarismChecker:
         help_menu.add_command(label="🌟 Check for Updates", command=self.check_for_updates)
         help_menu.add_command(label="💬 Support", command=self.show_support)
         help_menu.add_command(label="📄 About", command=self.show_about)
+        self.root.bind('<Control-o>', lambda e: self.select_file())
+        self.root.bind('<Control-s>', lambda e: self.save_results())
+        self.root.bind('<Control-e>', lambda e: self.export_report('txt'))
+        self.root.bind('<F1>', lambda e: self.show_user_guide())
+        self.root.bind('<F5>', lambda e: self.refresh_all())
         
