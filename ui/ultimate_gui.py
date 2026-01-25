@@ -45,3 +45,5 @@ class UltimatePlagiarismChecker:
             self.root.iconbitmap('icon.ico')
         except:
             pass
+        
+        self.root.minsize(1400, 800)
