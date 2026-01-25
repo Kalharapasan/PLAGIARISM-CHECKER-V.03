@@ -176,3 +176,5 @@ class UltimatePlagiarismChecker:
         self.create_status_bar()
     
     def create_sidebar(self):
+        self.sidebar = tk.Frame(self.main_container, bg='#2d3748', width=200)
+        self.main_container.add(self.sidebar, width=200)
