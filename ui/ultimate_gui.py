@@ -187,3 +187,14 @@ class UltimatePlagiarismChecker:
         tk.Label(logo_frame, text="Plagiarism\nUltimate", 
                 font=('Segoe UI', 10, 'bold'), bg='#1a202c', fg='white',
                 justify='center').pack()
+        actions_frame = tk.Frame(self.sidebar, bg='#2d3748')
+        actions_frame.pack(fill='x', padx=10, pady=10)
+        
+        tk.Label(actions_frame, text="QUICK ACTIONS", font=('Segoe UI', 9, 'bold'),
+                bg='#2d3748', fg='#a0aec0', anchor='w').pack(fill='x', pady=(0, 10))
+        
+        self.create_sidebar_button(actions_frame, "📁 Open File", self.select_file)
+        self.create_sidebar_button(actions_frame, "📋 Paste Text", self.paste_text)
+        self.create_sidebar_button(actions_frame, "🔍 Quick Check", self.quick_check)
+        self.create_sidebar_button(actions_frame, "📊 Dashboard", lambda: self.notebook.select(0))
+        self.create_sidebar_button(actions_frame, "💾 Database", lambda: self.notebook.select(3))
