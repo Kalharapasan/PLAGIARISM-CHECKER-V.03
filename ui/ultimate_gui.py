@@ -123,4 +123,13 @@ class UltimatePlagiarismChecker:
         analysis_menu.add_separator()
         analysis_menu.add_command(label="📊 Generate Report", command=self.generate_comprehensive_report)
         analysis_menu.add_command(label="📈 Create Visualizations", command=self.generate_visualizations)
+        tools_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="Tools", menu=tools_menu)
+        tools_menu.add_command(label="📝 Text Analysis", command=self.text_analysis_tool)
+        tools_menu.add_command(label="📚 Citation Checker", command=self.citation_checker)
+        tools_menu.add_command(label="📖 Readability Analyzer", command=self.readability_analyzer)
+        tools_menu.add_command(label="🎯 Paraphrase Detector", command=self.paraphrase_detector)
+        tools_menu.add_separator()
+        tools_menu.add_command(label="⚡ Performance Monitor", command=self.performance_monitor)
+        tools_menu.add_command(label="🔒 Security Settings", command=self.security_settings)
         
