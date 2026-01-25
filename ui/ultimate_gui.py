@@ -279,3 +279,6 @@ class UltimatePlagiarismChecker:
             value_label.pack(pady=(0, 10))
             
             self.dashboard_stats[title] = value_label
+        
+        charts_frame = tk.Frame(tab, bg='#f8f9fa')
+        charts_frame.pack(fill='both', expand=True, padx=20, pady=10)
