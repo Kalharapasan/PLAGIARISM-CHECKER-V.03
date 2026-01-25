@@ -365,3 +365,9 @@ class UltimatePlagiarismChecker:
                                    font=self.fonts['header'], bg='white', 
                                    fg='#2d3748', padx=15, pady=15)
         input_frame.pack(fill='x', padx=10, pady=10)
+        upload_frame = tk.Frame(input_frame, bg='white')
+        upload_frame.pack(fill='x', pady=(0, 15))
+        
+        self.file_label = tk.Label(upload_frame, text="No file selected", 
+                                  font=self.fonts['normal'], bg='white', fg='#4a5568')
+        self.file_label.pack(pady=(0, 10))
