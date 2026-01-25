@@ -431,3 +431,30 @@ class UltimatePlagiarismChecker:
         
         algo_canvas.pack(side="left", fill="both", expand=True)
         algo_scrollbar.pack(side="right", fill="y")
+        self.algo_vars = {}
+        algorithms = [
+            ('cosine_tfidf', 'Cosine Similarity (TF-IDF)', 'Best for general comparison'),
+            ('cosine_count', 'Cosine Similarity (Count)', 'Simple word frequency'),
+            ('jaccard', 'Jaccard Index', 'Set-based similarity'),
+            ('overlap', 'Overlap Coefficient', 'Subset detection'),
+            ('dice', 'Dice Coefficient', 'Balanced comparison'),
+            ('ngram_3', '3-gram Analysis', 'Pattern matching'),
+            ('ngram_5', '5-gram Analysis', 'Detailed patterns'),
+            ('sequence', 'Sequence Matching', 'Exact phrase detection'),
+            ('semantic', 'Semantic Similarity', 'Meaning-based (ML)'),
+            ('lsi', 'LSI Analysis', 'Latent semantic indexing')
+        ]
+        
+        for algo_id, algo_name, algo_desc in algorithms:
+            var = tk.BooleanVar(value=algo_id in self.selected_algorithms)
+            self.algo_vars[algo_id] = var
+            
+            cb_frame = tk.Frame(algo_scrollable_frame, bg='white')
+            cb_frame.pack(fill='x', pady=2)
+            
+            cb = tk.Checkbutton(cb_frame, text=algo_name, variable=var, 
+                               bg='white', font=('Segoe UI', 9), anchor='w')
+            cb.pack(side='left', padx=(0, 5))
+            
+            tk.Label(cb_frame, text=algo_desc, font=('Segoe UI', 8),
+                    bg='white', fg='#a0aec0').pack(side='left')
