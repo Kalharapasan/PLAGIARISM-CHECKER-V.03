@@ -164,4 +164,5 @@ class UltimatePlagiarismChecker:
         self.create_sidebar()
         self.content_frame = tk.Frame(self.main_container, bg='#f8f9fa')
         self.main_container.add(self.content_frame, width=1200)
-        
+        self.notebook = ttk.Notebook(self.content_frame)
+        self.notebook.pack(fill='both', expand=True, padx=5, pady=5)
