@@ -336,3 +336,5 @@ class UltimatePlagiarismChecker:
         main_paned.add(left_panel, width=400)
         self.create_input_section(left_panel)
         self.create_configuration_section(left_panel)
+        right_panel = tk.Frame(main_paned, bg='#f8f9fa')
+        main_paned.add(right_panel, width=800)
