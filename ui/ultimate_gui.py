@@ -26,3 +26,12 @@ class UltimatePlagiarismChecker:
             'monospace': ('Consolas', 9),
             'large': ('Segoe UI', 14, 'bold')
         }
+    
+    def run(self):
+        self.root = tk.Tk()
+        self._setup_window()
+        self._create_menubar()
+        self._create_ui()
+        self._apply_theme()
+        self._center_window()
+        self.root.mainloop()
