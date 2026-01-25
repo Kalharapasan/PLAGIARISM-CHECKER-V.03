@@ -383,3 +383,11 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2', padx=15, pady=8).pack(side='left', padx=5)
         tk.Label(upload_frame, text="Supported formats: DOCX, PDF, TXT, RTF, HTML, EPUB", 
                 font=self.fonts['small'], bg='white', fg='#a0aec0').pack(pady=(10, 0))
+        tk.Label(input_frame, text="Or enter text directly:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w', pady=(0, 5))
+        
+        self.text_input = scrolledtext.ScrolledText(input_frame, height=15, 
+                                                   font=self.fonts['monospace'], 
+                                                   wrap='word', bg='#f7fafc', 
+                                                   fg='#2d3748', bd=1, relief='solid')
+        self.text_input.pack(fill='both', expand=True)
