@@ -316,3 +316,4 @@ class UltimatePlagiarismChecker:
             tk.Button(actions_frame, text=text, font=('Segoe UI', 10),
                      bg='#4299e1', fg='white', padx=20, pady=10,
                      command=command, cursor='hand2').pack(side='left', padx=5)
+        self.load_dashboard_data()
