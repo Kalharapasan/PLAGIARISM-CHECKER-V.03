@@ -173,3 +173,4 @@ class UltimatePlagiarismChecker:
         self.create_history_tab()
         self.create_analytics_tab()
         self.create_settings_tab()
+        self.create_status_bar()
