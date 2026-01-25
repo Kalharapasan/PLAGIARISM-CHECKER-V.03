@@ -458,3 +458,22 @@ class UltimatePlagiarismChecker:
             
             tk.Label(cb_frame, text=algo_desc, font=('Segoe UI', 8),
                     bg='white', fg='#a0aec0').pack(side='left')
+        
+        options_frame = tk.Frame(config_frame, bg='white')
+        options_frame.pack(fill='x', pady=(0, 15))
+        
+        tk.Label(options_frame, text="Additional Analysis:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w', pady=(0, 5))
+        
+        self.analysis_vars = {
+            'readability': tk.BooleanVar(value=self.config.get('detection.ultimate.enable_readability', True)),
+            'citations': tk.BooleanVar(value=self.config.get('detection.ultimate.enable_citations', True)),
+            'keyphrases': tk.BooleanVar(value=True),
+            'structure': tk.BooleanVar(value=True),
+            'paraphrasing': tk.BooleanVar(value=True)
+        }
+        
+        for option, var in self.analysis_vars.items():
+            cb = tk.Checkbutton(options_frame, text=option.replace('_', ' ').title(),
+                               variable=var, bg='white', font=('Segoe UI', 9), anchor='w')
+            cb.pack(anchor='w', pady=1)
