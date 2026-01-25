@@ -207,3 +207,28 @@ class UltimatePlagiarismChecker:
         self.recent_files_list = tk.Frame(recent_frame, bg='#2d3748')
         self.recent_files_list.pack(fill='x')
         self.load_recent_files()
+        stats_frame = tk.Frame(self.sidebar, bg='#2d3748')
+        stats_frame.pack(fill='x', padx=10, pady=10)
+        
+        tk.Label(stats_frame, text="STATISTICS", font=('Segoe UI', 9, 'bold'),
+                bg='#2d3748', fg='#a0aec0', anchor='w').pack(fill='x', pady=(0, 10))
+        
+        self.stats_labels = {}
+        stats = [
+            ("Documents", f"{len(self.database):,}"),
+            ("Checks Today", "0"),
+            ("Avg Similarity", "0%"),
+            ("High Risk", "0")
+        ]
+        
+        for label, value in stats:
+            stat_frame = tk.Frame(stats_frame, bg='#2d3748')
+            stat_frame.pack(fill='x', pady=2)
+            
+            tk.Label(stat_frame, text=label, font=('Segoe UI', 8),
+                    bg='#2d3748', fg='#cbd5e0', anchor='w').pack(side='left')
+            
+            value_label = tk.Label(stat_frame, text=value, font=('Segoe UI', 9, 'bold'),
+                                  bg='#2d3748', fg='#63b3ed', anchor='e')
+            value_label.pack(side='right')
+            self.stats_labels[label] = value_label
