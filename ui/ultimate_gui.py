@@ -51,3 +51,12 @@ class UltimatePlagiarismChecker:
     def _create_menubar(self):
         menubar = tk.Menu(self.root)
         self.root.config(menu=menubar)
+        file_menu = tk.Menu(menubar, tearoff=0)
+        menubar.add_cascade(label="File", menu=file_menu)
+        file_menu.add_command(label="📁 Open Document", command=self.select_file, accelerator="Ctrl+O")
+        file_menu.add_command(label="📂 Open Folder", command=self.select_folder)
+        file_menu.add_command(label="📋 Paste Text", command=self.paste_text)
+        file_menu.add_separator()
+        file_menu.add_command(label="🔄 Batch Processing", command=lambda: self.notebook.select(1))
+        file_menu.add_command(label="📊 Dashboard", command=lambda: self.notebook.select(4))
+        file_menu.add_separator()
