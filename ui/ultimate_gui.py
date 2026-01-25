@@ -417,3 +417,17 @@ class UltimatePlagiarismChecker:
         
         tk.Label(algo_frame, text="Detection Algorithms:", 
                 font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w')
+        algo_canvas = tk.Canvas(algo_frame, bg='white', height=150, highlightthickness=0)
+        algo_scrollbar = tk.Scrollbar(algo_frame, orient='vertical', command=algo_canvas.yview)
+        algo_scrollable_frame = tk.Frame(algo_canvas, bg='white')
+        
+        algo_scrollable_frame.bind(
+            "<Configure>",
+            lambda e: algo_canvas.configure(scrollregion=algo_canvas.bbox("all"))
+        )
+        
+        algo_canvas.create_window((0, 0), window=algo_scrollable_frame, anchor="nw")
+        algo_canvas.configure(yscrollcommand=algo_scrollbar.set)
+        
+        algo_canvas.pack(side="left", fill="both", expand=True)
+        algo_scrollbar.pack(side="right", fill="y")
