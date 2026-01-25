@@ -328,3 +328,5 @@ class UltimatePlagiarismChecker:
         return card
 
     def create_checker_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="🔍 Document Checker")
