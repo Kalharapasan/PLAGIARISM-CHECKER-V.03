@@ -334,3 +334,4 @@ class UltimatePlagiarismChecker:
         main_paned.pack(fill='both', expand=True)
         left_panel = tk.Frame(main_paned, bg='white')
         main_paned.add(left_panel, width=400)
+        self.create_input_section(left_panel)
