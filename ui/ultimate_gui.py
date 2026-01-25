@@ -115,3 +115,12 @@ class UltimatePlagiarismChecker:
         analysis_menu.add_command(label="🔬 Deep Analysis", command=self.deep_analysis)
         analysis_menu.add_command(label="📈 Compare Documents", command=self.compare_documents)
         analysis_menu.add_separator()
+        algo_menu = tk.Menu(analysis_menu, tearoff=0)
+        analysis_menu.add_cascade(label="⚙️ Algorithms", menu=algo_menu)
+        algo_menu.add_command(label="🧮 Configure", command=self.configure_algorithms)
+        algo_menu.add_command(label="📊 Performance", command=self.show_algorithm_performance)
+        
+        analysis_menu.add_separator()
+        analysis_menu.add_command(label="📊 Generate Report", command=self.generate_comprehensive_report)
+        analysis_menu.add_command(label="📈 Create Visualizations", command=self.generate_visualizations)
+        
