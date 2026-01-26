@@ -589,5 +589,12 @@ class UltimatePlagiarismChecker:
     def create_statistics_section(self, parent):
         stats_notebook = ttk.Notebook(parent)
         stats_notebook.pack(fill='both', expand=True, padx=10, pady=10)
+        basic_tab = ttk.Frame(stats_notebook)
+        stats_notebook.add(basic_tab, text="Basic")
+        
+        self.basic_stats_text = scrolledtext.ScrolledText(basic_tab, 
+                                                         font=self.fonts['monospace'],
+                                                         wrap='word', state='disabled')
+        self.basic_stats_text.pack(fill='both', expand=True)
         
         
