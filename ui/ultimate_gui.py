@@ -893,3 +893,9 @@ class UltimatePlagiarismChecker:
         history_container.pack(fill='both', expand=True, padx=20, pady=10)
         left_panel = tk.Frame(history_container, bg='white', relief='raised', bd=1)
         history_container.add(left_panel, width=600)
+        toolbar = tk.Frame(left_panel, bg='#f7fafc', height=50)
+        toolbar.pack(fill='x')
+        toolbar.pack_propagate(False)
+        
+        tk.Label(toolbar, text="Check History", font=self.fonts['header'],
+                bg='#f7fafc', fg='#2d3748').pack(side='left', padx=15, pady=15)
