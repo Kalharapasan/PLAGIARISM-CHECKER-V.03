@@ -699,5 +699,7 @@ class UltimatePlagiarismChecker:
         tk.Button(file_buttons, text="🧹 Clear All", command=self.clear_batch_files,
                  bg='#a0aec0', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(side='left', padx=2)
+        right_panel = tk.Frame(batch_container, bg='white', relief='raised', bd=1)
+        batch_container.add(right_panel, width=400)
         
         
