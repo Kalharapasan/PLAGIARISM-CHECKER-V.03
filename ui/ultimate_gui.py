@@ -749,5 +749,22 @@ class UltimatePlagiarismChecker:
                                variable=var, bg='white', font=self.fonts['small'], anchor='w')
             cb.pack(anchor='w', pady=2)
         
+        progress_frame = tk.Frame(right_panel, bg='white')
+        progress_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Label(progress_frame, text="Progress", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(anchor='w', pady=(0, 10))
+        
+        self.batch_progress = ttk.Progressbar(progress_frame, mode='determinate')
+        self.batch_progress.pack(fill='x', pady=(0, 5))
+        
+        self.progress_label = tk.Label(progress_frame, text="Ready", 
+                                      font=self.fonts['small'], bg='white', fg='#4a5568')
+        self.progress_label.pack()
+        
+        self.time_label = tk.Label(progress_frame, text="Estimated time: --", 
+                                  font=self.fonts['small'], bg='white', fg='#a0aec0')
+        self.time_label.pack()
+        
         
         
