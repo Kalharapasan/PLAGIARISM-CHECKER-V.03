@@ -701,5 +701,10 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(side='left', padx=2)
         right_panel = tk.Frame(batch_container, bg='white', relief='raised', bd=1)
         batch_container.add(right_panel, width=400)
+        tk.Label(right_panel, text="Configuration", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(pady=15, padx=15, anchor='w')
+        
+        config_frame = tk.Frame(right_panel, bg='white')
+        config_frame.pack(fill='x', padx=15, pady=(0, 15))
         
         
