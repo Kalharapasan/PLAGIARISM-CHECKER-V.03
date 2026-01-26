@@ -681,5 +681,23 @@ class UltimatePlagiarismChecker:
         list_scrollbar = tk.Scrollbar(list_frame, command=self.batch_listbox.yview)
         list_scrollbar.pack(side='right', fill='y')
         self.batch_listbox.config(yscrollcommand=list_scrollbar.set)
+        file_buttons = tk.Frame(left_panel, bg='white')
+        file_buttons.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Button(file_buttons, text="📁 Add Files", command=self.add_batch_files,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(file_buttons, text="📂 Add Folder", command=self.add_batch_folder,
+                 bg='#38a169', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(file_buttons, text="🗑️ Remove", command=self.remove_batch_file,
+                 bg='#e53e3e', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
+        
+        tk.Button(file_buttons, text="🧹 Clear All", command=self.clear_batch_files,
+                 bg='#a0aec0', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2)
         
         
