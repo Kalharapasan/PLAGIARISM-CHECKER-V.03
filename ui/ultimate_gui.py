@@ -610,5 +610,7 @@ class UltimatePlagiarismChecker:
                                                        font=self.fonts['monospace'],
                                                        wrap='word', state='disabled')
         self.algorithm_text.pack(fill='both', expand=True)
+    
+    def create_details_section(self, parent):
         
         
