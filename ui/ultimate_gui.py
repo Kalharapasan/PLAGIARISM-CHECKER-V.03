@@ -899,3 +899,16 @@ class UltimatePlagiarismChecker:
         
         tk.Label(toolbar, text="Check History", font=self.fonts['header'],
                 bg='#f7fafc', fg='#2d3748').pack(side='left', padx=15, pady=15)
+        filter_frame = tk.Frame(toolbar, bg='#f7fafc')
+        filter_frame.pack(side='right', padx=15, pady=10)
+        
+        self.filter_var = tk.StringVar(value="all")
+        filter_menu = ttk.Combobox(filter_frame, textvariable=self.filter_var,
+                                  values=["All", "Today", "This Week", "This Month", "High Risk"],
+                                  width=15, state='readonly')
+        filter_menu.pack(side='left', padx=(0, 5))
+        filter_menu.bind('<<ComboboxSelected>>', lambda e: self.filter_history())
+        
+        tk.Button(filter_frame, text="🔄 Refresh", command=self.refresh_history,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='right', padx=2)
