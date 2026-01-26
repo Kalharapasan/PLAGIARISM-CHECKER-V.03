@@ -934,3 +934,4 @@ class UltimatePlagiarismChecker:
         tree_scrollbar = tk.Scrollbar(tree_frame, command=self.history_tree.yview)
         tree_scrollbar.pack(side='right', fill='y')
         self.history_tree.config(yscrollcommand=tree_scrollbar.set)
+        self.history_tree.bind('<Double-Button-1>', self.open_history_report)
