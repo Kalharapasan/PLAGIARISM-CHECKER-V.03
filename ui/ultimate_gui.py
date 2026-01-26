@@ -1001,3 +1001,5 @@ class UltimatePlagiarismChecker:
         tk.Button(control_frame, text="🧹 Clear History", command=self.clear_history,
                  bg='#e53e3e', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        self.refresh_history()
+        self.history_tree.bind('<<TreeviewSelect>>', self.on_history_select)
