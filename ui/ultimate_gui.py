@@ -612,5 +612,7 @@ class UltimatePlagiarismChecker:
         self.algorithm_text.pack(fill='both', expand=True)
     
     def create_details_section(self, parent):
+        details_notebook = ttk.Notebook(parent)
+        details_notebook.pack(fill='both', expand=True, padx=10, pady=10)
         
         
