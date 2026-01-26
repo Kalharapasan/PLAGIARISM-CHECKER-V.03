@@ -708,3 +708,4 @@ class UltimatePlagiarismChecker:
         config_frame.pack(fill='x', padx=15, pady=(0, 15))
         
         
+        
