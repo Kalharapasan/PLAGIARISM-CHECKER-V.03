@@ -506,4 +506,7 @@ class UltimatePlagiarismChecker:
     
     
     def create_results_metrics(self, parent):
+        metrics_frame = tk.Frame(parent, bg='#f8f9fa')
+        metrics_frame.pack(fill='x', padx=10, pady=10)
+        
         
