@@ -553,5 +553,7 @@ class UltimatePlagiarismChecker:
         tk.Button(toolbar, text="🔍 Filter", command=self.filter_matches,
                  bg='#38a169', fg='white', font=('Segoe UI', 9),
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
+        tree_frame = tk.Frame(parent, bg='white')
+        tree_frame.pack(fill='both', expand=True, padx=10, pady=(0, 10))
         
         
