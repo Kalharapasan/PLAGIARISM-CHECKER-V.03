@@ -538,5 +538,7 @@ class UltimatePlagiarismChecker:
                     bg='white', fg='#718096').pack(pady=(0, 15))
             
             self.metric_labels[label] = value_label
+    
+    def create_matches_section(self, parent):
         
         
