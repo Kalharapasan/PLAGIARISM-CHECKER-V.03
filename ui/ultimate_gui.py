@@ -1049,3 +1049,5 @@ class UltimatePlagiarismChecker:
         self.status_label = tk.Label(self.status_bar, text="Ready", 
                                     font=self.fonts['small'], bg='#2d3748', fg='#e2e8f0')
         self.status_label.pack(side='left', padx=10)
+        sysinfo_frame = tk.Frame(self.status_bar, bg='#2d3748')
+        sysinfo_frame.pack(side='right', padx=10)
