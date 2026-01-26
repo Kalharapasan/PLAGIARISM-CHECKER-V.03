@@ -790,4 +790,22 @@ class UltimatePlagiarismChecker:
         db_container.pack(fill='both', expand=True, padx=20, pady=10)
         left_panel = tk.Frame(db_container, bg='white', relief='raised', bd=1)
         db_container.add(left_panel, width=600)
+        toolbar = tk.Frame(left_panel, bg='#f7fafc', height=50)
+        toolbar.pack(fill='x')
+        toolbar.pack_propagate(False)
         
+        tk.Label(toolbar, text="Documents", font=self.fonts['header'],
+                bg='#f7fafc', fg='#2d3748').pack(side='left', padx=15, pady=15)
+        
+        search_frame = tk.Frame(toolbar, bg='#f7fafc')
+        search_frame.pack(side='right', padx=15, pady=10)
+        
+        self.search_var = tk.StringVar()
+        search_entry = tk.Entry(search_frame, textvariable=self.search_var,
+                               font=self.fonts['normal'], width=30, bg='white')
+        search_entry.pack(side='left', padx=(0, 5))
+        search_entry.bind('<Return>', lambda e: self.search_database())
+        
+        tk.Button(search_frame, text="🔍", command=self.search_database,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='right')
