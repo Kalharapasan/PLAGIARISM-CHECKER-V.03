@@ -585,5 +585,7 @@ class UltimatePlagiarismChecker:
         tree_scroll_y.config(command=self.matches_tree.yview)
         tree_scroll_x.config(command=self.matches_tree.xview)
         self.matches_tree.bind('<Double-Button-1>', self.show_match_details)
+    
+    def create_statistics_section(self, parent):
         
         
