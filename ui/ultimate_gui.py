@@ -628,5 +628,12 @@ class UltimatePlagiarismChecker:
                                                        font=self.fonts['monospace'],
                                                        wrap='word', state='disabled')
         self.citations_text.pack(fill='both', expand=True)
+        phrases_tab = ttk.Frame(details_notebook)
+        details_notebook.add(phrases_tab, text="Key Phrases")
+        
+        self.phrases_text = scrolledtext.ScrolledText(phrases_tab,
+                                                     font=self.fonts['monospace'],
+                                                     wrap='word', state='disabled')
+        self.phrases_text.pack(fill='both', expand=True)
         
         
