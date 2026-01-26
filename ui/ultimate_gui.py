@@ -518,5 +518,25 @@ class UltimatePlagiarismChecker:
         self.score_desc = tk.Label(score_card, text="Ready to analyze", 
                                   font=self.fonts['normal'], bg='white', fg='#718096')
         self.score_desc.pack(pady=(0, 10))
+        self.metric_labels = {}
+        stats = [
+            ("Words", "0"),
+            ("Matches", "0"),
+            ("Sources", "0"),
+            ("Risk", "--")
+        ]
+        
+        for label, value in stats:
+            stat_card = tk.Frame(metrics_frame, bg='white', relief='raised', bd=1)
+            stat_card.pack(side='left', fill='both', expand=True, padx=5)
+            
+            value_label = tk.Label(stat_card, text=value, font=('Segoe UI', 24, 'bold'),
+                                  bg='white', fg='#667eea')
+            value_label.pack(pady=(15, 5))
+            
+            tk.Label(stat_card, text=label, font=self.fonts['small'],
+                    bg='white', fg='#718096').pack(pady=(0, 15))
+            
+            self.metric_labels[label] = value_label
         
         
