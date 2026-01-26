@@ -637,5 +637,7 @@ class UltimatePlagiarismChecker:
         self.phrases_text.pack(fill='both', expand=True)
     
     def create_visualization_section(self, parent):
+        viz_frame = tk.Frame(parent, bg='white')
+        viz_frame.pack(fill='both', expand=True, padx=10, pady=10)
         
         
