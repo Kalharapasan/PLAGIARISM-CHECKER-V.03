@@ -1005,3 +1005,8 @@ class UltimatePlagiarismChecker:
         self.history_tree.bind('<<TreeviewSelect>>', self.on_history_select)
     
     def create_analytics_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📈 Analytics")
+        
+        tk.Label(tab, text="📊 Advanced Analytics", 
+                font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
