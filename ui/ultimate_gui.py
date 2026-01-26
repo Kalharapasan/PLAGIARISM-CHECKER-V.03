@@ -809,3 +809,5 @@ class UltimatePlagiarismChecker:
         tk.Button(search_frame, text="🔍", command=self.search_database,
                  bg='#4299e1', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(side='right')
+        tree_frame = tk.Frame(left_panel, bg='white')
+        tree_frame.pack(fill='both', expand=True, padx=15, pady=(0, 15))
