@@ -982,3 +982,22 @@ class UltimatePlagiarismChecker:
                                   bg='white', fg='#667eea')
             value_label.pack(side='right')
             self.analytics_labels[label] = value_label
+        
+        control_frame = tk.Frame(right_panel, bg='white')
+        control_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Button(control_frame, text="📊 View Analytics", command=self.show_history_analytics,
+                 bg='#9f7aea', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="📈 View Trends", command=self.show_trends,
+                 bg='#ed8936', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="📋 Export History", command=self.export_history,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="🧹 Clear History", command=self.clear_history,
+                 bg='#e53e3e', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
