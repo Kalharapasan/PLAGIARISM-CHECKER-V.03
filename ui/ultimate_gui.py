@@ -832,3 +832,29 @@ class UltimatePlagiarismChecker:
         self.db_tree.config(yscrollcommand=tree_scrollbar.set)
         right_panel = tk.Frame(db_container, bg='white', relief='raised', bd=1)
         db_container.add(right_panel, width=400)
+        tk.Label(right_panel, text="Document Details", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(pady=15, padx=15, anchor='w')
+        
+        self.doc_details = {}
+        details_frame = tk.Frame(right_panel, bg='white')
+        details_frame.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        
+        fields = ['Source', 'Category', 'URL', 'Words', 'Added', 'Content']
+        for field in fields:
+            frame = tk.Frame(details_frame, bg='white')
+            frame.pack(fill='x', pady=2)
+            
+            tk.Label(frame, text=f"{field}:", font=self.fonts['normal'],
+                    bg='white', fg='#4a5568', width=10, anchor='w').pack(side='left')
+            
+            if field == 'Content':
+                text_widget = scrolledtext.ScrolledText(frame, height=10,
+                                                       font=self.fonts['small'],
+                                                       wrap='word', state='disabled')
+                text_widget.pack(side='left', fill='both', expand=True)
+                self.doc_details[field] = text_widget
+            else:
+                label = tk.Label(frame, text="", font=self.fonts['normal'],
+                                bg='white', fg='#2d3748', anchor='w')
+                label.pack(side='left', fill='x', expand=True)
+                self.doc_details[field] = label
