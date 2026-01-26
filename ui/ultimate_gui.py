@@ -652,5 +652,7 @@ class UltimatePlagiarismChecker:
         tk.Button(viz_toolbar, text="💾 Save", command=self.save_visualizations,
                  bg='#38a169', fg='white', font=('Segoe UI', 9),
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
+        self.viz_canvas = tk.Canvas(viz_frame, bg='white', highlightthickness=0)
+        self.viz_canvas.pack(fill='both', expand=True)
         
         
