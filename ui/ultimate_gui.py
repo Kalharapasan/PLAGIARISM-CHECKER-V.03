@@ -1022,3 +1022,8 @@ class UltimatePlagiarismChecker:
         analytics_notebook.add(stats_tab, text="Statistics")
     
     def create_settings_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="⚙️ Settings")
+        
+        tk.Label(tab, text="⚙️ Application Settings", 
+                font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
