@@ -1027,3 +1027,5 @@ class UltimatePlagiarismChecker:
         
         tk.Label(tab, text="⚙️ Application Settings", 
                 font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
+        settings_notebook = ttk.Notebook(tab)
+        settings_notebook.pack(fill='both', expand=True, padx=20, pady=10)
