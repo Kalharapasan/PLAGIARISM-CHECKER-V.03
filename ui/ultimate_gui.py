@@ -956,3 +956,29 @@ class UltimatePlagiarismChecker:
                             bg='white', fg='#2d3748', anchor='w')
             label.pack(side='left', fill='x', expand=True)
             self.history_details[field] = label
+        
+        analytics_frame = tk.Frame(right_panel, bg='white')
+        analytics_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Label(analytics_frame, text="Analytics Summary", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(anchor='w', pady=(0, 10))
+        
+        self.analytics_labels = {}
+        analytics_data = [
+            ("Total Checks", "0"),
+            ("Average Score", "0%"),
+            ("High Risk", "0"),
+            ("Most Checked", "--")
+        ]
+        
+        for label, value in analytics_data:
+            frame = tk.Frame(analytics_frame, bg='white')
+            frame.pack(fill='x', pady=2)
+            
+            tk.Label(frame, text=label, font=self.fonts['normal'],
+                    bg='white', fg='#4a5568').pack(side='left')
+            
+            value_label = tk.Label(frame, text=value, font=self.fonts['normal'],
+                                  bg='white', fg='#667eea')
+            value_label.pack(side='right')
+            self.analytics_labels[label] = value_label
