@@ -503,3 +503,7 @@ class UltimatePlagiarismChecker:
         tk.Button(preset_frame, text="🔍 Thorough", command=self.set_thorough_preset,
                  bg='#ed8936', fg='white', font=('Segoe UI', 9),
                  relief='flat', cursor='hand2').pack(side='left', padx=2)
+    
+    
+    def create_results_metrics(self, parent):
+        
