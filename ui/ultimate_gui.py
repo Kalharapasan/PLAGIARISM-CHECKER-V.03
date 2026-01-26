@@ -668,5 +668,18 @@ class UltimatePlagiarismChecker:
         batch_container.pack(fill='both', expand=True, padx=20, pady=10)
         left_panel = tk.Frame(batch_container, bg='white', relief='raised', bd=1)
         batch_container.add(left_panel, width=400)
+        tk.Label(left_panel, text="Selected Files", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(pady=15, padx=15, anchor='w')
+        
+        list_frame = tk.Frame(left_panel, bg='white')
+        list_frame.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        
+        self.batch_listbox = tk.Listbox(list_frame, font=self.fonts['monospace'],
+                                       selectmode='extended', bg='#f7fafc')
+        self.batch_listbox.pack(side='left', fill='both', expand=True)
+        
+        list_scrollbar = tk.Scrollbar(list_frame, command=self.batch_listbox.yview)
+        list_scrollbar.pack(side='right', fill='y')
+        self.batch_listbox.config(yscrollcommand=list_scrollbar.set)
         
         
