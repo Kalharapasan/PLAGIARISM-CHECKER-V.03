@@ -706,6 +706,20 @@ class UltimatePlagiarismChecker:
         
         config_frame = tk.Frame(right_panel, bg='white')
         config_frame.pack(fill='x', padx=15, pady=(0, 15))
+        tk.Label(config_frame, text="Output Directory:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w', pady=(0, 5))
+        
+        output_frame = tk.Frame(config_frame, bg='white')
+        output_frame.pack(fill='x', pady=(0, 10))
+        
+        self.output_dir_var = tk.StringVar(value="batch_reports")
+        output_entry = tk.Entry(output_frame, textvariable=self.output_dir_var,
+                               font=self.fonts['normal'], bg='#f7fafc')
+        output_entry.pack(side='left', fill='x', expand=True, padx=(0, 5))
+        
+        tk.Button(output_frame, text="📁", command=self.choose_output_dir,
+                 bg='#a0aec0', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='right')
         
         
         
