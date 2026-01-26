@@ -811,3 +811,22 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(side='right')
         tree_frame = tk.Frame(left_panel, bg='white')
         tree_frame.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        columns = ('ID', 'Source', 'Category', 'Words', 'Added', 'URL')
+        self.db_tree = ttk.Treeview(tree_frame, columns=columns, show='headings', height=20)
+        
+        for col in columns:
+            self.db_tree.heading(col, text=col)
+            self.db_tree.column(col, width=100)
+        
+        self.db_tree.column('ID', width=50)
+        self.db_tree.column('Source', width=200)
+        self.db_tree.column('Category', width=100)
+        self.db_tree.column('Words', width=80)
+        self.db_tree.column('Added', width=120)
+        self.db_tree.column('URL', width=150)
+        
+        self.db_tree.pack(side='left', fill='both', expand=True)
+        
+        tree_scrollbar = tk.Scrollbar(tree_frame, command=self.db_tree.yview)
+        tree_scrollbar.pack(side='right', fill='y')
+        self.db_tree.config(yscrollcommand=tree_scrollbar.set)
