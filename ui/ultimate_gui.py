@@ -603,5 +603,12 @@ class UltimatePlagiarismChecker:
                                                          font=self.fonts['monospace'],
                                                          wrap='word', state='disabled')
         self.readability_text.pack(fill='both', expand=True)
+        algo_tab = ttk.Frame(stats_notebook)
+        stats_notebook.add(algo_tab, text="Algorithms")
+        
+        self.algorithm_text = scrolledtext.ScrolledText(algo_tab,
+                                                       font=self.fonts['monospace'],
+                                                       wrap='word', state='disabled')
+        self.algorithm_text.pack(fill='both', expand=True)
         
         
