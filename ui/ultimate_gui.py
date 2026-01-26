@@ -830,3 +830,5 @@ class UltimatePlagiarismChecker:
         tree_scrollbar = tk.Scrollbar(tree_frame, command=self.db_tree.yview)
         tree_scrollbar.pack(side='right', fill='y')
         self.db_tree.config(yscrollcommand=tree_scrollbar.set)
+        right_panel = tk.Frame(db_container, bg='white', relief='raised', bd=1)
+        db_container.add(right_panel, width=400)
