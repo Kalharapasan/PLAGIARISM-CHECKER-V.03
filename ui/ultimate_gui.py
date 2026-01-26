@@ -891,3 +891,5 @@ class UltimatePlagiarismChecker:
                 font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
         history_container = tk.PanedWindow(tab, orient='horizontal')
         history_container.pack(fill='both', expand=True, padx=20, pady=10)
+        left_panel = tk.Frame(history_container, bg='white', relief='raised', bd=1)
+        history_container.add(left_panel, width=600)
