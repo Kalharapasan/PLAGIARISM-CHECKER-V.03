@@ -720,6 +720,19 @@ class UltimatePlagiarismChecker:
         tk.Button(output_frame, text="📁", command=self.choose_output_dir,
                  bg='#a0aec0', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(side='right')
+        tk.Label(config_frame, text="Report Format:", 
+                font=self.fonts['normal'], bg='white', fg='#4a5568').pack(anchor='w', pady=(0, 5))
+        
+        self.report_format_var = tk.StringVar(value="html")
+        format_frame = tk.Frame(config_frame, bg='white')
+        format_frame.pack(fill='x', pady=(0, 10))
+        
+        formats = [("Text", "txt"), ("HTML", "html"), ("PDF", "pdf"), ("All", "all")]
+        for text, value in formats:
+            rb = tk.Radiobutton(format_frame, text=text, value=value,
+                               variable=self.report_format_var, bg='white',
+                               font=self.fonts['small'])
+            rb.pack(side='left', padx=5)
         
         
         
