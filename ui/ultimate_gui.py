@@ -858,3 +858,25 @@ class UltimatePlagiarismChecker:
                                 bg='white', fg='#2d3748', anchor='w')
                 label.pack(side='left', fill='x', expand=True)
                 self.doc_details[field] = label
+        control_frame = tk.Frame(right_panel, bg='white')
+        control_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Button(control_frame, text="➕ Add Document", command=self.add_to_database,
+                 bg='#48bb78', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="✏️ Edit Selected", command=self.edit_document,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="🗑️ Delete Selected", command=self.delete_from_database,
+                 bg='#e53e3e', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="📥 Import", command=self.import_documents,
+                 bg='#9f7aea', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        
+        tk.Button(control_frame, text="📤 Export", command=self.export_database,
+                 bg='#ed8936', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(fill='x', pady=2)
