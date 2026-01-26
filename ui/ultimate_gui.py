@@ -1003,3 +1003,5 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(fill='x', pady=2)
         self.refresh_history()
         self.history_tree.bind('<<TreeviewSelect>>', self.on_history_select)
+    
+    def create_analytics_tab(self):
