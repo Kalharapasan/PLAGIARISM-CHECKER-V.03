@@ -614,5 +614,12 @@ class UltimatePlagiarismChecker:
     def create_details_section(self, parent):
         details_notebook = ttk.Notebook(parent)
         details_notebook.pack(fill='both', expand=True, padx=10, pady=10)
+        text_tab = ttk.Frame(details_notebook)
+        details_notebook.add(text_tab, text="Text Analysis")
+        
+        self.text_analysis_text = scrolledtext.ScrolledText(text_tab,
+                                                           font=self.fonts['monospace'],
+                                                           wrap='word', state='disabled')
+        self.text_analysis_text.pack(fill='both', expand=True)
         
         
