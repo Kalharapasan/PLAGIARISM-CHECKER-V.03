@@ -587,5 +587,7 @@ class UltimatePlagiarismChecker:
         self.matches_tree.bind('<Double-Button-1>', self.show_match_details)
     
     def create_statistics_section(self, parent):
+        stats_notebook = ttk.Notebook(parent)
+        stats_notebook.pack(fill='both', expand=True, padx=10, pady=10)
         
         
