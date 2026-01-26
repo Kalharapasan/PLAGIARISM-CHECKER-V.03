@@ -555,5 +555,16 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
         tree_frame = tk.Frame(parent, bg='white')
         tree_frame.pack(fill='both', expand=True, padx=10, pady=(0, 10))
+        tree_scroll_y = tk.Scrollbar(tree_frame)
+        tree_scroll_y.pack(side='right', fill='y')
+        
+        tree_scroll_x = tk.Scrollbar(tree_frame, orient='horizontal')
+        tree_scroll_x.pack(side='bottom', fill='x')
+        
+        columns = ('#', 'Source', 'Similarity', 'Confidence', 'Risk', 'Sequences')
+        self.matches_tree = ttk.Treeview(tree_frame, columns=columns, 
+                                        show='headings', height=15,
+                                        yscrollcommand=tree_scroll_y.set,
+                                        xscrollcommand=tree_scroll_x.set)
         
         
