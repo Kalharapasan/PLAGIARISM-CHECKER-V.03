@@ -639,5 +639,18 @@ class UltimatePlagiarismChecker:
     def create_visualization_section(self, parent):
         viz_frame = tk.Frame(parent, bg='white')
         viz_frame.pack(fill='both', expand=True, padx=10, pady=10)
+        viz_toolbar = tk.Frame(viz_frame, bg='#f7fafc')
+        viz_toolbar.pack(fill='x', pady=(0, 10))
+        
+        tk.Label(viz_toolbar, text="Visualizations", font=self.fonts['header'],
+                bg='#f7fafc', fg='#2d3748').pack(side='left')
+        
+        tk.Button(viz_toolbar, text="📈 Generate", command=self.generate_visualizations,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='right', padx=5)
+        
+        tk.Button(viz_toolbar, text="💾 Save", command=self.save_visualizations,
+                 bg='#38a169', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='right', padx=5)
         
         
