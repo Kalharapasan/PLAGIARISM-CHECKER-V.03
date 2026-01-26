@@ -880,3 +880,5 @@ class UltimatePlagiarismChecker:
         tk.Button(control_frame, text="📤 Export", command=self.export_database,
                  bg='#ed8936', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(fill='x', pady=2)
+        self.refresh_database_view()
+        self.db_tree.bind('<<TreeviewSelect>>', self.on_document_select)
