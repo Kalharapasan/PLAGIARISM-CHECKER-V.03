@@ -566,5 +566,23 @@ class UltimatePlagiarismChecker:
                                         show='headings', height=15,
                                         yscrollcommand=tree_scroll_y.set,
                                         xscrollcommand=tree_scroll_x.set)
+        self.matches_tree.heading('#', text='#')
+        self.matches_tree.heading('Source', text='Source')
+        self.matches_tree.heading('Similarity', text='Similarity')
+        self.matches_tree.heading('Confidence', text='Confidence')
+        self.matches_tree.heading('Risk', text='Risk Level')
+        self.matches_tree.heading('Sequences', text='Sequences')
+        
+        self.matches_tree.column('#', width=40, anchor='center')
+        self.matches_tree.column('Source', width=250)
+        self.matches_tree.column('Similarity', width=80, anchor='center')
+        self.matches_tree.column('Confidence', width=100, anchor='center')
+        self.matches_tree.column('Risk', width=100, anchor='center')
+        self.matches_tree.column('Sequences', width=80, anchor='center')
+        
+        self.matches_tree.pack(side='left', fill='both', expand=True)
+        
+        tree_scroll_y.config(command=self.matches_tree.yview)
+        tree_scroll_x.config(command=self.matches_tree.xview)
         
         
