@@ -1039,3 +1039,5 @@ class UltimatePlagiarismChecker:
         settings_notebook.add(ui_tab, text="Interface") 
         performance_tab = ttk.Frame(settings_notebook)
         settings_notebook.add(performance_tab, text="Performance")
+        advanced_tab = ttk.Frame(settings_notebook)
+        settings_notebook.add(advanced_tab, text="Advanced")
