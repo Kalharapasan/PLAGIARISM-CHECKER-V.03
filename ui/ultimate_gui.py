@@ -734,5 +734,20 @@ class UltimatePlagiarismChecker:
                                font=self.fonts['small'])
             rb.pack(side='left', padx=5)
         
+        options_frame = tk.Frame(right_panel, bg='white')
+        options_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        self.batch_options = {
+            'skip_errors': tk.BooleanVar(value=True),
+            'generate_summary': tk.BooleanVar(value=True),
+            'save_to_history': tk.BooleanVar(value=True),
+            'use_multithreading': tk.BooleanVar(value=True)
+        }
+        
+        for option, var in self.batch_options.items():
+            cb = tk.Checkbutton(options_frame, text=option.replace('_', ' ').title(),
+                               variable=var, bg='white', font=self.fonts['small'], anchor='w')
+            cb.pack(anchor='w', pady=2)
+        
         
         
