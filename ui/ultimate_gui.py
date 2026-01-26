@@ -1014,3 +1014,5 @@ class UltimatePlagiarismChecker:
         analytics_notebook.pack(fill='both', expand=True, padx=20, pady=10)
         overview_tab = ttk.Frame(analytics_notebook)
         analytics_notebook.add(overview_tab, text="Overview")
+        trends_tab = ttk.Frame(analytics_notebook)
+        analytics_notebook.add(trends_tab, text="Trends")
