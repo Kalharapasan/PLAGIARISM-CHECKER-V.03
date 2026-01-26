@@ -654,5 +654,8 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
         self.viz_canvas = tk.Canvas(viz_frame, bg='white', highlightthickness=0)
         self.viz_canvas.pack(fill='both', expand=True)
+        placeholder = tk.Label(self.viz_canvas, text="Visualizations will appear here\nClick 'Generate' to create charts",
+                              font=self.fonts['normal'], bg='white', fg='#a0aec0')
+        placeholder.place(relx=0.5, rely=0.5, anchor='center')
         
         
