@@ -1036,4 +1036,5 @@ class UltimatePlagiarismChecker:
         database_tab = ttk.Frame(settings_notebook)
         settings_notebook.add(database_tab, text="Database")
         ui_tab = ttk.Frame(settings_notebook)
-        settings_notebook.add(ui_tab, text="Interface")
+        settings_notebook.add(ui_tab, text="Interface") 
+        
