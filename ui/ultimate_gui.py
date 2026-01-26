@@ -508,5 +508,15 @@ class UltimatePlagiarismChecker:
     def create_results_metrics(self, parent):
         metrics_frame = tk.Frame(parent, bg='#f8f9fa')
         metrics_frame.pack(fill='x', padx=10, pady=10)
+        score_card = tk.Frame(metrics_frame, bg='white', relief='raised', bd=1)
+        score_card.pack(side='left', fill='both', expand=True, padx=5)
+        
+        self.score_label = tk.Label(score_card, text="--", 
+                                   font=('Segoe UI', 48, 'bold'), bg='white', fg='#718096')
+        self.score_label.pack(pady=10)
+        
+        self.score_desc = tk.Label(score_card, text="Ready to analyze", 
+                                  font=self.fonts['normal'], bg='white', fg='#718096')
+        self.score_desc.pack(pady=(0, 10))
         
         
