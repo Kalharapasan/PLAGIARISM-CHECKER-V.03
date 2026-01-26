@@ -779,6 +779,6 @@ class UltimatePlagiarismChecker:
         tk.Button(control_frame, text="⏹️ Stop", command=self.stop_batch,
                  bg='#e53e3e', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(side='right', padx=2, pady=5)
-        
-        
+    
+    def create_database_tab(self):
         
