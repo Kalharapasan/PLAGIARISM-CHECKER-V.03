@@ -1057,3 +1057,4 @@ class UltimatePlagiarismChecker:
         self.memory_label = tk.Label(sysinfo_frame, text="Memory: --", 
                                     font=self.fonts['small'], bg='#2d3748', fg='#a0aec0')
         self.memory_label.pack(side='right', padx=5)
+        self.update_memory_usage()
