@@ -596,5 +596,12 @@ class UltimatePlagiarismChecker:
                                                          font=self.fonts['monospace'],
                                                          wrap='word', state='disabled')
         self.basic_stats_text.pack(fill='both', expand=True)
+        readability_tab = ttk.Frame(stats_notebook)
+        stats_notebook.add(readability_tab, text="Readability")
+        
+        self.readability_text = scrolledtext.ScrolledText(readability_tab,
+                                                         font=self.fonts['monospace'],
+                                                         wrap='word', state='disabled')
+        self.readability_text.pack(fill='both', expand=True)
         
         
