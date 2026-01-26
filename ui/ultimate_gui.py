@@ -1012,3 +1012,5 @@ class UltimatePlagiarismChecker:
                 font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
         analytics_notebook = ttk.Notebook(tab)
         analytics_notebook.pack(fill='both', expand=True, padx=20, pady=10)
+        overview_tab = ttk.Frame(analytics_notebook)
+        analytics_notebook.add(overview_tab, text="Overview")
