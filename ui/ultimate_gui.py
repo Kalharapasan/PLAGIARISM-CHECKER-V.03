@@ -781,4 +781,9 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(side='right', padx=2, pady=5)
     
     def create_database_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="💾 Database")
+        
+        tk.Label(tab, text="📚 Reference Database Management", 
+                font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
         
