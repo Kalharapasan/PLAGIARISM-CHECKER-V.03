@@ -937,3 +937,22 @@ class UltimatePlagiarismChecker:
         self.history_tree.bind('<Double-Button-1>', self.open_history_report)
         right_panel = tk.Frame(history_container, bg='white', relief='raised', bd=1)
         history_container.add(right_panel, width=400)
+        tk.Label(right_panel, text="History Details", font=self.fonts['header'],
+                bg='white', fg='#2d3748').pack(pady=15, padx=15, anchor='w')
+        
+        self.history_details = {}
+        details_frame = tk.Frame(right_panel, bg='white')
+        details_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        detail_fields = ['Date', 'File', 'Score', 'Words', 'Sources', 'Risk', 'Algorithms']
+        for field in detail_fields:
+            frame = tk.Frame(details_frame, bg='white')
+            frame.pack(fill='x', pady=2)
+            
+            tk.Label(frame, text=f"{field}:", font=self.fonts['normal'],
+                    bg='white', fg='#4a5568', width=10, anchor='w').pack(side='left')
+            
+            label = tk.Label(frame, text="", font=self.fonts['normal'],
+                            bg='white', fg='#2d3748', anchor='w')
+            label.pack(side='left', fill='x', expand=True)
+            self.history_details[field] = label
