@@ -635,5 +635,7 @@ class UltimatePlagiarismChecker:
                                                      font=self.fonts['monospace'],
                                                      wrap='word', state='disabled')
         self.phrases_text.pack(fill='both', expand=True)
+    
+    def create_visualization_section(self, parent):
         
         
