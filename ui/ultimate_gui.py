@@ -657,5 +657,7 @@ class UltimatePlagiarismChecker:
         placeholder = tk.Label(self.viz_canvas, text="Visualizations will appear here\nClick 'Generate' to create charts",
                               font=self.fonts['normal'], bg='white', fg='#a0aec0')
         placeholder.place(relx=0.5, rely=0.5, anchor='center')
+    
+    def create_batch_tab(self):
         
         
