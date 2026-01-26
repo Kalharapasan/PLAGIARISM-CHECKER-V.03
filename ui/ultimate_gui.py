@@ -659,5 +659,10 @@ class UltimatePlagiarismChecker:
         placeholder.place(relx=0.5, rely=0.5, anchor='center')
     
     def create_batch_tab(self):
+        tab = ttk.Frame(self.notebook)
+        self.notebook.add(tab, text="📦 Batch Processing")
+        
+        tk.Label(tab, text="🔄 Batch Document Processing", 
+                font=self.fonts['title'], bg='#f8f9fa', fg='#2d3748').pack(pady=(20, 10))
         
         
