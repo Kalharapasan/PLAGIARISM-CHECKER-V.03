@@ -912,3 +912,25 @@ class UltimatePlagiarismChecker:
         tk.Button(filter_frame, text="🔄 Refresh", command=self.refresh_history,
                  bg='#4299e1', fg='white', font=('Segoe UI', 10),
                  relief='flat', cursor='hand2').pack(side='right', padx=2)
+        tree_frame = tk.Frame(left_panel, bg='white')
+        tree_frame.pack(fill='both', expand=True, padx=15, pady=(0, 15))
+        
+        columns = ('Date', 'File', 'Score', 'Words', 'Sources', 'Risk', 'Report')
+        self.history_tree = ttk.Treeview(tree_frame, columns=columns, show='headings', height=20)
+        
+        for col in columns:
+            self.history_tree.heading(col, text=col)
+        
+        self.history_tree.column('Date', width=150)
+        self.history_tree.column('File', width=200)
+        self.history_tree.column('Score', width=80)
+        self.history_tree.column('Words', width=80)
+        self.history_tree.column('Sources', width=80)
+        self.history_tree.column('Risk', width=80)
+        self.history_tree.column('Report', width=100)
+        
+        self.history_tree.pack(side='left', fill='both', expand=True)
+        
+        tree_scrollbar = tk.Scrollbar(tree_frame, command=self.history_tree.yview)
+        tree_scrollbar.pack(side='right', fill='y')
+        self.history_tree.config(yscrollcommand=tree_scrollbar.set)
