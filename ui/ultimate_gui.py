@@ -765,6 +765,20 @@ class UltimatePlagiarismChecker:
         self.time_label = tk.Label(progress_frame, text="Estimated time: --", 
                                   font=self.fonts['small'], bg='white', fg='#a0aec0')
         self.time_label.pack()
+        control_frame = tk.Frame(right_panel, bg='white')
+        control_frame.pack(fill='x', padx=15, pady=(0, 15))
+        
+        tk.Button(control_frame, text="🚀 Start Processing", command=self.process_batch,
+                 bg='#48bb78', fg='white', font=('Segoe UI', 12, 'bold'),
+                 relief='flat', cursor='hand2', padx=20, pady=10).pack(fill='x')
+        
+        tk.Button(control_frame, text="⏸️ Pause", command=self.pause_batch,
+                 bg='#ed8936', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=2, pady=5)
+        
+        tk.Button(control_frame, text="⏹️ Stop", command=self.stop_batch,
+                 bg='#e53e3e', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='right', padx=2, pady=5)
         
         
         
