@@ -540,5 +540,18 @@ class UltimatePlagiarismChecker:
             self.metric_labels[label] = value_label
     
     def create_matches_section(self, parent):
+        toolbar = tk.Frame(parent, bg='#f7fafc')
+        toolbar.pack(fill='x', padx=10, pady=(10, 5))
+        
+        tk.Label(toolbar, text="Matched Sources", font=self.fonts['header'],
+                bg='#f7fafc', fg='#2d3748').pack(side='left')
+        
+        tk.Button(toolbar, text="📋 Copy All", command=self.copy_all_matches,
+                 bg='#4299e1', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='right', padx=5)
+        
+        tk.Button(toolbar, text="🔍 Filter", command=self.filter_matches,
+                 bg='#38a169', fg='white', font=('Segoe UI', 9),
+                 relief='flat', cursor='hand2').pack(side='right', padx=5)
         
         
