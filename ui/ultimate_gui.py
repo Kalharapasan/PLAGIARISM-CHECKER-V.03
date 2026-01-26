@@ -882,3 +882,5 @@ class UltimatePlagiarismChecker:
                  relief='flat', cursor='hand2').pack(fill='x', pady=2)
         self.refresh_database_view()
         self.db_tree.bind('<<TreeviewSelect>>', self.on_document_select)
+    
+    def create_history_tab(self):
