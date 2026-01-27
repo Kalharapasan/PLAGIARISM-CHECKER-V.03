@@ -1563,3 +1563,4 @@ Top Key Phrases:
             var.set(True)
         self.sensitivity_var.set(15.0)
         self.status_label.config(text="Thorough preset applied")
+        
