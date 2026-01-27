@@ -1417,6 +1417,14 @@ Top Key Phrases:
                 ax2.bar(risk_counts.keys(), risk_counts.values(), color=['#48bb78', '#ed8936', '#f56565', '#a0aec0'])
                 ax2.set_title('Risk Level Distribution')
                 ax2.set_ylabel('Count')
+            ax3 = fig.add_subplot(223)
+            if 'algorithm_scores' in self.results:
+                algorithms = list(self.results['algorithm_scores'].keys())
+                avg_scores = [self.results['algorithm_scores'][algo].get('average', 0) for algo in algorithms]
+                
+                ax3.barh(algorithms, avg_scores, color='#9f7aea')
+                ax3.set_title('Algorithm Performance')
+                ax3.set_xlabel('Average Similarity (%)')
         
         except ImportError:
             self.viz_canvas.config(bg='white')
