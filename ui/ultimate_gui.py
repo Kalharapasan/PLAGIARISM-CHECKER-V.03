@@ -1564,3 +1564,4 @@ Top Key Phrases:
         self.sensitivity_var.set(15.0)
         self.status_label.config(text="Thorough preset applied")
         
+    def refresh_database_view(self):
