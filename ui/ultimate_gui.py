@@ -1615,3 +1615,7 @@ Top Key Phrases:
                 font=self.fonts['large'], bg='white', fg='#2d3748').pack(pady=10)
         fields_frame = tk.Frame(dialog, bg='white')
         fields_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        tk.Label(fields_frame, text="Source Name*:", font=self.fonts['normal'],
+                bg='white', fg='#4a5568', anchor='w').grid(row=0, column=0, sticky='w', pady=5)
+        source_entry = tk.Entry(fields_frame, font=self.fonts['normal'], width=40)
+        source_entry.grid(row=0, column=1, sticky='ew', pady=5, padx=(10, 0))
