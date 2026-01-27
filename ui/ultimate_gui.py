@@ -2062,3 +2062,4 @@ Daily Activity (Last 30 days):
             except:
                 failed += 1
                 print(f"Error processing {filepath}: {e}")
+            self.root.after(0, lambda v=idx: self.batch_progress.config(value=v))
