@@ -2083,3 +2083,8 @@ Would you like to open the output directory?"""
     def pause_batch(self):
         self.batch_processing = False
         self.progress_label.config(text="Paused")
+    
+    def stop_batch(self):
+        self.batch_processing = False
+        self.progress_label.config(text="Stopped")
+        self.batch_progress.config(value=0)
