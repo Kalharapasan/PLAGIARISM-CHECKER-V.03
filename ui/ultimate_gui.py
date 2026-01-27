@@ -1397,4 +1397,11 @@ Top Key Phrases:
             for widget in self.viz_canvas.winfo_children():
                 widget.destroy()
         
+        except ImportError:
+            self.viz_canvas.config(bg='white')
+            label = tk.Label(self.viz_canvas, text="Matplotlib not installed\nInstall with: pip install matplotlib",
+                            font=self.fonts['normal'], bg='white', fg='#a0aec0')
+            label.place(relx=0.5, rely=0.5, anchor='center')
+            messagebox.showwarning("Warning", "Matplotlib is required for visualizations")
+        
         
