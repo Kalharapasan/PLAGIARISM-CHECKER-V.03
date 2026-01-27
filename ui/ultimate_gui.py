@@ -1122,4 +1122,5 @@ class UltimatePlagiarismChecker:
             self.file_label.config(text=f"📎 {Path(filename).name}")
             self.text_input.delete(1.0, tk.END)
             self.status_label.config(text=f"File selected: {Path(filename).name}")
+            self.add_to_recent_files(filename)
         
