@@ -2017,3 +2017,7 @@ Daily Activity (Last 30 days):
             self.output_dir_var.set(folder)
     
     def process_batch(self):
+        files = self.batch_listbox.get(0, tk.END)
+        if not files:
+            messagebox.showwarning("Warning", "No files to process")
+            return
