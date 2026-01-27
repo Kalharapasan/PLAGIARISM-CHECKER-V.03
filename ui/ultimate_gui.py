@@ -1605,3 +1605,11 @@ Top Key Phrases:
             self.doc_details['Content'].config(state='disabled')
     
     def add_to_database(self):
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Add Document to Database")
+        dialog.geometry("600x500")
+        dialog.transient(self.root)
+        dialog.grab_set()
+        
+        tk.Label(dialog, text="Add Reference Document", 
+                font=self.fonts['large'], bg='white', fg='#2d3748').pack(pady=10)
