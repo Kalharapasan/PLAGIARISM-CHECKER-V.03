@@ -1544,3 +1544,5 @@ Top Key Phrases:
         self.analysis_vars['readability'].set(True)
         self.analysis_vars['citations'].set(True)
         self.analysis_vars['keyphrases'].set(True)
+        self.sensitivity_var.set(8.0)
+        self.status_label.config(text="Academic preset applied")
