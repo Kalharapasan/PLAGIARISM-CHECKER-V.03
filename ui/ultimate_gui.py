@@ -1548,3 +1548,6 @@ Top Key Phrases:
         self.status_label.config(text="Academic preset applied")
     
     def set_fast_preset(self):
+        algorithms = ['cosine_tfidf', 'jaccard', 'ngram_3']
+        for algo_id, var in self.algo_vars.items():
+            var.set(algo_id in algorithms)
