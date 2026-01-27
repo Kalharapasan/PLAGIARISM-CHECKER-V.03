@@ -1224,4 +1224,6 @@ class UltimatePlagiarismChecker:
         self.notebook.select(1)
     
     def update_matches_tree(self):
+        for item in self.matches_tree.get_children():
+            self.matches_tree.delete(item)
         
