@@ -1817,3 +1817,9 @@ Categories:
                 messagebox.showinfo("Success", "Database optimized successfully")
             else:
                 messagebox.showerror("Error", "Failed to optimize database")
+    
+    def backup_database(self):
+        if self.db_manager.backup_database():
+            messagebox.showinfo("Success", "Database backup created successfully")
+        else:
+            messagebox.showerror("Error", "Failed to create database backup")
