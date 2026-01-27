@@ -1553,3 +1553,5 @@ Top Key Phrases:
             var.set(algo_id in algorithms)
         for var in self.analysis_vars.values():
             var.set(False)
+        self.sensitivity_var.set(3.0)
+        self.status_label.config(text="Fast preset applied")
