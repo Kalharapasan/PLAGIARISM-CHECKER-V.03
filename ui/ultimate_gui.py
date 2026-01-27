@@ -1528,4 +1528,6 @@ Top Key Phrases:
     def quick_check(self):
         self.set_fast_preset()
         self.run_ultimate_check()
+    
+    def deep_analysis(self):
         
