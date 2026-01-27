@@ -1905,3 +1905,17 @@ Categories:
                 messagebox.showinfo("Info", "Report file not found")
     
     def show_history_analytics(self):
+        stats = self.db_manager.get_statistics()
+        
+        analytics_text = f"""HISTORY ANALYTICS
+{'='*60}
+
+Summary:
+  Total Checks: {stats['total_checks']:,}
+  Average Similarity: {stats['avg_similarity']}%
+  Documents in Database: {stats['total_documents']:,}
+
+Daily Activity (Last 30 days):
+"""
+        for day_stat in stats['daily_stats']:
+            analytics_text += f"  {day_stat['date']}: {day_stat['checks_today']} checks\n"
