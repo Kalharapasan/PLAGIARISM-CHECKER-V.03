@@ -1676,3 +1676,4 @@ Top Key Phrases:
         if not selected:
             messagebox.showwarning("Warning", "Please select a document to edit")
             return
+        messagebox.showinfo("Info", "Edit feature coming soon!")
