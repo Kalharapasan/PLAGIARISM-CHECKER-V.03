@@ -1565,3 +1565,22 @@ Top Key Phrases:
         self.status_label.config(text="Thorough preset applied")
         
     def refresh_database_view(self):
+        self.db_tree.delete(*self.db_tree.get_children())
+        self.database = self.db_manager.get_all_documents()
+        
+        for idx, doc in enumerate(self.database, 1):
+            word_count = len(self.engine.tokenize(doc['text']))
+            added_date = datetime.fromisoformat(doc['added_date']).strftime('%Y-%m-%d') if doc['added_date'] else 'Unknown'
+            
+            values = (
+                idx,
+                doc['source'][:50] + '...' if len(doc['source']) > 50 else doc['source'],
+                doc.get('category', 'General'),
+                word_count,
+                added_date,
+                doc.get('url', '')[:30] + '...' if doc.get('url') and len(doc['url']) > 30 else doc.get('url', '')
+            )
+            self.db_tree.insert('', 'end', values=values, iid=str(idx))
+        
+        self.db_label.config(text=f"DB: {len(self.database)} docs")
+        self.status_label.config(text=f"Database loaded: {len(self.database)} documents")
