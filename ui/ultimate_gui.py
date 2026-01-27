@@ -1584,3 +1584,5 @@ Top Key Phrases:
         
         self.db_label.config(text=f"DB: {len(self.database)} docs")
         self.status_label.config(text=f"Database loaded: {len(self.database)} documents")
+    
+    def on_document_select(self, event):
