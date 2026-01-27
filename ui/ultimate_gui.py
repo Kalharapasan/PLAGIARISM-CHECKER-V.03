@@ -2029,3 +2029,14 @@ Daily Activity (Last 30 days):
         thread.start()
     
     def _batch_process_thread(self, files, output_dir):
+        total = len(files)
+        self.batch_progress['maximum'] = total
+        
+        successful = 0
+        failed = 0
+        
+        for idx, filepath in enumerate(files, 1):
+            if not self.batch_processing:
+                break
+            
+            self.root.after(0, lambda i=idx: self.progress_label.config(text=f"Processing {i}/{total}..."))
