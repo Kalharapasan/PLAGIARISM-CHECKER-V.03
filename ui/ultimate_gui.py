@@ -2010,3 +2010,8 @@ Daily Activity (Last 30 days):
     def clear_batch_files(self):
         if messagebox.askyesno("Confirm", "Clear all files from batch list?"):
             self.batch_listbox.delete(0, tk.END)
+    
+    def choose_output_dir(self):
+        folder = filedialog.askdirectory(title="Select Output Directory")
+        if folder:
+            self.output_dir_var.set(folder)
