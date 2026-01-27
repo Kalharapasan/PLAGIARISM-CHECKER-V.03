@@ -1168,4 +1168,6 @@ class UltimatePlagiarismChecker:
             return
         
         self.current_text = text
+        self.analyze_button.config(state='disabled', text="⏳ Running Ultimate Analysis...")
+        self.status_label.config(text="Running comprehensive analysis with all selected algorithms...")
         
