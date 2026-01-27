@@ -1211,4 +1211,9 @@ class UltimatePlagiarismChecker:
         
         self.score_label.config(fg=color)
         self.score_desc.config(text=desc, foreground=color)
+        stats = self.results.get('statistics', {})
+        self.metric_labels['Words'].config(text=str(self.results['total_words']))
+        self.metric_labels['Matches'].config(text=str(stats.get('matched_words', 0)))
+        self.metric_labels['Sources'].config(text=str(len(self.results['matches'])))
+        self.metric_labels['Risk'].config(text=self._get_overall_risk_level(score))
         
