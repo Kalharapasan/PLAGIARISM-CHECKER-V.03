@@ -1896,3 +1896,10 @@ Categories:
         
         item = self.history_tree.item(selected[0])
         report_path = item['values'][6]
+        if report_path and report_path != "--":
+            try:
+                if report_path.startswith("📄"):
+                    report_path = report_path[1:]
+               
+            except:
+                messagebox.showinfo("Info", "Report file not found")
