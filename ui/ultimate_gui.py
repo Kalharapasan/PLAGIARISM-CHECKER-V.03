@@ -1648,3 +1648,15 @@ Top Key Phrases:
             if not source or not text:
                 messagebox.showwarning("Warning", "Source name and text are required")
                 return
+            metadata = {
+                'added_by': 'GUI',
+                'word_count': len(text.split()),
+                'character_count': len(text)
+            }
+            
+            if self.db_manager.add_document(source, text, url, category, metadata):
+                messagebox.showinfo("Success", "Document added to database")
+                self.refresh_database_view()
+                dialog.destroy()
+            else:
+                messagebox.showerror("Error", "Failed to add document (might be duplicate)")
