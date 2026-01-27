@@ -1449,5 +1449,80 @@ Top Key Phrases:
             messagebox.showwarning("Warning", "Matplotlib is required for visualizations")
     
     def export_report(self, format_type='txt'):
+        if not self.results:
+            messagebox.showwarning("Warning", "No results to export")
+            return
+        
+        filename = Path(self.current_file).stem if self.current_file else "analysis"
+        
+        if format_type == 'txt':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".txt",
+                filetypes=[("Text Files", "*.txt")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                report = generate_advanced_report(self.results, document_name, self.selected_algorithms)
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                messagebox.showinfo("Success", f"Text report exported to:\n{filepath}")
+        
+        elif format_type == 'html':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".html",
+                filetypes=[("HTML Files", "*.html")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                report = generate_html_report(self.results, document_name, self.selected_algorithms)
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                messagebox.showinfo("Success", f"HTML report exported to:\n{filepath}")
+        
+        elif format_type == 'pdf':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".pdf",
+                filetypes=[("PDF Files", "*.pdf")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                try:
+                    generate_pdf_report(self.results, document_name, self.selected_algorithms, filepath)
+                    messagebox.showinfo("Success", f"PDF report exported to:\n{filepath}")
+                except Exception as e:
+                    messagebox.showerror("Error", f"Failed to generate PDF: {str(e)}")
+        
+        elif format_type == 'json':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".json",
+                filetypes=[("JSON Files", "*.json")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            )
+            
+            if filepath:
+                document_name = Path(self.current_file).name if self.current_file else "Pasted Text"
+                report = generate_json_report(self.results, document_name, self.selected_algorithms)
+                
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(report)
+                messagebox.showinfo("Success", f"JSON data exported to:\n{filepath}")
+        
+        elif format_type == 'excel':
+            filepath = filedialog.asksaveasfilename(
+                defaultextension=".xlsx",
+                filetypes=[("Excel Files", "*.xlsx")],
+                initialfile=f"plagiarism_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+            )
+            
+            if filepath:
+                messagebox.showinfo("Info", "Excel export coming soon!")
         
         
