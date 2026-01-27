@@ -1619,3 +1619,7 @@ Top Key Phrases:
                 bg='white', fg='#4a5568', anchor='w').grid(row=0, column=0, sticky='w', pady=5)
         source_entry = tk.Entry(fields_frame, font=self.fonts['normal'], width=40)
         source_entry.grid(row=0, column=1, sticky='ew', pady=5, padx=(10, 0))
+        tk.Label(fields_frame, text="URL:", font=self.fonts['normal'],
+                bg='white', fg='#4a5568', anchor='w').grid(row=1, column=0, sticky='w', pady=5)
+        url_entry = tk.Entry(fields_frame, font=self.fonts['normal'], width=40)
+        url_entry.grid(row=1, column=1, sticky='ew', pady=5, padx=(10, 0))
