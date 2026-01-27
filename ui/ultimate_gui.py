@@ -1660,3 +1660,13 @@ Top Key Phrases:
                 dialog.destroy()
             else:
                 messagebox.showerror("Error", "Failed to add document (might be duplicate)")
+        btn_frame = tk.Frame(dialog, bg='white')
+        btn_frame.pack(fill='x', padx=20, pady=(0, 10))
+        
+        tk.Button(btn_frame, text="Cancel", command=dialog.destroy,
+                 bg='#a0aec0', fg='white', font=('Segoe UI', 10),
+                 relief='flat', cursor='hand2').pack(side='left', padx=5)
+        
+        tk.Button(btn_frame, text="Save", command=save_document,
+                 bg='#48bb78', fg='white', font=('Segoe UI', 10, 'bold'),
+                 relief='flat', cursor='hand2').pack(side='right', padx=5)
