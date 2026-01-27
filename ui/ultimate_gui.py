@@ -1538,3 +1538,6 @@ Top Key Phrases:
         self.run_ultimate_check()
     
     def set_academic_preset(self):
+        algorithms = ['cosine_tfidf', 'ngram_3', 'ngram_5', 'sequence', 'semantic']
+        for algo_id, var in self.algo_vars.items():
+            var.set(algo_id in algorithms)
