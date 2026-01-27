@@ -1557,3 +1557,5 @@ Top Key Phrases:
         self.status_label.config(text="Fast preset applied")
     
     def set_thorough_preset(self):
+        for var in self.algo_vars.values():
+            var.set(True)
