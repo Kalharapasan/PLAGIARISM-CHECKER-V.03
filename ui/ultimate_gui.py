@@ -1603,3 +1603,5 @@ Top Key Phrases:
             self.doc_details['Content'].delete(1.0, tk.END)
             self.doc_details['Content'].insert(1.0, doc['text'][:1000] + '...' if len(doc['text']) > 1000 else doc['text'])
             self.doc_details['Content'].config(state='disabled')
+    
+    def add_to_database(self):
