@@ -1123,4 +1123,9 @@ class UltimatePlagiarismChecker:
             self.text_input.delete(1.0, tk.END)
             self.status_label.config(text=f"File selected: {Path(filename).name}")
             self.add_to_recent_files(filename)
+    
+    def select_folder(self):
+        folder = filedialog.askdirectory(title="Select Folder")
+        if folder:
+            self.add_batch_folder(folder)
         
