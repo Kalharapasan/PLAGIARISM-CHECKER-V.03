@@ -1636,3 +1636,15 @@ Top Key Phrases:
         text_widget = scrolledtext.ScrolledText(fields_frame, height=15, width=40,
                                                font=self.fonts['small'], wrap='word')
         text_widget.grid(row=3, column=1, sticky='nsew', pady=5, padx=(10, 0))
+        fields_frame.columnconfigure(1, weight=1)
+        fields_frame.rowconfigure(3, weight=1)
+        
+        def save_document():
+            source = source_entry.get().strip()
+            url = url_entry.get().strip()
+            text = text_widget.get(1.0, tk.END).strip()
+            category = category_var.get()
+            
+            if not source or not text:
+                messagebox.showwarning("Warning", "Source name and text are required")
+                return
