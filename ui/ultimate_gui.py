@@ -1196,4 +1196,8 @@ class UltimatePlagiarismChecker:
             self.root.after(0, lambda: self.analyze_button.config(state='normal', text="🚀 Run Ultimate Analysis"))
     
     def display_ultimate_results(self):
+        if not self.results:
+            return
+        
+        score = self.results['overall_similarity']
         
