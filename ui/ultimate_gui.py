@@ -1546,3 +1546,5 @@ Top Key Phrases:
         self.analysis_vars['keyphrases'].set(True)
         self.sensitivity_var.set(8.0)
         self.status_label.config(text="Academic preset applied")
+    
+    def set_fast_preset(self):
