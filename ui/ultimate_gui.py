@@ -1396,6 +1396,9 @@ Top Key Phrases:
         try:
             for widget in self.viz_canvas.winfo_children():
                 widget.destroy()
+            import matplotlib.pyplot as plt
+            from matplotlib.figure import Figure
+            from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
         
         except ImportError:
             self.viz_canvas.config(bg='white')
