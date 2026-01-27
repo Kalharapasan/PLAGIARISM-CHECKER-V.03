@@ -1975,4 +1975,16 @@ Daily Activity (Last 30 days):
             else:
                 messagebox.showinfo("Info", "No history to clear")
     
-    
+    def add_batch_files(self):
+        filetypes = [
+            ('All Supported', '*.txt *.docx *.pdf *.rtf *.html *.htm'),
+            ('Text Files', '*.txt'),
+            ('Word Documents', '*.docx'),
+            ('PDF Files', '*.pdf')
+        ]
+        
+        files = filedialog.askopenfilenames(title="Select Documents", filetypes=filetypes)
+        
+        for file in files:
+            if file not in self.batch_listbox.get(0, tk.END):
+                self.batch_listbox.insert(tk.END, file)
