@@ -1300,6 +1300,21 @@ Document Metrics:
             self.readability_text.insert(1.0, readability_stats)
             self.readability_text.config(state='disabled')
             
+            if 'algorithm_scores' in self.results:
+            self.algorithm_text.config(state='normal')
+            self.algorithm_text.delete(1.0, tk.END)
             
+            algo_stats = f"""ALGORITHM PERFORMANCE
+{'='*60}
+
+Algorithms Used: {', '.join(self.results.get('metadata', {}).get('algorithms_used', []))}
+
+Performance Summary:
+"""
+            for algo, perf in self.results['algorithm_scores'].items():
+                algo_stats += f"  {algo.upper()}: {perf.get('average', 0):.2f}% (avg), {perf.get('max', 0):.2f}% (max), {perf.get('min', 0):.2f}% (min)\n"
+            
+            self.algorithm_text.insert(1.0, algo_stats)
+            self.algorithm_text.config(state='disabled')
         
         
