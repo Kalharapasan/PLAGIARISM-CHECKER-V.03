@@ -1400,6 +1400,13 @@ Top Key Phrases:
             from matplotlib.figure import Figure
             from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
             fig = Figure(figsize=(10, 6), dpi=100)
+            ax1 = fig.add_subplot(221)
+            similarities = [m['similarity'] for m in self.results['matches']]
+            if similarities:
+                ax1.hist(similarities, bins=10, color='skyblue', edgecolor='black')
+                ax1.set_title('Similarity Distribution')
+                ax1.set_xlabel('Similarity (%)')
+                ax1.set_ylabel('Frequency')
         
         except ImportError:
             self.viz_canvas.config(bg='white')
