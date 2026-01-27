@@ -1966,4 +1966,11 @@ Daily Activity (Last 30 days):
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to export history: {str(e)}")
     
-    
+    def clear_history(self):
+        if messagebox.askyesno("Confirm", "Clear all check history? This cannot be undone."):
+            deleted = self.db_manager.clear_history()
+            if deleted > 0:
+                messagebox.showinfo("Success", f"Cleared {deleted} history entries")
+                self.refresh_history()
+            else:
+                messagebox.showinfo("Info", "No history to clear")
