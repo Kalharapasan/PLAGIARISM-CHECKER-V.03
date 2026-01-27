@@ -2065,3 +2065,17 @@ Daily Activity (Last 30 days):
             self.root.after(0, lambda v=idx: self.batch_progress.config(value=v))
         self.root.after(0, lambda: self.progress_label.config(text=f"Complete! Processed {successful} files, {failed} failed"))
         self.root.after(0, lambda: self.batch_processing_message(successful, failed, output_dir))
+    
+    def batch_processing_message(self, successful, failed, output_dir):
+        message = f"""Batch Processing Complete!
+
+Processed: {successful} files successfully
+Failed: {failed} files
+
+Reports saved to: {output_dir.absolute()}
+
+Would you like to open the output directory?"""
+        
+        if messagebox.askyesno("Complete", message):
+            import os
+            os.startfile(str(output_dir.absolute())) if os.name == 'nt' else os.system(f'open "{output_dir.absolute()}"')
