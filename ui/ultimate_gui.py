@@ -1355,4 +1355,23 @@ Vocabulary:
         
         self.text_analysis_text.config(state='disabled')
         
+        self.citations_text.config(state='normal')
+        self.citations_text.delete(1.0, tk.END)
+        
+        citations_text = f"""CITATION ANALYSIS
+{'='*60}
+
+Total Citations Found: {self.results.get('citations_found', 0)}
+
+Citation Types:
+"""
+        if 'advanced_citations' in self.results:
+            citations = self.results['advanced_citations']
+            for i, citation in enumerate(citations[:10], 1):
+                citations_text += f"\n{i}. {citation['text']}"
+                citations_text += f"\n   Type: {citation['type']}, Author: {citation.get('author', 'N/A')}"
+        
+        self.citations_text.insert(1.0, citations_text)
+        self.citations_text.config(state='disabled')
+        
         
