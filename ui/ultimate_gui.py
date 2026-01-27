@@ -1438,6 +1438,8 @@ Top Key Phrases:
             canvas = FigureCanvasTkAgg(fig, self.viz_canvas)
             canvas.draw()
             canvas.get_tk_widget().pack(fill='both', expand=True)
+            self.visualization_figures.append(fig)
+            self.status_label.config(text="Visualizations generated successfully")
         
         except ImportError:
             self.viz_canvas.config(bg='white')
