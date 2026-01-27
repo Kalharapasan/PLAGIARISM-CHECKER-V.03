@@ -1447,5 +1447,7 @@ Top Key Phrases:
                             font=self.fonts['normal'], bg='white', fg='#a0aec0')
             label.place(relx=0.5, rely=0.5, anchor='center')
             messagebox.showwarning("Warning", "Matplotlib is required for visualizations")
+    
+    def export_report(self, format_type='txt'):
         
         
