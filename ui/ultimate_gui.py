@@ -1693,3 +1693,26 @@ Top Key Phrases:
                 self.refresh_database_view()
             else:
                 messagebox.showerror("Error", "Failed to delete document")
+    
+    def search_database(self):
+        query = self.search_var.get().strip()
+        if not query:
+            self.refresh_database_view()
+            return
+        
+        results = self.db_manager.search_documents(query)
+        self.db_tree.delete(*self.db_tree.get_children())
+        
+        for idx, doc in enumerate(results, 1):
+            word_count = len(self.engine.tokenize(doc['text']))
+            values = (
+                idx,
+                doc['source'][:50] + '...' if len(doc['source']) > 50 else doc['source'],
+                doc.get('category', 'General'),
+                word_count,
+                doc.get('added_date', 'Unknown'),
+                doc.get('url', '')[:30] + '...' if doc.get('url') and len(doc.get('url')) > 30 else doc.get('url', '')
+            )
+            self.db_tree.insert('', 'end', values=values)
+        
+        self.status_label.config(text=f"Found {len(results)} documents matching '{query}'")
