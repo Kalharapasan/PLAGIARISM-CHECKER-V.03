@@ -1189,7 +1189,7 @@ class UltimatePlagiarismChecker:
             self.root.after(0, self.display_ultimate_results)
             filename = Path(self.current_file).name if self.current_file else "Pasted Text"
             self.db_manager.save_check_history(filename, results)
-            
+            self.root.after(0, self.update_dashboard_stats)
             
         except Exception as e:
             self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
