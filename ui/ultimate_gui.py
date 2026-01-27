@@ -1926,3 +1926,6 @@ Daily Activity (Last 30 days):
             analytics_text += f"\nTrend: {trend} ({recent} vs {previous})"
         
         messagebox.showinfo("History Analytics", analytics_text)
+    
+    def show_trends(self):
+        messagebox.showinfo("Info", "Trend analysis coming soon!")
