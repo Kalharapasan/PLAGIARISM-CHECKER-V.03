@@ -1078,3 +1078,6 @@ class UltimatePlagiarismChecker:
             'status_fg': '#e2e8f0'
         }
         self.root.configure(bg=colors['bg'])
+    
+    def apply_dark_theme(self):
+        
