@@ -1856,3 +1856,21 @@ Categories:
             history = self.db_manager.get_check_history(limit=200)
             high_risk = [h for h in history if h['similarity'] >= 30]
             self._update_history_tree(high_risk)
+    
+    def _update_history_tree(self, history):
+        self.history_tree.delete(*self.history_tree.get_children())
+        
+        for idx, entry in enumerate(history, 1):
+            date_str = datetime.fromisoformat(entry['date']).strftime('%Y-%m-%d %H:%M')
+            risk = self._get_risk_level(entry['similarity'])
+            
+            values = (
+                date_str,
+                entry['filename'][:30] + '...' if len(entry['filename']) > 30 else entry['filename'],
+                f"{entry['similarity']}%",
+                entry['words'],
+                entry['sources'],
+                risk,
+                "📄" if entry['report'] else "--"
+            )
+            self.history_tree.insert('', 'end', values=values, iid=str(idx))
