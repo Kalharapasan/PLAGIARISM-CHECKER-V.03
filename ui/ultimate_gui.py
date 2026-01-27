@@ -1092,4 +1092,12 @@ class UltimatePlagiarismChecker:
             'status_fg': '#a0aec0'
         }
         self.root.configure(bg=colors['bg'])
+    
+    def _center_window(self):
+        self.root.update_idletasks()
+        width = self.root.winfo_width()
+        height = self.root.winfo_height()
+        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.root.winfo_screenheight() // 2) - (height // 2)
+        self.root.geometry(f'{width}x{height}+{x}+{y}')
         
