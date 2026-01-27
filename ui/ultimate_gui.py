@@ -1218,4 +1218,5 @@ class UltimatePlagiarismChecker:
         self.metric_labels['Risk'].config(text=self._get_overall_risk_level(score))
         self.update_matches_tree()
         self.update_statistics_tabs()
+        self.update_details_tabs()
         
