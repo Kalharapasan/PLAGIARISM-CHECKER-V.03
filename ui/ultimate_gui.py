@@ -1399,6 +1399,7 @@ Top Key Phrases:
             import matplotlib.pyplot as plt
             from matplotlib.figure import Figure
             from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+            fig = Figure(figsize=(10, 6), dpi=100)
         
         except ImportError:
             self.viz_canvas.config(bg='white')
