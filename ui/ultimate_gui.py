@@ -1388,4 +1388,6 @@ Top Key Phrases:
         self.phrases_text.insert(1.0, phrases_text)
         self.phrases_text.config(state='disabled')
         
+    def generate_visualizations(self):
+        
         
