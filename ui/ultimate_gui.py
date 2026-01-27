@@ -1270,4 +1270,36 @@ Citation Analysis:
         self.basic_stats_text.insert(1.0, basic_stats)
         self.basic_stats_text.config(state='disabled')
         
+        if 'readability' in self.results:
+            self.readability_text.config(state='normal')
+            self.readability_text.delete(1.0, tk.END)
+            
+            readability = self.results['readability']
+            readability_stats = f"""READABILITY ANALYSIS
+{'='*60}
+
+Scores:
+  Flesch Reading Ease: {readability.get('flesch_reading_ease', 0)} (0-100, higher is easier)
+  Flesch-Kincaid Grade Level: {readability.get('flesch_kincaid_grade', 0)} (U.S. grade level)
+  Gunning Fog Index: {readability.get('gunning_fog_index', 0)} (years of education)
+  SMOG Index: {readability.get('smog_index', 0)} (years of education)
+  Coleman-Liau Index: {readability.get('coleman_liau_index', 0)} (U.S. grade level)
+  Automated Readability Index: {readability.get('automated_readability_index', 0)} (U.S. grade level)
+  Dale-Chall Score: {readability.get('dale_chall_score', 0)} (U.S. grade level)
+
+Interpretation:
+  • Reading Ease {readability.get('flesch_reading_ease', 0)}: {'Very easy' if readability.get('flesch_reading_ease', 0) > 80 else 'Easy' if readability.get('flesch_reading_ease', 0) > 60 else 'Standard' if readability.get('flesch_reading_ease', 0) > 40 else 'Difficult' if readability.get('flesch_reading_ease', 0) > 20 else 'Very difficult'}
+  • Average Grade Level: {readability.get('flesch_kincaid_grade', 0)}
+  • Complex Words: {readability.get('complex_word_percentage', 0)}%
+
+Document Metrics:
+  Average Sentence Length: {readability.get('avg_sentence_length', 0)} words
+  Average Syllables per Word: {readability.get('avg_syllables_per_word', 0)}
+  Total Syllables: {readability.get('total_syllables', 0)}
+"""
+            self.readability_text.insert(1.0, readability_stats)
+            self.readability_text.config(state='disabled')
+            
+            
+        
         
