@@ -1173,4 +1173,6 @@ class UltimatePlagiarismChecker:
         thread = threading.Thread(target=self.perform_ultimate_check)
         thread.daemon = True
         thread.start()
+    
+    def perform_ultimate_check(self):
         
