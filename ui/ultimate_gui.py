@@ -1082,4 +1082,13 @@ class UltimatePlagiarismChecker:
     def apply_dark_theme(self):
         self.dark_mode = True
         self.current_theme = 'dark'
+        colors = {
+            'bg': '#1a202c',
+            'fg': '#e2e8f0',
+            'card_bg': '#2d3748',
+            'sidebar_bg': '#1a202c',
+            'sidebar_fg': '#e2e8f0',
+            'status_bg': '#1a202c',
+            'status_fg': '#a0aec0'
+        }
         
