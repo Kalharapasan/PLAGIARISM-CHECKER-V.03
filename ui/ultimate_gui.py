@@ -1751,3 +1751,40 @@ Top Key Phrases:
                 
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to import: {str(e)}")
+    
+    def export_database(self):
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".json",
+            filetypes=[("JSON Files", "*.json"), ("Text Files", "*.txt"), ("CSV Files", "*.csv")],
+            initialfile=f"database_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        )
+        
+        if filepath:
+            try:
+                if filepath.endswith('.json'):
+                    data = []
+                    for doc in self.database:
+                        data.append({
+                            'source': doc['source'],
+                            'url': doc.get('url', ''),
+                            'text': doc['text'][:10000],  
+                            'category': doc.get('category', 'General'),
+                            'added_date': doc.get('added_date', '')
+                        })
+                    
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        json.dump(data, f, indent=2, ensure_ascii=False)
+                
+                elif filepath.endswith('.txt'):
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        for doc in self.database:
+                            f.write(f"Source: {doc['source']}\n")
+                            f.write(f"Category: {doc.get('category', 'General')}\n")
+                            f.write(f"URL: {doc.get('url', '')}\n")
+                            f.write(f"Text: {doc['text'][:500]}...\n\n")
+                            f.write("-" * 80 + "\n\n")
+                
+                messagebox.showinfo("Success", f"Database exported to:\n{filepath}")
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to export: {str(e)}")
