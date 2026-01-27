@@ -1536,3 +1536,5 @@ Top Key Phrases:
             var.set(True)
         
         self.run_ultimate_check()
+    
+    def set_academic_preset(self):
