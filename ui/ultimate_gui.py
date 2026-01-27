@@ -1623,3 +1623,11 @@ Top Key Phrases:
                 bg='white', fg='#4a5568', anchor='w').grid(row=1, column=0, sticky='w', pady=5)
         url_entry = tk.Entry(fields_frame, font=self.fonts['normal'], width=40)
         url_entry.grid(row=1, column=1, sticky='ew', pady=5, padx=(10, 0))
+        tk.Label(fields_frame, text="Category:", font=self.fonts['normal'],
+                bg='white', fg='#4a5568', anchor='w').grid(row=2, column=0, sticky='w', pady=5)
+        category_var = tk.StringVar(value="General")
+        category_combo = ttk.Combobox(fields_frame, textvariable=category_var,
+                                     values=["General", "Academic", "Technical", "Literature", 
+                                             "News", "Research", "Legal", "Business"],
+                                     width=38)
+        category_combo.grid(row=2, column=1, sticky='ew', pady=5, padx=(10, 0))
