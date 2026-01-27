@@ -1788,3 +1788,25 @@ Top Key Phrases:
                 
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to export: {str(e)}")
+    
+    def show_db_stats(self):
+        stats = self.db_manager.get_statistics()
+        
+        stats_text = f"""DATABASE STATISTICS
+{'='*60}
+
+Overall:
+  Total Documents: {stats['total_documents']:,}
+  Total Checks: {stats['total_checks']:,}
+  Average Similarity: {stats['avg_similarity']}%
+
+Categories:
+"""
+        for cat_stat in stats['category_stats']:
+            stats_text += f"  {cat_stat['category']}: {cat_stat['count']:,} documents\n"
+        
+        stats_text += f"\nRecent Activity ({stats['analysis_period_days']} days):\n"
+        for day_stat in stats['daily_stats'][:7]: 
+            stats_text += f"  {day_stat['date']}: {day_stat['checks_today']} checks, avg {day_stat['avg_similarity']:.1f}%\n"
+        
+        messagebox.showinfo("Database Statistics", stats_text)
