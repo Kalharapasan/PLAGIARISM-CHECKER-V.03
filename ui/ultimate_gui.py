@@ -1407,6 +1407,16 @@ Top Key Phrases:
                 ax1.set_title('Similarity Distribution')
                 ax1.set_xlabel('Similarity (%)')
                 ax1.set_ylabel('Frequency')
+            ax2 = fig.add_subplot(222)
+            risk_levels = [m.get('risk_level', 'Unknown') for m in self.results['matches']]
+            if risk_levels:
+                risk_counts = {}
+                for risk in risk_levels:
+                    risk_counts[risk] = risk_counts.get(risk, 0) + 1
+                
+                ax2.bar(risk_counts.keys(), risk_counts.values(), color=['#48bb78', '#ed8936', '#f56565', '#a0aec0'])
+                ax2.set_title('Risk Level Distribution')
+                ax2.set_ylabel('Count')
         
         except ImportError:
             self.viz_canvas.config(bg='white')
