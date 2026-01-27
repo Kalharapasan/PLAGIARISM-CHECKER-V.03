@@ -2001,3 +2001,8 @@ Daily Activity (Last 30 days):
                 for file in folder_path.glob(f"*{ext}"):
                     if str(file) not in self.batch_listbox.get(0, tk.END):
                         self.batch_listbox.insert(tk.END, str(file))
+    
+    def remove_batch_file(self):
+        selection = self.batch_listbox.curselection()
+        if selection:
+            self.batch_listbox.delete(selection)
