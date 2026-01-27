@@ -1810,3 +1810,10 @@ Categories:
             stats_text += f"  {day_stat['date']}: {day_stat['checks_today']} checks, avg {day_stat['avg_similarity']:.1f}%\n"
         
         messagebox.showinfo("Database Statistics", stats_text)
+    
+    def optimize_database(self):
+        if messagebox.askyesno("Confirm", "Optimize database for better performance?"):
+            if self.db_manager.optimize_database():
+                messagebox.showinfo("Success", "Database optimized successfully")
+            else:
+                messagebox.showerror("Error", "Failed to optimize database")
