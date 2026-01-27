@@ -2045,6 +2045,16 @@ Daily Activity (Last 30 days):
                 results = self.engine.analyze_comprehensive(text, self.database, self.selected_algorithms)
                 filename = Path(filepath).stem
                 report_filename = f"batch_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+                report_format = self.report_format_var.get()
+                if report_format == 'txt' or report_format == 'all':
+                    report_path = output_dir / f"{report_filename}.txt"
+                    report = generate_advanced_report(results, Path(filepath).name, self.selected_algorithms)
+                    report_path.write_text(report, encoding='utf-8')
+                
+                if report_format == 'html' or report_format == 'all':
+                    report_path = output_dir / f"{report_filename}.html"
+                    report = generate_html_report(results, Path(filepath).name, self.selected_algorithms)
+                    report_path.write_text(report, encoding='utf-8')
             except:
                 failed += 1
                 print(f"Error processing {filepath}: {e}")
