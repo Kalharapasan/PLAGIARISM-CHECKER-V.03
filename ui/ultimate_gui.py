@@ -1226,4 +1226,14 @@ class UltimatePlagiarismChecker:
     def update_matches_tree(self):
         for item in self.matches_tree.get_children():
             self.matches_tree.delete(item)
+        for idx, match in enumerate(self.results['matches'], 1):
+            values = (
+                idx,
+                match['source'][:50] + '...' if len(match['source']) > 50 else match['source'],
+                f"{match['similarity']}%",
+                match.get('confidence', 'N/A'),
+                match.get('risk_level', 'N/A'),
+                match.get('total_sequences', 0)
+            )
+            self.matches_tree.insert('', 'end', values=values, iid=str(idx))
         
