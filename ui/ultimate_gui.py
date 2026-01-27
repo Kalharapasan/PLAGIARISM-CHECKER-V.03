@@ -1541,3 +1541,6 @@ Top Key Phrases:
         algorithms = ['cosine_tfidf', 'ngram_3', 'ngram_5', 'sequence', 'semantic']
         for algo_id, var in self.algo_vars.items():
             var.set(algo_id in algorithms)
+        self.analysis_vars['readability'].set(True)
+        self.analysis_vars['citations'].set(True)
+        self.analysis_vars['keyphrases'].set(True)
