@@ -1175,4 +1175,12 @@ class UltimatePlagiarismChecker:
         thread.start()
     
     def perform_ultimate_check(self):
+        try:
+            self.engine.enable_readability = self.analysis_vars['readability'].get()
+            self.engine.enable_nlp = any([self.analysis_vars['keyphrases'].get(),
+                                         self.analysis_vars['structure'].get(),
+                                         self.analysis_vars['paraphrasing'].get()])
+        except Exception as e:
+            self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
+            self.root.after(0, lambda: self.analyze_button.config(state='normal', text="🚀 Run Ultimate Analysis"))
         
