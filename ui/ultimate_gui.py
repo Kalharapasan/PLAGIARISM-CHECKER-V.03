@@ -1532,4 +1532,7 @@ Top Key Phrases:
     def deep_analysis(self):
         for var in self.algo_vars.values():
             var.set(True)
+        for var in self.analysis_vars.values():
+            var.set(True)
         
+        self.run_ultimate_check()
