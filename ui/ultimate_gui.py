@@ -1102,4 +1102,24 @@ class UltimatePlagiarismChecker:
         self.root.geometry(f'{width}x{height}+{x}+{y}')
     
     def select_file(self):
+        filetypes = [
+            ('All Supported', '*.txt *.docx *.pdf *.rtf *.html *.htm *.md *.tex *.odt *.epub'),
+            ('Text Files', '*.txt'),
+            ('Word Documents', '*.docx'),
+            ('PDF Files', '*.pdf'),
+            ('Rich Text', '*.rtf'),
+            ('HTML Files', '*.html *.htm'),
+            ('Markdown', '*.md'),
+            ('LaTeX', '*.tex'),
+            ('OpenDocument', '*.odt'),
+            ('EPUB', '*.epub')
+        ]
+        
+        filename = filedialog.askopenfilename(title="Select Document", filetypes=filetypes)
+        
+        if filename:
+            self.current_file = filename
+            self.file_label.config(text=f"📎 {Path(filename).name}")
+            self.text_input.delete(1.0, tk.END)
+            self.status_label.config(text=f"File selected: {Path(filename).name}")
         
