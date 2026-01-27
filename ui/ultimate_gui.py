@@ -2023,3 +2023,7 @@ Daily Activity (Last 30 days):
             return
         output_dir = Path(self.output_dir_var.get())
         output_dir.mkdir(parents=True, exist_ok=True)
+        self.batch_processing = True
+        thread = threading.Thread(target=self._batch_process_thread, args=(files, output_dir))
+        thread.daemon = True
+        thread.start()
