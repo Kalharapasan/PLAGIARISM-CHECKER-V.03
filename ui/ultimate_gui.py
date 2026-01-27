@@ -1919,3 +1919,10 @@ Daily Activity (Last 30 days):
 """
         for day_stat in stats['daily_stats']:
             analytics_text += f"  {day_stat['date']}: {day_stat['checks_today']} checks\n"
+        if len(stats['daily_stats']) >= 2:
+            recent = stats['daily_stats'][0]['checks_today']
+            previous = stats['daily_stats'][1]['checks_today']
+            trend = "↑" if recent > previous else "↓" if recent < previous else "→"
+            analytics_text += f"\nTrend: {trend} ({recent} vs {previous})"
+        
+        messagebox.showinfo("History Analytics", analytics_text)
