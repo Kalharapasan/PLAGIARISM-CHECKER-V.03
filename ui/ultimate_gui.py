@@ -1716,3 +1716,38 @@ Top Key Phrases:
             self.db_tree.insert('', 'end', values=values)
         
         self.status_label.config(text=f"Found {len(results)} documents matching '{query}'")
+    
+    def import_documents(self):
+        filepath = filedialog.askopenfilename(
+            title="Import Documents",
+            filetypes=[("JSON Files", "*.json"), ("Text Files", "*.txt"), ("All Files", "*.*")]
+        )
+        
+        if filepath:
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    if filepath.endswith('.json'):
+                        data = json.load(f)
+                        if isinstance(data, list):
+                            count = 0
+                            for doc in data:
+                                if self.db_manager.add_document(
+                                    doc.get('source', 'Imported'),
+                                    doc.get('text', ''),
+                                    doc.get('url', ''),
+                                    doc.get('category', 'General')
+                                ):
+                                    count += 1
+                            messagebox.showinfo("Success", f"Imported {count} documents from JSON")
+                        else:
+                            messagebox.showerror("Error", "Invalid JSON format")
+                    else:
+                        text = f.read()
+                        source = Path(filepath).name
+                        if self.db_manager.add_document(source, text, '', 'General'):
+                            messagebox.showinfo("Success", "Document imported successfully")
+                
+                self.refresh_database_view()
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to import: {str(e)}")
