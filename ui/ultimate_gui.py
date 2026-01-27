@@ -1677,3 +1677,19 @@ Top Key Phrases:
             messagebox.showwarning("Warning", "Please select a document to edit")
             return
         messagebox.showinfo("Info", "Edit feature coming soon!")
+    
+    def delete_from_database(self):
+        selected = self.db_tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select a document to delete")
+            return
+        
+        item = self.db_tree.item(selected[0])
+        source = item['values'][1] 
+        
+        if messagebox.askyesno("Confirm", f"Delete '{source}' from database?"):
+            if self.db_manager.delete_document(source):
+                messagebox.showinfo("Success", "Document deleted")
+                self.refresh_database_view()
+            else:
+                messagebox.showerror("Error", "Failed to delete document")
