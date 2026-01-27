@@ -1101,5 +1101,5 @@ class UltimatePlagiarismChecker:
         y = (self.root.winfo_screenheight() // 2) - (height // 2)
         self.root.geometry(f'{width}x{height}+{x}+{y}')
     
-    
+    def select_file(self):
         
