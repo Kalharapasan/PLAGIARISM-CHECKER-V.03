@@ -2040,3 +2040,9 @@ Daily Activity (Last 30 days):
                 break
             
             self.root.after(0, lambda i=idx: self.progress_label.config(text=f"Processing {i}/{total}..."))
+            try:
+                text = self.engine.extract_text(filepath)
+                results = self.engine.analyze_comprehensive(text, self.database, self.selected_algorithms)
+            except:
+                failed += 1
+                print(f"Error processing {filepath}: {e}")
