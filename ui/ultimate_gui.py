@@ -2027,3 +2027,5 @@ Daily Activity (Last 30 days):
         thread = threading.Thread(target=self._batch_process_thread, args=(files, output_dir))
         thread.daemon = True
         thread.start()
+    
+    def _batch_process_thread(self, files, output_dir):
