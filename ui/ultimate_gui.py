@@ -1890,3 +1890,9 @@ Categories:
         self.history_details['Algorithms'].config(text="Multiple")
     
     def open_history_report(self, event):
+        selected = self.history_tree.selection()
+        if not selected:
+            return
+        
+        item = self.history_tree.item(selected[0])
+        report_path = item['values'][6]
