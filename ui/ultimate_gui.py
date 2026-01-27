@@ -2006,3 +2006,7 @@ Daily Activity (Last 30 days):
         selection = self.batch_listbox.curselection()
         if selection:
             self.batch_listbox.delete(selection)
+    
+    def clear_batch_files(self):
+        if messagebox.askyesno("Confirm", "Clear all files from batch list?"):
+            self.batch_listbox.delete(0, tk.END)
