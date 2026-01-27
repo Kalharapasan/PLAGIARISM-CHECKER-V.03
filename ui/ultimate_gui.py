@@ -1318,5 +1318,7 @@ Performance Summary:
             self.algorithm_text.config(state='disabled')
 
     def update_details_tabs(self):
+        self.text_analysis_text.config(state='normal')
+        self.text_analysis_text.delete(1.0, tk.END)
         
         
