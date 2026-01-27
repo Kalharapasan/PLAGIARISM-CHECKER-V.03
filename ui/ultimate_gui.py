@@ -2043,6 +2043,8 @@ Daily Activity (Last 30 days):
             try:
                 text = self.engine.extract_text(filepath)
                 results = self.engine.analyze_comprehensive(text, self.database, self.selected_algorithms)
+                filename = Path(filepath).stem
+                report_filename = f"batch_report_{filename}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             except:
                 failed += 1
                 print(f"Error processing {filepath}: {e}")
