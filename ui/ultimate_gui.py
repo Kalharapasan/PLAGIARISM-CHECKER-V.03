@@ -1425,6 +1425,16 @@ Top Key Phrases:
                 ax3.barh(algorithms, avg_scores, color='#9f7aea')
                 ax3.set_title('Algorithm Performance')
                 ax3.set_xlabel('Average Similarity (%)')
+            ax4 = fig.add_subplot(224)
+            all_sequences = [seq for match in self.results['matches'] for seq in match.get('matched_sequences', [])]
+            sequence_lengths = [seq['length'] for seq in all_sequences]
+            if sequence_lengths:
+                ax4.hist(sequence_lengths, bins=10, color='#f6ad55', edgecolor='black')
+                ax4.set_title('Match Length Distribution')
+                ax4.set_xlabel('Sequence Length (words)')
+                ax4.set_ylabel('Frequency')
+            
+            fig.tight_layout()
         
         except ImportError:
             self.viz_canvas.config(bg='white')
