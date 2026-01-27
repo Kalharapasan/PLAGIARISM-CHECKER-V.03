@@ -1200,4 +1200,15 @@ class UltimatePlagiarismChecker:
             return
         
         score = self.results['overall_similarity']
+        self.score_label.config(text=f"{score}%")
+        
+        if score < 15:
+            color, desc = '#48bb78', "Low Risk - Acceptable"
+        elif score < 30:
+            color, desc = '#ed8936', "Moderate Risk - Review Needed"
+        else:
+            color, desc = '#f56565', "High Risk - Significant Concern"
+        
+        self.score_label.config(fg=color)
+        self.score_desc.config(text=desc, foreground=color)
         
