@@ -1879,3 +1879,5 @@ Categories:
         selected = self.history_tree.selection()
         if not selected:
             return
+        item = self.history_tree.item(selected[0])
+        values = item['values']
