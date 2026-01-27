@@ -1929,3 +1929,41 @@ Daily Activity (Last 30 days):
     
     def show_trends(self):
         messagebox.showinfo("Info", "Trend analysis coming soon!")
+    
+    def export_history(self):
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV Files", "*.csv"), ("JSON Files", "*.json"), ("Text Files", "*.txt")],
+            initialfile=f"history_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        )
+        
+        if filepath:
+            try:
+                history = self.db_manager.get_check_history(limit=1000)
+                
+                if filepath.endswith('.csv'):
+                    import csv
+                    with open(filepath, 'w', newline='', encoding='utf-8') as f:
+                        writer = csv.writer(f)
+                        writer.writerow(['Date', 'File', 'Similarity', 'Words', 'Sources', 'Risk', 'Report'])
+                        for entry in history:
+                            writer.writerow([
+                                entry['date'],
+                                entry['filename'],
+                                entry['similarity'],
+                                entry['words'],
+                                entry['sources'],
+                                self._get_risk_level(entry['similarity']),
+                                entry['report'] or ''
+                            ])
+                
+                elif filepath.endswith('.json'):
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        json.dump(history, f, indent=2, ensure_ascii=False)
+                
+                messagebox.showinfo("Success", f"History exported to:\n{filepath}")
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to export history: {str(e)}")
+    
+    
