@@ -1881,3 +1881,10 @@ Categories:
             return
         item = self.history_tree.item(selected[0])
         values = item['values']
+        self.history_details['Date'].config(text=values[0])
+        self.history_details['File'].config(text=values[1])
+        self.history_details['Score'].config(text=values[2])
+        self.history_details['Words'].config(text=values[3])
+        self.history_details['Sources'].config(text=values[4])
+        self.history_details['Risk'].config(text=values[5])
+        self.history_details['Algorithms'].config(text="Multiple")
