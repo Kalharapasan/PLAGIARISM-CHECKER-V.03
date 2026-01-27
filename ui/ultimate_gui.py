@@ -1077,3 +1077,4 @@ class UltimatePlagiarismChecker:
             'status_bg': '#2d3748',
             'status_fg': '#e2e8f0'
         }
+        self.root.configure(bg=colors['bg'])
