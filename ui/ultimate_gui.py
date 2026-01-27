@@ -1559,3 +1559,5 @@ Top Key Phrases:
     def set_thorough_preset(self):
         for var in self.algo_vars.values():
             var.set(True)
+        for var in self.analysis_vars.values():
+            var.set(True)
