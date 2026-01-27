@@ -2055,6 +2055,10 @@ Daily Activity (Last 30 days):
                     report_path = output_dir / f"{report_filename}.html"
                     report = generate_html_report(results, Path(filepath).name, self.selected_algorithms)
                     report_path.write_text(report, encoding='utf-8')
+                if self.batch_options['save_to_history'].get():
+                    self.db_manager.save_check_history(Path(filepath).name, results, str(report_path))
+                
+                successful += 1
             except:
                 failed += 1
                 print(f"Error processing {filepath}: {e}")
