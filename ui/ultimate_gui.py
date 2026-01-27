@@ -1876,3 +1876,6 @@ Categories:
             self.history_tree.insert('', 'end', values=values, iid=str(idx))
     
     def on_history_select(self, event):
+        selected = self.history_tree.selection()
+        if not selected:
+            return
