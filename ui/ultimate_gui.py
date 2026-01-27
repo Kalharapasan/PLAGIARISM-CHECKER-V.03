@@ -1320,5 +1320,39 @@ Performance Summary:
     def update_details_tabs(self):
         self.text_analysis_text.config(state='normal')
         self.text_analysis_text.delete(1.0, tk.END)
+        if self.current_text:
+            text_stats = self.analyzer.generate_text_statistics(self.current_text)
+            
+            analysis_text = f"""TEXT ANALYSIS DETAILS
+{'='*60}
+
+Document Structure:
+  Paragraphs: {text_stats['basic_statistics']['total_paragraphs']}
+  Sentences: {text_stats['basic_statistics']['total_sentences']}
+  Words: {text_stats['basic_statistics']['total_words']}
+  Characters: {text_stats['basic_statistics']['total_characters']}
+  Unique Words: {text_stats['basic_statistics']['unique_words']}
+
+Character Distribution:
+  Alphabetic: {text_stats['basic_statistics']['character_distribution']['alphabetic']}
+  Numeric: {text_stats['basic_statistics']['character_distribution']['numeric']}
+  Spaces: {text_stats['basic_statistics']['character_distribution']['spaces']}
+  Punctuation: {text_stats['basic_statistics']['character_distribution']['punctuation']}
+  Other: {text_stats['basic_statistics']['character_distribution']['other']}
+
+Averages:
+  Word Length: {text_stats['averages']['avg_word_length']} characters
+  Sentence Length: {text_stats['averages']['avg_sentence_length']} words
+  Paragraph Length: {text_stats['averages']['avg_paragraph_length']} words
+  Words per Sentence: {text_stats['averages']['words_per_sentence']}
+  Sentences per Paragraph: {text_stats['averages']['sentences_per_paragraph']}
+
+Vocabulary:
+  Type-Token Ratio: {text_stats['writing_style'].get('type_token_ratio', 0):.4f}
+  Vocabulary Richness: {text_stats['writing_style'].get('vocabulary_richness', 0):.4f}
+"""
+            self.text_analysis_text.insert(1.0, analysis_text)
+        
+        self.text_analysis_text.config(state='disabled')
         
         
