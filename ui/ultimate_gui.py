@@ -1238,4 +1238,36 @@ class UltimatePlagiarismChecker:
             self.matches_tree.insert('', 'end', values=values, iid=str(idx))
     
     def update_statistics_tabs(self):
+        self.basic_stats_text.config(state='normal')
+        self.basic_stats_text.delete(1.0, tk.END)
+        
+        stats = self.results.get('statistics', {})
+        basic_stats = f"""BASIC STATISTICS
+{'='*60}
+
+Document Analysis:
+  Total Words: {self.results['total_words']}
+  Total Sentences: {self.results['total_sentences']}
+  Total Characters: {self.results.get('total_characters', 0)}
+  
+Similarity Analysis:
+  Overall Similarity: {self.results['overall_similarity']}%
+  Matched Words: {stats.get('matched_words', 0)}
+  Unique Words: {stats.get('unique_words', 0)}
+  Unique Percentage: {stats.get('unique_percentage', 0)}%
+  
+Match Analysis:
+  Sources Found: {len(self.results['matches'])}
+  High Risk Sources: {stats.get('high_risk_sources', 0)}
+  Total Sequences: {stats.get('total_sequences', 0)}
+  Average Sequence Length: {stats.get('average_sequence_length', 0)} words
+  Longest Sequence: {stats.get('longest_sequence', 0)} words
+  
+Citation Analysis:
+  Citations Detected: {self.results.get('citations_found', 0)}
+  Citation Density: {stats.get('citation_density', 0)} citations/sentence
+"""
+        self.basic_stats_text.insert(1.0, basic_stats)
+        self.basic_stats_text.config(state='disabled')
+        
         
