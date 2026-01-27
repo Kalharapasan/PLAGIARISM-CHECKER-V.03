@@ -1147,4 +1147,9 @@ class UltimatePlagiarismChecker:
             messagebox.showerror("Error", "Could not access clipboard")
     
     def run_ultimate_check(self):
+        self.selected_algorithms = [algo for algo, var in self.algo_vars.items() if var.get()]
+        
+        if not self.selected_algorithms:
+            messagebox.showwarning("Warning", "Please select at least one detection algorithm")
+            return
         
