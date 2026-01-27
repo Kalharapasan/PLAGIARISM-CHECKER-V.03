@@ -1128,4 +1128,21 @@ class UltimatePlagiarismChecker:
         folder = filedialog.askdirectory(title="Select Folder")
         if folder:
             self.add_batch_folder(folder)
+    
+    def paste_text(self):
+        try:
+            self.root.clipboard_clear()
+            self.root.clipboard_append("")  
+            text = self.root.clipboard_get()
+            
+            if text and len(text) > 10: 
+                self.text_input.delete(1.0, tk.END)
+                self.text_input.insert(1.0, text)
+                self.current_file = None
+                self.file_label.config(text="📋 Pasted Text")
+                self.status_label.config(text="Text pasted from clipboard")
+            else:
+                messagebox.showinfo("Info", "Clipboard is empty or text is too short")
+        except:
+            messagebox.showerror("Error", "Could not access clipboard")
         
