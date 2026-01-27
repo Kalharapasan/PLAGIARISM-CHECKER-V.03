@@ -2021,3 +2021,5 @@ Daily Activity (Last 30 days):
         if not files:
             messagebox.showwarning("Warning", "No files to process")
             return
+        output_dir = Path(self.output_dir_var.get())
+        output_dir.mkdir(parents=True, exist_ok=True)
