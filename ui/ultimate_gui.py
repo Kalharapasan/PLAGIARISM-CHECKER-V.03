@@ -1672,3 +1672,7 @@ Top Key Phrases:
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
     
     def edit_document(self):
+        selected = self.db_tree.selection()
+        if not selected:
+            messagebox.showwarning("Warning", "Please select a document to edit")
+            return
