@@ -1180,6 +1180,11 @@ class UltimatePlagiarismChecker:
             self.engine.enable_nlp = any([self.analysis_vars['keyphrases'].get(),
                                          self.analysis_vars['structure'].get(),
                                          self.analysis_vars['paraphrasing'].get()])
+            results = self.engine.analyze_comprehensive(
+                self.current_text, 
+                self.database,
+                self.selected_algorithms
+            )
         except Exception as e:
             self.root.after(0, lambda: messagebox.showerror("Error", f"Analysis failed: {str(e)}"))
             self.root.after(0, lambda: self.analyze_button.config(state='normal', text="🚀 Run Ultimate Analysis"))
