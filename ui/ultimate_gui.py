@@ -1065,4 +1065,6 @@ class UltimatePlagiarismChecker:
         else:
             self.apply_light_theme()
             
-    def apply_light_theme(self)
+    def apply_light_theme(self):
+        self.dark_mode = False
+        self.current_theme = 'light'
