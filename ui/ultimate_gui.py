@@ -1586,3 +1586,10 @@ Top Key Phrases:
         self.status_label.config(text=f"Database loaded: {len(self.database)} documents")
     
     def on_document_select(self, event):
+        selected = self.db_tree.selection()
+        if not selected:
+            return
+        
+        idx = int(selected[0]) - 1
+        if 0 <= idx < len(self.database):
+            doc = self.database[idx]
