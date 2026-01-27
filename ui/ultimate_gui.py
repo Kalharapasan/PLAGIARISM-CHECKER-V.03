@@ -1170,4 +1170,7 @@ class UltimatePlagiarismChecker:
         self.current_text = text
         self.analyze_button.config(state='disabled', text="⏳ Running Ultimate Analysis...")
         self.status_label.config(text="Running comprehensive analysis with all selected algorithms...")
+        thread = threading.Thread(target=self.perform_ultimate_check)
+        thread.daemon = True
+        thread.start()
         
