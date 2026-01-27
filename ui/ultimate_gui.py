@@ -1316,5 +1316,7 @@ Performance Summary:
             
             self.algorithm_text.insert(1.0, algo_stats)
             self.algorithm_text.config(state='disabled')
+
+    def update_details_tabs(self):
         
         
