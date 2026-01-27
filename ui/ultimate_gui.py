@@ -1219,4 +1219,6 @@ class UltimatePlagiarismChecker:
         self.update_matches_tree()
         self.update_statistics_tabs()
         self.update_details_tabs()
+        self.analyze_button.config(state='normal', text="🚀 Run Ultimate Analysis")
+        self.status_label.config(text=f"Analysis complete - {score}% similarity | {len(self.results['matches'])} sources matched")
         
