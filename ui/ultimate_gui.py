@@ -1900,6 +1900,6 @@ Categories:
             try:
                 if report_path.startswith("📄"):
                     report_path = report_path[1:]
-               
+                webbrowser.open(f"file://{os.path.abspath(report_path)}")
             except:
                 messagebox.showinfo("Info", "Report file not found")
