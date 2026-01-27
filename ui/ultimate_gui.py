@@ -1842,3 +1842,17 @@ Categories:
                 "📄" if entry['report'] else "--"
             )
             self.history_tree.insert('', 'end', values=values, iid=str(idx))
+    
+    def filter_history(self):
+        filter_type = self.filter_var.get()
+        
+        if filter_type == "All":
+            self.refresh_history()
+        elif filter_type == "Today":
+            today = datetime.now().strftime('%Y-%m-%d')
+            history = self.db_manager.get_check_history(start_date=today)
+            self._update_history_tree(history)
+        elif filter_type == "High Risk":
+            history = self.db_manager.get_check_history(limit=200)
+            high_risk = [h for h in history if h['similarity'] >= 30]
+            self._update_history_tree(high_risk)
