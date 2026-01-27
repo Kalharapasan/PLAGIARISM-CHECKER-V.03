@@ -1670,3 +1670,5 @@ Top Key Phrases:
         tk.Button(btn_frame, text="Save", command=save_document,
                  bg='#48bb78', fg='white', font=('Segoe UI', 10, 'bold'),
                  relief='flat', cursor='hand2').pack(side='right', padx=5)
+    
+    def edit_document(self):
