@@ -1221,4 +1221,5 @@ class UltimatePlagiarismChecker:
         self.update_details_tabs()
         self.analyze_button.config(state='normal', text="🚀 Run Ultimate Analysis")
         self.status_label.config(text=f"Analysis complete - {score}% similarity | {len(self.results['matches'])} sources matched")
+        self.notebook.select(1)
         
