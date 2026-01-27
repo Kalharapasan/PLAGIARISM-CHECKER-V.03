@@ -1988,3 +1988,16 @@ Daily Activity (Last 30 days):
         for file in files:
             if file not in self.batch_listbox.get(0, tk.END):
                 self.batch_listbox.insert(tk.END, file)
+    
+    def add_batch_folder(self, folder=None):
+        if folder is None:
+            folder = filedialog.askdirectory(title="Select Folder")
+        
+        if folder:
+            folder_path = Path(folder)
+            supported_extensions = {'.txt', '.docx', '.pdf', '.rtf', '.html', '.htm', '.md', '.tex'}
+            
+            for ext in supported_extensions:
+                for file in folder_path.glob(f"*{ext}"):
+                    if str(file) not in self.batch_listbox.get(0, tk.END):
+                        self.batch_listbox.insert(tk.END, str(file))
