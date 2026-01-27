@@ -1301,10 +1301,10 @@ Document Metrics:
             self.readability_text.config(state='disabled')
             
             if 'algorithm_scores' in self.results:
-            self.algorithm_text.config(state='normal')
-            self.algorithm_text.delete(1.0, tk.END)
-            
-            algo_stats = f"""ALGORITHM PERFORMANCE
+                self.algorithm_text.config(state='normal')
+                self.algorithm_text.delete(1.0, tk.END)
+                
+                algo_stats = f"""ALGORITHM PERFORMANCE
 {'='*60}
 
 Algorithms Used: {', '.join(self.results.get('metadata', {}).get('algorithms_used', []))}
@@ -1599,3 +1599,7 @@ Top Key Phrases:
             self.doc_details['URL'].config(text=doc.get('url', 'None'))
             self.doc_details['Words'].config(text=str(len(self.engine.tokenize(doc['text']))))
             self.doc_details['Added'].config(text=doc.get('added_date', 'Unknown'))
+            self.doc_details['Content'].config(state='normal')
+            self.doc_details['Content'].delete(1.0, tk.END)
+            self.doc_details['Content'].insert(1.0, doc['text'][:1000] + '...' if len(doc['text']) > 1000 else doc['text'])
+            self.doc_details['Content'].config(state='disabled')
