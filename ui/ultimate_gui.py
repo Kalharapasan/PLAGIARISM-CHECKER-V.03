@@ -1524,5 +1524,7 @@ Top Key Phrases:
             
             if filepath:
                 messagebox.showinfo("Info", "Excel export coming soon!")
+    
+    def quick_check(self):
         
         
