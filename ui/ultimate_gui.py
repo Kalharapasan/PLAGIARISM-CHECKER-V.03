@@ -2015,3 +2015,5 @@ Daily Activity (Last 30 days):
         folder = filedialog.askdirectory(title="Select Output Directory")
         if folder:
             self.output_dir_var.set(folder)
+    
+    def process_batch(self):
