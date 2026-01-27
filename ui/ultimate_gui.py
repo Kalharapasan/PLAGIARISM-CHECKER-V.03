@@ -1373,5 +1373,19 @@ Citation Types:
         
         self.citations_text.insert(1.0, citations_text)
         self.citations_text.config(state='disabled')
+        self.phrases_text.config(state='normal')
+        self.phrases_text.delete(1.0, tk.END)
+        
+        phrases_text = f"""KEY PHRASE EXTRACTION
+{'='*60}
+
+Top Key Phrases:
+"""
+        if 'key_phrases' in self.results:
+            for phrase, freq, score in self.results['key_phrases']:
+                phrases_text += f"\n• {phrase} (Frequency: {freq}, Score: {score})"
+        
+        self.phrases_text.insert(1.0, phrases_text)
+        self.phrases_text.config(state='disabled')
         
         
