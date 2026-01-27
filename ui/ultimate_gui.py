@@ -2079,3 +2079,7 @@ Would you like to open the output directory?"""
         if messagebox.askyesno("Complete", message):
             import os
             os.startfile(str(output_dir.absolute())) if os.name == 'nt' else os.system(f'open "{output_dir.absolute()}"')
+
+    def pause_batch(self):
+        self.batch_processing = False
+        self.progress_label.config(text="Paused")
