@@ -1613,3 +1613,5 @@ Top Key Phrases:
         
         tk.Label(dialog, text="Add Reference Document", 
                 font=self.fonts['large'], bg='white', fg='#2d3748').pack(pady=10)
+        fields_frame = tk.Frame(dialog, bg='white')
+        fields_frame.pack(fill='both', expand=True, padx=20, pady=10)
