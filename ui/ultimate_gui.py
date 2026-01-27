@@ -1145,4 +1145,6 @@ class UltimatePlagiarismChecker:
                 messagebox.showinfo("Info", "Clipboard is empty or text is too short")
         except:
             messagebox.showerror("Error", "Could not access clipboard")
+    
+    def run_ultimate_check(self):
         
