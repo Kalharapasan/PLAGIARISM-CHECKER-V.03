@@ -1974,3 +1974,5 @@ Daily Activity (Last 30 days):
                 self.refresh_history()
             else:
                 messagebox.showinfo("Info", "No history to clear")
+    
+    
