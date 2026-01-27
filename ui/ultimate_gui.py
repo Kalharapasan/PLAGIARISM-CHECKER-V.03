@@ -1392,5 +1392,9 @@ Top Key Phrases:
         if not self.results:
             messagebox.showinfo("Info", "Please run an analysis first")
             return
+
+        try:
+            for widget in self.viz_canvas.winfo_children():
+                widget.destroy()
         
         
