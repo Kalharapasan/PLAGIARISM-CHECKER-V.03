@@ -1903,3 +1903,5 @@ Categories:
                 webbrowser.open(f"file://{os.path.abspath(report_path)}")
             except:
                 messagebox.showinfo("Info", "Report file not found")
+    
+    def show_history_analytics(self):
