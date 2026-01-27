@@ -1389,5 +1389,8 @@ Top Key Phrases:
         self.phrases_text.config(state='disabled')
         
     def generate_visualizations(self):
+        if not self.results:
+            messagebox.showinfo("Info", "Please run an analysis first")
+            return
         
         
