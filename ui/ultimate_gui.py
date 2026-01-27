@@ -1874,3 +1874,5 @@ Categories:
                 "📄" if entry['report'] else "--"
             )
             self.history_tree.insert('', 'end', values=values, iid=str(idx))
+    
+    def on_history_select(self, event):
