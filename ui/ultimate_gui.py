@@ -1435,6 +1435,9 @@ Top Key Phrases:
                 ax4.set_ylabel('Frequency')
             
             fig.tight_layout()
+            canvas = FigureCanvasTkAgg(fig, self.viz_canvas)
+            canvas.draw()
+            canvas.get_tk_widget().pack(fill='both', expand=True)
         
         except ImportError:
             self.viz_canvas.config(bg='white')
