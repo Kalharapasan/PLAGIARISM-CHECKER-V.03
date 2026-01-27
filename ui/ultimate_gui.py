@@ -1593,3 +1593,9 @@ Top Key Phrases:
         idx = int(selected[0]) - 1
         if 0 <= idx < len(self.database):
             doc = self.database[idx]
+            
+            self.doc_details['Source'].config(text=doc['source'])
+            self.doc_details['Category'].config(text=doc.get('category', 'General'))
+            self.doc_details['URL'].config(text=doc.get('url', 'None'))
+            self.doc_details['Words'].config(text=str(len(self.engine.tokenize(doc['text']))))
+            self.doc_details['Added'].config(text=doc.get('added_date', 'Unknown'))
