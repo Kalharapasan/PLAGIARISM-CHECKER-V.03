@@ -1080,4 +1080,6 @@ class UltimatePlagiarismChecker:
         self.root.configure(bg=colors['bg'])
     
     def apply_dark_theme(self):
+        self.dark_mode = True
+        self.current_theme = 'dark'
         
