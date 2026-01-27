@@ -1631,3 +1631,8 @@ Top Key Phrases:
                                              "News", "Research", "Legal", "Business"],
                                      width=38)
         category_combo.grid(row=2, column=1, sticky='ew', pady=5, padx=(10, 0))
+        tk.Label(fields_frame, text="Document Text*:", font=self.fonts['normal'],
+                bg='white', fg='#4a5568', anchor='w').grid(row=3, column=0, sticky='nw', pady=5)
+        text_widget = scrolledtext.ScrolledText(fields_frame, height=15, width=40,
+                                               font=self.fonts['small'], wrap='word')
+        text_widget.grid(row=3, column=1, sticky='nsew', pady=5, padx=(10, 0))
