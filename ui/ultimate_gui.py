@@ -1823,3 +1823,5 @@ Categories:
             messagebox.showinfo("Success", "Database backup created successfully")
         else:
             messagebox.showerror("Error", "Failed to create database backup")
+    
+    
