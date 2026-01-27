@@ -1236,4 +1236,6 @@ class UltimatePlagiarismChecker:
                 match.get('total_sequences', 0)
             )
             self.matches_tree.insert('', 'end', values=values, iid=str(idx))
+    
+    def update_statistics_tabs(self):
         
