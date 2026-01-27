@@ -2088,3 +2088,5 @@ Would you like to open the output directory?"""
         self.batch_processing = False
         self.progress_label.config(text="Stopped")
         self.batch_progress.config(value=0)
+        
+    
