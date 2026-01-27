@@ -1888,3 +1888,5 @@ Categories:
         self.history_details['Sources'].config(text=values[4])
         self.history_details['Risk'].config(text=values[5])
         self.history_details['Algorithms'].config(text="Multiple")
+    
+    def open_history_report(self, event):
