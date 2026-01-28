@@ -2090,3 +2090,4 @@ Would you like to open the output directory?"""
         self.batch_progress.config(value=0)
         
     def load_dashboard_data(self):
+        stats = self.db_manager.get_statistics(days=7)
