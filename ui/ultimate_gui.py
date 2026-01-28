@@ -2175,3 +2175,18 @@ Would you like to open the output directory?"""
     
     def add_to_recent_files(self, filepath):
         pass
+    
+    def open_recent_file(self, filepath):
+        if Path(filepath).exists():
+            self.current_file = filepath
+            self.file_label.config(text=f"📎 {Path(filepath).name}")
+            
+            try:
+                text = self.engine.extract_text(filepath)
+                self.text_input.delete(1.0, tk.END)
+                self.text_input.insert(1.0, text)
+                self.status_label.config(text=f"Loaded: {Path(filepath).name}")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to load file: {str(e)}")
+        else:
+            messagebox.showwarning("Warning", "File no longer exists")
