@@ -2174,3 +2174,4 @@ Would you like to open the output directory?"""
                 btn.pack(fill='x', pady=1)
     
     def add_to_recent_files(self, filepath):
+        pass
