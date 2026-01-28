@@ -2216,3 +2216,11 @@ Would you like to open the output directory?"""
         selected = self.matches_tree.selection()
         if not selected:
             return
+
+        idx = int(selected[0]) - 1
+        if 0 <= idx < len(self.results['matches']):
+            match = self.results['matches'][idx]
+            dialog = tk.Toplevel(self.root)
+            dialog.title(f"Match Details - {match['source']}")
+            dialog.geometry("800x600")
+            dialog.transient(self.root)
