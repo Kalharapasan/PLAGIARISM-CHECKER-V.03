@@ -2561,6 +2561,9 @@ Interpretation:
     
     def citation_checker(self):
         messagebox.showinfo("Info", "Citation checker coming soon!")
+    
+    def readability_analyzer(self):
+        self.text_analysis_tool() 
         
         
         
