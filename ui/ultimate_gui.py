@@ -2445,6 +2445,9 @@ Always verify results with human review."""
             self.sidebar.pack_forget()
         else:
             self.sidebar.pack(side='left', fill='y')
+    
+    def toggle_analytics(self):
+        messagebox.showinfo("Info", "Analytics panel toggle coming soon!")
         
         
     
