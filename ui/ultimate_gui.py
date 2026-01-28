@@ -2156,3 +2156,4 @@ Would you like to open the output directory?"""
             self.memory_label.config(text=f"Memory: {memory_mb:.1f} MB")
         except:
             self.memory_label.config(text="Memory: --")
+        self.root.after(10000, self.update_memory_usage)
