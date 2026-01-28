@@ -2100,3 +2100,17 @@ Would you like to open the output directory?"""
         self.dashboard_stats['Files Today'].config(text=str(today_checks))
         for widget in self.activity_list.winfo_children():
             widget.destroy()
+        recent_history = self.db_manager.get_check_history(limit=5)
+        for entry in recent_history:
+            frame = tk.Frame(self.activity_list, bg='white')
+            frame.pack(fill='x', pady=2)
+            
+            date_str = datetime.fromisoformat(entry['date']).strftime('%H:%M')
+            tk.Label(frame, text=f"{date_str} {entry['filename']}", 
+                    font=self.fonts['small'], bg='white', fg='#4a5568',
+                    anchor='w').pack(side='left', fill='x', expand=True)
+            
+            tk.Label(frame, text=f"{entry['similarity']}%", 
+                    font=self.fonts['small'], bg='white', 
+                    fg=self._get_risk_color(entry['similarity'])).pack(side='right')
+        
