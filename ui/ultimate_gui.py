@@ -2259,3 +2259,5 @@ ALGORITHM SCORES:
         self.refresh_history()
         self.load_dashboard_data()
         self.status_label.config(text="All data refreshed")
+    
+    
