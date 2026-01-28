@@ -2149,3 +2149,10 @@ Would you like to open the output directory?"""
             return '#c53030'  
     
     def update_memory_usage(self):
+        try:
+            import psutil
+            process = psutil.Process()
+            memory_mb = process.memory_info().rss / 1024 / 1024
+            self.memory_label.config(text=f"Memory: {memory_mb:.1f} MB")
+        except:
+            self.memory_label.config(text="Memory: --")
