@@ -2361,3 +2361,30 @@ Use multiple algorithms for comprehensive detection.
 Start with Academic preset for best results."""
         
         messagebox.showinfo("Algorithm Information", info)
+    
+    def show_system_info(self):
+        import platform
+        import sys
+        
+        info = f"""SYSTEM INFORMATION:
+
+Application:
+  Version: 3.0 (Ultimate Edition)
+  Python: {sys.version}
+
+System:
+  OS: {platform.system()} {platform.release()}
+  Architecture: {platform.machine()}
+  Processor: {platform.processor()}
+
+Resources:
+  Database: {len(self.database)} documents
+  History: {self.db_manager.get_check_history(limit=1)[0]['total'] if self.db_manager.get_check_history(limit=1) else 0} checks
+  Memory: -- (updates every 10s)
+
+Configuration:
+  Algorithms: {len(self.selected_algorithms)} selected
+  Sensitivity: {self.sensitivity_var.get()}
+  Theme: {self.current_theme.title()}"""
+        
+        messagebox.showinfo("System Information", info)
