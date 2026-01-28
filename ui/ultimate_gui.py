@@ -2462,6 +2462,12 @@ Always verify results with human review."""
     
     def show_algorithm_performance(self):
         messagebox.showinfo("Info", "Algorithm performance statistics coming soon!")
+    
+    def generate_comprehensive_report(self):
+        if self.results:
+            self.export_report('html')
+        else:
+            messagebox.showwarning("Warning", "No analysis results to report")
         
         
     
