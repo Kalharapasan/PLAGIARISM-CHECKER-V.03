@@ -2310,3 +2310,54 @@ For more help, see the full documentation."""
     
     def show_api_docs(self):
         messagebox.showinfo("API Documentation", "API documentation available at /api/docs")
+    
+    def show_algorithm_info(self):
+        info = """DETECTION ALGORITHMS:
+
+1. COSINE SIMILARITY (TF-IDF):
+   - Weighted by term frequency-inverse document frequency
+   - Best for general document comparison
+   - Accounts for word importance
+
+2. COSINE SIMILARITY (COUNT):
+   - Simple word frequency comparison
+   - Faster but less accurate than TF-IDF
+
+3. JACCARD INDEX:
+   - Measures overlap between word sets
+   - Good for detecting copy-paste plagiarism
+   - Ignores word order
+
+4. OVERLAP COEFFICIENT:
+   - Similar to Jaccard but uses min set size
+   - Good for detecting subset plagiarism
+
+5. DICE COEFFICIENT:
+   - Similar to Jaccard but weights overlaps
+   - Balanced approach
+
+6. N-GRAM ANALYSIS (3,5):
+   - Breaks text into n-word sequences
+   - Excellent for detecting paraphrasing
+   - 5-gram is more precise but slower
+
+7. SEQUENCE MATCHING:
+   - Finds exact matching word sequences
+   - Best for direct copying detection
+   - Configurable minimum length
+
+8. SEMANTIC SIMILARITY (ML):
+   - Uses machine learning for meaning comparison
+   - Detects paraphrased content
+   - Requires additional dependencies
+
+9. LSI ANALYSIS:
+   - Latent Semantic Indexing
+   - Finds hidden semantic relationships
+   - Advanced NLP technique
+
+RECOMMENDATION:
+Use multiple algorithms for comprehensive detection.
+Start with Academic preset for best results."""
+        
+        messagebox.showinfo("Algorithm Information", info)
