@@ -2262,3 +2262,45 @@ ALGORITHM SCORES:
     
     def open_settings(self):
         messagebox.showinfo("Info", "Settings dialog coming soon!")
+    
+    def show_user_guide(self):
+        guide = """PLAGIARISM CHECKER ULTIMATE - USER GUIDE
+
+1. DOCUMENT CHECKING:
+   - Upload a document or paste text
+   - Select detection algorithms
+   - Click 'Run Ultimate Analysis'
+   - Review results in multiple tabs
+
+2. ALGORITHMS:
+   - Cosine Similarity (TF-IDF): Best for general comparison
+   - Jaccard Index: Set-based similarity
+   - N-gram Analysis: Pattern matching (3-gram, 5-gram)
+   - Sequence Matching: Exact phrase detection
+   - Semantic Similarity: Meaning-based (requires ML)
+
+3. FEATURES:
+   - Comprehensive text analysis
+   - Readability scoring (7 formulas)
+   - Citation detection
+   - Key phrase extraction
+   - Writing style analysis
+   - Batch processing
+   - Database management
+   - History tracking
+   - Analytics dashboard
+
+4. PRESETS:
+   - Academic: Balanced for academic work
+   - Fast: Quick analysis
+   - Thorough: Maximum detection
+
+5. REPORTS:
+   - Export as TXT, HTML, PDF, JSON
+   - Comprehensive statistics
+   - Visualizations
+   - Recommendations
+
+For more help, see the full documentation."""
+        
+        messagebox.showinfo("User Guide", guide)
