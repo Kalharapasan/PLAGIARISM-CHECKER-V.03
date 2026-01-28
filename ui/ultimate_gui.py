@@ -30,6 +30,7 @@ class UltimatePlagiarismChecker:
         self.dark_mode = False
         self.current_theme = 'light'
         self.visualization_figures = []
+        self.setup_fonts()
     
     def setup_fonts(self):
         self.fonts = {
