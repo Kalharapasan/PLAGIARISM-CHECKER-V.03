@@ -2459,6 +2459,9 @@ Always verify results with human review."""
     
     def configure_algorithms(self):
         messagebox.showinfo("Info", "Algorithm configuration coming soon!")
+    
+    def show_algorithm_performance(self):
+        messagebox.showinfo("Info", "Algorithm performance statistics coming soon!")
         
         
     
