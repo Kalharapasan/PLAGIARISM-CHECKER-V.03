@@ -2491,6 +2491,9 @@ Always verify results with human review."""
         if not self.current_text:
             messagebox.showwarning("Warning", "No text to analyze")
             return
-        
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Text Analysis Tool")
+        dialog.geometry("1000x700")
+        dialog.transient(self.root)
         
     
