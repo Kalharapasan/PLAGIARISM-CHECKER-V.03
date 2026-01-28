@@ -2190,3 +2190,21 @@ Would you like to open the output directory?"""
                 messagebox.showerror("Error", f"Failed to load file: {str(e)}")
         else:
             messagebox.showwarning("Warning", "File no longer exists")
+    
+    def copy_all_matches(self):
+        if not self.results or not self.results['matches']:
+            return
+        
+        text = "PLAGIARISM CHECK RESULTS\n"
+        text += "=" * 50 + "\n\n"
+        
+        for idx, match in enumerate(self.results['matches'], 1):
+            text += f"Match #{idx}\n"
+            text += f"Source: {match['source']}\n"
+            text += f"Similarity: {match['similarity']}%\n"
+            text += f"Confidence: {match.get('confidence', 'N/A')}\n"
+            text += f"Risk Level: {match.get('risk_level', 'N/A')}\n\n"
+        
+        self.root.clipboard_clear()
+        self.root.clipboard_append(text)
+        self.status_label.config(text="Matches copied to clipboard")
