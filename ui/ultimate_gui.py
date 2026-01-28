@@ -2558,6 +2558,9 @@ Interpretation:
             text_widget2.insert(1.0, readability_text)
         
         text_widget2.config(state='disabled')
+    
+    def citation_checker(self):
+        messagebox.showinfo("Info", "Citation checker coming soon!")
         
         
         
