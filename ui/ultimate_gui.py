@@ -27,6 +27,8 @@ class UltimatePlagiarismChecker:
         self.results = None
         self.selected_algorithms = self.config.get('detection.ultimate.algorithms', 
                                                   ['cosine_tfidf', 'jaccard', 'ngram_3', 'sequence'])
+        self.dark_mode = False
+        self.current_theme = 'light'
     
     def setup_fonts(self):
         self.fonts = {
