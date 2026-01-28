@@ -29,6 +29,7 @@ class UltimatePlagiarismChecker:
                                                   ['cosine_tfidf', 'jaccard', 'ngram_3', 'sequence'])
         self.dark_mode = False
         self.current_theme = 'light'
+        self.visualization_figures = []
     
     def setup_fonts(self):
         self.fonts = {
