@@ -2570,6 +2570,9 @@ Interpretation:
     
     def performance_monitor(self):
         messagebox.showinfo("Info", "Performance monitor coming soon!")
+    
+    def security_settings(self):
+        messagebox.showinfo("Info", "Security settings coming soon!")
         
         
     
