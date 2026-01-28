@@ -2304,3 +2304,6 @@ ALGORITHM SCORES:
 For more help, see the full documentation."""
         
         messagebox.showinfo("User Guide", guide)
+    
+    def show_tutorial(self):
+        messagebox.showinfo("Tutorial", "Interactive tutorial coming soon!")
