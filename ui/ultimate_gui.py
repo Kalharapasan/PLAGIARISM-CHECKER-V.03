@@ -16,6 +16,10 @@ from ..utils import ProgressTracker, format_file_size, format_percentage
 
 class UltimatePlagiarismChecker:
     def __init__(self, config):
+        self.config = config
+        self.engine = UltimatePlagiarismEngine(config)
+        self.analyzer = AdvancedTextAnalyzer(config)
+        self.db_manager = DatabaseManager(config)
     
     def setup_fonts(self):
         self.fonts = {
