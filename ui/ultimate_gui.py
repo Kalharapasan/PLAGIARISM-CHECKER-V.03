@@ -2529,5 +2529,36 @@ Averages:
 """
         text_widget.insert(1.0, basic_stats)
         text_widget.config(state='disabled')
+        readability_tab = ttk.Frame(notebook)
+        notebook.add(readability_tab, text="Readability")
+        
+        text_widget2 = scrolledtext.ScrolledText(readability_tab, wrap='word',
+                                                font=self.fonts['monospace'])
+        text_widget2.pack(fill='both', expand=True)
+        
+        if 'readability' in stats:
+            readability = stats['readability']
+            readability_text = f"""READABILITY ANALYSIS
+{'='*60}
+
+Scores (0-100, higher is easier):
+  Flesch Reading Ease: {readability.get('flesch_reading_ease', 0)}
+  Flesch-Kincaid Grade: {readability.get('flesch_kincaid_grade', 0)} (U.S. grade level)
+  Gunning Fog Index: {readability.get('gunning_fog_index', 0)} (years of education)
+  SMOG Index: {readability.get('smog_index', 0)} (years of education)
+  Coleman-Liau Index: {readability.get('coleman_liau_index', 0)} (U.S. grade level)
+  ARI: {readability.get('automated_readability_index', 0)} (U.S. grade level)
+  Dale-Chall: {readability.get('dale_chall_score', 0)} (U.S. grade level)
+  
+Interpretation:
+  • Reading Level: {'Very Easy' if readability.get('flesch_reading_ease', 0) > 80 else 'Easy' if readability.get('flesch_reading_ease', 0) > 60 else 'Standard' if readability.get('flesch_reading_ease', 0) > 40 else 'Difficult' if readability.get('flesch_reading_ease', 0) > 20 else 'Very Difficult'}
+  • Target Audience: {'General public' if readability.get('flesch_kincaid_grade', 0) < 8 else 'High school' if readability.get('flesch_kincaid_grade', 0) < 12 else 'College' if readability.get('flesch_kincaid_grade', 0) < 16 else 'Graduate level'}
+  • Complex Words: {readability.get('complex_word_percentage', 0)}%
+"""
+            text_widget2.insert(1.0, readability_text)
+        
+        text_widget2.config(state='disabled')
+        
+        
         
     
