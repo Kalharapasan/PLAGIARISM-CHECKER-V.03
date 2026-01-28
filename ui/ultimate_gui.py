@@ -2116,4 +2116,6 @@ Would you like to open the output directory?"""
     
     def update_dashboard_stats(self):
         self.load_dashboard_data()
+    
+    
         
