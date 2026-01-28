@@ -2567,6 +2567,9 @@ Interpretation:
     
     def paraphrase_detector(self):
         messagebox.showinfo("Info", "Paraphrase detector coming soon!")
+    
+    def performance_monitor(self):
+        messagebox.showinfo("Info", "Performance monitor coming soon!")
         
         
     
