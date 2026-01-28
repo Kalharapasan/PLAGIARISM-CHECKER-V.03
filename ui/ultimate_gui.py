@@ -2211,3 +2211,8 @@ Would you like to open the output directory?"""
     
     def filter_matches(self):
         messagebox.showinfo("Info", "Match filtering coming soon!")
+    
+    def show_match_details(self, event):
+        selected = self.matches_tree.selection()
+        if not selected:
+            return
