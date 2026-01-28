@@ -2495,5 +2495,6 @@ Always verify results with human review."""
         dialog.title("Text Analysis Tool")
         dialog.geometry("1000x700")
         dialog.transient(self.root)
+        stats = self.analyzer.generate_text_statistics(self.current_text)
         
     
