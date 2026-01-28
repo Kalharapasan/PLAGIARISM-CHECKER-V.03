@@ -2172,3 +2172,5 @@ Would you like to open the output directory?"""
                               bd=0, padx=5, pady=3, anchor='w',
                               command=lambda f=filepath: self.open_recent_file(f))
                 btn.pack(fill='x', pady=1)
+    
+    def add_to_recent_files(self, filepath):
