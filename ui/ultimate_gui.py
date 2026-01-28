@@ -2496,5 +2496,7 @@ Always verify results with human review."""
         dialog.geometry("1000x700")
         dialog.transient(self.root)
         stats = self.analyzer.generate_text_statistics(self.current_text)
+        notebook = ttk.Notebook(dialog)
+        notebook.pack(fill='both', expand=True, padx=10, pady=10)
         
     
