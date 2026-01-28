@@ -2093,3 +2093,5 @@ Would you like to open the output directory?"""
         stats = self.db_manager.get_statistics(days=7)
         self.dashboard_stats['Total Checks'].config(text=str(stats['total_checks']))
         self.dashboard_stats['Avg Similarity'].config(text=f"{stats['avg_similarity']}%")
+        high_risk = sum(1 for entry in stats['daily_stats'] if entry['avg_similarity'] > 30)
+        self.dashboard_stats['High Risk'].config(text=str(high_risk))
