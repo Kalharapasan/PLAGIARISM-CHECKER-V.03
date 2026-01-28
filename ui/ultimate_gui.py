@@ -2208,3 +2208,6 @@ Would you like to open the output directory?"""
         self.root.clipboard_clear()
         self.root.clipboard_append(text)
         self.status_label.config(text="Matches copied to clipboard")
+    
+    def filter_matches(self):
+        messagebox.showinfo("Info", "Match filtering coming soon!")
