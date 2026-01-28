@@ -2448,6 +2448,11 @@ Always verify results with human review."""
     
     def toggle_analytics(self):
         messagebox.showinfo("Info", "Analytics panel toggle coming soon!")
+    
+    def switch_theme(self, theme):
+        self.current_theme = theme
+        self._apply_theme()
+        self.status_label.config(text=f"Theme switched to {theme}")
         
         
     
