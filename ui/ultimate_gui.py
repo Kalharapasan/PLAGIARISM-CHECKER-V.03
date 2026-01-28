@@ -2391,3 +2391,25 @@ Configuration:
     
     def check_for_updates(self):
         messagebox.showinfo("Update Check", "You have the latest version (3.0)")
+    
+    def show_support(self):
+        support = """SUPPORT & HELP:
+
+Documentation:
+  • User Guide: Help > User Guide
+  • Tutorial: Help > Tutorial
+  • API Docs: Help > API Documentation
+
+Troubleshooting:
+  1. Ensure all dependencies are installed
+  2. Check file permissions
+  3. Verify database connectivity
+  4. Check system requirements
+
+Contact:
+  • Email: support@plagiarismchecker.com
+  • Website: https://plagiarismchecker.com
+  • Forum: https://forum.plagiarismchecker.com
+
+For bug reports and feature requests:
+  Please use the GitHub issue tracker."""
