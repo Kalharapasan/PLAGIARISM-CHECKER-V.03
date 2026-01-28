@@ -2159,3 +2159,16 @@ Would you like to open the output directory?"""
         self.root.after(10000, self.update_memory_usage)
     
     def load_recent_files(self):
+        recent_files = []  
+        
+        for widget in self.recent_files_list.winfo_children():
+            widget.destroy()
+        
+        for filepath in recent_files[:5]:  
+            if Path(filepath).exists():
+                btn = tk.Button(self.recent_files_list, 
+                              text=f"📄 {Path(filepath).name}",
+                              font=('Segoe UI', 8), bg='#4a5568', fg='white',
+                              bd=0, padx=5, pady=3, anchor='w',
+                              command=lambda f=filepath: self.open_recent_file(f))
+                btn.pack(fill='x', pady=1)
