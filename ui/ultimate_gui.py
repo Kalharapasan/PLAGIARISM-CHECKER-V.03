@@ -2498,5 +2498,36 @@ Always verify results with human review."""
         stats = self.analyzer.generate_text_statistics(self.current_text)
         notebook = ttk.Notebook(dialog)
         notebook.pack(fill='both', expand=True, padx=10, pady=10)
+        basic_tab = ttk.Frame(notebook)
+        notebook.add(basic_tab, text="Basic Stats")
+        
+        text_widget = scrolledtext.ScrolledText(basic_tab, wrap='word', 
+                                               font=self.fonts['monospace'])
+        text_widget.pack(fill='both', expand=True)
+        
+        basic_stats = f"""TEXT ANALYSIS REPORT
+{'='*60}
+
+Document Statistics:
+  Characters: {stats['basic_statistics']['total_characters']:,}
+  Words: {stats['basic_statistics']['total_words']:,}
+  Sentences: {stats['basic_statistics']['total_sentences']:,}
+  Paragraphs: {stats['basic_statistics']['total_paragraphs']:,}
+  Unique Words: {stats['basic_statistics']['unique_words']:,}
+  
+Character Distribution:
+  Alphabetic: {stats['basic_statistics']['character_distribution']['alphabetic']:,}
+  Numeric: {stats['basic_statistics']['character_distribution']['numeric']:,}
+  Spaces: {stats['basic_statistics']['character_distribution']['spaces']:,}
+  Punctuation: {stats['basic_statistics']['character_distribution']['punctuation']:,}
+  Other: {stats['basic_statistics']['character_distribution']['other']:,}
+  
+Averages:
+  Word Length: {stats['averages']['avg_word_length']} characters
+  Sentence Length: {stats['averages']['avg_sentence_length']} words
+  Paragraph Length: {stats['averages']['avg_paragraph_length']} words
+"""
+        text_widget.insert(1.0, basic_stats)
+        text_widget.config(state='disabled')
         
     
