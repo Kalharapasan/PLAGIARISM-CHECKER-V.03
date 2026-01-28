@@ -2576,6 +2576,8 @@ Interpretation:
     
     def compare_documents(self):
         messagebox.showinfo("Info", "Document comparison tool coming soon!")
+    
+    def generate_visualizations(self):
         
         
     
