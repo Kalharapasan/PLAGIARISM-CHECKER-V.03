@@ -15,6 +15,7 @@ from ..reports.pdf_report import generate_pdf_report
 from ..utils import ProgressTracker, format_file_size, format_percentage
 
 class UltimatePlagiarismChecker:
+    def __init__(self, config):
     
     def setup_fonts(self):
         self.fonts = {
@@ -2582,7 +2583,4 @@ Interpretation:
             self.notebook.select(1)  
             self.generate_visualizations()
         else:
-            messagebox.showwarning("Warning", "No analysis results to visualize")
-        
-        
-    
+            messagebox.showwarning("Warning", "No analysis results to visualize")  
