@@ -2147,3 +2147,5 @@ Would you like to open the output directory?"""
             return '#e53e3e'  
         else:
             return '#c53030'  
+    
+    def update_memory_usage(self):
