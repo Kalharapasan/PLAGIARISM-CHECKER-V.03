@@ -2578,6 +2578,11 @@ Interpretation:
         messagebox.showinfo("Info", "Document comparison tool coming soon!")
     
     def generate_visualizations(self):
+        if self.results:
+            self.notebook.select(1)  
+            self.generate_visualizations()
+        else:
+            messagebox.showwarning("Warning", "No analysis results to visualize")
         
         
     
