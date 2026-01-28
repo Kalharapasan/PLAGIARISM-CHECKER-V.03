@@ -2260,4 +2260,5 @@ ALGORITHM SCORES:
         self.load_dashboard_data()
         self.status_label.config(text="All data refreshed")
     
-    
+    def open_settings(self):
+        messagebox.showinfo("Info", "Settings dialog coming soon!")
