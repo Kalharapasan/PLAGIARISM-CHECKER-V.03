@@ -2137,3 +2137,13 @@ Would you like to open the output directory?"""
             return "🚨 High"
         else:
             return "🔥 Critical"
+    
+    def _get_risk_color(self, similarity):
+        if similarity < 15:
+            return '#48bb78'  
+        elif similarity < 30:
+            return '#ed8936'  
+        elif similarity < 50:
+            return '#e53e3e'  
+        else:
+            return '#c53030'  
