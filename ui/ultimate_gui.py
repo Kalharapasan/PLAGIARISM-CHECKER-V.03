@@ -2253,3 +2253,9 @@ ALGORITHM SCORES:
     
     def save_results(self):
         self.export_report('txt')
+    
+    def refresh_all(self):
+        self.refresh_database_view()
+        self.refresh_history()
+        self.load_dashboard_data()
+        self.status_label.config(text="All data refreshed")
