@@ -2468,6 +2468,24 @@ Always verify results with human review."""
             self.export_report('html')
         else:
             messagebox.showwarning("Warning", "No analysis results to report")
+    
+    def save_visualizations(self):
+        if not self.visualization_figures:
+            messagebox.showwarning("Warning", "No visualizations to save")
+            return
+        
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".png",
+            filetypes=[("PNG Files", "*.png"), ("PDF Files", "*.pdf"), ("SVG Files", "*.svg")],
+            initialfile=f"visualizations_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+        )
+        
+        if filepath:
+            try:
+                self.visualization_figures[-1].savefig(filepath, dpi=300, bbox_inches='tight')
+                messagebox.showinfo("Success", f"Visualizations saved to:\n{filepath}")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save visualizations: {str(e)}")
         
         
     
