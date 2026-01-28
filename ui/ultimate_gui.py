@@ -2486,6 +2486,8 @@ Always verify results with human review."""
                 messagebox.showinfo("Success", f"Visualizations saved to:\n{filepath}")
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to save visualizations: {str(e)}")
+    
+    def text_analysis_tool(self):
         
         
     
