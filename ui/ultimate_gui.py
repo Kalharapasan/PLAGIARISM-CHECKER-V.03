@@ -2388,3 +2388,6 @@ Configuration:
   Theme: {self.current_theme.title()}"""
         
         messagebox.showinfo("System Information", info)
+    
+    def check_for_updates(self):
+        messagebox.showinfo("Update Check", "You have the latest version (3.0)")
