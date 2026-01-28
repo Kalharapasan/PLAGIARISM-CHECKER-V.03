@@ -2456,6 +2456,9 @@ Always verify results with human review."""
     
     def open_text_tools(self):
         messagebox.showinfo("Info", "Text analysis tools coming soon!")
+    
+    def configure_algorithms(self):
+        messagebox.showinfo("Info", "Algorithm configuration coming soon!")
         
         
     
