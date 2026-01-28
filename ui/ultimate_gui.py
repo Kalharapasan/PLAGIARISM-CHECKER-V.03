@@ -2096,3 +2096,5 @@ Would you like to open the output directory?"""
         high_risk = sum(1 for entry in stats['daily_stats'] if entry['avg_similarity'] > 30)
         self.dashboard_stats['High Risk'].config(text=str(high_risk))
         self.dashboard_stats['Database Size'].config(text=str(stats['total_documents']))
+        today_checks = stats['daily_stats'][0]['checks_today'] if stats['daily_stats'] else 0
+        self.dashboard_stats['Files Today'].config(text=str(today_checks))
