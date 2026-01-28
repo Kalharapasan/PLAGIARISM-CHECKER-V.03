@@ -2573,6 +2573,9 @@ Interpretation:
     
     def security_settings(self):
         messagebox.showinfo("Info", "Security settings coming soon!")
+    
+    def compare_documents(self):
+        messagebox.showinfo("Info", "Document comparison tool coming soon!")
         
         
     
