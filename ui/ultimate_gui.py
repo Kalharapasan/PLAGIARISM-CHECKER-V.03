@@ -2224,3 +2224,29 @@ Would you like to open the output directory?"""
             dialog.title(f"Match Details - {match['source']}")
             dialog.geometry("800x600")
             dialog.transient(self.root)
+            tk.Label(dialog, text=f"Match Details: {match['source']}", 
+                    font=self.fonts['header']).pack(pady=10, padx=10, anchor='w')
+            
+            text_widget = scrolledtext.ScrolledText(dialog, wrap='word', 
+                                                   font=self.fonts['monospace'])
+            text_widget.pack(fill='both', expand=True, padx=10, pady=(0, 10))
+            
+            details = f"""SOURCE: {match['source']}
+URL: {match.get('url', 'N/A')}
+CATEGORY: {match.get('category', 'General')}
+
+SIMILARITY: {match['similarity']}%
+CONFIDENCE: {match.get('confidence', 'N/A')}
+RISK LEVEL: {match.get('risk_level', 'N/A')}
+
+ALGORITHM SCORES:
+"""
+            for algo, score in match.get('algorithm_scores', {}).items():
+                details += f"  {algo}: {score}%\n"
+            
+            details += f"\nMATCHED SEQUENCES ({len(match.get('matched_sequences', []))}):\n"
+            for seq in match.get('matched_sequences', [])[:5]:
+                details += f"\n• {seq['text']}\n  ({seq['length']} words, position: {seq.get('position', 0)})\n"
+            
+            text_widget.insert(1.0, details)
+            text_widget.config(state='disabled')
