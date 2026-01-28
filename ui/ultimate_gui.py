@@ -2453,6 +2453,9 @@ Always verify results with human review."""
         self.current_theme = theme
         self._apply_theme()
         self.status_label.config(text=f"Theme switched to {theme}")
+    
+    def open_text_tools(self):
+        messagebox.showinfo("Info", "Text analysis tools coming soon!")
         
         
     
