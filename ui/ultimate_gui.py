@@ -20,6 +20,7 @@ class UltimatePlagiarismChecker:
         self.engine = UltimatePlagiarismEngine(config)
         self.analyzer = AdvancedTextAnalyzer(config)
         self.db_manager = DatabaseManager(config)
+        self.database = self.db_manager.get_all_documents()
     
     def setup_fonts(self):
         self.fonts = {
