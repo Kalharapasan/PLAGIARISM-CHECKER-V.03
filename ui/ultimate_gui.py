@@ -2488,6 +2488,9 @@ Always verify results with human review."""
                 messagebox.showerror("Error", f"Failed to save visualizations: {str(e)}")
     
     def text_analysis_tool(self):
+        if not self.current_text:
+            messagebox.showwarning("Warning", "No text to analyze")
+            return
         
         
     
