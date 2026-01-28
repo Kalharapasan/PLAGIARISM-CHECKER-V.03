@@ -2091,3 +2091,5 @@ Would you like to open the output directory?"""
         
     def load_dashboard_data(self):
         stats = self.db_manager.get_statistics(days=7)
+        self.dashboard_stats['Total Checks'].config(text=str(stats['total_checks']))
+        self.dashboard_stats['Avg Similarity'].config(text=f"{stats['avg_similarity']}%")
