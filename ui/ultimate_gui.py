@@ -21,6 +21,12 @@ class UltimatePlagiarismChecker:
         self.analyzer = AdvancedTextAnalyzer(config)
         self.db_manager = DatabaseManager(config)
         self.database = self.db_manager.get_all_documents()
+        self.root = None
+        self.current_file = None
+        self.current_text = None
+        self.results = None
+        self.selected_algorithms = self.config.get('detection.ultimate.algorithms', 
+                                                  ['cosine_tfidf', 'jaccard', 'ngram_3', 'sequence'])
     
     def setup_fonts(self):
         self.fonts = {
