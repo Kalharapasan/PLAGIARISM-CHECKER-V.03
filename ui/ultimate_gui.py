@@ -2250,3 +2250,6 @@ ALGORITHM SCORES:
             
             text_widget.insert(1.0, details)
             text_widget.config(state='disabled')
+    
+    def save_results(self):
+        self.export_report('txt')
