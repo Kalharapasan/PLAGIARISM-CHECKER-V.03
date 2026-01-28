@@ -975,7 +975,6 @@ class UltimatePlagiarismChecker:
         
         analytics_frame = tk.Frame(right_panel, bg='white')
         analytics_frame.pack(fill='x', padx=15, pady=(0, 15))
-        
         tk.Label(analytics_frame, text="Analytics Summary", font=self.fonts['header'],
                 bg='white', fg='#2d3748').pack(anchor='w', pady=(0, 10))
         
