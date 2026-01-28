@@ -2095,3 +2095,4 @@ Would you like to open the output directory?"""
         self.dashboard_stats['Avg Similarity'].config(text=f"{stats['avg_similarity']}%")
         high_risk = sum(1 for entry in stats['daily_stats'] if entry['avg_similarity'] > 30)
         self.dashboard_stats['High Risk'].config(text=str(high_risk))
+        self.dashboard_stats['Database Size'].config(text=str(stats['total_documents']))
