@@ -2307,3 +2307,6 @@ For more help, see the full documentation."""
     
     def show_tutorial(self):
         messagebox.showinfo("Tutorial", "Interactive tutorial coming soon!")
+    
+    def show_api_docs(self):
+        messagebox.showinfo("API Documentation", "API documentation available at /api/docs")
