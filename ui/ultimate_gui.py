@@ -2564,7 +2564,9 @@ Interpretation:
     
     def readability_analyzer(self):
         self.text_analysis_tool() 
-        
+    
+    def paraphrase_detector(self):
+        messagebox.showinfo("Info", "Paraphrase detector coming soon!")
         
         
     
