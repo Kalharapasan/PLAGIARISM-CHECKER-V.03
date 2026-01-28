@@ -2439,6 +2439,12 @@ This software is provided for educational purposes.
 Always verify results with human review."""
         
         messagebox.showinfo("About", about)
+    
+    def toggle_sidebar(self):
+        if self.sidebar.winfo_ismapped():
+            self.sidebar.pack_forget()
+        else:
+            self.sidebar.pack(side='left', fill='y')
         
         
     
