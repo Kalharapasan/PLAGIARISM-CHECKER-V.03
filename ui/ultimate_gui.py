@@ -2118,4 +2118,12 @@ Would you like to open the output directory?"""
         self.load_dashboard_data()
     
     
-        
+    def _get_risk_level(self, similarity):
+        if similarity < 15:
+            return "Low"
+        elif similarity < 30:
+            return "Moderate"
+        elif similarity < 50:
+            return "High"
+        else:
+            return "Critical"
