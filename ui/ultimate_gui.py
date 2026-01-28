@@ -2407,9 +2407,38 @@ Troubleshooting:
   4. Check system requirements
 
 Contact:
-  • Email: support@plagiarismchecker.com
-  • Website: https://plagiarismchecker.com
-  • Forum: https://forum.plagiarismchecker.com
+  • Email: kalharap84@gmail.com
+  • Website: 
+  • Forum: 
 
 For bug reports and feature requests:
   Please use the GitHub issue tracker."""
+
+        messagebox.showinfo("Support", support)
+    
+    def show_about(self):
+        about = """PLAGIARISM CHECKER ULTIMATE
+Version 3.0 - Enterprise Edition
+
+A comprehensive plagiarism detection system with:
+✓ 10+ detection algorithms
+✓ Advanced NLP analysis
+✓ Machine learning capabilities
+✓ Comprehensive reporting
+✓ Database management
+✓ Batch processing
+✓ Analytics dashboard
+✓ Professional visualizations
+
+Built for academic integrity and research excellence
+
+© 2025 - All rights reserved
+Developed with ❤️ for the academic community
+
+This software is provided for educational purposes.
+Always verify results with human review."""
+        
+        messagebox.showinfo("About", about)
+        
+        
+    
