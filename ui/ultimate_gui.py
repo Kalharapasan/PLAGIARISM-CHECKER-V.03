@@ -2113,4 +2113,7 @@ Would you like to open the output directory?"""
             tk.Label(frame, text=f"{entry['similarity']}%", 
                     font=self.fonts['small'], bg='white', 
                     fg=self._get_risk_color(entry['similarity'])).pack(side='right')
+    
+    def update_dashboard_stats(self):
+        self.load_dashboard_data()
         
