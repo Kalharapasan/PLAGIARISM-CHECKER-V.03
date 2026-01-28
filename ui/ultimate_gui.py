@@ -2089,4 +2089,4 @@ Would you like to open the output directory?"""
         self.progress_label.config(text="Stopped")
         self.batch_progress.config(value=0)
         
-    
+    def load_dashboard_data(self):
