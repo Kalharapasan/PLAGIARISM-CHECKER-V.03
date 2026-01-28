@@ -2157,3 +2157,5 @@ Would you like to open the output directory?"""
         except:
             self.memory_label.config(text="Memory: --")
         self.root.after(10000, self.update_memory_usage)
+    
+    def load_recent_files(self):
