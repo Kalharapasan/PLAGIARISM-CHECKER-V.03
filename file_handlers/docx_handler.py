@@ -136,6 +136,9 @@ class DOCXHandler:
         text = html.unescape(text)
         
         return text.strip()
+    
+    def _extract_headers_manual(self, docx: zipfile.ZipFile) -> List[str]:
+        header_texts = []
                 
 
 
