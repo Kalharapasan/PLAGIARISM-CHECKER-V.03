@@ -87,6 +87,12 @@ class DOCXHandler:
         return text_boxes
     
     def _extract_manual(self, filepath: str) -> str:
+        text_parts = []
+        
+        with zipfile.ZipFile(filepath) as docx:
+            if 'word/document.xml' in docx.namelist():
+                xml_content = docx.read('word/document.xml').decode('utf-8')
+                text_parts.append(self._parse_document_xml(xml_content))
                 
 
 
