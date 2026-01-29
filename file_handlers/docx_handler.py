@@ -598,4 +598,11 @@ def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
         raise Exception(f"Failed to extract DOCX: {e}")
     
         
-    
+def get_docx_word_count(filepath: str) -> int:
+    try:
+        handler = DOCXHandler()
+        text = handler.extract_text(filepath)
+        words = text.split()
+        return len(words)
+    except:
+        return 0
