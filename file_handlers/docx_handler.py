@@ -412,6 +412,9 @@ class DOCXHandler:
             print(f"Warning: Could not analyze document structure: {e}")
         
         return structure
+    
+    def _extract_hyperlinks(self, filepath: str) -> List[Dict[str, str]]:
+        hyperlinks = []
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
