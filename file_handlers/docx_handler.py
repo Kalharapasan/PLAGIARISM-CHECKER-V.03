@@ -128,6 +128,8 @@ class DOCXHandler:
             text_parts.append('\n')
         
         return ''.join(text_parts)
+    
+    def _extract_text_regex(self, xml_content: str) -> str:
                 
 
 
