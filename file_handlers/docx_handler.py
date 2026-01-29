@@ -68,6 +68,14 @@ class DOCXHandler:
 
     def _extract_text_boxes_from_docx(self, filepath: str) -> List[str]:
         text_boxes = []
+        try:
+            with zipfile.ZipFile(filepath) as docx:
+                if 'word/document.xml' not in docx.namelist():
+                    return text_boxes
+        except Exception as e:
+            print(f"Warning: Could not extract text boxes: {e}")
+        
+        return text_boxes
                 
 
 
