@@ -499,6 +499,8 @@ class DOCXHandler:
             validation['errors'].append(f'Validation failed: {str(e)}')
         
         return validation
+    
+    def create_sample_docx(self, output_path: str, content: str = None) -> bool:
             
 
 
