@@ -424,6 +424,19 @@ class DOCXHandler:
                     for rel_id in matches:
                         if 'word/_rels/document.xml.rels' in docx.namelist():
                             rels_content = docx.read('word/_rels/document.xml.rels').decode('utf-8')
+                            rel_pattern = f'<Relationship Id="{rel_id}"[^>]*Target="([^"]*)"'
+                            rel_match = re.search(rel_pattern, rels_content)
+                            
+                            if rel_match:
+                                target = rel_match.group(1)
+                                hyperlinks.append({
+                                    'id': rel_id,
+                                    'target': target,
+                                    'type': 'external' if target.startswith('http') else 'internal'
+                                })
+        
+        except Exception as e:
+            print(f"Warning: Could not extract hyperlinks: {e}")
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
