@@ -459,6 +459,11 @@ class DOCXHandler:
                 return validation
             try:
                 with zipfile.ZipFile(filepath, 'r') as docx:
+                    required_files = ['word/document.xml', '[Content_Types].xml']
+                    
+                    for req_file in required_files:
+                        if req_file not in docx.namelist():
+                            validation['errors'].append(f'Missing required file: {req_file}')
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
