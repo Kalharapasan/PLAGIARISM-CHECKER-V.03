@@ -27,6 +27,8 @@ class DOCXHandler:
             ET.register_namespace(prefix, uri)
     
     def extract_text(self, filepath: str) -> str:
+        try:
+            return self._extract_with_docx(filepath)
 
 
 
