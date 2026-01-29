@@ -233,6 +233,9 @@ class DOCXHandler:
             print(f"Warning: Could not extract metadata: {e}")
         
         return metadata
+    
+    def _parse_core_properties(self, xml_content: str) -> Dict[str, str]:
+        properties = {}
 
 
 
