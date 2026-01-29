@@ -85,6 +85,8 @@ class DOCXHandler:
             print(f"Warning: Could not extract text boxes: {e}")
         
         return text_boxes
+    
+    def _extract_manual(self, filepath: str) -> str:
                 
 
 
