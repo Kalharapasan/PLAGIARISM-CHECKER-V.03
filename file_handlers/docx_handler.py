@@ -482,6 +482,18 @@ class DOCXHandler:
             except zipfile.BadZipFile:
                 validation['errors'].append('File is not a valid ZIP archive')
                 return validation
+            
+            try:
+                text = self.extract_text(filepath)
+                validation['file_info']['extracted_text_length'] = len(text)
+                
+                if len(text.strip()) == 0:
+                    validation['warnings'].append('No text content extracted')
+                
+            except Exception as e:
+                validation['errors'].append(f'Failed to extract text: {str(e)}')
+                
+            
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
