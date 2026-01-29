@@ -620,3 +620,22 @@ def get_docx_character_count(filepath: str, include_spaces: bool = True) -> int:
         return 0
 
 def is_docx_password_protected(filepath: str) -> bool:
+    try:
+        with zipfile.ZipFile(filepath, 'r') as docx:
+            test_file = None
+            for name in docx.namelist():
+                if name.endswith('.xml'):
+                    test_file = name
+                    break
+            
+            if test_file:
+                docx.read(test_file)
+                return False
+            else:
+                return True
+    except RuntimeError as e:
+        if 'encrypted' in str(e).lower() or 'password' in str(e).lower():
+            return True
+        return False
+    except:
+        return False
