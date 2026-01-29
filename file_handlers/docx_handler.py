@@ -95,6 +95,8 @@ class DOCXHandler:
                 text_parts.append(self._parse_document_xml(xml_content))
             header_texts = self._extract_headers_manual(docx)
             text_parts.extend(header_texts)
+            footer_texts = self._extract_footers_manual(docx)
+            text_parts.extend(footer_texts)
                 
 
 
