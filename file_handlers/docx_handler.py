@@ -47,6 +47,7 @@ class DOCXHandler:
         for paragraph in doc.paragraphs:
             if paragraph.text.strip():
                 text_parts.append(paragraph.text)
+                
 
 
 
