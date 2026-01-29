@@ -526,6 +526,28 @@ class DOCXHandler:
                 for para_text in paragraphs[:10]:  
                     if para_text.strip():
                         doc.add_paragraph(para_text)
+            else:
+                doc.add_paragraph('')
+                doc.add_heading('About Academic Integrity', 2)
+                
+                sample_text = """Academic integrity is the moral code or ethical policy of academia. 
+                This includes values such as avoidance of cheating or plagiarism, maintenance of academic standards, 
+                and honesty and rigor in research and academic publishing."""
+                
+                doc.add_paragraph(sample_text)
+                
+                doc.add_heading('Understanding Plagiarism', 2)
+                plagiarism_text = """Plagiarism is the representation of another author's language, thoughts, ideas, 
+                or expressions as one's own original work. In educational contexts, there are differing definitions 
+                of plagiarism depending on the institution."""
+                
+                doc.add_paragraph(plagiarism_text)
+                
+                doc.add_heading('Citation Practices', 2)
+                citation_text = """Proper citation is essential in academic writing. Different citation styles include 
+                APA, MLA, Chicago, and Harvard. Each has specific rules for formatting references."""
+                
+                doc.add_paragraph(citation_text)
             
 
 
