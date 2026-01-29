@@ -558,6 +558,17 @@ class DOCXHandler:
             header_cells[0].text = 'Category'
             header_cells[1].text = 'Count'
             header_cells[2].text = 'Percentage'
+            data = [
+                ('Original Content', '850', '85%'),
+                ('Cited Content', '120', '12%'),
+                ('Similar Content', '30', '3%')
+            ]
+            
+            for i, (category, count, percentage) in enumerate(data, 1):
+                row_cells = table.rows[i].cells
+                row_cells[0].text = category
+                row_cells[1].text = count
+                row_cells[2].text = percentage
             
 
 
