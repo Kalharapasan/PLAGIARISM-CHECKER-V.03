@@ -61,6 +61,10 @@ class DOCXHandler:
         for paragraph in footer.paragraphs:
             if paragraph.text.strip():
                 text_parts.append(paragraph.text)
+        text_boxes = self._extract_text_boxes_from_docx(filepath)
+        text_parts.extend(text_boxes)
+        
+        return '\n'.join(text_parts)
                 
 
 
