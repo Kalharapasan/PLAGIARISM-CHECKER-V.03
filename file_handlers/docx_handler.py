@@ -97,6 +97,8 @@ class DOCXHandler:
             text_parts.extend(header_texts)
             footer_texts = self._extract_footers_manual(docx)
             text_parts.extend(footer_texts)
+            footnote_texts = self._extract_footnotes_manual(docx)
+            text_parts.extend(footnote_texts)
                 
 
 
