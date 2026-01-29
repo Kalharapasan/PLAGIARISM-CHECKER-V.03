@@ -519,6 +519,9 @@ class DOCXHandler:
             metadata_para = doc.add_paragraph()
             metadata_para.add_run('Generated: ').bold = True
             metadata_para.add_run(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            if content:
+                doc.add_paragraph('')
+                doc.add_heading('Document Content', 2)
             
 
 
