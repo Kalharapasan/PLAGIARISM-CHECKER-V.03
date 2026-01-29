@@ -113,6 +113,9 @@ class DOCXHandler:
                     paragraphs.append(para_text)
             
             return '\n'.join(paragraphs)
+        except Exception as e:
+            print(f"Warning: Error parsing document XML: {e}")
+            return self._extract_text_regex(xml_content)
                 
 
 
