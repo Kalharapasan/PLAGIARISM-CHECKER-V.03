@@ -18,6 +18,10 @@ class DOCXHandler:
         'v': 'urn:schemas-microsoft-com:vml'
     }
     
+    def __init__(self, config=None):
+        self.config = config or {}
+        self._register_namespaces()
+    
 
 
 
