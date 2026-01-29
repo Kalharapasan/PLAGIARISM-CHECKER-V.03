@@ -241,6 +241,31 @@ class DOCXHandler:
             cp_ns = 'http://schemas.openxmlformats.org/package/2006/metadata/core-properties'
             dc_ns = 'http://purl.org/dc/elements/1.1/'
             dcterms_ns = 'http://purl.org/dc/terms/'
+            prop_mapping = {
+                f'{{{dc_ns}}}title': 'title',
+                f'{{{dc_ns}}}creator': 'author',
+                f'{{{dc_ns}}}subject': 'subject',
+                f'{{{dc_ns}}}description': 'description',
+                f'{{{dc_ns}}}publisher': 'publisher',
+                f'{{{dc_ns}}}contributor': 'contributor',
+                f'{{{dc_ns}}}date': 'date',
+                f'{{{dcterms_ns}}}created': 'created',
+                f'{{{dcterms_ns}}}modified': 'modified',
+                f'{{{cp_ns}}}keywords': 'keywords',
+                f'{{{cp_ns}}}category': 'category',
+                f'{{{cp_ns}}}version': 'version',
+                f'{{{cp_ns}}}contentStatus': 'content_status',
+                f'{{{cp_ns}}}language': 'language'
+            }
+            
+            for elem in root:
+                if elem.tag in prop_mapping:
+                    properties[prop_mapping[elem.tag]] = elem.text
+        
+        except Exception as e:
+            print(f"Warning: Could not parse core properties: {e}")
+        
+        return properties
 
 
 
