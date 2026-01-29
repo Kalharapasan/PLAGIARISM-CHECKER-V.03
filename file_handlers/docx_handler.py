@@ -390,6 +390,14 @@ class DOCXHandler:
                 structure['tables'].append(table_info)
             hyperlinks = self._extract_hyperlinks(filepath)
             structure['hyperlinks'] = hyperlinks
+            try:
+                with zipfile.ZipFile(filepath) as docx:
+                    image_count = sum(1 for name in docx.namelist() 
+                                    if name.startswith('word/media/') 
+                                    and name.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')))
+                    structure['images'] = [{'count': image_count}]
+            except:
+                pass
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
