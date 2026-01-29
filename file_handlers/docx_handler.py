@@ -29,6 +29,8 @@ class DOCXHandler:
     def extract_text(self, filepath: str) -> str:
         try:
             return self._extract_with_docx(filepath)
+        except ImportError:
+            return self._extract_manual(filepath)
 
 
 
