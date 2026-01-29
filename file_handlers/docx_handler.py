@@ -225,7 +225,14 @@ class DOCXHandler:
                 if 'docProps/app.xml' in docx.namelist():
                     app_xml = docx.read('docProps/app.xml').decode('utf-8')
                     metadata['document_properties'].update(self._parse_app_properties(app_xml))
-                
+                if 'docProps/custom.xml' in docx.namelist():
+                    custom_xml = docx.read('docProps/custom.xml').decode('utf-8')
+                    metadata['document_properties'].update(self._parse_custom_properties(custom_xml))
+        
+        except Exception as e:
+            print(f"Warning: Could not extract metadata: {e}")
+        
+        return metadata
 
 
 
