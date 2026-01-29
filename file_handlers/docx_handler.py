@@ -369,6 +369,17 @@ class DOCXHandler:
                     }
                 }
                 structure['sections'].append(sect_info)
+            for i, para in enumerate(doc.paragraphs):
+                if para.text.strip():
+                    para_info = {
+                        'index': i,
+                        'text_length': len(para.text),
+                        'style': para.style.name if para.style else 'Normal',
+                        'alignment': str(para.alignment) if para.alignment else 'LEFT',
+                        'has_runs': len(para.runs) > 0,
+                        'first_10_words': ' '.join(para.text.split()[:10])
+                    }
+                    structure['paragraphs'].append(para_info)
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
