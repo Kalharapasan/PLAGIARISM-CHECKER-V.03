@@ -301,6 +301,42 @@ class DOCXHandler:
             print(f"Warning: Could not parse app properties: {e}")
         
         return properties
+    
+    def _parse_custom_properties(self, xml_content: str) -> Dict[str, str]:
+        properties = {}
+        
+        try:
+            root = ET.fromstring(xml_content)
+            cp_ns = 'http://schemas.openxmlformats.org/officeDocument/2006/custom-properties'
+            vt_ns = 'http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes'
+            
+            for prop in root.findall(f'.//{{{cp_ns}}}property'):
+                name = prop.get('name')
+                if name:
+                    value_elem = prop.find(f'.//{{{vt_ns}}}lpwstr')
+                    if value_elem is not None:
+                        properties[name] = value_elem.text
+                    else:
+                        value_elem = prop.find(f'.//{{{vt_ns}}}i4')
+                        if value_elem is not None:
+                            properties[name] = value_elem.text
+                        else:
+                            value_elem = prop.find(f'.//{{{vt_ns}}}r8')
+                            if value_elem is not None:
+                                properties[name] = value_elem.text
+                            else:
+                                value_elem = prop.find(f'.//{{{vt_ns}}}bool')
+                                if value_elem is not None:
+                                    properties[name] = value_elem.text
+                                else:
+                                    value_elem = prop.find(f'.//{{{vt_ns}}}filetime')
+                                    if value_elem is not None:
+                                        properties[name] = value_elem.text
+        
+        except Exception as e:
+            print(f"Warning: Could not parse custom properties: {e}")
+        
+        return properties
 
 
 
