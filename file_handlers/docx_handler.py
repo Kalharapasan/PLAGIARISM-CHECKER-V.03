@@ -139,6 +139,24 @@ class DOCXHandler:
     
     def _extract_headers_manual(self, docx: zipfile.ZipFile) -> List[str]:
         header_texts = []
+        try:
+            if 'word/_rels/document.xml.rels' in docx.namelist():
+                rels_content = docx.read('word/_rels/document.xml.rels').decode('utf-8')
+                rels_root = ET.fromstring(rels_content)
+                
+                for rel in rels_root.findall('.//Relationship', {'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/header'}):
+                    header_path = f"word/{rel.attrib['Target']}"
+                    
+                    if header_path in docx.namelist():
+                        header_xml = docx.read(header_path).decode('utf-8')
+                        header_text = self._parse_document_xml(header_xml)
+                        if header_text.strip():
+                            header_texts.append(header_text)
+        
+        except Exception as e:
+            print(f"Warning: Could not extract headers: {e}")
+        
+        return header_texts
                 
 
 
