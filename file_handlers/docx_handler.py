@@ -222,6 +222,9 @@ class DOCXHandler:
                 if 'docProps/core.xml' in docx.namelist():
                     core_xml = docx.read('docProps/core.xml').decode('utf-8')
                     metadata['document_properties'].update(self._parse_core_properties(core_xml))
+                if 'docProps/app.xml' in docx.namelist():
+                    app_xml = docx.read('docProps/app.xml').decode('utf-8')
+                    metadata['document_properties'].update(self._parse_app_properties(app_xml))
                 
 
 
