@@ -25,6 +25,8 @@ class DOCXHandler:
     def _register_namespaces(self):
         for prefix, uri in self.NAMESPACES.items():
             ET.register_namespace(prefix, uri)
+    
+    def extract_text(self, filepath: str) -> str:
 
 
 
