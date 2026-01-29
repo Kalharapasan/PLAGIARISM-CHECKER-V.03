@@ -554,6 +554,10 @@ class DOCXHandler:
             
             table = doc.add_table(rows=4, cols=3)
             table.style = 'Light Grid Accent 1'
+            header_cells = table.rows[0].cells
+            header_cells[0].text = 'Category'
+            header_cells[1].text = 'Count'
+            header_cells[2].text = 'Percentage'
             
 
 
