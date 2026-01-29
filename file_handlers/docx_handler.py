@@ -351,7 +351,24 @@ class DOCXHandler:
             'styles': [],
             'hyperlinks': []
         }
-
+        try:
+            from docx import Document
+            doc = Document(filepath)
+            for i, section in enumerate(doc.sections):
+                sect_info = {
+                    'index': i,
+                    'start_page': i + 1,
+                    'page_width': section.page_width.inches,
+                    'page_height': section.page_height.inches,
+                    'orientation': 'landscape' if section.orientation.value == 1 else 'portrait',
+                    'margins': {
+                        'left': section.left_margin.inches,
+                        'right': section.right_margin.inches,
+                        'top': section.top_margin.inches,
+                        'bottom': section.bottom_margin.inches
+                    }
+                }
+                structure['sections'].append(sect_info)
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
