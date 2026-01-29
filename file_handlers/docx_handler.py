@@ -6,3 +6,6 @@ from typing import Dict, List, Tuple, Optional, Any
 from datetime import datetime
 import tempfile
 import os
+
+class DOCXHandler:
+    
