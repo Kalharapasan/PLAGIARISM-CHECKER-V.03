@@ -217,6 +217,11 @@ class DOCXHandler:
             'created': datetime.fromtimestamp(Path(filepath).stat().st_ctime).isoformat(),
             'document_properties': {}
         }
+        try:
+            with zipfile.ZipFile(filepath) as docx:
+                if 'docProps/core.xml' in docx.namelist():
+                    core_xml = docx.read('docProps/core.xml').decode('utf-8')
+                    metadata['document_properties'].update(self._parse_core_properties(core_xml))
                 
 
 
