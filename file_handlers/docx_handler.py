@@ -574,6 +574,14 @@ class DOCXHandler:
             footer = doc.add_paragraph()
             footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
             footer.add_run('Generated for testing purposes only').italic = True
+            doc.save(output_path)
+            
+            print(f"✓ Sample DOCX created: {output_path}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to create sample DOCX: {e}")
+            return False
             
 
 
