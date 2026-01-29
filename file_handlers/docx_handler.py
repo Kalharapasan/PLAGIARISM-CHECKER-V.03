@@ -99,6 +99,9 @@ class DOCXHandler:
             text_parts.extend(footer_texts)
             footnote_texts = self._extract_footnotes_manual(docx)
             text_parts.extend(footnote_texts)
+            endnote_texts = self._extract_endnotes_manual(docx)
+            text_parts.extend(endnote_texts)
+        return '\n'.join(filter(None, text_parts))
                 
 
 
