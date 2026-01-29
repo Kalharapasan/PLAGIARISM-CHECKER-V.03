@@ -72,6 +72,10 @@ class DOCXHandler:
             with zipfile.ZipFile(filepath) as docx:
                 if 'word/document.xml' not in docx.namelist():
                     return text_boxes
+                xml_content = docx.read('word/document.xml').decode('utf-8')
+                
+                root = ET.fromstring(xml_content)
+                
         except Exception as e:
             print(f"Warning: Could not extract text boxes: {e}")
         
