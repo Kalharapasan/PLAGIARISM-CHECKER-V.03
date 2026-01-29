@@ -639,3 +639,11 @@ def is_docx_password_protected(filepath: str) -> bool:
         return False
     except:
         return False
+
+__all__ = [
+    'DOCXHandler',
+    'extract_docx_as_zip',
+    'get_docx_word_count',
+    'get_docx_character_count',
+    'is_docx_password_protected'
+]
