@@ -415,6 +415,12 @@ class DOCXHandler:
     
     def _extract_hyperlinks(self, filepath: str) -> List[Dict[str, str]]:
         hyperlinks = []
+        try:
+            with zipfile.ZipFile(filepath) as docx:
+                if 'word/document.xml' in docx.namelist():
+                    xml_content = docx.read('word/document.xml').decode('utf-8')
+                    hyperlink_pattern = r'<w:hyperlink[^>]*r:id="([^"]*)"[^>]*>'
+                    matches = re.findall(hyperlinks)
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
