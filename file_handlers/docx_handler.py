@@ -606,3 +606,15 @@ def get_docx_word_count(filepath: str) -> int:
         return len(words)
     except:
         return 0
+
+def get_docx_character_count(filepath: str, include_spaces: bool = True) -> int:
+    try:
+        handler = DOCXHandler()
+        text = handler.extract_text(filepath)
+        
+        if include_spaces:
+            return len(text)
+        else:
+            return len(text.replace(' ', '').replace('\n', '').replace('\t', ''))
+    except:
+        return 0
