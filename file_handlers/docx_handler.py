@@ -445,6 +445,10 @@ class DOCXHandler:
             'warnings': [],
             'file_info': {}
         }
+        try:
+            if not Path(filepath).exists():
+                validation['errors'].append('File does not exist')
+                return validation
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
