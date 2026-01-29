@@ -451,6 +451,12 @@ class DOCXHandler:
                 return validation
             if not filepath.lower().endswith('.docx'):
                 validation['warnings'].append('File extension is not .docx')
+            file_size = Path(filepath).stat().st_size
+            validation['file_info']['size_bytes'] = file_size
+            
+            if file_size == 0:
+                validation['errors'].append('File is empty')
+                return validation
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
