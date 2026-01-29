@@ -8,15 +8,21 @@ import tempfile
 import os
 
 class DOCXHandler:
-    def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
-        if extract_to is None:
-            extract_to = tempfile.mkdtemp(prefix='docx_extract_')
+    
+
+
+
+def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
+    if extract_to is None:
+        extract_to = tempfile.mkdtemp(prefix='docx_extract_')
         
-        try:
-            with zipfile.ZipFile(filepath, 'r') as docx:
-                docx.extractall(extract_to)
+    try:
+        with zipfile.ZipFile(filepath, 'r') as docx:
+            docx.extractall(extract_to)
             
-            return extract_to
-        except Exception as e:
-            raise Exception(f"Failed to extract DOCX: {e}")
+        return extract_to
+    except Exception as e:
+        raise Exception(f"Failed to extract DOCX: {e}")
+        
+    
     
