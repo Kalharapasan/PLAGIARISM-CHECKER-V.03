@@ -130,6 +130,7 @@ class DOCXHandler:
         return ''.join(text_parts)
     
     def _extract_text_regex(self, xml_content: str) -> str:
+        text = re.sub(r'<[^>]+>', ' ', xml_content)
                 
 
 
