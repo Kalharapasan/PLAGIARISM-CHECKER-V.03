@@ -549,6 +549,12 @@ class DOCXHandler:
                 
                 doc.add_paragraph(citation_text)
             
+            doc.add_paragraph('')
+            doc.add_heading('Sample Data Table', 2)
+            
+            table = doc.add_table(rows=4, cols=3)
+            table.style = 'Light Grid Accent 1'
+            
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
