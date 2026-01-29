@@ -468,6 +468,7 @@ class DOCXHandler:
                         validation['warnings'].append('Missing document relationships file')
                     if 'docProps/core.xml' not in docx.namelist():
                         validation['warnings'].append('Missing core properties')
+                    validation['file_info']['total_files'] = len(docx.namelist())
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
