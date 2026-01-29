@@ -421,6 +421,9 @@ class DOCXHandler:
                     xml_content = docx.read('word/document.xml').decode('utf-8')
                     hyperlink_pattern = r'<w:hyperlink[^>]*r:id="([^"]*)"[^>]*>'
                     matches = re.findall(hyperlinks)
+                    for rel_id in matches:
+                        if 'word/_rels/document.xml.rels' in docx.namelist():
+                            rels_content = docx.read('word/_rels/document.xml.rels').decode('utf-8')
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
