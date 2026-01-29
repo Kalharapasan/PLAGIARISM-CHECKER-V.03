@@ -116,6 +116,9 @@ class DOCXHandler:
         except Exception as e:
             print(f"Warning: Error parsing document XML: {e}")
             return self._extract_text_regex(xml_content)
+
+    def _extract_text_from_paragraph(self, paragraph: ET.Element) -> str:
+        text_parts = []
                 
 
 
@@ -132,5 +135,4 @@ def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
     except Exception as e:
         raise Exception(f"Failed to extract DOCX: {e}")
         
-    
     
