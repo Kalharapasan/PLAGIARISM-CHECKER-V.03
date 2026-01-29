@@ -236,6 +236,11 @@ class DOCXHandler:
     
     def _parse_core_properties(self, xml_content: str) -> Dict[str, str]:
         properties = {}
+        try:
+            root = ET.fromstring(xml_content)
+            cp_ns = 'http://schemas.openxmlformats.org/package/2006/metadata/core-properties'
+            dc_ns = 'http://purl.org/dc/elements/1.1/'
+            dcterms_ns = 'http://purl.org/dc/terms/'
 
 
 
