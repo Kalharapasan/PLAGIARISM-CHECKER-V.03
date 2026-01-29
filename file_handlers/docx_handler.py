@@ -193,6 +193,21 @@ class DOCXHandler:
             print(f"Warning: Could not extract footnotes: {e}")
         
         return footnote_texts
+    
+    def _extract_endnotes_manual(self, docx: zipfile.ZipFile) -> List[str]:
+        endnote_texts = []
+        
+        try:
+            if 'word/endnotes.xml' in docx.namelist():
+                endnotes_xml = docx.read('word/endnotes.xml').decode('utf-8')
+                endnote_text = self._parse_document_xml(endnotes_xml)
+                if endnote_text.strip():
+                    endnote_texts.append(endnote_text)
+        
+        except Exception as e:
+            print(f"Warning: Could not extract endnotes: {e}")
+        
+        return endnote_texts
                 
 
 
