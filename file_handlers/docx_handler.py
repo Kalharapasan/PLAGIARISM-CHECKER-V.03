@@ -107,6 +107,12 @@ class DOCXHandler:
         try:
             root = ET.fromstring(xml_content)
             paragraphs = []
+            for para in root.findall('.//w:p', self.NAMESPACES):
+                para_text = self._extract_text_from_paragraph(para)
+                if para_text.strip():
+                    paragraphs.append(para_text)
+            
+            return '\n'.join(paragraphs)
                 
 
 
