@@ -22,6 +22,9 @@ class DOCXHandler:
         self.config = config or {}
         self._register_namespaces()
     
+    def _register_namespaces(self):
+        for prefix, uri in self.NAMESPACES.items():
+            ET.register_namespace(prefix, uri)
 
 
 
