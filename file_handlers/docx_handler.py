@@ -522,6 +522,10 @@ class DOCXHandler:
             if content:
                 doc.add_paragraph('')
                 doc.add_heading('Document Content', 2)
+                paragraphs = content.split('\n\n')
+                for para_text in paragraphs[:10]:  
+                    if para_text.strip():
+                        doc.add_paragraph(para_text)
             
 
 
