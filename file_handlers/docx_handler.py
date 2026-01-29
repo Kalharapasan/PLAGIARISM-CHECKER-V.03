@@ -208,6 +208,15 @@ class DOCXHandler:
             print(f"Warning: Could not extract endnotes: {e}")
         
         return endnote_texts
+    
+    def extract_metadata(self, filepath: str) -> Dict[str, Any]:
+        metadata = {
+            'filename': Path(filepath).name,
+            'file_size': Path(filepath).stat().st_size,
+            'modified': datetime.fromtimestamp(Path(filepath).stat().st_mtime).isoformat(),
+            'created': datetime.fromtimestamp(Path(filepath).stat().st_ctime).isoformat(),
+            'document_properties': {}
+        }
                 
 
 
