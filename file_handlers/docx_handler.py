@@ -52,6 +52,15 @@ class DOCXHandler:
                 for cell in row.cells:
                     if cell.text.strip():
                         text_parts.append(cell.text)
+        for section in doc.sections:
+            header = section.header
+            for paragraph in header.paragraphs:
+                if paragraph.text.strip():
+                    text_parts.append(paragraph.text)
+        footer = section.footer
+        for paragraph in footer.paragraphs:
+            if paragraph.text.strip():
+                text_parts.append(paragraph.text)
                 
 
 
