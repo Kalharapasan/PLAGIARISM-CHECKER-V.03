@@ -102,6 +102,11 @@ class DOCXHandler:
             endnote_texts = self._extract_endnotes_manual(docx)
             text_parts.extend(endnote_texts)
         return '\n'.join(filter(None, text_parts))
+
+    def _parse_document_xml(self, xml_content: str) -> str:
+        try:
+            root = ET.fromstring(xml_content)
+            paragraphs = []
                 
 
 
