@@ -44,6 +44,9 @@ class DOCXHandler:
         
         doc = Document(filepath)
         text_parts = []
+        for paragraph in doc.paragraphs:
+            if paragraph.text.strip():
+                text_parts.append(paragraph.text)
 
 
 
