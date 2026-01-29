@@ -380,6 +380,14 @@ class DOCXHandler:
                         'first_10_words': ' '.join(para.text.split()[:10])
                     }
                     structure['paragraphs'].append(para_info)
+            for i, table in enumerate(doc.tables):
+                table_info = {
+                    'index': i,
+                    'rows': len(table.rows),
+                    'columns': len(table.columns),
+                    'total_cells': len(table.rows) * len(table.columns)
+                }
+                structure['tables'].append(table_info)
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
