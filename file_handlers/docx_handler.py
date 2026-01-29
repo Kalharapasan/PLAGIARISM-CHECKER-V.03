@@ -119,6 +119,9 @@ class DOCXHandler:
 
     def _extract_text_from_paragraph(self, paragraph: ET.Element) -> str:
         text_parts = []
+        for run in paragraph.findall('.//w:t', self.NAMESPACES):
+            if run.text:
+                text_parts.append(run.text)
                 
 
 
