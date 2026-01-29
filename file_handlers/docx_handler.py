@@ -65,6 +65,9 @@ class DOCXHandler:
         text_parts.extend(text_boxes)
         
         return '\n'.join(text_parts)
+
+    def _extract_text_boxes_from_docx(self, filepath: str) -> List[str]:
+        text_boxes = []
                 
 
 
