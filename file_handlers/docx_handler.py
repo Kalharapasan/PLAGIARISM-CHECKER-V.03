@@ -122,6 +122,8 @@ class DOCXHandler:
         for run in paragraph.findall('.//w:t', self.NAMESPACES):
             if run.text:
                 text_parts.append(run.text)
+        for tab in paragraph.findall('.//w:tab', self.NAMESPACES):
+            text_parts.append('\t')
                 
 
 
