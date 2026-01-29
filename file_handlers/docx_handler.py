@@ -457,6 +457,8 @@ class DOCXHandler:
             if file_size == 0:
                 validation['errors'].append('File is empty')
                 return validation
+            try:
+                with zipfile.ZipFile(filepath, 'r') as docx:
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
