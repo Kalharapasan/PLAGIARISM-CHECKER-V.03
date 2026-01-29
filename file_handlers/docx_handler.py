@@ -266,6 +266,9 @@ class DOCXHandler:
             print(f"Warning: Could not parse core properties: {e}")
         
         return properties
+    
+    def _parse_app_properties(self, xml_content: str) -> Dict[str, str]:
+        properties = {}
 
 
 
