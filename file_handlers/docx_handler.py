@@ -337,6 +337,20 @@ class DOCXHandler:
             print(f"Warning: Could not parse custom properties: {e}")
         
         return properties
+    
+    def analyze_document_structure(self, filepath: str) -> Dict[str, Any]:    
+        structure = {
+            'sections': [],
+            'paragraphs': [],
+            'tables': [],
+            'images': [],
+            'headers': [],
+            'footers': [],
+            'footnotes': [],
+            'endnotes': [],
+            'styles': [],
+            'hyperlinks': []
+        }
 
 
 
