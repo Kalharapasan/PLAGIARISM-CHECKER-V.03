@@ -398,6 +398,20 @@ class DOCXHandler:
                     structure['images'] = [{'count': image_count}]
             except:
                 pass
+            metadata = self.extract_metadata(filepath)
+            if 'document_properties' in metadata:
+                stats = metadata['document_properties']
+                structure['statistics'] = {
+                    'words': stats.get('words', 0),
+                    'characters': stats.get('characters', 0),
+                    'pages': stats.get('pages', 0),
+                    'paragraphs': stats.get('paragraphs', 0)
+                }
+        
+        except Exception as e:
+            print(f"Warning: Could not analyze document structure: {e}")
+        
+        return structure
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
