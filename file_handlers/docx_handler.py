@@ -160,6 +160,24 @@ class DOCXHandler:
     
     def _extract_footers_manual(self, docx: zipfile.ZipFile) -> List[str]:
         footer_texts = []
+        try:
+            if 'word/_rels/document.xml.rels' in docx.namelist():
+                rels_content = docx.read('word/_rels/document.xml.rels').decode('utf-8')
+                rels_root = ET.fromstring(rels_content)
+                
+                for rel in rels_root.findall('.//Relationship', {'Type': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer'}):
+                    footer_path = f"word/{rel.attrib['Target']}"
+                    
+                    if footer_path in docx.namelist():
+                        footer_xml = docx.read(footer_path).decode('utf-8')
+                        footer_text = self._parse_document_xml(footer_xml)
+                        if footer_text.strip():
+                            footer_texts.append(footer_text)
+        
+        except Exception as e:
+            print(f"Warning: Could not extract footers: {e}")
+        
+        return footer_texts
                 
 
 
