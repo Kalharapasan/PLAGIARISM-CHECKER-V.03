@@ -75,6 +75,11 @@ class DOCXHandler:
                 xml_content = docx.read('word/document.xml').decode('utf-8')
                 
                 root = ET.fromstring(xml_content)
+                for shape in root.findall('.//w:txbxContent', self.NAMESPACES):
+                    for paragraph in shape.findall('.//w:p', self.NAMESPACES):
+                        text = self._extract_text_from_paragraph(paragraph)
+                        if text.strip():
+                            text_boxes.append(text)
                 
         except Exception as e:
             print(f"Warning: Could not extract text boxes: {e}")
