@@ -618,3 +618,5 @@ def get_docx_character_count(filepath: str, include_spaces: bool = True) -> int:
             return len(text.replace(' ', '').replace('\n', '').replace('\t', ''))
     except:
         return 0
+
+def is_docx_password_protected(filepath: str) -> bool:
