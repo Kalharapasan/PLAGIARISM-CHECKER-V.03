@@ -492,7 +492,13 @@ class DOCXHandler:
                 
             except Exception as e:
                 validation['errors'].append(f'Failed to extract text: {str(e)}')
-                
+            
+            validation['is_valid'] = len(validation['errors']) == 0
+        
+        except Exception as e:
+            validation['errors'].append(f'Validation failed: {str(e)}')
+        
+        return validation
             
 
 
