@@ -388,6 +388,8 @@ class DOCXHandler:
                     'total_cells': len(table.rows) * len(table.columns)
                 }
                 structure['tables'].append(table_info)
+            hyperlinks = self._extract_hyperlinks(filepath)
+            structure['hyperlinks'] = hyperlinks
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
