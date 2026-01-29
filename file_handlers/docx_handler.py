@@ -157,6 +157,9 @@ class DOCXHandler:
             print(f"Warning: Could not extract headers: {e}")
         
         return header_texts
+    
+    def _extract_footers_manual(self, docx: zipfile.ZipFile) -> List[str]:
+        footer_texts = []
                 
 
 
