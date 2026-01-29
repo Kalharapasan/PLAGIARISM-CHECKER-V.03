@@ -93,6 +93,8 @@ class DOCXHandler:
             if 'word/document.xml' in docx.namelist():
                 xml_content = docx.read('word/document.xml').decode('utf-8')
                 text_parts.append(self._parse_document_xml(xml_content))
+            header_texts = self._extract_headers_manual(docx)
+            text_parts.extend(header_texts)
                 
 
 
