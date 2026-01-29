@@ -178,6 +178,21 @@ class DOCXHandler:
             print(f"Warning: Could not extract footers: {e}")
         
         return footer_texts
+    
+    def _extract_footnotes_manual(self, docx: zipfile.ZipFile) -> List[str]:
+        footnote_texts = []
+        
+        try:
+            if 'word/footnotes.xml' in docx.namelist():
+                footnotes_xml = docx.read('word/footnotes.xml').decode('utf-8')
+                footnote_text = self._parse_document_xml(footnotes_xml)
+                if footnote_text.strip():
+                    footnote_texts.append(footnote_text)
+        
+        except Exception as e:
+            print(f"Warning: Could not extract footnotes: {e}")
+        
+        return footnote_texts
                 
 
 
