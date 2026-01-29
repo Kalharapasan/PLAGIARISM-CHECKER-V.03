@@ -464,6 +464,8 @@ class DOCXHandler:
                     for req_file in required_files:
                         if req_file not in docx.namelist():
                             validation['errors'].append(f'Missing required file: {req_file}')
+                    if 'word/_rels/document.xml.rels' not in docx.namelist():
+                        validation['warnings'].append('Missing document relationships file')
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
