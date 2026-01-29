@@ -569,6 +569,11 @@ class DOCXHandler:
                 row_cells[0].text = category
                 row_cells[1].text = count
                 row_cells[2].text = percentage
+            doc.add_paragraph('')
+            doc.add_paragraph('-' * 50)
+            footer = doc.add_paragraph()
+            footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            footer.add_run('Generated for testing purposes only').italic = True
             
 
 
