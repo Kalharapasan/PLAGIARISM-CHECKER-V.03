@@ -469,6 +469,19 @@ class DOCXHandler:
                     if 'docProps/core.xml' not in docx.namelist():
                         validation['warnings'].append('Missing core properties')
                     validation['file_info']['total_files'] = len(docx.namelist())
+                    corrupted_files = []
+                    for file_info in docx.infolist():
+                        try:
+                            docx.read(file_info.filename)
+                        except:
+                            corrupted_files.append(file_info.filename)
+                    
+                    if corrupted_files:
+                        validation['errors'].append(f'Corrupted files: {corrupted_files[:5]}')
+                    
+            except zipfile.BadZipFile:
+                validation['errors'].append('File is not a valid ZIP archive')
+                return validation
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
