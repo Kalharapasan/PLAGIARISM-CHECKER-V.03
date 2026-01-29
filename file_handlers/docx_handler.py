@@ -437,6 +437,14 @@ class DOCXHandler:
         
         except Exception as e:
             print(f"Warning: Could not extract hyperlinks: {e}")
+    
+    def validate_docx(self, filepath: str) -> Dict[str, Any]:
+        validation = {
+            'is_valid': False,
+            'errors': [],
+            'warnings': [],
+            'file_info': {}
+        }
 
 
 def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
