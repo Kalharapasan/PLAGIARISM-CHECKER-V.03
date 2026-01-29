@@ -507,6 +507,8 @@ class DOCXHandler:
             from docx.enum.text import WD_ALIGN_PARAGRAPH
             from docx.enum.style import WD_STYLE_TYPE
             doc = Document()
+            title = doc.add_heading('Sample Document for Plagiarism Testing', 0)
+            title.alignment = WD_ALIGN_PARAGRAPH.CENTER
             
 
 
