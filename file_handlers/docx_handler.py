@@ -36,6 +36,14 @@ class DOCXHandler:
                 return self._extract_manual(filepath)
             except Exception as e2:
                 raise Exception(f"Failed to extract text from DOCX: {e2}")
+    
+    def _extract_with_docx(self, filepath: str) -> str:
+        from docx import Document
+        from docx.enum.style import WD_STYLE_TYPE
+        from docx.oxml.ns import qn
+        
+        doc = Document(filepath)
+        text_parts = []
 
 
 
