@@ -269,6 +269,38 @@ class DOCXHandler:
     
     def _parse_app_properties(self, xml_content: str) -> Dict[str, str]:
         properties = {}
+        try:
+            root = ET.fromstring(xml_content)
+            app_ns = 'http://schemas.openxmlformats.org/officeDocument/2006/extended-properties'
+            
+            prop_mapping = {
+                f'{{{app_ns}}}Application': 'application',
+                f'{{{app_ns}}}DocSecurity': 'security',
+                f'{{{app_ns}}}ScaleCrop': 'scale_crop',
+                f'{{{app_ns}}}HeadingPairs': 'heading_pairs',
+                f'{{{app_ns}}}TitlesOfParts': 'titles_of_parts',
+                f'{{{app_ns}}}Company': 'company',
+                f'{{{app_ns}}}LinksUpToDate': 'links_up_to_date',
+                f'{{{app_ns}}}HyperlinksChanged': 'hyperlinks_changed',
+                f'{{{app_ns}}}AppVersion': 'app_version',
+                f'{{{app_ns}}}Pages': 'pages',
+                f'{{{app_ns}}}Words': 'words',
+                f'{{{app_ns}}}Characters': 'characters',
+                f'{{{app_ns}}}CharactersWithSpaces': 'characters_with_spaces',
+                f'{{{app_ns}}}Lines': 'lines',
+                f'{{{app_ns}}}Paragraphs': 'paragraphs',
+                f'{{{app_ns}}}TotalTime': 'total_time',
+                f'{{{app_ns}}}SharedDoc': 'shared_doc'
+            }
+            
+            for elem in root:
+                if elem.tag in prop_mapping:
+                    properties[prop_mapping[elem.tag]] = elem.text
+        
+        except Exception as e:
+            print(f"Warning: Could not parse app properties: {e}")
+        
+        return properties
 
 
 
@@ -283,5 +315,6 @@ def extract_docx_as_zip(filepath: str, extract_to: str = None) -> str:
         return extract_to
     except Exception as e:
         raise Exception(f"Failed to extract DOCX: {e}")
+    
         
     
