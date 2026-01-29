@@ -31,6 +31,11 @@ class DOCXHandler:
             return self._extract_with_docx(filepath)
         except ImportError:
             return self._extract_manual(filepath)
+        except Exception as e:
+            try:
+                return self._extract_manual(filepath)
+            except Exception as e2:
+                raise Exception(f"Failed to extract text from DOCX: {e2}")
 
 
 
