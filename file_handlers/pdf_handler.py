@@ -541,4 +541,9 @@ class PDFHandler:
         return validation
     
     def _check_pdf_issues(self, filepath: str, validation: Dict[str, Any]):
+        try:
+            file_size = Path(filepath).stat().st_size
+            
+            if file_size < 1024: 
+                validation['warnings'].append('PDF file is very small (may be corrupted)')
                             
