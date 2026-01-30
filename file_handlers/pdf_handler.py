@@ -160,4 +160,8 @@ class PDFHandler:
                 pil_image = Image.open(io.BytesIO(image_data['stream'].get_data()))
             text = pytesseract.image_to_string(pil_image)
             return text.strip()
-        
+        except ImportError:
+            return ""
+        except Exception as e:
+            print(f"Warning: OCR failed: {e}")
+            return ""
