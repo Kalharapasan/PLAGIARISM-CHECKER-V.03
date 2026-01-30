@@ -512,4 +512,9 @@ class PDFHandler:
                 from pypdf import PdfReader
                 with open(filepath, 'rb') as file:
                     reader = PdfReader(file)
+                    num_pages = len(reader.pages)
+                    validation['file_info']['pages'] = num_pages
+                    
+                    if num_pages == 0:
+                        validation['errors'].append('PDF has no pages')
                             
