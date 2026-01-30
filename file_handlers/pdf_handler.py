@@ -495,4 +495,6 @@ class PDFHandler:
             if not Path(filepath).exists():
                 validation['errors'].append('File does not exist')
                 return validation
+            if not filepath.lower().endswith('.pdf'):
+                validation['warnings'].append('File extension is not .pdf')
                             
