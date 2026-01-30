@@ -179,3 +179,4 @@ class PDFHandler:
     def _clean_pdf_text(self, text: str) -> str:
         if not text:
             return ""
+        text = re.sub(r'\s+', ' ', text)
