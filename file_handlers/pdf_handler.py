@@ -286,3 +286,10 @@ class PDFHandler:
                         metadata['pages'] = doc.catalog['Pages']['Count']
                     except:
                         pass
+            if doc.info:
+                for key, value in doc.info[0].items():
+                    if value:
+                        if isinstance(value, PSLiteral):
+                            value = value.name
+                        clean_key = key.replace('/', '').strip()
+                        metadata['pdf_metadata'][clean_key] = str(value)
