@@ -381,3 +381,4 @@ class PDFHandler:
                         })
                 total_images = sum(len(page.images) for page in pdf.pages)
                 structure['images'] = [{'count': total_images}]
+                
