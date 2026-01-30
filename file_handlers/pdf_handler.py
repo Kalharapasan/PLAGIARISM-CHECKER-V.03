@@ -211,3 +211,6 @@ class PDFHandler:
                 except Exception as e:
                     print(f"Warning: Could not extract PDF metadata: {e}")
         metadata['is_scanned'] = self._is_scanned_pdf(filepath)
+        metadata['has_text_layer'] = self._has_text_layer(filepath)
+        
+        return metadata
