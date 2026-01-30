@@ -299,3 +299,5 @@ class PDFHandler:
                 metadata['security'] = {'encrypted': False}
         
         return metadata
+
+    def _is_scanned_pdf(self, filepath: str) -> bool:
