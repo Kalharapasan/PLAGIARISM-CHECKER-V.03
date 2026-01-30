@@ -316,3 +316,5 @@ class PDFHandler:
             return False
         except:
             return True 
+    
+    def _has_text_layer(self, filepath: str) -> bool:
