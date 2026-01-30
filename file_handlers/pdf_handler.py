@@ -127,4 +127,13 @@ class PDFHandler:
             pass
         if not text.strip():
             try:
+                import subprocess
+                result = subprocess.run(
+                    ['strings', filepath],
+                    capture_output=True,
+                    text=True,
+                    timeout=30
+                )
+                if result.returncode == 0:
+                    text = result.stdout
         
