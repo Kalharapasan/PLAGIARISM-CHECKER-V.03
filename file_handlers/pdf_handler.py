@@ -101,3 +101,8 @@ class PDFHandler:
                     text_parts.append(page_text)
         
         return '\n'.join(text_parts)
+    
+    def _extract_with_pdfminer(self, filepath: str) -> str:
+        from pdfminer.high_level import extract_text
+        
+        
