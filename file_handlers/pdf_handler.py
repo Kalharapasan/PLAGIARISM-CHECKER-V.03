@@ -322,3 +322,12 @@ class PDFHandler:
             text = self.extract_text(filepath, method='pypdf')
             if text and len(text.strip()) > 100:
                 words = text.split()
+                if len(words) > 20:
+                    alphabetic_words = sum(1 for word in words if word.isalpha())
+                    if alphabetic_words / len(words) > 0.5:
+                        return True
+            
+            return False
+            
+        except:
+            return False
