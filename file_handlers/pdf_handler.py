@@ -379,3 +379,5 @@ class PDFHandler:
                             'name': font_name,
                             'type': str(type(font_data))
                         })
+                total_images = sum(len(page.images) for page in pdf.pages)
+                structure['images'] = [{'count': total_images}]
