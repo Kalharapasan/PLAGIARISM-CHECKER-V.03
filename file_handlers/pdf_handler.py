@@ -169,3 +169,9 @@ class PDFHandler:
     def _format_table_text(self, table: List[List]) -> str:
         if not table:
             return ""
+        formatted_rows = []
+        for row in table:
+            row_text = ' | '.join(str(cell) if cell is not None else '' for cell in row)
+            formatted_rows.append(row_text)
+        
+        return '\n'.join(formatted_rows)
