@@ -9,3 +9,7 @@ import os
 import warnings
 
 class PDFHandler:
+    
+    
+    def extract_text(self, filepath: str, method: str = None) -> str:
+        
