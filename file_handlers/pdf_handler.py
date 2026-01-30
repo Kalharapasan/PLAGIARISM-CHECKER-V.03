@@ -517,4 +517,6 @@ class PDFHandler:
                     
                     if num_pages == 0:
                         validation['errors'].append('PDF has no pages')
+                    if reader.is_encrypted:
+                        validation['warnings'].append('PDF is encrypted')
                             
