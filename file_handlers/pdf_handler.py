@@ -381,4 +381,27 @@ class PDFHandler:
                         })
                 total_images = sum(len(page.images) for page in pdf.pages)
                 structure['images'] = [{'count': total_images}]
+        except Exception as e:
+            print(f"Warning: Could not analyze PDF structure with pdfplumber: {e}")
+            try:
+                from pypdf import PdfReader 
+                with open(filepath, 'rb') as file:
+                    reader = PdfReader(file)
+                    for i, page in enumerate(reader.pages):
+                        page_text = page.extract_text()
+                        words = page_text.split() if page_text else []
+                        page_info = {
+                            'page_number': i + 1,
+                            'text_objects': 'N/A',
+                            'images': 'N/A',
+                            'char_count': len(page_text) if page_text else 0,
+                            'word_count': len(words),
+                            'line_count': page_text.count('\n') + 1 if page_text else 0,
+                            'has_text': bool(page_text and page_text.strip())
+                        }
+                        structure['pages'].append(page_info)
+            except Exception as e2:
+                print(f"Warning: Could not analyze PDF structure with PyPDF: {e2}")
+        
+        return structure
                 
