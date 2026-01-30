@@ -26,3 +26,17 @@ class PDFHandler:
     
     def _extract_with_method(self, filepath: str, method: str) -> str:
         cache_key = f"{filepath}_{method}"
+        if cache_key in self._extraction_cache:
+            return self._extraction_cache[cache_key]
+        
+        try:
+            if method == 'pdfplumber':
+                text = self._extract_with_pdfplumber(filepath)
+            elif method == 'pypdf':
+                text = self._extract_with_pypdf(filepath)
+            elif method == 'pdfminer':
+                text = self._extract_with_pdfminer(filepath)
+            elif method == 'fallback':
+                text = self._extract_fallback(filepath)
+            else:
+                raise ValueError(f"Unknown extraction method: {method}")
