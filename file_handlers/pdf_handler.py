@@ -232,3 +232,17 @@ class PDFHandler:
                     if value:
                         clean_key = key.replace('/', '').strip()
                         metadata['pdf_metadata'][clean_key] = str(value)
+            if reader.is_encrypted:
+                metadata['security'] = {
+                    'encrypted': True,
+                    'permissions': {
+                        'print': not (reader._encryption.get('/Print') == 'false'),
+                        'modify': not (reader._encryption.get('/Modify') == 'false'),
+                        'copy': not (reader._encryption.get('/Copy') == 'false'),
+                        'annotate': not (reader._encryption.get('/Annotate') == 'false')
+                    }
+                }
+            else:
+                metadata['security'] = {'encrypted': False}
+        
+        return metadata
