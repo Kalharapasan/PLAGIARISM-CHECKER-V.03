@@ -343,3 +343,5 @@ class PDFHandler:
             'outlines': [],
             'sections': []
         }
+        try:
+            import pdfplumber
