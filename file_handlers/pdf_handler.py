@@ -568,4 +568,13 @@ class PDFHandler:
                     writer.add_page(page)
                 if reader.metadata:
                     writer.add_metadata(reader.metadata)
+                with open(output_path, 'wb') as output_file:
+                    writer.write(output_file)
+            
+            print(f"✓ PDF optimized: {output_path}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to optimize PDF: {e}")
+            return False
                             
