@@ -546,4 +546,6 @@ class PDFHandler:
             
             if file_size < 1024: 
                 validation['warnings'].append('PDF file is very small (may be corrupted)')
+            with open(filepath, 'rb') as f:
+                content = f.read()
                             
