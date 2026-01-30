@@ -483,4 +483,12 @@ class PDFHandler:
             print(f"Warning: Could not extract tables: {e}")
         
         return tables
+    
+    def validate_pdf(self, filepath: str) -> Dict[str, Any]:
+        validation = {
+            'is_valid': False,
+            'errors': [],
+            'warnings': [],
+            'file_info': {}
+        }
                             
