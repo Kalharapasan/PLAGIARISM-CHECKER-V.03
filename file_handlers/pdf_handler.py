@@ -186,3 +186,6 @@ class PDFHandler:
         text = ''.join(char for char in text if char.isprintable() or char in '\n\t')
         
         return text.strip()
+    
+    
+    def extract_metadata(self, filepath: str) -> Dict[str, Any]:
