@@ -428,3 +428,6 @@ class PDFHandler:
                                 'bpc': img.get('bpc', 8),   
                                 'colorspace': img.get('colorspace', 'unknown')
                             }
+                            if 'stream' in img:
+                                img_data = img['stream'].get_data()
+                                img_info['size_bytes'] = len(img_data)
