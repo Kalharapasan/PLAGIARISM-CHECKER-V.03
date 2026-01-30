@@ -72,3 +72,10 @@ class PDFHandler:
                                 text_parts.append(table_text)
                 if self.extract_images:
                     images = page.images
+                    for img in images:
+                        if self.ocr_enabled:
+                            ocr_text = self._extract_text_from_image(img)
+                            if ocr_text:
+                                text_parts.append(f"[Image Text: {ocr_text}]")
+        
+        return '\n'.join(text_parts)
