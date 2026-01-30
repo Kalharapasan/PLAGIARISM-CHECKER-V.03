@@ -497,4 +497,10 @@ class PDFHandler:
                 return validation
             if not filepath.lower().endswith('.pdf'):
                 validation['warnings'].append('File extension is not .pdf')
+            file_size = Path(filepath).stat().st_size
+            validation['file_info']['size_bytes'] = file_size
+            
+            if file_size == 0:
+                validation['errors'].append('File is empty')
+                return validation
                             
