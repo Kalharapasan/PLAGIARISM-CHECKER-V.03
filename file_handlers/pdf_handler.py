@@ -23,3 +23,5 @@ class PDFHandler:
             return self._extract_fallback(filepath)
         else:
             return self._extract_with_method(filepath, method)
+    
+    def _extract_with_method(self, filepath: str, method: str) -> str:
