@@ -47,3 +47,8 @@ class PDFHandler:
             raise ImportError(f"Required library for {method} not installed")
         except Exception as e:
             raise Exception(f"Failed to extract text with {method}: {str(e)}")
+    
+    def _extract_with_pdfplumber(self, filepath: str) -> str:
+        import pdfplumber
+        
+        text_parts = []
