@@ -301,3 +301,5 @@ class PDFHandler:
         return metadata
 
     def _is_scanned_pdf(self, filepath: str) -> bool:
+        try:
+            text = self.extract_text(filepath, method='pypdf')
