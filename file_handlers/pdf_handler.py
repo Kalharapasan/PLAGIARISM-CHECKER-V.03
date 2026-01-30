@@ -246,3 +246,5 @@ class PDFHandler:
                 metadata['security'] = {'encrypted': False}
         
         return metadata
+    
+    def _extract_metadata_pdfplumber(self, filepath: str) -> Dict[str, Any]:
