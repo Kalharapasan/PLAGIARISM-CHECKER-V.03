@@ -355,3 +355,21 @@ class PDFHandler:
                         'text_objects': len(page.chars) if hasattr(page, 'chars') else 0,
                         'images': len(page.images) if hasattr(page, 'images') else 0
                     }
+                    page_text = page.extract_text()
+                    if page_text:
+                        words = page_text.split()
+                        page_info.update({
+                            'char_count': len(page_text),
+                            'word_count': len(words),
+                            'line_count': page_text.count('\n') + 1,
+                            'has_text': True
+                        })
+                    else:
+                        page_info.update({
+                            'char_count': 0,
+                            'word_count': 0,
+                            'line_count': 0,
+                            'has_text': False
+                        })
+                    
+                    structure['pages'].append(page_info)
