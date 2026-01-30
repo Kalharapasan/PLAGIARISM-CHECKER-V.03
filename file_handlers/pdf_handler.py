@@ -557,5 +557,6 @@ class PDFHandler:
             pass
     
     def optimize_pdf(self, filepath: str, output_path: str = None) -> bool:
-        
+        if output_path is None:
+            output_path = filepath + '.optimized.pdf'
                             
