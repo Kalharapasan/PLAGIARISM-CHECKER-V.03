@@ -314,3 +314,5 @@ class PDFHandler:
                         return True
             
             return False
+        except:
+            return True 
