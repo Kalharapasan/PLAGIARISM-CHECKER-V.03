@@ -112,4 +112,17 @@ class PDFHandler:
         return self._clean_pdf_text(text)
     
     def _extract_fallback(self, filepath: str) -> str:
+        text = ""
+        try:
+            import subprocess
+            result = subprocess.run(
+                ['pdftotext', filepath, '-'],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            if result.returncode == 0:
+                text = result.stdout
+        except:
+            pass
         
