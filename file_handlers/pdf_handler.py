@@ -203,3 +203,6 @@ class PDFHandler:
         try:
             metadata.update(self._extract_metadata_pypdf(filepath))
         except:
+            try:
+                metadata.update(self._extract_metadata_pdfplumber(filepath))
+            except:
