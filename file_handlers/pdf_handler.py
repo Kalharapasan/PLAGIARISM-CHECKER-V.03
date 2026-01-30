@@ -431,3 +431,14 @@ class PDFHandler:
                             if 'stream' in img:
                                 img_data = img['stream'].get_data()
                                 img_info['size_bytes'] = len(img_data)
+                                if output_dir:
+                                    img_filename = f"page_{page_num+1}_img_{img_num}.png"
+                                    img_path = Path(output_dir) / img_filename
+                                    
+                                    try:
+                                        pil_image = Image.open(io.BytesIO(img_data))
+                                        pil_image.save(img_path)
+                                        img_info['saved_path'] = str(img_path)
+                                    except Exception as e:
+                                        print(f"Warning: Could not save image: {e}")
+                            
