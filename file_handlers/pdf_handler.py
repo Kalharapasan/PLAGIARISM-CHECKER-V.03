@@ -404,4 +404,9 @@ class PDFHandler:
                 print(f"Warning: Could not analyze PDF structure with PyPDF: {e2}")
         
         return structure
-                
+    
+    def extract_images(self, filepath: str, output_dir: str = None) -> List[Dict[str, Any]]:
+        images = []
+        
+        if output_dir:
+            Path(output_dir).mkdir(parents=True, exist_ok=True)
