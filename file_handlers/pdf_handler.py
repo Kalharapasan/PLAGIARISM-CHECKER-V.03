@@ -154,4 +154,8 @@ class PDFHandler:
         try:
             import pytesseract
             from PIL import Image
+            if hasattr(image_data, 'to_image'):
+                pil_image = image_data.to_image()
+            else:
+                pil_image = Image.open(io.BytesIO(image_data['stream'].get_data()))
         
