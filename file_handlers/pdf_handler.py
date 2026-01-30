@@ -321,3 +321,4 @@ class PDFHandler:
         try:
             text = self.extract_text(filepath, method='pypdf')
             if text and len(text.strip()) > 100:
+                words = text.split()
