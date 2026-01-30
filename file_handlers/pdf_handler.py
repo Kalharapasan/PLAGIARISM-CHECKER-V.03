@@ -561,4 +561,7 @@ class PDFHandler:
             output_path = filepath + '.optimized.pdf'
         try:
             from pypdf import PdfReader, PdfWriter
+            with open(filepath, 'rb') as input_file:
+                reader = PdfReader(input_file)
+                writer = PdfWriter()
                             
