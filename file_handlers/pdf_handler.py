@@ -151,4 +151,7 @@ class PDFHandler:
     def _extract_text_from_image(self, image_data: Any) -> str:
         if not self.ocr_enabled:
             return ""
+        try:
+            import pytesseract
+            from PIL import Image
         
