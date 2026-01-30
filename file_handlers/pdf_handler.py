@@ -63,3 +63,10 @@ class PDFHandler:
                 page_text = page.extract_text()
                 if page_text:
                     text_parts.append(page_text)
+                if self.extract_tables:
+                    tables = page.extract_tables()
+                    for table in tables:
+                        if table:
+                            table_text = self._format_table_text(table)
+                            if table_text:
+                                text_parts.append(table_text)
