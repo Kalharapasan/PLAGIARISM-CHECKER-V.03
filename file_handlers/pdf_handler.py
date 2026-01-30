@@ -539,4 +539,6 @@ class PDFHandler:
             validation['errors'].append(f'Validation failed: {str(e)}')
         
         return validation
+    
+    def _check_pdf_issues(self, filepath: str, validation: Dict[str, Any]):
                             
