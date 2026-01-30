@@ -189,3 +189,14 @@ class PDFHandler:
     
     
     def extract_metadata(self, filepath: str) -> Dict[str, Any]:
+        metadata = {
+            'filename': Path(filepath).name,
+            'file_size': Path(filepath).stat().st_size,
+            'modified': datetime.fromtimestamp(Path(filepath).stat().st_mtime).isoformat(),
+            'created': datetime.fromtimestamp(Path(filepath).stat().st_ctime).isoformat(),
+            'pdf_metadata': {},
+            'security': {},
+            'pages': 0,
+            'is_scanned': False,
+            'has_text_layer': True
+        }
