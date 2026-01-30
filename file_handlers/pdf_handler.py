@@ -210,3 +210,4 @@ class PDFHandler:
                     metadata.update(self._extract_metadata_pdfminer(filepath))
                 except Exception as e:
                     print(f"Warning: Could not extract PDF metadata: {e}")
+        metadata['is_scanned'] = self._is_scanned_pdf(filepath)
