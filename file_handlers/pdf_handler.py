@@ -533,4 +533,5 @@ class PDFHandler:
             except Exception as e:
                 validation['errors'].append(f'Failed to open PDF with PyPDF: {str(e)}')
                 return validation
+            self._check_pdf_issues(filepath, validation)
                             
