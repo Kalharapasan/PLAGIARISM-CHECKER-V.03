@@ -555,4 +555,7 @@ class PDFHandler:
         
         except:
             pass
+    
+    def optimize_pdf(self, filepath: str, output_path: str = None) -> bool:
+        
                             
