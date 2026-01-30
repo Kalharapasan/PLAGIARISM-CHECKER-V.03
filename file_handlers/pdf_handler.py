@@ -320,3 +320,4 @@ class PDFHandler:
     def _has_text_layer(self, filepath: str) -> bool:
         try:
             text = self.extract_text(filepath, method='pypdf')
+            if text and len(text.strip()) > 100:
