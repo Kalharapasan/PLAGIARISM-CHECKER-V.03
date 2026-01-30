@@ -550,4 +550,9 @@ class PDFHandler:
                 content = f.read()
                 if b'%%EOF' not in content[-1000:]:
                     validation['warnings'].append('PDF may be missing EOF marker')
+                if b'xref' not in content:
+                    validation['warnings'].append('PDF may have corrupt cross-reference table')
+        
+        except:
+            pass
                             
