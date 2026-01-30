@@ -226,3 +226,4 @@ class PDFHandler:
         
         with open(filepath, 'rb') as file:
             reader = PdfReader(file)
+            metadata['pages'] = len(reader.pages)
