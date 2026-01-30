@@ -58,3 +58,8 @@ class PDFHandler:
             
             if self.max_pages > 0:
                 pages_to_process = range(min(self.max_pages, total_pages))
+        for i in pages_to_process:
+                page = pdf.pages[i]
+                page_text = page.extract_text()
+                if page_text:
+                    text_parts.append(page_text)
