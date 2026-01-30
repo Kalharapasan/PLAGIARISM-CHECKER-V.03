@@ -206,3 +206,7 @@ class PDFHandler:
             try:
                 metadata.update(self._extract_metadata_pdfplumber(filepath))
             except:
+                try:
+                    metadata.update(self._extract_metadata_pdfminer(filepath))
+                except Exception as e:
+                    print(f"Warning: Could not extract PDF metadata: {e}")
