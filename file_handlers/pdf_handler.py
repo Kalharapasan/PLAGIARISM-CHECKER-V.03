@@ -491,4 +491,8 @@ class PDFHandler:
             'warnings': [],
             'file_info': {}
         }
+        try:
+            if not Path(filepath).exists():
+                validation['errors'].append('File does not exist')
+                return validation
                             
