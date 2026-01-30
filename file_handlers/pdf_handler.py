@@ -410,3 +410,21 @@ class PDFHandler:
         
         if output_dir:
             Path(output_dir).mkdir(parents=True, exist_ok=True)
+        
+        try:
+            import pdfplumber
+            from PIL import Image
+            
+            with pdfplumber.open(filepath) as pdf:
+                for page_num, page in enumerate(pdf.pages):
+                    for img_num, img in enumerate(page.images):
+                        try:
+                            img_info = {
+                                'page': page_num + 1,
+                                'index': img_num,
+                                'width': img['width'],
+                                'height': img['height'],
+                                'name': img.get('name', f'image_{page_num}_{img_num}'),
+                                'bpc': img.get('bpc', 8),   
+                                'colorspace': img.get('colorspace', 'unknown')
+                            }
