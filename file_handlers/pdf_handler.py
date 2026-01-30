@@ -70,3 +70,5 @@ class PDFHandler:
                             table_text = self._format_table_text(table)
                             if table_text:
                                 text_parts.append(table_text)
+                if self.extract_images:
+                    images = page.images
