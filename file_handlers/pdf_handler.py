@@ -345,3 +345,13 @@ class PDFHandler:
         }
         try:
             import pdfplumber
+            with pdfplumber.open(filepath) as pdf:
+                for i, page in enumerate(pdf.pages):
+                    page_info = {
+                        'page_number': i + 1,
+                        'width': page.width,
+                        'height': page.height,
+                        'rotation': page.rotation,
+                        'text_objects': len(page.chars) if hasattr(page, 'chars') else 0,
+                        'images': len(page.images) if hasattr(page, 'images') else 0
+                    }
