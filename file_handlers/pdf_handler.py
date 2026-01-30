@@ -566,4 +566,6 @@ class PDFHandler:
                 writer = PdfWriter()
                 for page in reader.pages:
                     writer.add_page(page)
+                if reader.metadata:
+                    writer.add_metadata(reader.metadata)
                             
