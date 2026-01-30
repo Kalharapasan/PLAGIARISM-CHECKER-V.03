@@ -331,3 +331,15 @@ class PDFHandler:
             
         except:
             return False
+    
+    def analyze_pdf_structure(self, filepath: str) -> Dict[str, Any]:
+        structure = {
+            'pages': [],
+            'fonts': [],
+            'images': [],
+            'links': [],
+            'annotations': [],
+            'form_fields': [],
+            'outlines': [],
+            'sections': []
+        }
