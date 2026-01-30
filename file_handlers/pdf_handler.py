@@ -52,3 +52,9 @@ class PDFHandler:
         import pdfplumber
         
         text_parts = []
+        with pdfplumber.open(filepath) as pdf:
+            total_pages = len(pdf.pages)
+            pages_to_process = range(total_pages)
+            
+            if self.max_pages > 0:
+                pages_to_process = range(min(self.max_pages, total_pages))
