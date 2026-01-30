@@ -40,3 +40,10 @@ class PDFHandler:
                 text = self._extract_fallback(filepath)
             else:
                 raise ValueError(f"Unknown extraction method: {method}")
+            self._extraction_cache[cache_key] = text
+            return text
+            
+        except ImportError:
+            raise ImportError(f"Required library for {method} not installed")
+        except Exception as e:
+            raise Exception(f"Failed to extract text with {method}: {str(e)}")
