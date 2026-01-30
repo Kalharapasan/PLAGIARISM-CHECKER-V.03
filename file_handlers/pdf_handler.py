@@ -175,3 +175,7 @@ class PDFHandler:
             formatted_rows.append(row_text)
         
         return '\n'.join(formatted_rows)
+    
+    def _clean_pdf_text(self, text: str) -> str:
+        if not text:
+            return ""
