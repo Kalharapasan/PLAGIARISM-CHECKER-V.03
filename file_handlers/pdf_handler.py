@@ -25,3 +25,4 @@ class PDFHandler:
             return self._extract_with_method(filepath, method)
     
     def _extract_with_method(self, filepath: str, method: str) -> str:
+        cache_key = f"{filepath}_{method}"
