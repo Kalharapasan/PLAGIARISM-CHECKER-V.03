@@ -266,3 +266,16 @@ class PDFHandler:
         return metadata
     
     def _extract_metadata_pdfminer(self, filepath: str) -> Dict[str, Any]:
+        from pdfminer.pdfparser import PDFParser
+        from pdfminer.pdfdocument import PDFDocument
+        from pdfminer.psparser import PSLiteral
+        
+        metadata = {
+            'pdf_metadata': {},
+            'security': {},
+            'pages': 0
+        }
+        
+        with open(filepath, 'rb') as file:
+            parser = PDFParser(file)
+            doc = PDFDocument(parser)
