@@ -165,3 +165,7 @@ class PDFHandler:
         except Exception as e:
             print(f"Warning: OCR failed: {e}")
             return ""
+    
+    def _format_table_text(self, table: List[List]) -> str:
+        if not table:
+            return ""
