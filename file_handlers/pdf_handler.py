@@ -7,3 +7,5 @@ from datetime import datetime
 import tempfile
 import os
 import warnings
+
+class PDFHandler:
