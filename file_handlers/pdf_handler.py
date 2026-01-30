@@ -214,3 +214,5 @@ class PDFHandler:
         metadata['has_text_layer'] = self._has_text_layer(filepath)
         
         return metadata
+
+    def _extract_metadata_pypdf(self, filepath: str) -> Dict[str, Any]:
