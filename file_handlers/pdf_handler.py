@@ -20,7 +20,6 @@ class PDFHandler:
                         return text
                 except Exception as e:
                     continue
-            
-            
+            return self._extract_fallback(filepath)
         else:
             return self._extract_with_method(filepath, method)
