@@ -180,3 +180,6 @@ class PDFHandler:
         if not text:
             return ""
         text = re.sub(r'\s+', ' ', text)
+        text = re.sub(r'(\w)-\s+(\w)', r'\1\2', text)  
+        text = re.sub(r'\s+([.,;:!?])', r'\1', text)  
+        text = re.sub(r'([.,;:!?])\s+', r'\1 ', text)  
