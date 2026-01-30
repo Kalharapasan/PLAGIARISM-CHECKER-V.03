@@ -453,4 +453,34 @@ class PDFHandler:
             print(f"Warning: Could not extract images: {e}")
         
         return images
+    
+    def extract_tables(self, filepath: str, pages: List[int] = None) -> List[Dict[str, Any]]:
+        tables = []
+        
+        try:
+            import pdfplumber
+            
+            with pdfplumber.open(filepath) as pdf:
+                for page_num, page in enumerate(pdf.pages):
+                    if pages and (page_num + 1) not in pages:
+                        continue
+                    
+                    page_tables = page.extract_tables()
+                    
+                    for table_num, table_data in enumerate(page_tables):
+                        if table_data:
+                            table_info = {
+                                'page': page_num + 1,
+                                'table_number': table_num + 1,
+                                'rows': len(table_data),
+                                'columns': len(table_data[0]) if table_data[0] else 0,
+                                'data': table_data,
+                                'formatted_text': self._format_table_text(table_data)
+                            }
+                            tables.append(table_info)
+        
+        except Exception as e:
+            print(f"Warning: Could not extract tables: {e}")
+        
+        return tables
                             
