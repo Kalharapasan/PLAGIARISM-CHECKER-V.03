@@ -255,3 +255,12 @@ class PDFHandler:
             'security': {},
             'pages': 0
         }
+        with pdfplumber.open(filepath) as pdf:
+            metadata['pages'] = len(pdf.pages)
+            if hasattr(pdf, 'metadata') and pdf.metadata:
+                for key, value in pdf.metadata.items():
+                    if value:
+                        clean_key = key.replace('/', '').strip()
+                        metadata['pdf_metadata'][clean_key] = str(value)
+        
+        return metadata
