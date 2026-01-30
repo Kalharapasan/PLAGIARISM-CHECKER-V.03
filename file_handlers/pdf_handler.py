@@ -508,4 +508,8 @@ class PDFHandler:
                 if header != b'%PDF-':
                     validation['errors'].append('File is not a valid PDF (wrong header)')
                     return validation
+            try:
+                from pypdf import PdfReader
+                with open(filepath, 'rb') as file:
+                    reader = PdfReader(file)
                             
