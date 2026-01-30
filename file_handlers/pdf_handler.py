@@ -293,3 +293,9 @@ class PDFHandler:
                             value = value.name
                         clean_key = key.replace('/', '').strip()
                         metadata['pdf_metadata'][clean_key] = str(value)
+            if doc._security_handler:
+                metadata['security'] = {'encrypted': True}
+            else:
+                metadata['security'] = {'encrypted': False}
+        
+        return metadata
