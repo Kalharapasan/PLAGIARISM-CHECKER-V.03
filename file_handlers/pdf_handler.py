@@ -158,4 +158,6 @@ class PDFHandler:
                 pil_image = image_data.to_image()
             else:
                 pil_image = Image.open(io.BytesIO(image_data['stream'].get_data()))
+            text = pytesseract.image_to_string(pil_image)
+            return text.strip()
         
