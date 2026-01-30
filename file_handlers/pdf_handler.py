@@ -441,4 +441,16 @@ class PDFHandler:
                                         img_info['saved_path'] = str(img_path)
                                     except Exception as e:
                                         print(f"Warning: Could not save image: {e}")
+                                img_hash = hashlib.md5(img_data).hexdigest()
+                                img_info['hash'] = img_hash
+                            
+                            images.append(img_info)
+                            
+                        except Exception as e:
+                            print(f"Warning: Could not extract image {img_num} from page {page_num}: {e}")
+        
+        except Exception as e:
+            print(f"Warning: Could not extract images: {e}")
+        
+        return images
                             
