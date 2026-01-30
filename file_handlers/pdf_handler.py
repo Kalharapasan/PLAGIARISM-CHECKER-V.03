@@ -136,4 +136,7 @@ class PDFHandler:
                 )
                 if result.returncode == 0:
                     text = result.stdout
+                    lines = text.split('\n')
+                    filtered_lines = []
+                    for line in lines:
         
