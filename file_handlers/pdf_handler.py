@@ -373,3 +373,9 @@ class PDFHandler:
                         })
                     
                     structure['pages'].append(page_info)
+                if hasattr(pdf, 'fonts'):
+                    for font_name, font_data in pdf.fonts.items():
+                        structure['fonts'].append({
+                            'name': font_name,
+                            'type': str(type(font_data))
+                        })
