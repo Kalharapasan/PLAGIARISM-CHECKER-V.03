@@ -279,3 +279,10 @@ class PDFHandler:
         with open(filepath, 'rb') as file:
             parser = PDFParser(file)
             doc = PDFDocument(parser)
+            if hasattr(doc, 'catalog'):
+                pages_ref = doc.catalog.get('Pages')
+                if pages_ref:
+                    try:
+                        metadata['pages'] = doc.catalog['Pages']['Count']
+                    except:
+                        pass
