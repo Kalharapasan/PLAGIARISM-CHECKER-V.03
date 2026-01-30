@@ -139,4 +139,12 @@ class PDFHandler:
                     lines = text.split('\n')
                     filtered_lines = []
                     for line in lines:
+                        for line in lines:
+                            if len(line) > 3 and sum(c.isprintable() for c in line) / len(line) > 0.7:
+                                filtered_lines.append(line)
+                    text = '\n'.join(filtered_lines)
+            except:
+                pass
+        
+        return self._clean_pdf_text(text)
         
