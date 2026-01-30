@@ -216,3 +216,13 @@ class PDFHandler:
         return metadata
 
     def _extract_metadata_pypdf(self, filepath: str) -> Dict[str, Any]:
+        from pypdf import PdfReader
+        
+        metadata = {
+            'pdf_metadata': {},
+            'security': {},
+            'pages': 0
+        }
+        
+        with open(filepath, 'rb') as file:
+            reader = PdfReader(file)
