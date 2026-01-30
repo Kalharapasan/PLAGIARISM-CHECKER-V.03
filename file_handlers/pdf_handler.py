@@ -519,4 +519,18 @@ class PDFHandler:
                         validation['errors'].append('PDF has no pages')
                     if reader.is_encrypted:
                         validation['warnings'].append('PDF is encrypted')
+                    if num_pages > 0:
+                        try:
+                            page_text = reader.pages[0].extract_text()
+                            if page_text:
+                                validation['file_info']['has_text'] = True
+                                validation['file_info']['sample_text'] = page_text[:200]
+                            else:
+                                validation['warnings'].append('First page has no extractable text')
+                        except:
+                            validation['warnings'].append('Could not extract text from first page')
+            
+            except Exception as e:
+                validation['errors'].append(f'Failed to open PDF with PyPDF: {str(e)}')
+                return validation
                             
