@@ -227,3 +227,8 @@ class PDFHandler:
         with open(filepath, 'rb') as file:
             reader = PdfReader(file)
             metadata['pages'] = len(reader.pages)
+            if reader.metadata:
+                for key, value in reader.metadata.items():
+                    if value:
+                        clean_key = key.replace('/', '').strip()
+                        metadata['pdf_metadata'][clean_key] = str(value)
