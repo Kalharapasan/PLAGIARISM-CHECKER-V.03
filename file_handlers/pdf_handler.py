@@ -559,4 +559,6 @@ class PDFHandler:
     def optimize_pdf(self, filepath: str, output_path: str = None) -> bool:
         if output_path is None:
             output_path = filepath + '.optimized.pdf'
+        try:
+            from pypdf import PdfReader, PdfWriter
                             
