@@ -503,4 +503,9 @@ class PDFHandler:
             if file_size == 0:
                 validation['errors'].append('File is empty')
                 return validation
+            with open(filepath, 'rb') as f:
+                header = f.read(5)
+                if header != b'%PDF-':
+                    validation['errors'].append('File is not a valid PDF (wrong header)')
+                    return validation
                             
