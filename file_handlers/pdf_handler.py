@@ -534,4 +534,5 @@ class PDFHandler:
                 validation['errors'].append(f'Failed to open PDF with PyPDF: {str(e)}')
                 return validation
             self._check_pdf_issues(filepath, validation)
+            validation['is_valid'] = len(validation['errors']) == 0
                             
