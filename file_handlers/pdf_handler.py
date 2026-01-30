@@ -125,4 +125,6 @@ class PDFHandler:
                 text = result.stdout
         except:
             pass
+        if not text.strip():
+            try:
         
