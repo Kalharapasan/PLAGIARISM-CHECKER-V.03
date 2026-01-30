@@ -104,5 +104,10 @@ class PDFHandler:
     
     def _extract_with_pdfminer(self, filepath: str) -> str:
         from pdfminer.high_level import extract_text
+        if self.max_pages > 0:
+            text = extract_text(filepath, page_numbers=list(range(self.max_pages)))
+        else:
+            text = extract_text(filepath)
         
+        return self._clean_pdf_text(text)
         
