@@ -264,3 +264,5 @@ class PDFHandler:
                         metadata['pdf_metadata'][clean_key] = str(value)
         
         return metadata
+    
+    def _extract_metadata_pdfminer(self, filepath: str) -> Dict[str, Any]:
