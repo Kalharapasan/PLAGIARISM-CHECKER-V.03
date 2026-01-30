@@ -110,4 +110,6 @@ class PDFHandler:
             text = extract_text(filepath)
         
         return self._clean_pdf_text(text)
+    
+    def _extract_fallback(self, filepath: str) -> str:
         
