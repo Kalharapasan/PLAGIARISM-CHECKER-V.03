@@ -96,3 +96,8 @@ class PDFHandler:
             for i in pages_to_process:
                 page = reader.pages[i]
                 page_text = page.extract_text()
+                if page_text:
+                    page_text = self._clean_pdf_text(page_text)
+                    text_parts.append(page_text)
+        
+        return '\n'.join(text_parts)
