@@ -79,3 +79,11 @@ class PDFHandler:
                                 text_parts.append(f"[Image Text: {ocr_text}]")
         
         return '\n'.join(text_parts)
+    
+    def _extract_with_pypdf(self, filepath: str) -> str:
+        from pypdf import PdfReader
+        
+        text_parts = []
+        
+        with open(filepath, 'rb') as file:
+            reader = PdfReader(file)
