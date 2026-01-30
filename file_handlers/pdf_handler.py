@@ -305,3 +305,12 @@ class PDFHandler:
             text = self.extract_text(filepath, method='pypdf')
             if not text or len(text.strip()) < 50:
                 return True
+            from pypdf import PdfReader
+            with open(filepath, 'rb') as file:
+                reader = PdfReader(file)
+                if reader.pages:
+                    page_text = reader.pages[0].extract_text()
+                    if page_text and len(page_text.strip()) < 100:
+                        return True
+            
+            return False
