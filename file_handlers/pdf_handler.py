@@ -303,3 +303,5 @@ class PDFHandler:
     def _is_scanned_pdf(self, filepath: str) -> bool:
         try:
             text = self.extract_text(filepath, method='pypdf')
+            if not text or len(text.strip()) < 50:
+                return True
