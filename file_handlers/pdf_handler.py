@@ -200,3 +200,6 @@ class PDFHandler:
             'is_scanned': False,
             'has_text_layer': True
         }
+        try:
+            metadata.update(self._extract_metadata_pypdf(filepath))
+        except:
