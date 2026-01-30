@@ -535,4 +535,8 @@ class PDFHandler:
                 return validation
             self._check_pdf_issues(filepath, validation)
             validation['is_valid'] = len(validation['errors']) == 0
+        except Exception as e:
+            validation['errors'].append(f'Validation failed: {str(e)}')
+        
+        return validation
                             
