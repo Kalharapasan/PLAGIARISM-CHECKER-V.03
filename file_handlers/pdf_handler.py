@@ -696,6 +696,19 @@ class PDFHandler:
             return False
     
 def get_pdf_info(filepath: str) -> Dict[str, Any]:
+    handler = PDFHandler()
+    metadata = handler.extract_metadata(filepath)
+    
+    info = {
+        'filename': Path(filepath).name,
+        'file_size': metadata['file_size'],
+        'pages': metadata.get('pages', 0),
+        'encrypted': metadata.get('security', {}).get('encrypted', False),
+        'is_scanned': metadata.get('is_scanned', False),
+        'has_text_layer': metadata.get('has_text_layer', True)
+    }
+    
+    return info
             
     
                             
