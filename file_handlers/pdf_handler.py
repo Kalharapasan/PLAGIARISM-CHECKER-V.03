@@ -593,5 +593,7 @@ class PDFHandler:
                 topMargin=72,
                 bottomMargin=72
             )
+            story = []
+            styles = getSampleStyleSheet()
     
                             
