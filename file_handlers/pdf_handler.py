@@ -814,6 +814,16 @@ def is_pdf_password_protected(filepath: str) -> bool:
         if 'encrypted' in str(e).lower() or 'password' in str(e).lower():
             return True
         return False
+
+__all__ = [
+    'PDFHandler',
+    'get_pdf_info',
+    'extract_pdf_to_text',
+    'merge_pdfs',
+    'split_pdf',
+    'pdf_to_images',
+    'is_pdf_password_protected'
+]
             
     
                             
