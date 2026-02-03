@@ -719,6 +719,8 @@ def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
             f.write(text)
     
     return text
+
+def merge_pdfs(input_files: List[str], output_file: str) -> bool:
             
     
                             
