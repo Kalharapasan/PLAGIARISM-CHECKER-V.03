@@ -97,3 +97,12 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            import zipfile
+            import xml.etree.ElementTree as ET
+            self.handlers['.epub'] = self._extract_epub
+        except ImportError:
+            pass
+        
+        
+        
