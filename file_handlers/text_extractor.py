@@ -44,6 +44,9 @@ class TextExtractor:
         '.azw': 'application/vnd.amazon.ebook'
        
     }
+    
+    
+    
     def _initialize_handlers(self):
         self.handlers = {}
         self.handlers['.txt'] = self._extract_text_file
@@ -64,4 +67,7 @@ class TextExtractor:
         self.handlers['.css'] = self._extract_code
         self.handlers['.sql'] = self._extract_code
         self._register_external_handlers()
+    
+    def _register_external_handlers(self):
+        
         
