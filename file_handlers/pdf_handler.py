@@ -640,5 +640,11 @@ class PDFHandler:
                     fontSize=12,
                     spaceAfter=12
                 )
+                paragraphs = content.split('\n\n')
+                for para_text in paragraphs[:10]:  
+                    if para_text.strip():
+                        para = Paragraph(para_text, content_style)
+                        story.append(para)
+                        story.append(Spacer(1, 0.2*inch))
     
                             
