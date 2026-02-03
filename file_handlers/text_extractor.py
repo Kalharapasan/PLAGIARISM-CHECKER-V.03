@@ -76,3 +76,9 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            from .pdf_handler import PDFHandler
+            self.handlers['.pdf'] = lambda f: PDFHandler(self.config).extract_text(f)
+        except ImportError:
+            pass
+        
