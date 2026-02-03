@@ -44,3 +44,4 @@ class TextExtractor:
         '.azw': 'application/vnd.amazon.ebook'
        
     }
+    def _initialize_handlers(self):
