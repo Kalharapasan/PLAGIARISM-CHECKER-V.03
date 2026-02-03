@@ -721,6 +721,25 @@ def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
     return text
 
 def merge_pdfs(input_files: List[str], output_file: str) -> bool:
+    try:
+        from pypdf import PdfMerger
+        
+        merger = PdfMerger()
+        
+        for pdf_file in input_files:
+            if Path(pdf_file).exists():
+                merger.append(pdf_file)
+            else:
+                print(f"Warning: File not found: {pdf_file}")
+        
+        merger.write(output_file)
+        merger.close()
+        
+        return True
+        
+    except Exception as e:
+        print(f"Error merging PDFs: {e}")
+        return False
             
     
                             
