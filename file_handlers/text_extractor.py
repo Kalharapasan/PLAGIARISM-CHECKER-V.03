@@ -19,3 +19,6 @@ class TextExtractor:
         '.html': 'text/html',
         '.htm': 'text/html',
         '.xml': 'application/xml',
+        '.pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+        '.ppt': 'application/vnd.ms-powerpoint',
+        '.odp': 'application/vnd.oasis.opendocument.presentation',
