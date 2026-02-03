@@ -671,6 +671,9 @@ class PDFHandler:
                     section_title = Paragraph(title_text, styles['Heading2'])
                     story.append(section_title)
                     story.append(Spacer(1, 0.1*inch))
+                    section_content = Paragraph(content_text, styles['Normal'])
+                    story.append(section_content)
+                    story.append(Spacer(1, 0.3*inch))
             
     
                             
