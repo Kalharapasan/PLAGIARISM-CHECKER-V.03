@@ -709,6 +709,8 @@ def get_pdf_info(filepath: str) -> Dict[str, Any]:
     }
     
     return info
+
+def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
             
     
                             
