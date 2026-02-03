@@ -7,3 +7,5 @@ from typing import Dict, List, Tuple, Optional, Any, Union
 from datetime import datetime
 import tempfile
 import warnings
+
+class TextExtractor:
