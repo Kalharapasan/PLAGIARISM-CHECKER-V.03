@@ -616,5 +616,22 @@ class PDFHandler:
             story.append(subtitle)
             
             story.append(Spacer(1, 0.5*inch))
+            metadata_style = ParagraphStyle(
+                'Metadata',
+                parent=styles['Normal'],
+                fontSize=10,
+                spaceAfter=10
+            )
+            
+            metadata_text = f"""
+            <b>Document ID:</b> PLG-{datetime.now().strftime("%Y%m%d-%H%M%S")}<br/>
+            <b>Generated:</b> {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}<br/>
+            <b>Purpose:</b> Testing PDF extraction capabilities
+            """
+            
+            metadata = Paragraph(metadata_text, metadata_style)
+            story.append(metadata)
+            
+            story.append(Spacer(1, 0.5*inch))
     
                             
