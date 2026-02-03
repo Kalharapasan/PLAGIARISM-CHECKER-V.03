@@ -646,5 +646,26 @@ class PDFHandler:
                         para = Paragraph(para_text, content_style)
                         story.append(para)
                         story.append(Spacer(1, 0.2*inch))
+            else:
+                sections = [
+                    ("About Academic Integrity", """
+                    Academic integrity is the moral code or ethical policy of academia. 
+                    This includes values such as avoidance of cheating or plagiarism, 
+                    maintenance of academic standards, and honesty and rigor in research 
+                    and academic publishing.
+                    """),
+                    
+                    ("Understanding Plagiarism", """
+                    Plagiarism is the representation of another author's language, thoughts, 
+                    ideas, or expressions as one's own original work. In educational contexts, 
+                    there are differing definitions of plagiarism depending on the institution.
+                    """),
+                    
+                    ("Citation Practices", """
+                    Proper citation is essential in academic writing. Different citation styles 
+                    include APA, MLA, Chicago, and Harvard. Each has specific rules for 
+                    formatting references and in-text citations.
+                    """)
+                ]
     
                             
