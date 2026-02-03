@@ -633,5 +633,12 @@ class PDFHandler:
             story.append(metadata)
             
             story.append(Spacer(1, 0.5*inch))
+            if content:
+                content_style = ParagraphStyle(
+                    'Content',
+                    parent=styles['Normal'],
+                    fontSize=12,
+                    spaceAfter=12
+                )
     
                             
