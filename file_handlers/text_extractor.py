@@ -38,5 +38,9 @@ class TextExtractor:
         '.xml': 'application/xml',
         '.md': 'text/markdown',
         '.sql': 'application/sql',
+        '.tex': 'application/x-tex',
+        '.epub': 'application/epub+zip',
+        '.mobi': 'application/x-mobipocket-ebook',
+        '.azw': 'application/vnd.amazon.ebook'
        
     }
