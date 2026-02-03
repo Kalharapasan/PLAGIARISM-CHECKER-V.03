@@ -63,4 +63,5 @@ class TextExtractor:
         self.handlers['.ts'] = self._extract_code
         self.handlers['.css'] = self._extract_code
         self.handlers['.sql'] = self._extract_code
+        self._register_external_handlers()
         
