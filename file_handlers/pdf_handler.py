@@ -694,6 +694,8 @@ class PDFHandler:
         except Exception as e:
             print(f"❌ Failed to create sample PDF: {e}")
             return False
+    
+    
             
     
                             
