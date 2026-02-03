@@ -667,5 +667,10 @@ class PDFHandler:
                     formatting references and in-text citations.
                     """)
                 ]
+                for title_text, content_text in sections:
+                    section_title = Paragraph(title_text, styles['Heading2'])
+                    story.append(section_title)
+                    story.append(Spacer(1, 0.1*inch))
+            
     
                             
