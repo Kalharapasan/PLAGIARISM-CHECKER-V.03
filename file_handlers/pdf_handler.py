@@ -804,6 +804,12 @@ def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int 
         return []
 
 def is_pdf_password_protected(filepath: str) -> bool:
+    try:
+        from pypdf import PdfReader
+        
+        with open(filepath, 'rb') as file:
+            reader = PdfReader(file)
+            return reader.is_encrypted
             
     
                             
