@@ -26,3 +26,17 @@ class TextExtractor:
         '.xls': 'application/vnd.ms-excel',
         '.ods': 'application/vnd.oasis.opendocument.spreadsheet',
         '.csv': 'text/csv',
+        '.py': 'text/x-python',
+        '.java': 'text/x-java',
+        '.cpp': 'text/x-c++',
+        '.c': 'text/x-c',
+        '.js': 'application/javascript',
+        '.ts': 'application/typescript',
+        '.html': 'text/html',
+        '.css': 'text/css',
+        '.json': 'application/json',
+        '.xml': 'application/xml',
+        '.md': 'text/markdown',
+        '.sql': 'application/sql',
+       
+    }
