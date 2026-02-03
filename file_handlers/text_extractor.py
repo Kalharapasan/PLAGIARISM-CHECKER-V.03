@@ -82,3 +82,9 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            import striprtf
+            self.handlers['.rtf'] = self._extract_rtf
+        except ImportError:
+            pass
+        
