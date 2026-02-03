@@ -111,6 +111,13 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            import pandas as pd
+            self.handlers['.xlsx'] = self._extract_xlsx
+            self.handlers['.xls'] = self._extract_xls
+        except ImportError:
+            pass
+        
         
         
         
