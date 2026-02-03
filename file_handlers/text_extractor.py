@@ -9,3 +9,13 @@ import tempfile
 import warnings
 
 class TextExtractor:
+    SUPPORTED_FORMATS = {
+        '.txt': 'text/plain',
+        '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        '.doc': 'application/msword',
+        '.pdf': 'application/pdf',
+        '.rtf': 'application/rtf',
+        '.odt': 'application/vnd.oasis.opendocument.text',
+        '.html': 'text/html',
+        '.htm': 'text/html',
+        '.xml': 'application/xml',
