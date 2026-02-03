@@ -579,5 +579,11 @@ class PDFHandler:
             return False
     
     def create_sample_pdf(self, output_path: str, content: str = None) -> bool:
+         try:
+            from reportlab.lib.pagesizes import letter
+            from reportlab.pdfgen import canvas
+            from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+            from reportlab.lib.units import inch
     
                             
