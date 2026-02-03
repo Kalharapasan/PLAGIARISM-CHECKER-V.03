@@ -595,5 +595,12 @@ class PDFHandler:
             )
             story = []
             styles = getSampleStyleSheet()
+            title_style = ParagraphStyle(
+                'CustomTitle',
+                parent=styles['Heading1'],
+                fontSize=24,
+                spaceAfter=30,
+                alignment=1 
+            )
     
                             
