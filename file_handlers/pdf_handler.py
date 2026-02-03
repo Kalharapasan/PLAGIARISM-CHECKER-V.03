@@ -810,6 +810,10 @@ def is_pdf_password_protected(filepath: str) -> bool:
         with open(filepath, 'rb') as file:
             reader = PdfReader(file)
             return reader.is_encrypted
+    except Exception as e:
+        if 'encrypted' in str(e).lower() or 'password' in str(e).lower():
+            return True
+        return False
             
     
                             
