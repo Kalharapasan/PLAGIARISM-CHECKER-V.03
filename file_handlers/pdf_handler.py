@@ -711,6 +711,14 @@ def get_pdf_info(filepath: str) -> Dict[str, Any]:
     return info
 
 def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
+    handler = PDFHandler()
+    text = handler.extract_text(filepath)
+    
+    if output_file:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(text)
+    
+    return text
             
     
                             
