@@ -88,3 +88,12 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            import zipfile
+            import xml.etree.ElementTree as ET
+            self.handlers['.odt'] = self._extract_odt
+            self.handlers['.odp'] = self._extract_odp
+            self.handlers['.ods'] = self._extract_ods
+        except ImportError:
+            pass
+        
