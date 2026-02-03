@@ -802,6 +802,8 @@ def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int 
     except Exception as e:
         print(f"Error converting PDF to images: {e}")
         return []
+
+def is_pdf_password_protected(filepath: str) -> bool:
             
     
                             
