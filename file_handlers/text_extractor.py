@@ -45,3 +45,22 @@ class TextExtractor:
        
     }
     def _initialize_handlers(self):
+        self.handlers = {}
+        self.handlers['.txt'] = self._extract_text_file
+        self.handlers['.docx'] = self._extract_docx
+        self.handlers['.pdf'] = self._extract_pdf
+        self.handlers['.html'] = self._extract_html
+        self.handlers['.htm'] = self._extract_html
+        self.handlers['.csv'] = self._extract_csv
+        self.handlers['.json'] = self._extract_json
+        self.handlers['.xml'] = self._extract_xml
+        self.handlers['.md'] = self._extract_markdown
+        self.handlers['.py'] = self._extract_code
+        self.handlers['.java'] = self._extract_code
+        self.handlers['.cpp'] = self._extract_code
+        self.handlers['.c'] = self._extract_code
+        self.handlers['.js'] = self._extract_code
+        self.handlers['.ts'] = self._extract_code
+        self.handlers['.css'] = self._extract_code
+        self.handlers['.sql'] = self._extract_code
+        
