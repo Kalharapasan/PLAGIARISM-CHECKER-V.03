@@ -104,5 +104,14 @@ class TextExtractor:
         except ImportError:
             pass
         
+        try:
+            from pptx import Presentation
+            self.handlers['.pptx'] = self._extract_pptx
+            self.handlers['.ppt'] = self._extract_ppt
+        except ImportError:
+            pass
+        
+        
+        
         
         
