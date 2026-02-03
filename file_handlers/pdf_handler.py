@@ -16,6 +16,7 @@ class PDFHandler:
         self.extract_tables = config.get('pdf.extract_tables', True) if config else True
         self.ocr_enabled = config.get('pdf.ocr_enabled', False) if config else False
         self.max_pages = config.get('pdf.max_pages', 0) if config else 0
+        self._extraction_cache = {}
     
     
     def extract_text(self, filepath: str, method: str = None) -> str:
