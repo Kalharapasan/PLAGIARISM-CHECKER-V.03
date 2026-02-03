@@ -774,6 +774,20 @@ def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[
         return []
 
 def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int = 150) -> List[str]:
+    created_images = []
+    
+    try:
+        from pdf2image import convert_from_path
+        
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        
+        images = convert_from_path(
+            filepath,
+            dpi=dpi,
+            output_folder=output_dir,
+            fmt=format,
+            thread_count=4
+        )
             
     
                             
