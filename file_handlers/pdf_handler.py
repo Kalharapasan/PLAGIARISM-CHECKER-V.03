@@ -577,4 +577,7 @@ class PDFHandler:
         except Exception as e:
             print(f"❌ Failed to optimize PDF: {e}")
             return False
+    
+    def create_sample_pdf(self, output_path: str, content: str = None) -> bool:
+    
                             
