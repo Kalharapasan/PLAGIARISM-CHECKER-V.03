@@ -674,6 +674,16 @@ class PDFHandler:
                     section_content = Paragraph(content_text, styles['Normal'])
                     story.append(section_content)
                     story.append(Spacer(1, 0.3*inch))
+            footer_style = ParagraphStyle(
+                'Footer',
+                parent=styles['Normal'],
+                fontSize=9,
+                alignment=1,  
+                spaceBefore=20
+            )
+            
+            footer = Paragraph('Generated for testing purposes only', footer_style)
+            story.append(footer)
             
     
                             
