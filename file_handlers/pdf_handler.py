@@ -1,3 +1,8 @@
+"""
+PDF Handler for Plagiarism Checker Pro
+Specialized handling for PDF documents with multiple extraction methods
+"""
+
 import re
 import io
 import hashlib
@@ -8,16 +13,18 @@ import tempfile
 import os
 import warnings
 
+
 class PDFHandler:
+    """Handler for PDF files with multiple extraction strategies"""
+    
     def __init__(self, config=None):
         self.config = config or {}
         self.extraction_methods = ['pdfplumber', 'pypdf', 'pdfminer', 'fallback']
         self.extract_images = config.get('pdf.extract_images', False) if config else False
         self.extract_tables = config.get('pdf.extract_tables', True) if config else True
         self.ocr_enabled = config.get('pdf.ocr_enabled', False) if config else False
-        self.max_pages = config.get('pdf.max_pages', 0) if config else 0
+        self.max_pages = config.get('pdf.max_pages', 0) if config else 0  
         self._extraction_cache = {}
-    
     
     def extract_text(self, filepath: str, method: str = None) -> str:
         if method is None:
@@ -60,13 +67,15 @@ class PDFHandler:
         import pdfplumber
         
         text_parts = []
+        
         with pdfplumber.open(filepath) as pdf:
             total_pages = len(pdf.pages)
             pages_to_process = range(total_pages)
             
             if self.max_pages > 0:
                 pages_to_process = range(min(self.max_pages, total_pages))
-        for i in pages_to_process:
+            
+            for i in pages_to_process:
                 page = pdf.pages[i]
                 page_text = page.extract_text()
                 if page_text:
@@ -104,6 +113,7 @@ class PDFHandler:
             for i in pages_to_process:
                 page = reader.pages[i]
                 page_text = page.extract_text()
+                
                 if page_text:
                     page_text = self._clean_pdf_text(page_text)
                     text_parts.append(page_text)
@@ -147,9 +157,8 @@ class PDFHandler:
                     lines = text.split('\n')
                     filtered_lines = []
                     for line in lines:
-                        for line in lines:
-                            if len(line) > 3 and sum(c.isprintable() for c in line) / len(line) > 0.7:
-                                filtered_lines.append(line)
+                        if len(line) > 3 and sum(c.isprintable() for c in line) / len(line) > 0.7:
+                            filtered_lines.append(line)
                     text = '\n'.join(filtered_lines)
             except:
                 pass
@@ -159,6 +168,7 @@ class PDFHandler:
     def _extract_text_from_image(self, image_data: Any) -> str:
         if not self.ocr_enabled:
             return ""
+        
         try:
             import pytesseract
             from PIL import Image
@@ -168,6 +178,7 @@ class PDFHandler:
                 pil_image = Image.open(io.BytesIO(image_data['stream'].get_data()))
             text = pytesseract.image_to_string(pil_image)
             return text.strip()
+            
         except ImportError:
             return ""
         except Exception as e:
@@ -177,6 +188,7 @@ class PDFHandler:
     def _format_table_text(self, table: List[List]) -> str:
         if not table:
             return ""
+        
         formatted_rows = []
         for row in table:
             row_text = ' | '.join(str(cell) if cell is not None else '' for cell in row)
@@ -188,13 +200,13 @@ class PDFHandler:
         if not text:
             return ""
         text = re.sub(r'\s+', ' ', text)
-        text = re.sub(r'(\w)-\s+(\w)', r'\1\2', text)  
+
+        text = re.sub(r'(\w)-\s+(\w)', r'\1\2', text) 
         text = re.sub(r'\s+([.,;:!?])', r'\1', text)  
-        text = re.sub(r'([.,;:!?])\s+', r'\1 ', text)  
+        text = re.sub(r'([.,;:!?])\s+', r'\1 ', text) 
         text = ''.join(char for char in text if char.isprintable() or char in '\n\t')
         
         return text.strip()
-    
     
     def extract_metadata(self, filepath: str) -> Dict[str, Any]:
         metadata = {
@@ -208,6 +220,7 @@ class PDFHandler:
             'is_scanned': False,
             'has_text_layer': True
         }
+        
         try:
             metadata.update(self._extract_metadata_pypdf(filepath))
         except:
@@ -222,7 +235,7 @@ class PDFHandler:
         metadata['has_text_layer'] = self._has_text_layer(filepath)
         
         return metadata
-
+    
     def _extract_metadata_pypdf(self, filepath: str) -> Dict[str, Any]:
         from pypdf import PdfReader
         
@@ -263,8 +276,10 @@ class PDFHandler:
             'security': {},
             'pages': 0
         }
+        
         with pdfplumber.open(filepath) as pdf:
             metadata['pages'] = len(pdf.pages)
+            
             if hasattr(pdf, 'metadata') and pdf.metadata:
                 for key, value in pdf.metadata.items():
                     if value:
@@ -307,7 +322,7 @@ class PDFHandler:
                 metadata['security'] = {'encrypted': False}
         
         return metadata
-
+    
     def _is_scanned_pdf(self, filepath: str) -> bool:
         try:
             text = self.extract_text(filepath, method='pypdf')
@@ -322,6 +337,7 @@ class PDFHandler:
                         return True
             
             return False
+            
         except:
             return True 
     
@@ -351,8 +367,10 @@ class PDFHandler:
             'outlines': [],
             'sections': []
         }
+        
         try:
             import pdfplumber
+            
             with pdfplumber.open(filepath) as pdf:
                 for i, page in enumerate(pdf.pages):
                     page_info = {
@@ -387,17 +405,22 @@ class PDFHandler:
                             'name': font_name,
                             'type': str(type(font_data))
                         })
+                
                 total_images = sum(len(page.images) for page in pdf.pages)
                 structure['images'] = [{'count': total_images}]
+        
         except Exception as e:
             print(f"Warning: Could not analyze PDF structure with pdfplumber: {e}")
             try:
-                from pypdf import PdfReader 
+                from pypdf import PdfReader
+                
                 with open(filepath, 'rb') as file:
                     reader = PdfReader(file)
+                    
                     for i, page in enumerate(reader.pages):
                         page_text = page.extract_text()
                         words = page_text.split() if page_text else []
+                        
                         page_info = {
                             'page_number': i + 1,
                             'text_objects': 'N/A',
@@ -407,7 +430,9 @@ class PDFHandler:
                             'line_count': page_text.count('\n') + 1 if page_text else 0,
                             'has_text': bool(page_text and page_text.strip())
                         }
+                        
                         structure['pages'].append(page_info)
+            
             except Exception as e2:
                 print(f"Warning: Could not analyze PDF structure with PyPDF: {e2}")
         
@@ -433,7 +458,7 @@ class PDFHandler:
                                 'width': img['width'],
                                 'height': img['height'],
                                 'name': img.get('name', f'image_{page_num}_{img_num}'),
-                                'bpc': img.get('bpc', 8),   
+                                'bpc': img.get('bpc', 8),  
                                 'colorspace': img.get('colorspace', 'unknown')
                             }
                             if 'stream' in img:
@@ -499,12 +524,15 @@ class PDFHandler:
             'warnings': [],
             'file_info': {}
         }
+        
         try:
             if not Path(filepath).exists():
                 validation['errors'].append('File does not exist')
                 return validation
+
             if not filepath.lower().endswith('.pdf'):
                 validation['warnings'].append('File extension is not .pdf')
+
             file_size = Path(filepath).stat().st_size
             validation['file_info']['size_bytes'] = file_size
             
@@ -522,7 +550,6 @@ class PDFHandler:
                     reader = PdfReader(file)
                     num_pages = len(reader.pages)
                     validation['file_info']['pages'] = num_pages
-                    
                     if num_pages == 0:
                         validation['errors'].append('PDF has no pages')
                     if reader.is_encrypted:
@@ -543,6 +570,7 @@ class PDFHandler:
                 return validation
             self._check_pdf_issues(filepath, validation)
             validation['is_valid'] = len(validation['errors']) == 0
+        
         except Exception as e:
             validation['errors'].append(f'Validation failed: {str(e)}')
         
@@ -552,7 +580,7 @@ class PDFHandler:
         try:
             file_size = Path(filepath).stat().st_size
             
-            if file_size < 1024: 
+            if file_size < 1024:  
                 validation['warnings'].append('PDF file is very small (may be corrupted)')
             with open(filepath, 'rb') as f:
                 content = f.read()
@@ -567,8 +595,10 @@ class PDFHandler:
     def optimize_pdf(self, filepath: str, output_path: str = None) -> bool:
         if output_path is None:
             output_path = filepath + '.optimized.pdf'
+        
         try:
             from pypdf import PdfReader, PdfWriter
+            
             with open(filepath, 'rb') as input_file:
                 reader = PdfReader(input_file)
                 writer = PdfWriter()
@@ -603,6 +633,7 @@ class PDFHandler:
             )
             story = []
             styles = getSampleStyleSheet()
+
             title_style = ParagraphStyle(
                 'CustomTitle',
                 parent=styles['Heading1'],
@@ -610,8 +641,10 @@ class PDFHandler:
                 spaceAfter=30,
                 alignment=1 
             )
+            
             title = Paragraph('Sample Document for Plagiarism Testing', title_style)
             story.append(title)
+
             subtitle_style = ParagraphStyle(
                 'CustomSubtitle',
                 parent=styles['Heading2'],
@@ -624,6 +657,7 @@ class PDFHandler:
             story.append(subtitle)
             
             story.append(Spacer(1, 0.5*inch))
+
             metadata_style = ParagraphStyle(
                 'Metadata',
                 parent=styles['Normal'],
@@ -641,6 +675,7 @@ class PDFHandler:
             story.append(metadata)
             
             story.append(Spacer(1, 0.5*inch))
+
             if content:
                 content_style = ParagraphStyle(
                     'Content',
@@ -649,7 +684,7 @@ class PDFHandler:
                     spaceAfter=12
                 )
                 paragraphs = content.split('\n\n')
-                for para_text in paragraphs[:10]:  
+                for para_text in paragraphs[:10]: 
                     if para_text.strip():
                         para = Paragraph(para_text, content_style)
                         story.append(para)
@@ -675,13 +710,16 @@ class PDFHandler:
                     formatting references and in-text citations.
                     """)
                 ]
+                
                 for title_text, content_text in sections:
                     section_title = Paragraph(title_text, styles['Heading2'])
                     story.append(section_title)
                     story.append(Spacer(1, 0.1*inch))
+                
                     section_content = Paragraph(content_text, styles['Normal'])
                     story.append(section_content)
                     story.append(Spacer(1, 0.3*inch))
+            
             footer_style = ParagraphStyle(
                 'Footer',
                 parent=styles['Normal'],
@@ -692,17 +730,20 @@ class PDFHandler:
             
             footer = Paragraph('Generated for testing purposes only', footer_style)
             story.append(footer)
+            
             doc.build(story)
             
             print(f"✓ Sample PDF created: {output_path}")
             return True
+            
         except ImportError:
             print("❌ ReportLab is required to create PDFs. Install with: pip install reportlab")
             return False
         except Exception as e:
             print(f"❌ Failed to create sample PDF: {e}")
             return False
-    
+
+
 def get_pdf_info(filepath: str) -> Dict[str, Any]:
     handler = PDFHandler()
     metadata = handler.extract_metadata(filepath)
@@ -718,6 +759,7 @@ def get_pdf_info(filepath: str) -> Dict[str, Any]:
     
     return info
 
+
 def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
     handler = PDFHandler()
     text = handler.extract_text(filepath)
@@ -727,6 +769,7 @@ def extract_pdf_to_text(filepath: str, output_file: str = None) -> str:
             f.write(text)
     
     return text
+
 
 def merge_pdfs(input_files: List[str], output_file: str) -> bool:
     try:
@@ -748,6 +791,7 @@ def merge_pdfs(input_files: List[str], output_file: str) -> bool:
     except Exception as e:
         print(f"Error merging PDFs: {e}")
         return False
+
 
 def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[str]:
     created_files = []
@@ -781,6 +825,7 @@ def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[
         print(f"Error splitting PDF: {e}")
         return []
 
+
 def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int = 150) -> List[str]:
     created_images = []
     
@@ -811,6 +856,7 @@ def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int 
         print(f"Error converting PDF to images: {e}")
         return []
 
+
 def is_pdf_password_protected(filepath: str) -> bool:
     try:
         from pypdf import PdfReader
@@ -818,6 +864,7 @@ def is_pdf_password_protected(filepath: str) -> bool:
         with open(filepath, 'rb') as file:
             reader = PdfReader(file)
             return reader.is_encrypted
+            
     except Exception as e:
         if 'encrypted' in str(e).lower() or 'password' in str(e).lower():
             return True
@@ -832,6 +879,3 @@ __all__ = [
     'pdf_to_images',
     'is_pdf_password_protected'
 ]
-            
-    
-                            
