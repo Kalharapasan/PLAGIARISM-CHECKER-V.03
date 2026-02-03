@@ -740,6 +740,8 @@ def merge_pdfs(input_files: List[str], output_file: str) -> bool:
     except Exception as e:
         print(f"Error merging PDFs: {e}")
         return False
+
+def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[str]:
             
     
                             
