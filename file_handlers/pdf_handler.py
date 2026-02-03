@@ -695,7 +695,7 @@ class PDFHandler:
             print(f"❌ Failed to create sample PDF: {e}")
             return False
     
-    
+def get_pdf_info(filepath: str) -> Dict[str, Any]:
             
     
                             
