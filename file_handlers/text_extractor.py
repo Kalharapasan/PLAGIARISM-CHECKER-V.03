@@ -69,5 +69,10 @@ class TextExtractor:
         self._register_external_handlers()
     
     def _register_external_handlers(self):
-        
+        try:
+            from .docx_handler import DOCXHandler
+            self.handlers['.docx'] = lambda f: DOCXHandler(self.config).extract_text(f)
+            self.handlers['.doc'] = self._extract_doc
+        except ImportError:
+            pass
         
