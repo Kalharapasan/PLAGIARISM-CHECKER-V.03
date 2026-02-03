@@ -742,6 +742,36 @@ def merge_pdfs(input_files: List[str], output_file: str) -> bool:
         return False
 
 def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[str]:
+    created_files = []
+    
+    try:
+        from pypdf import PdfReader, PdfWriter
+        
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        
+        with open(filepath, 'rb') as file:
+            reader = PdfReader(file)
+            total_pages = len(reader.pages)
+            
+            for start_page in range(0, total_pages, pages_per_split):
+                end_page = min(start_page + pages_per_split, total_pages)
+                
+                writer = PdfWriter()
+                
+                for page_num in range(start_page, end_page):
+                    writer.add_page(reader.pages[page_num])
+                
+                output_file = Path(output_dir) / f"split_{start_page+1}_{end_page}.pdf"
+                with open(output_file, 'wb') as output:
+                    writer.write(output)
+                
+                created_files.append(str(output_file))
+        
+        return created_files
+        
+    except Exception as e:
+        print(f"Error splitting PDF: {e}")
+        return []
             
     
                             
