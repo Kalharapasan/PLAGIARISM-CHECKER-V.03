@@ -788,6 +788,20 @@ def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int 
             fmt=format,
             thread_count=4
         )
+        base_name = Path(filepath).stem
+        for i in range(len(images)):
+            img_path = Path(output_dir) / f"{base_name}_{i+1}.{format}"
+            if img_path.exists():
+                created_images.append(str(img_path))
+        
+        return created_images
+        
+    except ImportError:
+        print("pdf2image is required. Install with: pip install pdf2image")
+        return []
+    except Exception as e:
+        print(f"Error converting PDF to images: {e}")
+        return []
             
     
                             
