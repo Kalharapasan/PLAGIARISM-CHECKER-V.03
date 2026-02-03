@@ -772,6 +772,8 @@ def split_pdf(filepath: str, output_dir: str, pages_per_split: int = 1) -> List[
     except Exception as e:
         print(f"Error splitting PDF: {e}")
         return []
+
+def pdf_to_images(filepath: str, output_dir: str, format: str = 'png', dpi: int = 150) -> List[str]:
             
     
                             
