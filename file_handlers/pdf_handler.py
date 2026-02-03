@@ -684,6 +684,10 @@ class PDFHandler:
             
             footer = Paragraph('Generated for testing purposes only', footer_style)
             story.append(footer)
+            doc.build(story)
+            
+            print(f"✓ Sample PDF created: {output_path}")
+            return True
             
     
                             
