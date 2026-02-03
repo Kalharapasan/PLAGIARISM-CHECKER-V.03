@@ -579,7 +579,7 @@ class PDFHandler:
             return False
     
     def create_sample_pdf(self, output_path: str, content: str = None) -> bool:
-         try:
+        try:
             from reportlab.lib.pagesizes import letter
             from reportlab.pdfgen import canvas
             from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -688,6 +688,12 @@ class PDFHandler:
             
             print(f"✓ Sample PDF created: {output_path}")
             return True
+        except ImportError:
+            print("❌ ReportLab is required to create PDFs. Install with: pip install reportlab")
+            return False
+        except Exception as e:
+            print(f"❌ Failed to create sample PDF: {e}")
+            return False
             
     
                             
