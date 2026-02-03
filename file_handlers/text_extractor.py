@@ -117,6 +117,19 @@ class TextExtractor:
             self.handlers['.xls'] = self._extract_xls
         except ImportError:
             pass
+    
+    def _setup_mime_types(self):
+        mimetypes.add_type('application/vnd.openxmlformats-officedocument.wordprocessingml.document', '.docx')
+        mimetypes.add_type('application/vnd.ms-powerpoint', '.ppt')
+        mimetypes.add_type('application/vnd.openxmlformats-officedocument.presentationml.presentation', '.pptx')
+        mimetypes.add_type('application/vnd.ms-excel', '.xls')
+        mimetypes.add_type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.xlsx')
+        mimetypes.add_type('application/vnd.oasis.opendocument.text', '.odt')
+        mimetypes.add_type('application/vnd.oasis.opendocument.presentation', '.odp')
+        mimetypes.add_type('application/vnd.oasis.opendocument.spreadsheet', '.ods')
+        mimetypes.add_type('application/epub+zip', '.epub')
+        mimetypes.add_type('application/x-mobipocket-ebook', '.mobi')
+        mimetypes.add_type('application/vnd.amazon.ebook', '.azw')
         
         
         
