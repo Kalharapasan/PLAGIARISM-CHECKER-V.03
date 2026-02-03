@@ -9,6 +9,9 @@ import os
 import warnings
 
 class PDFHandler:
+    def __init__(self, config=None):
+        self.config = config or {}
+        self.extraction_methods = ['pdfplumber', 'pypdf', 'pdfminer', 'fallback']
     
     
     def extract_text(self, filepath: str, method: str = None) -> str:
