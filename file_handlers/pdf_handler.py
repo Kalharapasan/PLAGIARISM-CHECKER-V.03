@@ -602,5 +602,7 @@ class PDFHandler:
                 spaceAfter=30,
                 alignment=1 
             )
+            title = Paragraph('Sample Document for Plagiarism Testing', title_style)
+            story.append(title)
     
                             
