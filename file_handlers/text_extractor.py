@@ -476,4 +476,6 @@ class TextExtractor:
         text = self._extract_text_file(filepath)
         text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)
         text = re.sub(r'\*\*|\*|__|_', '', text)
+        text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
+        text = re.sub(r'`.*?`', '', text)
         
