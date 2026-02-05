@@ -628,4 +628,13 @@ class TextExtractor:
         with zipfile.ZipFile(filepath) as xlsx:
             for name in xlsx.namelist():
                 if 'sharedStrings.xml' in name or 'sheet' in name and name.endswith('.xml'):
+                    try:
+                        xml_content = xlsx.read(name).decode('utf-8')
+                        text = re.sub(r'<[^>]+>', ' ', xml_content)
+                        text = re.sub(r'\s+', ' ', text)
+                        text_parts.append(text.strip())
+                    except:
+                        pass
+        
+        return '\n'.join(text_parts)
                 
