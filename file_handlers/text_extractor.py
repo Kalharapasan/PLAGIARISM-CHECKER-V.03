@@ -156,5 +156,7 @@ class TextExtractor:
         }
         
         return info
+    
+    def extract_text(self, filepath: str, format_hint: str = None) -> str:
         
         
