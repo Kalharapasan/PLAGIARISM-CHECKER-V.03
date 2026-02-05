@@ -362,3 +362,20 @@ class TextExtractor:
                 elif method == 'pdfminer':
                     from pdfminer.high_level import extract_text
                     return extract_text(filepath)
+                
+                elif method == 'fallback':
+                    import subprocess
+                    result = subprocess.run(
+                        ['pdftotext', filepath, '-'],
+                        capture_output=True,
+                        text=True,
+                        timeout=30
+                    )
+                    if result.returncode == 0:
+                        return result.stdout
+            
+            except ImportError:
+                continue
+            except Exception as e:
+                print(f"Warning: PDF extraction method {method} failed: {e}")
+                continue
