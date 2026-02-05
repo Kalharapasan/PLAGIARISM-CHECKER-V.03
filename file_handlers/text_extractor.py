@@ -225,6 +225,11 @@ class TextExtractor:
         if not dir_path.exists() or not dir_path.is_dir():
             raise ValueError(f"Directory not found: {directory}")
         
+        if extensions:
+            patterns = [f"*{ext}" for ext in extensions]
+        else:
+            patterns = [f"*{ext}" for ext in self.SUPPORTED_FORMATS.keys()]
+        
                             
         
         
