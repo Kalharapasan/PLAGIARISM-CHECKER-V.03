@@ -489,4 +489,8 @@ class TextExtractor:
         text = self._extract_text_file(filepath)
         text = re.sub(r'//.*$', '', text, flags=re.MULTILINE)
         text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
+        text = re.sub(r'""".*?"""', '', text, flags=re.DOTALL)
+        text = re.sub(r"'''.*?'''", '', text, flags=re.DOTALL)
+        
+        return text.strip()
         
