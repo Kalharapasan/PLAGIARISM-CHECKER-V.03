@@ -463,3 +463,6 @@ class TextExtractor:
             
             extract_element_text(root)
             return '\n'.join(text_parts)
+        except Exception:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
