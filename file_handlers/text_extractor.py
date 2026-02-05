@@ -590,3 +590,12 @@ class TextExtractor:
         with zipfile.ZipFile(filepath) as pptx:
             for name in pptx.namelist():
                 if name.startswith('ppt/slides/slide') and name.endswith('.xml'):
+                    try:
+                        xml_content = pptx.read(name).decode('utf-8')
+                        text = re.sub(r'<[^>]+>', ' ', xml_content)
+                        text = re.sub(r'\s+', ' ', text)
+                        text_parts.append(text.strip())
+                    except:
+                        pass
+        
+        return '\n'.join(text_parts)
