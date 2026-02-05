@@ -265,4 +265,21 @@ class TextExtractor:
                 continue
         with open(filepath, 'rb') as f:
             return f.read().decode('utf-8', errors='ignore')
-      
+    
+    def _extract_docx(self, filepath: str) -> str:
+        try:
+            from docx import Document
+            doc = Document(filepath)
+            text_parts = []
+            
+            for paragraph in doc.paragraphs:
+                if paragraph.text.strip():
+                    text_parts.append(paragraph.text)
+            
+            for table in doc.tables:
+                for row in table.rows:
+                    for cell in row.cells:
+                        if cell.text.strip():
+                            text_parts.append(cell.text)
+            
+            return '\n'.join(text_parts)
