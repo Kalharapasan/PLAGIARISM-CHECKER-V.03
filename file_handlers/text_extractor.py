@@ -411,3 +411,4 @@ class TextExtractor:
                 try:
                     df = pd.read_csv(filepath, encoding=encoding, on_bad_lines='skip')
                     text_parts = []
+                    text_parts.append(', '.join(df.columns.tolist()))
