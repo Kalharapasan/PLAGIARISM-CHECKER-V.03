@@ -579,3 +579,6 @@ class TextExtractor:
                             text_parts.append(shape.text)
             
             return '\n'.join(text_parts)
+        
+        except ImportError:
+            return self._extract_pptx_fallback(filepath)
