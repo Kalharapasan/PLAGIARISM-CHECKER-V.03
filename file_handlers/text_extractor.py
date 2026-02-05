@@ -488,4 +488,5 @@ class TextExtractor:
     def _extract_code(self, filepath: str) -> str:
         text = self._extract_text_file(filepath)
         text = re.sub(r'//.*$', '', text, flags=re.MULTILINE)
+        text = re.sub(r'/\*.*?\*/', '', text, flags=re.DOTALL)
         
