@@ -183,6 +183,23 @@ class TextExtractor:
                 return text
             except Exception as fallback_error:
                 raise Exception(f"Failed to extract text from {filepath}: {e}. Fallback also failed: {fallback_error}")
+    def extract_with_metadata(self, filepath: str) -> Dict[str, Any]:
+        file_info = self.get_file_info(filepath)
+        
+        try:
+            text = self.extract_text(filepath)
             
+            result = {
+                'success': True,
+                'text': text,
+                'metadata': file_info,
+                'text_metrics': {
+                    'characters': len(text),
+                    'words': len(text.split()),
+                    'lines': text.count('\n') + 1,
+                    'paragraphs': len([p for p in text.split('\n\n') if p.strip()])
+                },
+                'extraction_timestamp': datetime.now().isoformat()
+            }                        
         
         
