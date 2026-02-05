@@ -515,3 +515,7 @@ class TextExtractor:
         import xml.etree.ElementTree as ET
         
         text_parts = []
+        with zipfile.ZipFile(filepath) as odt:
+            if 'content.xml' in odt.namelist():
+                xml_content = odt.read('content.xml').decode('utf-8')
+                root = ET.fromstring(xml_content)
