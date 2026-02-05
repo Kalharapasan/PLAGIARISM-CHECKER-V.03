@@ -528,3 +528,5 @@ class TextExtractor:
                         text_parts.append(elem.text)
         
         return '\n'.join(text_parts)
+    
+    def _extract_odp(self, filepath: str) -> str:
