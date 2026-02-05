@@ -263,4 +263,6 @@ class TextExtractor:
                     return f.read()
             except UnicodeDecodeError:
                 continue
+        with open(filepath, 'rb') as f:
+            return f.read().decode('utf-8', errors='ignore')
       
