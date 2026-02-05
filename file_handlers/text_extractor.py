@@ -479,4 +479,5 @@ class TextExtractor:
         text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
         text = re.sub(r'`.*?`', '', text)
         text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
+        text = re.sub(r'!\[([^\]]*)\]\([^)]+\)', r'\1', text)
         
