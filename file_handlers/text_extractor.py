@@ -380,3 +380,5 @@ class TextExtractor:
                 print(f"Warning: PDF extraction method {method} failed: {e}")
                 continue
         raise Exception("All PDF extraction methods failed")
+    
+    def _extract_html(self, filepath: str) -> str:
