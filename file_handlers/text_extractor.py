@@ -427,3 +427,17 @@ class TextExtractor:
         with open(filepath, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
+                if isinstance(data, dict):
+                    text_parts = self._dict_to_text(data)
+                elif isinstance(data, list):
+                    text_parts = []
+                    for i, item in enumerate(data):
+                        text_parts.append(f"Item {i+1}:")
+                        if isinstance(item, dict):
+                            text_parts.extend(self._dict_to_text(item))
+                        else:
+                            text_parts.append(str(item))
+                else:
+                    text_parts = [str(data)]
+                
+                return '\n'.join(text_parts)
