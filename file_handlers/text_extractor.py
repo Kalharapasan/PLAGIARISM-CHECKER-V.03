@@ -200,6 +200,21 @@ class TextExtractor:
                     'paragraphs': len([p for p in text.split('\n\n') if p.strip()])
                 },
                 'extraction_timestamp': datetime.now().isoformat()
-            }                        
+            }    
+            format_metadata = self._extract_format_metadata(filepath, file_info['extension'])
+            if format_metadata:
+                result['format_metadata'] = format_metadata
+            
+        except Exception as e:
+            result = {
+                'success': False,
+                'error': str(e),
+                'metadata': file_info,
+                'extraction_timestamp': datetime.now().isoformat()
+            }
+        
+        return result
+        
+                            
         
         
