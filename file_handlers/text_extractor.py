@@ -131,7 +131,10 @@ class TextExtractor:
         mimetypes.add_type('application/x-mobipocket-ebook', '.mobi')
         mimetypes.add_type('application/vnd.amazon.ebook', '.azw')
         
+    def is_supported_format(self, filepath: str) -> bool:
+        ext = Path(filepath).suffix.lower()
+        return ext in self.SUPPORTED_FORMATS
         
-        
+    
         
         
