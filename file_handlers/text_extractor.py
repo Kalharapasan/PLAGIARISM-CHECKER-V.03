@@ -176,6 +176,13 @@ class TextExtractor:
             text = self._clean_extracted_text(text)
             
             return text
+        except Exception as e:
+            try:
+                text = self._extract_fallback(filepath)
+                text = self._clean_extracted_text(text)
+                return text
+            except Exception as fallback_error:
+                raise Exception(f"Failed to extract text from {filepath}: {e}. Fallback also failed: {fallback_error}")
             
         
         
