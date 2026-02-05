@@ -405,3 +405,8 @@ class TextExtractor:
     def _extract_csv(self, filepath: str) -> str:
         try:
             import pandas as pd
+            encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+            
+            for encoding in encodings:
+                try:
+                    df = pd.read_csv(filepath, encoding=encoding, on_bad_lines='skip')
