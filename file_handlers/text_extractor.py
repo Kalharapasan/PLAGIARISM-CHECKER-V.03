@@ -457,3 +457,9 @@ class TextExtractor:
                     text_parts.append(f"{indent}{element.tag}: {element.text.strip()}")
                 for child in element:
                     extract_element_text(child, depth + 1)
+                if element.tail and element.tail.strip():
+                    indent = '  ' * depth
+                    text_parts.append(f"{indent}Tail: {element.tail.strip()}")
+            
+            extract_element_text(root)
+            return '\n'.join(text_parts)
