@@ -403,3 +403,5 @@ class TextExtractor:
                 return text.strip()
     
     def _extract_csv(self, filepath: str) -> str:
+        try:
+            import pandas as pd
