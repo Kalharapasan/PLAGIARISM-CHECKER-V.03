@@ -215,7 +215,7 @@ class TextExtractor:
         
         return result
     
-     def extract_from_directory(self, directory: str, 
+    def extract_from_directory(self, directory: str, 
                               recursive: bool = False,
                               extensions: List[str] = None) -> List[Dict[str, Any]]:
          
@@ -237,6 +237,21 @@ class TextExtractor:
             else:
                 files.extend(dir_path.glob(pattern))
         files = sorted(set(files))
+        
+        for file_path in files:
+            if file_path.is_file():
+                try:
+                    result = self.extract_with_metadata(str(file_path))
+                    results.append(result)
+                except Exception as e:
+                    results.append({
+                        'success': False,
+                        'error': str(e),
+                        'filepath': str(file_path),
+                        'extraction_timestamp': datetime.now().isoformat()
+                    })
+        
+        return results
                             
         
         
