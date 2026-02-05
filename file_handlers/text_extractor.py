@@ -557,4 +557,10 @@ class TextExtractor:
                             if name.endswith(('.html', '.xhtml', '.htm')):
                                 try:
                                     html_content = epub.read(name).decode('utf-8')
-                                  
+                                    text = re.sub(r'<[^>]+>', ' ', html_content)
+                                    text = re.sub(r'\s+', ' ', text)
+                                    text_parts.append(text.strip())
+                                except:
+                                    pass
+        
+        return '\n'.join(text_parts)
