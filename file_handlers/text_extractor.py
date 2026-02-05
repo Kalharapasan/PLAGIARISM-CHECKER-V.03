@@ -544,3 +544,12 @@ class TextExtractor:
             if 'META-INF/container.xml' in epub.namelist():
                 container_xml = epub.read('META-INF/container.xml').decode('utf-8')
                 container_root = ET.fromstring(container_xml)
+                ns = {'container': 'urn:oasis:names:tc:opendocument:xmlns:container'}
+                rootfile = container_root.find('.//container:rootfile', ns)
+                
+                if rootfile is not None:
+                    opf_path = rootfile.get('full-path')
+                    
+                    if opf_path in epub.namelist():
+                        opf_content = epub.read(opf_path).decode('utf-8')
+                        opf_root = ET.fromstring(opf_content)
