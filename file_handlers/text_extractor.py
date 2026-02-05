@@ -620,4 +620,6 @@ class TextExtractor:
             return '\n'.join(text_parts)
         except ImportError:
             return self._extract_xlsx_fallback(filepath)
+    
+    def _extract_xlsx_fallback(self, filepath: str) -> str:
                 
