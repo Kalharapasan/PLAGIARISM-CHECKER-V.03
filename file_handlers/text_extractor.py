@@ -625,4 +625,7 @@ class TextExtractor:
         import zipfile
         
         text_parts = []
+        with zipfile.ZipFile(filepath) as xlsx:
+            for name in xlsx.namelist():
+                if 'sharedStrings.xml' in name or 'sheet' in name and name.endswith('.xml'):
                 
