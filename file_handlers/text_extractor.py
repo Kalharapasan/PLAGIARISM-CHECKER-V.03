@@ -493,4 +493,6 @@ class TextExtractor:
         text = re.sub(r"'''.*?'''", '', text, flags=re.DOTALL)
         
         return text.strip()
+    
+    def _extract_rtf(self, filepath: str) -> str:
         
