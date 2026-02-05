@@ -553,3 +553,8 @@ class TextExtractor:
                     if opf_path in epub.namelist():
                         opf_content = epub.read(opf_path).decode('utf-8')
                         opf_root = ET.fromstring(opf_content)
+                        for name in epub.namelist():
+                            if name.endswith(('.html', '.xhtml', '.htm')):
+                                try:
+                                    html_content = epub.read(name).decode('utf-8')
+                                  
