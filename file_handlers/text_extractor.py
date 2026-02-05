@@ -540,3 +540,7 @@ class TextExtractor:
         import xml.etree.ElementTree as ET
         
         text_parts = []
+        with zipfile.ZipFile(filepath) as epub:
+            if 'META-INF/container.xml' in epub.namelist():
+                container_xml = epub.read('META-INF/container.xml').decode('utf-8')
+                container_root = ET.fromstring(container_xml)
