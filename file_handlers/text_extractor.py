@@ -173,6 +173,9 @@ class TextExtractor:
 
         try:
             text = self.handlers[extension](filepath)
+            text = self._clean_extracted_text(text)
+            
+            return text
             
         
         
