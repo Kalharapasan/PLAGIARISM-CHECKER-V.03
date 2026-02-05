@@ -214,6 +214,10 @@ class TextExtractor:
             }
         
         return result
+    
+     def extract_from_directory(self, directory: str, 
+                              recursive: bool = False,
+                              extensions: List[str] = None) -> List[Dict[str, Any]]:
         
                             
         
