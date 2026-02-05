@@ -445,3 +445,8 @@ class TextExtractor:
                 return self._extract_text_file(filepath)
         
     def _extract_xml(self, filepath: str) -> str:
+        try:
+            import xml.etree.ElementTree as ET
+            
+            tree = ET.parse(filepath)
+            root = tree.getroot()
