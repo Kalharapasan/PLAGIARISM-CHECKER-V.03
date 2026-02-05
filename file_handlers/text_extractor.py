@@ -501,4 +501,7 @@ class TextExtractor:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
                 rtf_content = f.read()
                 return striprtf.rtf_to_text(rtf_content)
+        except ImportError:
+            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
         
