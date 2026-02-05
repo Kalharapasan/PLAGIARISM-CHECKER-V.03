@@ -566,3 +566,16 @@ class TextExtractor:
         return '\n'.join(text_parts)
     
     def _extract_pptx(self, filepath: str) -> str:
+        try:
+            from pptx import Presentation
+            
+            prs = Presentation(filepath)
+            text_parts = []
+            
+            for slide in prs.slides:
+                for shape in slide.shapes:
+                    if hasattr(shape, "text"):
+                        if shape.text.strip():
+                            text_parts.append(shape.text)
+            
+            return '\n'.join(text_parts)
