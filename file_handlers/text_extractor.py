@@ -331,3 +331,4 @@ class TextExtractor:
             
         except Exception as e:
             print(f"Warning: antiword failed: {e}")
+        return self._extract_fallback(filepath)
