@@ -304,3 +304,5 @@ class TextExtractor:
         return '\n'.join(text_parts)
     
     def _extract_doc(self, filepath: str) -> str:
+        try:
+            import subprocess
