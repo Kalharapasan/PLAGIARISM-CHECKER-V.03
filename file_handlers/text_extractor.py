@@ -252,6 +252,7 @@ class TextExtractor:
                     })
         
         return results
-                            
-        
-        
+    
+    
+    
+      
