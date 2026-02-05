@@ -604,3 +604,5 @@ class TextExtractor:
         return self._extract_fallback(filepath)
     
     def _extract_xlsx(self, filepath: str) -> str:
+        try:
+            import pandas as pd
