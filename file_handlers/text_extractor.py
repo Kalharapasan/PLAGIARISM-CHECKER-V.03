@@ -611,4 +611,5 @@ class TextExtractor:
             for sheet_name in xls.sheet_names:
                 df = pd.read_excel(filepath, sheet_name=sheet_name)
                 text_parts.append(f"Sheet: {sheet_name}")
+                text_parts.append(', '.join(df.columns.tolist()))
                 
