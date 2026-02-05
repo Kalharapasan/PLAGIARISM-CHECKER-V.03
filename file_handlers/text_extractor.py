@@ -587,4 +587,6 @@ class TextExtractor:
         import zipfile
         
         text_parts = []
-        
+        with zipfile.ZipFile(filepath) as pptx:
+            for name in pptx.namelist():
+                if name.startswith('ppt/slides/slide') and name.endswith('.xml'):
