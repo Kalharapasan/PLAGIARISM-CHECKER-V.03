@@ -495,4 +495,10 @@ class TextExtractor:
         return text.strip()
     
     def _extract_rtf(self, filepath: str) -> str:
+        try:
+            import striprtf.striprtf as striprtf
+            
+            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                rtf_content = f.read()
+                return striprtf.rtf_to_text(rtf_content)
         
