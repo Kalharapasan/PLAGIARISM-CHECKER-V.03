@@ -608,3 +608,5 @@ class TextExtractor:
             import pandas as pd
             xls = pd.ExcelFile(filepath)
             text_parts = []
+            for sheet_name in xls.sheet_names:
+                df = pd.read_excel(filepath, sheet_name=sheet_name)
