@@ -509,4 +509,5 @@ class TextExtractor:
                 text = re.sub(r'\s+', ' ', text)
                 
                 return text.strip()
-        
+    
+    def _extract_odt(self, filepath: str) -> str:
