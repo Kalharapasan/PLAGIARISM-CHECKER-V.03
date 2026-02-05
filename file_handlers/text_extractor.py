@@ -451,3 +451,7 @@ class TextExtractor:
             tree = ET.parse(filepath)
             root = tree.getroot()
             text_parts = []
+            def extract_element_text(element, depth=0):
+                if element.text and element.text.strip():
+                    indent = '  ' * depth
+                    text_parts.append(f"{indent}{element.tag}: {element.text.strip()}")
