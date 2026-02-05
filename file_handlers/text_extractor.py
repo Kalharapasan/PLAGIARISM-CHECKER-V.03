@@ -484,4 +484,6 @@ class TextExtractor:
         text = re.sub(r'^[-*_]{3,}\s*$', '', text, flags=re.MULTILINE)
         
         return text.strip()
+    
+    def _extract_code(self, filepath: str) -> str:
         
