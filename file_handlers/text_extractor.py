@@ -236,6 +236,7 @@ class TextExtractor:
                 files.extend(dir_path.rglob(pattern))
             else:
                 files.extend(dir_path.glob(pattern))
+        files = sorted(set(files))
                             
         
         
