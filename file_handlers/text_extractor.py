@@ -386,3 +386,5 @@ class TextExtractor:
             from bs4 import BeautifulSoup
             with open(filepath, 'r', encoding='utf-8') as f:
                 soup = BeautifulSoup(f.read(), 'html.parser')
+                for script in soup(["script", "style"]):
+                    script.decompose()
