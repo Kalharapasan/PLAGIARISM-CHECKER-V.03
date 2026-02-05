@@ -584,3 +584,7 @@ class TextExtractor:
             return self._extract_pptx_fallback(filepath)
         
     def _extract_pptx_fallback(self, filepath: str) -> str:
+        import zipfile
+        
+        text_parts = []
+        
