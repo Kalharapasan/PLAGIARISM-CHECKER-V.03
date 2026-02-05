@@ -158,5 +158,14 @@ class TextExtractor:
         return info
     
     def extract_text(self, filepath: str, format_hint: str = None) -> str:
+        file_info = self.get_file_info(filepath)
+        
+        if not file_info['is_supported']:
+            if format_hint and format_hint.lower() in self.SUPPORTED_FORMATS:
+                extension = format_hint.lower()
+            else:
+                raise ValueError(f"Unsupported file format: {file_info['extension']}")
+        else:
+            extension = file_info['extension']
         
         
