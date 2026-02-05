@@ -379,3 +379,4 @@ class TextExtractor:
             except Exception as e:
                 print(f"Warning: PDF extraction method {method} failed: {e}")
                 continue
+        raise Exception("All PDF extraction methods failed")
