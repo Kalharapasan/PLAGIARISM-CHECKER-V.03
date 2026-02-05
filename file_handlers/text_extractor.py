@@ -441,3 +441,5 @@ class TextExtractor:
                     text_parts = [str(data)]
                 
                 return '\n'.join(text_parts)
+            except json.JSONDecodeError:
+                return self._extract_text_file(filepath)
