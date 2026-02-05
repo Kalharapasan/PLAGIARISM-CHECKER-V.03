@@ -294,3 +294,5 @@ class TextExtractor:
         with zipfile.ZipFile(filepath) as docx:
             if 'word/document.xml' in docx.namelist():
                 xml_content = docx.read('word/document.xml').decode('utf-8')
+                text = re.sub(r'<[^>]+>', ' ', xml_content)
+                text = re.sub(r'\s+', ' ', text)
