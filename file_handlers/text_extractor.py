@@ -285,3 +285,9 @@ class TextExtractor:
             return '\n'.join(text_parts)
         except ImportError:
             return self._extract_docx_fallback(filepath)
+    
+    def _extract_docx_fallback(self, filepath: str) -> str:
+        import zipfile
+        import xml.etree.ElementTree as ET
+        
+        text_parts = []
