@@ -599,3 +599,5 @@ class TextExtractor:
                         pass
         
         return '\n'.join(text_parts)
+    
+    def _extract_ppt(self, filepath: str) -> str:
