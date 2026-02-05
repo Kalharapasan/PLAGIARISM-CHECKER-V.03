@@ -467,3 +467,6 @@ class TextExtractor:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
                 text = re.sub(r'<[^>]+>', ' ', content)
+                
+                import html
+                text = html.unescape(text)
