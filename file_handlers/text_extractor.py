@@ -523,3 +523,8 @@ class TextExtractor:
                     'office': 'urn:oasis:names:tc:opendocument:xmlns:office:1.0',
                     'text': 'urn:oasis:names:tc:opendocument:xmlns:text:1.0'
                 }
+                for elem in root.findall('.//text:p', ns):
+                    if elem.text:
+                        text_parts.append(elem.text)
+        
+        return '\n'.join(text_parts)
