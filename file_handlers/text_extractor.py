@@ -170,6 +170,9 @@ class TextExtractor:
         
         if extension not in self.handlers:
             return self._extract_fallback(filepath)
+
+        try:
+            text = self.handlers[extension](filepath)
             
         
         
