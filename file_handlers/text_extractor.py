@@ -530,3 +530,4 @@ class TextExtractor:
         return '\n'.join(text_parts)
     
     def _extract_odp(self, filepath: str) -> str:
+        return self._extract_odt(filepath)
