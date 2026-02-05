@@ -412,3 +412,10 @@ class TextExtractor:
                     df = pd.read_csv(filepath, encoding=encoding, on_bad_lines='skip')
                     text_parts = []
                     text_parts.append(', '.join(df.columns.tolist()))
+                    for _, row in df.head(1000).iterrows():
+                        text_parts.append(', '.join(str(val) for val in row.tolist()))
+                    
+                    return '\n'.join(text_parts)
+                    
+                except UnicodeDecodeError:
+                    continue
