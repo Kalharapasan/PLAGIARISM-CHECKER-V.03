@@ -135,6 +135,10 @@ class TextExtractor:
         ext = Path(filepath).suffix.lower()
         return ext in self.SUPPORTED_FORMATS
         
-    
+    def get_file_info(self, filepath: str) -> Dict[str, Any]:
+        path = Path(filepath)
+        
+        if not path.exists():
+            raise FileNotFoundError(f"File not found: {filepath}")
         
         
