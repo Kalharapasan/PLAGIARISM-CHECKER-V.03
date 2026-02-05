@@ -511,3 +511,7 @@ class TextExtractor:
                 return text.strip()
     
     def _extract_odt(self, filepath: str) -> str:
+        import zipfile
+        import xml.etree.ElementTree as ET
+        
+        text_parts = []
