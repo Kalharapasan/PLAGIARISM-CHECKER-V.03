@@ -474,3 +474,4 @@ class TextExtractor:
     
     def _extract_markdown(self, filepath: str) -> str:
         text = self._extract_text_file(filepath)
+        
