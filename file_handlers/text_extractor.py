@@ -422,3 +422,5 @@ class TextExtractor:
             return self._extract_text_file(filepath)
         except ImportError:
             return self._extract_text_file(filepath)
+    
+    def _extract_json(self, filepath: str) -> str:
