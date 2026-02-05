@@ -230,6 +230,12 @@ class TextExtractor:
         else:
             patterns = [f"*{ext}" for ext in self.SUPPORTED_FORMATS.keys()]
         
+        files = []
+        for pattern in patterns:
+            if recursive:
+                files.extend(dir_path.rglob(pattern))
+            else:
+                files.extend(dir_path.glob(pattern))
                             
         
         
