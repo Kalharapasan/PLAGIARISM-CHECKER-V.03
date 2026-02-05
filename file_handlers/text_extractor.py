@@ -420,3 +420,5 @@ class TextExtractor:
                 except UnicodeDecodeError:
                     continue
             return self._extract_text_file(filepath)
+        except ImportError:
+            return self._extract_text_file(filepath)
