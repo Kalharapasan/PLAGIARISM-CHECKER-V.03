@@ -536,3 +536,7 @@ class TextExtractor:
         return self._extract_odt(filepath)
     
     def _extract_epub(self, filepath: str) -> str:
+        import zipfile
+        import xml.etree.ElementTree as ET
+        
+        text_parts = []
