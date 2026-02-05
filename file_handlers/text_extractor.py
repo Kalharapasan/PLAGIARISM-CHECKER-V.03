@@ -254,5 +254,13 @@ class TextExtractor:
         return results
     
     
-    
+    def _extract_text_file(self, filepath: str) -> str:
+        encodings = ['utf-8', 'utf-8-sig', 'latin-1', 'cp1252', 'iso-8859-1']
+        
+        for encoding in encodings:
+            try:
+                with open(filepath, 'r', encoding=encoding) as f:
+                    return f.read()
+            except UnicodeDecodeError:
+                continue
       
