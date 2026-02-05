@@ -316,3 +316,18 @@ class TextExtractor:
                     raise Exception("antiword not found")
                 
                 antiword_cmd = 'antiword'
+            else:  
+                antiword_cmd = 'antiword'
+            
+            result = subprocess.run(
+                [antiword_cmd, filepath],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
+            if result.returncode == 0:
+                return result.stdout
+            
+        except Exception as e:
+            print(f"Warning: antiword failed: {e}")
