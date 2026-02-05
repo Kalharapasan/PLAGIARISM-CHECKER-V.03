@@ -168,4 +168,7 @@ class TextExtractor:
         else:
             extension = file_info['extension']
         
+        if extension not in self.handlers:
+            
+        
         
