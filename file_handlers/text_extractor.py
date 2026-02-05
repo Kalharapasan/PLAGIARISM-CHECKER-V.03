@@ -531,3 +531,5 @@ class TextExtractor:
     
     def _extract_odp(self, filepath: str) -> str:
         return self._extract_odt(filepath)
+    
+    def _extract_ods(self, filepath: str) -> str:
