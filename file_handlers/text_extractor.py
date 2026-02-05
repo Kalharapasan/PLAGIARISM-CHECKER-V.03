@@ -302,3 +302,5 @@ class TextExtractor:
                 text_parts.append(text.strip())
         
         return '\n'.join(text_parts)
+    
+    def _extract_doc(self, filepath: str) -> str:
