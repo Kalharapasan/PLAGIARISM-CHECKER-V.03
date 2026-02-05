@@ -388,3 +388,4 @@ class TextExtractor:
                 soup = BeautifulSoup(f.read(), 'html.parser')
                 for script in soup(["script", "style"]):
                     script.decompose()
+                    text = soup.get_text()
