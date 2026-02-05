@@ -455,3 +455,5 @@ class TextExtractor:
                 if element.text and element.text.strip():
                     indent = '  ' * depth
                     text_parts.append(f"{indent}{element.tag}: {element.text.strip()}")
+                for child in element:
+                    extract_element_text(child, depth + 1)
