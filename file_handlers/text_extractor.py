@@ -606,3 +606,5 @@ class TextExtractor:
     def _extract_xlsx(self, filepath: str) -> str:
         try:
             import pandas as pd
+            xls = pd.ExcelFile(filepath)
+            text_parts = []
