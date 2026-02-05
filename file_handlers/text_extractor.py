@@ -394,3 +394,5 @@ class TextExtractor:
                     text = '\n'.join(chunk for chunk in chunks if chunk)
                     return text
         except ImportError:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
