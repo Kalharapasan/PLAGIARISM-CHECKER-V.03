@@ -410,3 +410,4 @@ class TextExtractor:
             for encoding in encodings:
                 try:
                     df = pd.read_csv(filepath, encoding=encoding, on_bad_lines='skip')
+                    text_parts = []
