@@ -218,6 +218,12 @@ class TextExtractor:
      def extract_from_directory(self, directory: str, 
                               recursive: bool = False,
                               extensions: List[str] = None) -> List[Dict[str, Any]]:
+         
+        results = []
+        dir_path = Path(directory)
+        
+        if not dir_path.exists() or not dir_path.is_dir():
+            raise ValueError(f"Directory not found: {directory}")
         
                             
         
