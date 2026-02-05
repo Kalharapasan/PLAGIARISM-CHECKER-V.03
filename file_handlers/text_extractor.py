@@ -382,3 +382,7 @@ class TextExtractor:
         raise Exception("All PDF extraction methods failed")
     
     def _extract_html(self, filepath: str) -> str:
+        try:
+            from bs4 import BeautifulSoup
+            with open(filepath, 'r', encoding='utf-8') as f:
+                soup = BeautifulSoup(f.read(), 'html.parser')
