@@ -334,3 +334,31 @@ class TextExtractor:
         return self._extract_fallback(filepath)
     
     def _extract_pdf(self, filepath: str) -> str:
+        methods = ['pypdf', 'pdfplumber', 'pdfminer', 'fallback']
+        
+        for method in methods:
+            try:
+                if method == 'pypdf':
+                    from pypdf import PdfReader
+                    with open(filepath, 'rb') as f:
+                        reader = PdfReader(f)
+                        text_parts = []
+                        for page in reader.pages:
+                            page_text = page.extract_text()
+                            if page_text:
+                                text_parts.append(page_text)
+                        return '\n'.join(text_parts)
+                
+                elif method == 'pdfplumber':
+                    import pdfplumber
+                    with pdfplumber.open(filepath) as pdf:
+                        text_parts = []
+                        for page in pdf.pages:
+                            page_text = page.extract_text()
+                            if page_text:
+                                text_parts.append(page_text)
+                        return '\n'.join(text_parts)
+                
+                elif method == 'pdfminer':
+                    from pdfminer.high_level import extract_text
+                    return extract_text(filepath)
