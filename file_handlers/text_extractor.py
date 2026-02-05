@@ -519,3 +519,7 @@ class TextExtractor:
             if 'content.xml' in odt.namelist():
                 xml_content = odt.read('content.xml').decode('utf-8')
                 root = ET.fromstring(xml_content)
+                ns = {
+                    'office': 'urn:oasis:names:tc:opendocument:xmlns:office:1.0',
+                    'text': 'urn:oasis:names:tc:opendocument:xmlns:text:1.0'
+                }
