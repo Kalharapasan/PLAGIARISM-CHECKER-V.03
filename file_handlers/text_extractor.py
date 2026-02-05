@@ -424,3 +424,6 @@ class TextExtractor:
             return self._extract_text_file(filepath)
     
     def _extract_json(self, filepath: str) -> str:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
