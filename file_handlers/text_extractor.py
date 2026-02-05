@@ -504,4 +504,9 @@ class TextExtractor:
         except ImportError:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
+                text = re.sub(r'\\[a-z]+\d*', ' ', content)
+                text = re.sub(r'\{[^}]*\}', ' ', text)
+                text = re.sub(r'\s+', ' ', text)
+                
+                return text.strip()
         
