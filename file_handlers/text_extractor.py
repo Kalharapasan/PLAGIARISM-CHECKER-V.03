@@ -296,3 +296,9 @@ class TextExtractor:
                 xml_content = docx.read('word/document.xml').decode('utf-8')
                 text = re.sub(r'<[^>]+>', ' ', xml_content)
                 text = re.sub(r'\s+', ' ', text)
+                import html
+                text = html.unescape(text)
+                
+                text_parts.append(text.strip())
+        
+        return '\n'.join(text_parts)
