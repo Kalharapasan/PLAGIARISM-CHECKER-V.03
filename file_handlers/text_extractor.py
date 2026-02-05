@@ -283,3 +283,5 @@ class TextExtractor:
                             text_parts.append(cell.text)
             
             return '\n'.join(text_parts)
+        except ImportError:
+            return self._extract_docx_fallback(filepath)
