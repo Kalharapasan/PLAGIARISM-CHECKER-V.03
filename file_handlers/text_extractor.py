@@ -622,4 +622,7 @@ class TextExtractor:
             return self._extract_xlsx_fallback(filepath)
     
     def _extract_xlsx_fallback(self, filepath: str) -> str:
+        import zipfile
+        
+        text_parts = []
                 
