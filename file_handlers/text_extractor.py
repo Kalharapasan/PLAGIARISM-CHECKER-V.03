@@ -602,3 +602,5 @@ class TextExtractor:
     
     def _extract_ppt(self, filepath: str) -> str:
         return self._extract_fallback(filepath)
+    
+    def _extract_xlsx(self, filepath: str) -> str:
