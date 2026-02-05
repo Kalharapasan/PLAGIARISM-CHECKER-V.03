@@ -450,3 +450,4 @@ class TextExtractor:
             
             tree = ET.parse(filepath)
             root = tree.getroot()
+            text_parts = []
