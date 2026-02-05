@@ -306,3 +306,13 @@ class TextExtractor:
     def _extract_doc(self, filepath: str) -> str:
         try:
             import subprocess
+            if os.name == 'nt':  
+                result = subprocess.run(
+                    ['where', 'antiword'],
+                    capture_output=True,
+                    text=True
+                )
+                if result.returncode != 0:
+                    raise Exception("antiword not found")
+                
+                antiword_cmd = 'antiword'
