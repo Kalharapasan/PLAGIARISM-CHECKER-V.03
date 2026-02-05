@@ -471,3 +471,5 @@ class TextExtractor:
                 text = html.unescape(text)
                 text = re.sub(r'\s+', ' ', text)
                 return text.strip()
+    
+    def _extract_markdown(self, filepath: str) -> str:
