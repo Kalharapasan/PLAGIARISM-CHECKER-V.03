@@ -291,3 +291,6 @@ class TextExtractor:
         import xml.etree.ElementTree as ET
         
         text_parts = []
+        with zipfile.ZipFile(filepath) as docx:
+            if 'word/document.xml' in docx.namelist():
+                xml_content = docx.read('word/document.xml').decode('utf-8')
