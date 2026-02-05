@@ -396,3 +396,4 @@ class TextExtractor:
         except ImportError:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
+                text = re.sub(r'<[^>]+>', ' ', content)
