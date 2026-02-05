@@ -141,4 +141,20 @@ class TextExtractor:
         if not path.exists():
             raise FileNotFoundError(f"File not found: {filepath}")
         
+        mime_type, _ = mimetypes.guess_type(filepath)
+        
+        info = {
+            'filename': path.name,
+            'extension': path.suffix.lower(),
+            'filepath': str(path.absolute()),
+            'file_size': path.stat().st_size,
+            'created': datetime.fromtimestamp(path.stat().st_ctime).isoformat(),
+            'modified': datetime.fromtimestamp(path.stat().st_mtime).isoformat(),
+            'mime_type': mime_type or 'application/octet-stream',
+            'is_supported': self.is_supported_format(filepath),
+            'is_readable': os.access(filepath, os.R_OK)
+        }
+        
+        return info
+        
         
