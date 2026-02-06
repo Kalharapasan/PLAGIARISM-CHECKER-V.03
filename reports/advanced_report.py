@@ -130,3 +130,5 @@ def generate_advanced_report(results: Dict, filename: str,
     return '\n'.join(report)
 
 def generate_html_report(results: Dict, filename: str, algorithms: List[str]) -> str:
+    score = results['overall_similarity']
+    stats = results.get('statistics', {})
