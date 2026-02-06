@@ -714,3 +714,39 @@ class TextExtractor:
         return lines
     
     def _extract_format_metadata(self, filepath: str, extension: str) -> Dict[str, Any]:
+        metadata = {}
+        
+        try:
+            if extension == '.pdf':
+                from .pdf_handler import PDFHandler
+                handler = PDFHandler(self.config)
+                pdf_metadata = handler.extract_metadata(filepath)
+                metadata.update(pdf_metadata)
+            
+            elif extension == '.docx':
+                from .docx_handler import DOCXHandler
+                handler = DOCXHandler(self.config)
+                docx_metadata = handler.extract_metadata(filepath)
+                metadata.update(docx_metadata)
+            
+            elif extension in ['.xlsx', '.xls']:
+                try:
+                    import pandas as pd
+                    xls = pd.ExcelFile(filepath)
+                    metadata['sheets'] = xls.sheet_names
+                    metadata['sheet_count'] = len(xls.sheet_names)
+                except:
+                    pass
+            
+            elif extension in ['.pptx', '.ppt']:
+                try:
+                    from pptx import Presentation
+                    prs = Presentation(filepath)
+                    metadata['slides'] = len(prs.slides)
+                except:
+                    pass
+        
+        except Exception as e:
+            print(f"Warning: Could not extract format metadata: {e}")
+        
+        return metadata
