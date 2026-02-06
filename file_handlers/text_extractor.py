@@ -786,3 +786,6 @@ def guess_file_format(filepath: str) -> str:
     
     mime_type, _ = mimetypes.guess_type(filepath)
     if mime_type:
+        for ext, mime in TextExtractor.SUPPORTED_FORMATS.items():
+            if mime == mime_type:
+                return ext
