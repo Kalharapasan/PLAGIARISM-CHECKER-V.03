@@ -42,10 +42,13 @@ class TextExtractor:
         '.epub': 'application/epub+zip',
         '.mobi': 'application/x-mobipocket-ebook',
         '.azw': 'application/vnd.amazon.ebook'
-       
     }
     
-    
+    def __init__(self, config: Dict[str, Any] = None):
+        self.config = config or {}
+        self.handlers = {}
+        self._setup_mime_types()
+        self._initialize_handlers()
     
     def _initialize_handlers(self):
         self.handlers = {}
@@ -971,3 +974,33 @@ Alice Brown,28,Doctor,Houston"""
 # Code block
 def hello():
     print("Hello, World!")
+```
+"""
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(md_content)
+            created_files.append(str(filepath))
+    
+    return created_files
+
+
+if __name__ == '__main__':
+    extractor = TextExtractor()
+    import sys
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1]
+        try:
+            result = extractor.extract_with_metadata(filepath)
+            if result['success']:
+                print(f"Successfully extracted text from: {filepath}")
+                print(f"Characters: {result['text_metrics']['characters']}")
+                print(f"Words: {result['text_metrics']['words']}")
+                print(f"\nExtracted text preview (first 500 chars):")
+                print(result['text'][:500])
+            else:
+                print(f"Failed to extract: {result['error']}")
+        except Exception as e:
+            print(f"Error: {e}")
+    else:
+        print("Text Extractor Module")
+        print(f"Supported formats: {', '.join(TextExtractor.SUPPORTED_FORMATS.keys())}")
+        print("\nUsage: python text_extractor.py <filepath>")
