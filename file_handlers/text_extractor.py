@@ -832,3 +832,6 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         if file_size == 0:
             validation['errors'].append('File is empty')
             return validation
+        if not os.access(filepath, os.R_OK):
+            validation['errors'].append('File is not readable')
+            return validation
