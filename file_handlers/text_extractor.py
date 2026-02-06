@@ -648,3 +648,13 @@ class TextExtractor:
             
             for sheet in workbook.sheets():
                 text_parts.append(f"Sheet: {sheet.name}")
+                for row in range(min(sheet.nrows, 1000)):
+                    row_values = []
+                    for col in range(sheet.ncols):
+                        cell_value = sheet.cell_value(row, col)
+                        row_values.append(str(cell_value))
+                    text_parts.append(', '.join(row_values))
+                
+                text_parts.append('')
+            
+            return '\n'.join(text_parts)
