@@ -128,3 +128,5 @@ def generate_advanced_report(results: Dict, filename: str,
     report.append("=" * 80)
     
     return '\n'.join(report)
+
+def generate_html_report(results: Dict, filename: str, algorithms: List[str]) -> str:
