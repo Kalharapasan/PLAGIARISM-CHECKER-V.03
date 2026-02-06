@@ -841,3 +841,15 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         
         if not file_info['is_supported']:
             validation['warnings'].append(f"File format {file_info['extension']} may not be fully supported")
+        with open(filepath, 'rb') as f:
+            sample = f.read(1024)
+            if len(sample) == 0:
+                validation['errors'].append('Cannot read file content')
+                return validation
+        
+        validation['is_valid'] = True
+        
+    except Exception as e:
+        validation['errors'].append(f"Validation failed: {str(e)}")
+    
+    return validation
