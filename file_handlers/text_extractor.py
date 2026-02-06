@@ -677,3 +677,5 @@ class TextExtractor:
         if not text:
             return ""
         text = re.sub(r'\s+', ' ', text)
+        text = ''.join(char for char in text if char.isprintable() or char in '\n\t\r')
+        
