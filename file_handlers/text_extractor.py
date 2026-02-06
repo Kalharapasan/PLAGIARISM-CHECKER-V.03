@@ -855,3 +855,119 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
     return validation
 
 def create_sample_files(directory: str, formats: List[str] = None) -> List[str]:
+    if formats is None:
+        formats = ['.txt', '.docx', '.pdf', '.html', '.json', '.csv', '.md']
+    
+    created_files = []
+    dir_path = Path(directory)
+    dir_path.mkdir(parents=True, exist_ok=True)
+    
+    sample_content = """This is a sample document for testing text extraction.
+It contains multiple paragraphs to test extraction capabilities.
+
+The document includes various elements:
+- Bullet points
+- Different punctuation marks
+- Numbers like 123 and 456.78
+- Special characters: @#$%^&*()
+
+This is the final paragraph of the sample document."""
+
+    for format in formats:
+        if format == '.txt':
+            filepath = dir_path / 'sample.txt'
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(sample_content)
+            created_files.append(str(filepath))
+        
+        elif format == '.docx':
+            try:
+                from docx import Document
+                filepath = dir_path / 'sample.docx'
+                doc = Document()
+                doc.add_heading('Sample Document', 0)
+                for para in sample_content.split('\n\n'):
+                    doc.add_paragraph(para)
+                doc.save(filepath)
+                created_files.append(str(filepath))
+            except ImportError:
+                print(f"Skipping .docx: python-docx not installed")
+        
+        elif format == '.pdf':
+            try:
+                from reportlab.lib.pagesizes import letter
+                from reportlab.pdfgen import canvas
+                filepath = dir_path / 'sample.pdf'
+                c = canvas.Canvas(str(filepath), pagesize=letter)
+                c.drawString(100, 750, "Sample PDF Document")
+                y = 730
+                for line in sample_content.split('\n'):
+                    c.drawString(100, y, line)
+                    y -= 15
+                    if y < 50:
+                        c.showPage()
+                        y = 750
+                c.save()
+                created_files.append(str(filepath))
+            except ImportError:
+                print(f"Skipping .pdf: reportlab not installed")
+        
+        elif format == '.html':
+            filepath = dir_path / 'sample.html'
+            html_content = f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Sample HTML Document</title>
+            </head>
+            <body>
+                <h1>Sample HTML Document</h1>
+                <p>{sample_content.replace('\n', '<br>')}</p>
+            </body>
+            </html>
+            """
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+            created_files.append(str(filepath))
+        
+        elif format == '.json':
+            filepath = dir_path / 'sample.json'
+            json_content = {
+                'title': 'Sample JSON Document',
+                'content': sample_content,
+                'metadata': {
+                    'created': datetime.now().isoformat(),
+                    'author': 'Plagiarism Checker Pro'
+                }
+            }
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(json_content, f, indent=2)
+            created_files.append(str(filepath))
+        
+        elif format == '.csv':
+            filepath = dir_path / 'sample.csv'
+            csv_content = """Name,Age,Occupation,City
+John Doe,30,Engineer,New York
+Jane Smith,25,Designer,Los Angeles
+Bob Johnson,35,Teacher,Chicago
+Alice Brown,28,Doctor,Houston"""
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(csv_content)
+            created_files.append(str(filepath))
+        
+        elif format == '.md':
+            filepath = dir_path / 'sample.md'
+            md_content = f"""# Sample Markdown Document
+
+{sample_content}
+
+## Features
+
+- **Bold text** and *italic text*
+- `Inline code`
+- [Links](https://example.com)
+
+```python
+# Code block
+def hello():
+    print("Hello, World!")
