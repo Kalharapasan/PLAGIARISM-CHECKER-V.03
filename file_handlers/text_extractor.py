@@ -658,3 +658,5 @@ class TextExtractor:
                 text_parts.append('')
             
             return '\n'.join(text_parts)
+        except ImportError:
+            return self._extract_fallback(filepath)
