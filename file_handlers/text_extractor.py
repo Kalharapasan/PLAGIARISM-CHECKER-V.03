@@ -809,3 +809,9 @@ def guess_file_format(filepath: str) -> str:
     return '.txt'
 
 def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
+    validation = {
+        'is_valid': False,
+        'errors': [],
+        'warnings': [],
+        'file_info': {}
+    }
