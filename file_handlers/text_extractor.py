@@ -712,3 +712,5 @@ class TextExtractor:
                 lines.append(f"{prefix}{key}: {value}")
         
         return lines
+    
+    def _extract_format_metadata(self, filepath: str, extension: str) -> Dict[str, Any]:
