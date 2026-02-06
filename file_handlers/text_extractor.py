@@ -637,4 +637,7 @@ class TextExtractor:
                         pass
         
         return '\n'.join(text_parts)
-                
+    
+    
+    def _extract_xls(self, filepath: str) -> str:
+        
