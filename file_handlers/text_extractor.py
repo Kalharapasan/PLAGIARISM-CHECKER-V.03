@@ -803,3 +803,7 @@ def guess_file_format(filepath: str) -> str:
                 return '.txt'
             elif header.startswith(b'{\\rtf'):  
                 return '.rtf'
+    except:
+        pass
+    
+    return '.txt'
