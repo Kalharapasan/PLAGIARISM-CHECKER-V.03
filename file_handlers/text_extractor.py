@@ -853,3 +853,5 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         validation['errors'].append(f"Validation failed: {str(e)}")
     
     return validation
+
+def create_sample_files(directory: str, formats: List[str] = None) -> List[str]:
