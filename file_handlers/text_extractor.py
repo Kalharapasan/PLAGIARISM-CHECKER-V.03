@@ -750,3 +750,6 @@ class TextExtractor:
             print(f"Warning: Could not extract format metadata: {e}")
         
         return metadata
+    
+    def batch_extract(self, filepaths: List[str], 
+                     progress_callback: callable = None) -> List[Dict[str, Any]]:
