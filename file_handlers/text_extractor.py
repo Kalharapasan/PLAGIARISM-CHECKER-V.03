@@ -689,3 +689,5 @@ class TextExtractor:
             lines.pop()
         
         return '\n'.join(lines)
+    
+    def _dict_to_text(self, data: Dict, indent: int = 0) -> List[str]:
