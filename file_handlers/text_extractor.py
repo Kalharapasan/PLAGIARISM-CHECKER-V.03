@@ -835,3 +835,9 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         if not os.access(filepath, os.R_OK):
             validation['errors'].append('File is not readable')
             return validation
+        extractor = TextExtractor()
+        file_info = extractor.get_file_info(filepath)
+        validation['file_info'].update(file_info)
+        
+        if not file_info['is_supported']:
+            validation['warnings'].append(f"File format {file_info['extension']} may not be fully supported")
