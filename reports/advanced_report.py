@@ -118,3 +118,13 @@ def generate_advanced_report(results: Dict, filename: str,
     report.append(f"Database Size: {metadata.get('database_size', 0)} documents")
     report.append(f"Algorithms Used: {', '.join(metadata.get('algorithms_used', []))}")
     report.append(f"Analysis Timestamp: {datetime.now().isoformat()}")
+    report.append("\n" + "=" * 80)
+    report.append("DISCLAIMER")
+    report.append("-" * 80)
+    report.append("This is an automated analysis tool. Results should be reviewed by a human.")
+    report.append("Proper citation, quotation, and paraphrasing are essential for academic integrity.")
+    report.append("This tool is for educational purposes and should not be the sole basis for")
+    report.append("academic integrity decisions. Always consult institutional policies and guidelines.")
+    report.append("=" * 80)
+    
+    return '\n'.join(report)
