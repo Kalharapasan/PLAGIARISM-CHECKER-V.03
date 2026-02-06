@@ -26,3 +26,22 @@ def generate_advanced_report(results: Dict, filename: str,
     report.append(f"Unique Content: {stats.get('unique_percentage', 0)}%")
     report.append(f"Longest Match: {stats.get('longest_sequence', 0)} words")
     report.append("")
+    report.append("RISK ASSESSMENT")
+    report.append("-" * 80)
+    if score < 15:
+        risk_level = "LOW RISK"
+        interpretation = "The document shows minimal similarity to reference sources. This level is generally acceptable for academic submissions."
+        recommendation = "Continue maintaining good citation practices."
+    elif score < 30:
+        risk_level = "MODERATE RISK"
+        interpretation = "The document shows moderate similarity to reference sources. Review recommended to ensure proper attribution."
+        recommendation = "Review all matched sections. Verify citations are present and paraphrasing is adequate."
+    else:
+        risk_level = "HIGH RISK"
+        interpretation = "The document shows substantial similarity to reference sources. Significant concerns regarding originality."
+        recommendation = "Comprehensive revision required. Review all matches carefully and ensure proper citation or rewrite in your own words."
+    
+    report.append(f"Risk Level: {risk_level}")
+    report.append(f"\nInterpretation: {interpretation}")
+    report.append(f"\nRecommendation: {recommendation}")
+    report.append("")
