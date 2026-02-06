@@ -92,3 +92,22 @@ def generate_advanced_report(results: Dict, filename: str,
     report.append(f"Longest Single Match: {stats.get('longest_sequence', 0)} words")
     report.append(f"Total Sources Found: {stats.get('total_sources', 0)}")
     report.append(f"High Risk Sources: {stats.get('high_risk_sources', 0)}")
+    report.append("\n\nRECOMMENDATIONS")
+    report.append("-" * 80)
+    if score < 15:
+        report.append("✓ Document is acceptable for submission")
+        report.append("✓ Continue maintaining good academic practices")
+        report.append("• Double-check that all citations are properly formatted")
+    elif score < 30:
+        report.append("⚠ Review all highlighted matches carefully")
+        report.append("⚠ Verify that all borrowed content is properly cited")
+        report.append("⚠ Consider paraphrasing matched sections more thoroughly")
+        report.append("• Ensure quotation marks are used for direct quotes")
+        report.append("• Add citations for paraphrased content")
+    else:
+        report.append("✗ Significant revision required before submission")
+        report.append("✗ Review ALL matched sections with source material")
+        report.append("✗ Ensure proper citation for all borrowed content")
+        report.append("✗ Rewrite highly similar sections in your own words")
+        report.append("• Consult with instructor or writing center")
+        report.append("• Review institutional plagiarism policies")
