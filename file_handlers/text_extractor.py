@@ -753,3 +753,6 @@ class TextExtractor:
     
     def batch_extract(self, filepaths: List[str], 
                      progress_callback: callable = None) -> List[Dict[str, Any]]:
+        
+        results = []
+        total_files = len(filepaths)
