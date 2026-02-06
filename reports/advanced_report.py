@@ -81,3 +81,14 @@ def generate_advanced_report(results: Dict, filename: str,
     else:
         report.append("\n✓ No significant matches found.")
         report.append("The document appears to contain primarily original content.")
+        
+    report.append("\n\nSTATISTICAL ANALYSIS")
+    report.append("-" * 80)
+    report.append(f"Total Words Analyzed: {stats.get('total_words', 0)}")
+    report.append(f"Matched Words: {stats.get('matched_words', 0)}")
+    report.append(f"Unique Words: {stats.get('unique_words', 0)}")
+    report.append(f"Unique Percentage: {stats.get('unique_percentage', 0)}%")
+    report.append(f"Average Match Length: {stats.get('average_sequence_length', 0)} words")
+    report.append(f"Longest Single Match: {stats.get('longest_sequence', 0)} words")
+    report.append(f"Total Sources Found: {stats.get('total_sources', 0)}")
+    report.append(f"High Risk Sources: {stats.get('high_risk_sources', 0)}")
