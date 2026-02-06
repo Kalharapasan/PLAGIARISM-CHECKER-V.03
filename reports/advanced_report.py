@@ -402,4 +402,24 @@ def generate_html_report(results: Dict, filename: str, algorithms: List[str]) ->
     return html
 
 def generate_json_report(results: Dict, filename: str, algorithms: List[str]) -> str:
+    report = {
+        'metadata': {
+            'document': filename,
+            'generated': datetime.now().isoformat(),
+            'algorithms': algorithms,
+            'version': 'advanced'
+        },
+        'summary': {
+            'overall_similarity': results['overall_similarity'],
+            'total_words': results['total_words'],
+            'total_sentences': results['total_sentences'],
+            'citations_found': results.get('citations_found', 0),
+            'sources_matched': len(results['matches'])
+        },
+        'matches': results['matches'],
+        'statistics': results.get('statistics', {}),
+        'algorithm_performance': results.get('algorithm_scores', {})
+    }
+    
+    return json.dumps(report, indent=2, ensure_ascii=False)
     
