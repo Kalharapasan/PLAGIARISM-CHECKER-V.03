@@ -779,3 +779,4 @@ class TextExtractor:
         return results
     
 def guess_file_format(filepath: str) -> str:
+    path = Path(filepath)
