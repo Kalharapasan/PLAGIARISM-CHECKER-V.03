@@ -640,4 +640,11 @@ class TextExtractor:
     
     
     def _extract_xls(self, filepath: str) -> str:
-        
+        try:
+            import xlrd
+            
+            workbook = xlrd.open_workbook(filepath)
+            text_parts = []
+            
+            for sheet in workbook.sheets():
+                text_parts.append(f"Sheet: {sheet.name}")
