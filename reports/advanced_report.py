@@ -132,3 +132,207 @@ def generate_advanced_report(results: Dict, filename: str,
 def generate_html_report(results: Dict, filename: str, algorithms: List[str]) -> str:
     score = results['overall_similarity']
     stats = results.get('statistics', {})
+    if score < 15:
+        color = '#48bb78'
+        status = 'Low Risk'
+    elif score < 30:
+        color = '#ed8936'
+        status = 'Moderate Risk'
+    else:
+        color = '#f56565'
+        status = 'High Risk'
+    
+    html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Plagiarism Report - {filename}</title>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }}
+        .header {{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }}
+        .score-card {{
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }}
+        .score {{
+            font-size: 72px;
+            font-weight: bold;
+            color: {color};
+        }}
+        .status {{
+            font-size: 24px;
+            color: {color};
+            font-weight: bold;
+        }}
+        .stats {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }}
+        .stat-box {{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }}
+        .stat-value {{
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }}
+        .stat-label {{
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }}
+        .match {{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }}
+        .match-header {{
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }}
+        .matched-text {{
+            background: #fef5e7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #f39c12;
+        }}
+        .recommendation {{
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }}
+        .warning {{
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }}
+        .critical {{
+            background: #f8d7da;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #dc3545;
+        }}
+        @media print {{
+            body {{ background: white; }}
+            .score-card, .stat-box, .match {{ box-shadow: none; border: 1px solid #ddd; }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Advanced Plagiarism Detection Report</h1>
+        <p>Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+        <p>Document: {filename}</p>
+        <p>Algorithms: {', '.join(algorithms)}</p>
+    </div>
+    
+    <div class="score-card">
+        <div class="score">{score}%</div>
+        <div class="status">{status}</div>
+        <p>Overall Similarity Score</p>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-box">
+            <div class="stat-value">{results['total_words']}</div>
+            <div class="stat-label">Total Words</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">{stats.get('matched_words', 0)}</div>
+            <div class="stat-label">Matched Words</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">{len(results['matches'])}</div>
+            <div class="stat-label">Sources Found</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value">{stats.get('unique_percentage', 0)}%</div>
+            <div class="stat-label">Unique Content</div>
+        </div>
+    </div>
+    
+    <h2>Risk Assessment</h2>
+    <div class="{{
+        'recommendation' if score < 15 else 
+        'warning' if score < 30 else 
+        'critical'
+    }}">
+        <h3>{status}</h3>
+        <p>"""
+    
+    if score < 15:
+        html += "The document shows minimal similarity to reference sources. This level is generally acceptable for academic submissions."
+    elif score < 30:
+        html += "The document shows moderate similarity to reference sources. Review recommended to ensure proper attribution."
+    else:
+        html += "The document shows substantial similarity to reference sources. Significant concerns regarding originality."
+    
+    html += """</p>
+    </div>
+    
+    <h2>Matched Sources</h2>
+"""
+    
+    if results['matches']:
+        for idx, match in enumerate(results['matches'], 1):
+            html += f"""
+    <div class="match">
+        <div class="match-header">Match #{idx}: {match['source']}</div>
+        <p><strong>Similarity:</strong> {match['similarity']}% | <strong>Confidence:</strong> {match.get('confidence', 'N/A')} | <strong>Risk:</strong> {match.get('risk_level', 'N/A')}</p>
+        {f"<p><strong>URL:</strong> <a href='{match['url']}'>{match['url']}</a></p>" if match.get('url') else ''}
+        <p><strong>Algorithm Scores:</strong></p>
+        <ul>
+"""
+            for algo, algo_score in match.get('algorithm_scores', {}).items():
+                html += f"            <li>{algo.capitalize()}: {algo_score}%</li>\n"
+            
+            html += "        </ul>\n"
+            
+            if match.get('matched_sequences'):
+                html += f"        <p><strong>Matched Sequences ({len(match['matched_sequences'])}):</strong></p>\n"
+                for seq in match['matched_sequences'][:3]:
+                    truncated = seq['text'][:200] + '...' if len(seq['text']) > 200 else seq['text']
+                    html += f"        <div class='matched-text'>\"{truncated}\" ({seq['length']} words)</div>\n"
+            
+            html += "    </div>\n"
+    else:
+        html += """
+    <div class="recommendation">
+        <h3>✓ No Significant Matches Found</h3>
+        <p>The document appears to contain primarily original content.</p>
+    </div>
+"""
