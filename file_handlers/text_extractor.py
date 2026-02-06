@@ -681,3 +681,4 @@ class TextExtractor:
         text = re.sub(r'(\w)-\s+(\w)', r'\1\2', text)  
         text = re.sub(r'\s+([.,;:!?])', r'\1', text)   
         text = re.sub(r'([.,;:!?])\s+', r'\1 ', text)  
+        text = text.replace('\r\n', '\n').replace('\r', '\n')
