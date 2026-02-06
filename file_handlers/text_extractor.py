@@ -671,3 +671,4 @@ class TextExtractor:
                     return data.decode(encoding)
                 except UnicodeDecodeError:
                     continue
+            return data.decode('utf-8', errors='ignore')
