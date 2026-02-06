@@ -756,3 +756,24 @@ class TextExtractor:
         
         results = []
         total_files = len(filepaths)
+        for i, filepath in enumerate(filepaths):
+            try:
+                result = self.extract_with_metadata(filepath)
+                results.append(result)
+                if progress_callback:
+                    progress = (i + 1) / total_files * 100
+                    progress_callback(progress, filepath, result['success'])
+                    
+            except Exception as e:
+                results.append({
+                    'success': False,
+                    'error': str(e),
+                    'filepath': filepath,
+                    'extraction_timestamp': datetime.now().isoformat()
+                })
+                
+                if progress_callback:
+                    progress = (i + 1) / total_files * 100
+                    progress_callback(progress, filepath, False)
+        
+        return results
