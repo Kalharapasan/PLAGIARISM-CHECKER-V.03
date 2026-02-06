@@ -682,3 +682,10 @@ class TextExtractor:
         text = re.sub(r'\s+([.,;:!?])', r'\1', text)   
         text = re.sub(r'([.,;:!?])\s+', r'\1 ', text)  
         text = text.replace('\r\n', '\n').replace('\r', '\n')
+        lines = text.split('\n')
+        while lines and not lines[0].strip():
+            lines.pop(0)
+        while lines and not lines[-1].strip():
+            lines.pop()
+        
+        return '\n'.join(lines)
