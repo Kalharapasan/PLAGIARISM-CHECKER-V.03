@@ -789,3 +789,7 @@ def guess_file_format(filepath: str) -> str:
         for ext, mime in TextExtractor.SUPPORTED_FORMATS.items():
             if mime == mime_type:
                 return ext
+    
+    try:
+        with open(filepath, 'rb') as f:
+            header = f.read(4)
