@@ -799,3 +799,4 @@ def guess_file_format(filepath: str) -> str:
                 return '.zip'
             elif header.startswith(b'\xD0\xCF\x11\xE0'): 
                 return '.doc'
+            elif header.startswith(b'\xEF\xBB\xBF'):
