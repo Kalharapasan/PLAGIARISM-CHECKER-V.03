@@ -662,3 +662,5 @@ class TextExtractor:
             return self._extract_fallback(filepath)
     
     def _extract_fallback(self, filepath: str) -> str:
+        with open(filepath, 'rb') as f:
+            data = f.read()
