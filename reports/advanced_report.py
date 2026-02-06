@@ -51,3 +51,33 @@ def generate_advanced_report(results: Dict, filename: str,
         for algo, perf in results['algorithm_scores'].items():
             report.append(f"{algo.capitalize()} Similarity: {perf.get('average', 0):.2f}% (avg across matches)")
     report.append("")
+    report.append("DETAILED MATCH ANALYSIS")
+    report.append("-" * 80)
+    
+    if results['matches']:
+        for idx, match in enumerate(results['matches'], 1):
+            report.append(f"\n{'='*80}")
+            report.append(f"MATCH #{idx}")
+            report.append(f"{'='*80}")
+            report.append(f"Source: {match['source']}")
+            if match.get('url'):
+                report.append(f"URL: {match['url']}")
+            report.append(f"Overall Similarity: {match['similarity']}%")
+            report.append(f"Confidence: {match.get('confidence', 'N/A')}")
+            report.append(f"Risk Level: {match.get('risk_level', 'N/A')}")
+            
+            report.append("\nAlgorithm Scores:")
+            for algo, score in match.get('algorithm_scores', {}).items():
+                report.append(f"  • {algo.capitalize()}: {score}%")
+            
+            if match.get('matched_sequences'):
+                report.append(f"\nMatched Sequences ({len(match['matched_sequences'])} found):")
+                for seq_idx, seq in enumerate(match['matched_sequences'][:3], 1):
+                    report.append(f"\n  Sequence {seq_idx} ({seq['length']} words):")
+                    truncated = seq['text'][:150] + '...' if len(seq['text']) > 150 else seq['text']
+                    report.append(f"  \"{truncated}\"")
+            
+            report.append(f"\n{'-'*80}")
+    else:
+        report.append("\n✓ No significant matches found.")
+        report.append("The document appears to contain primarily original content.")
