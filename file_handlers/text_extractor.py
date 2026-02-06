@@ -674,3 +674,5 @@ class TextExtractor:
             return data.decode('utf-8', errors='ignore')
     
     def _clean_extracted_text(self, text: str) -> str:
+        if not text:
+            return ""
