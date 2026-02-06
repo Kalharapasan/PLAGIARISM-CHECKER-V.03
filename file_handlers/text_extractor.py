@@ -664,3 +664,10 @@ class TextExtractor:
     def _extract_fallback(self, filepath: str) -> str:
         with open(filepath, 'rb') as f:
             data = f.read()
+            encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1', 'ascii']
+            
+            for encoding in encodings:
+                try:
+                    return data.decode(encoding)
+                except UnicodeDecodeError:
+                    continue
