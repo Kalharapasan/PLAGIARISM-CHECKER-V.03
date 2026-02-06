@@ -401,3 +401,5 @@ def generate_html_report(results: Dict, filename: str, algorithms: List[str]) ->
 """
     return html
 
+def generate_json_report(results: Dict, filename: str, algorithms: List[str]) -> str:
+    
