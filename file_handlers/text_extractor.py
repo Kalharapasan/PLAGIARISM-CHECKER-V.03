@@ -815,3 +815,13 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         'warnings': [],
         'file_info': {}
     }
+    try:
+        path = Path(filepath)
+        
+        if not path.exists():
+            validation['errors'].append('File does not exist')
+            return validation
+        
+        if not path.is_file():
+            validation['errors'].append('Path is not a file')
+            return validation
