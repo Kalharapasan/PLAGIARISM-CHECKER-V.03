@@ -676,3 +676,4 @@ class TextExtractor:
     def _clean_extracted_text(self, text: str) -> str:
         if not text:
             return ""
+        text = re.sub(r'\s+', ' ', text)
