@@ -45,3 +45,9 @@ def generate_advanced_report(results: Dict, filename: str,
     report.append(f"\nInterpretation: {interpretation}")
     report.append(f"\nRecommendation: {recommendation}")
     report.append("")
+    report.append("ALGORITHM ANALYSIS")
+    report.append("-" * 80)
+    if results.get('algorithm_scores'):
+        for algo, perf in results['algorithm_scores'].items():
+            report.append(f"{algo.capitalize()} Similarity: {perf.get('average', 0):.2f}% (avg across matches)")
+    report.append("")
