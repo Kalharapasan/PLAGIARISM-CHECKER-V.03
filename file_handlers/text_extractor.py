@@ -801,3 +801,5 @@ def guess_file_format(filepath: str) -> str:
                 return '.doc'
             elif header.startswith(b'\xEF\xBB\xBF'):
                 return '.txt'
+            elif header.startswith(b'{\\rtf'):  
+                return '.rtf'
