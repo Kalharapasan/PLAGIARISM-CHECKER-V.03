@@ -777,3 +777,5 @@ class TextExtractor:
                     progress_callback(progress, filepath, False)
         
         return results
+    
+    
