@@ -825,3 +825,10 @@ def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
         if not path.is_file():
             validation['errors'].append('Path is not a file')
             return validation
+        
+        file_size = path.stat().st_size
+        validation['file_info']['size_bytes'] = file_size
+        
+        if file_size == 0:
+            validation['errors'].append('File is empty')
+            return validation
