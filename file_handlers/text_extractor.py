@@ -795,3 +795,4 @@ def guess_file_format(filepath: str) -> str:
             header = f.read(4)
             if header.startswith(b'%PDF'):
                 return '.pdf'
+            elif header.startswith(b'PK'):
