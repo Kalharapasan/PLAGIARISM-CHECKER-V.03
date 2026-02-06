@@ -793,3 +793,5 @@ def guess_file_format(filepath: str) -> str:
     try:
         with open(filepath, 'rb') as f:
             header = f.read(4)
+            if header.startswith(b'%PDF'):
+                return '.pdf'
