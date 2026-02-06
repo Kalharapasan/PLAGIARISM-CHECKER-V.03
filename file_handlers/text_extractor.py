@@ -807,3 +807,5 @@ def guess_file_format(filepath: str) -> str:
         pass
     
     return '.txt'
+
+def validate_file_for_extraction(filepath: str) -> Dict[str, Any]:
