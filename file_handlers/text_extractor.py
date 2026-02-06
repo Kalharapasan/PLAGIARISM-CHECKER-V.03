@@ -691,3 +691,24 @@ class TextExtractor:
         return '\n'.join(lines)
     
     def _dict_to_text(self, data: Dict, indent: int = 0) -> List[str]:
+        lines = []
+        prefix = '  ' * indent
+        
+        for key, value in data.items():
+            if isinstance(value, dict):
+                lines.append(f"{prefix}{key}:")
+                lines.extend(self._dict_to_text(value, indent + 1))
+            elif isinstance(value, list):
+                lines.append(f"{prefix}{key}:")
+                for i, item in enumerate(value[:10]): 
+                    if isinstance(item, dict):
+                        lines.append(f"{prefix}  Item {i+1}:")
+                        lines.extend(self._dict_to_text(item, indent + 2))
+                    else:
+                        lines.append(f"{prefix}  - {item}")
+                if len(value) > 10:
+                    lines.append(f"{prefix}  ... and {len(value) - 10} more items")
+            else:
+                lines.append(f"{prefix}{key}: {value}")
+        
+        return lines
