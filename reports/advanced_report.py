@@ -111,3 +111,10 @@ def generate_advanced_report(results: Dict, filename: str,
         report.append("✗ Rewrite highly similar sections in your own words")
         report.append("• Consult with instructor or writing center")
         report.append("• Review institutional plagiarism policies")
+    
+    report.append("\n\nANALYSIS METADATA")
+    report.append("-" * 80)
+    metadata = results.get('metadata', {})
+    report.append(f"Database Size: {metadata.get('database_size', 0)} documents")
+    report.append(f"Algorithms Used: {', '.join(metadata.get('algorithms_used', []))}")
+    report.append(f"Analysis Timestamp: {datetime.now().isoformat()}")
