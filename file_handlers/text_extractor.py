@@ -783,3 +783,6 @@ def guess_file_format(filepath: str) -> str:
     ext = path.suffix.lower()
     if ext:
         return ext
+    
+    mime_type, _ = mimetypes.guess_type(filepath)
+    if mime_type:
