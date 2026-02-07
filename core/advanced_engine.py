@@ -34,3 +34,6 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         min_size = min(len(words1), len(words2))
         
         return (intersection / min_size) * 100 if min_size > 0 else 0.0
+    
+    def calculate_dice_coefficient(self, text1: str, text2: str) -> float:
+        
