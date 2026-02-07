@@ -203,3 +203,7 @@ class AdvancedTextAnalyzer:
                 count -= 1
             if word.endswith('le') and len(word) > 2 and word[-3] not in vowels:
                 count += 1
+            if count == 0:
+                count = 1
+                
+            return count
