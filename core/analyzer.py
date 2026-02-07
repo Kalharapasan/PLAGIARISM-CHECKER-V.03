@@ -251,7 +251,7 @@ class AdvancedTextAnalyzer:
                 'total_words': total_words
             }
         
-        #return {}
+        return {}
     
     def extract_key_phrases(self, text: str, n: int = 10, min_length: int = 2) -> List[Tuple[str, int, float]]:
         words = self.tokenize_advanced(text, remove_stopwords=True)
@@ -284,3 +284,5 @@ class AdvancedTextAnalyzer:
             key_phrases.append((phrase, freq, round(score, 2)))
             key_phrases.sort(key=lambda x: x[2], reverse=True)
         return key_phrases[:n]
+    
+    def detect_academic_structure(self, text: str) -> Dict:
