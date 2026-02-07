@@ -95,6 +95,12 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
                     doc_similarities['sequence'] = (total_seq_words / results['total_words']) * 100 if results['total_words'] > 0 else 0
                 else:
                     doc_similarities['sequence'] = 0
+            if doc_similarities:
+                avg_similarity = sum(doc_similarities.values()) / len(doc_similarities)
+            else:
+                avg_similarity = 0
+            
+            threshold = self.config.get('detection.advanced.threshold', 10.0)
             
             
         
