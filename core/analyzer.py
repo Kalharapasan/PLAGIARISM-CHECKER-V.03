@@ -183,3 +183,5 @@ class AdvancedTextAnalyzer:
         
         if not sentences or not words:
             return {}
+        def count_syllables(word):
+            word = word.lower()
