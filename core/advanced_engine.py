@@ -73,6 +73,21 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             doc_text = doc.get('text', '')
             doc_similarities = {}
         
+        if 'cosine' in algorithms:
+                doc_similarities['cosine'] = self.calculate_cosine_similarity(text, doc_text)
+            
+            if 'jaccard' in algorithms:
+                doc_similarities['jaccard'] = self.calculate_jaccard_similarity(text, doc_text)
+            
+            if 'ngram' in algorithms:
+                doc_similarities['ngram'] = self.calculate_ngram_similarity(text, doc_text, 3)
+            
+            if 'overlap' in algorithms:
+                doc_similarities['overlap'] = self.calculate_overlap_coefficient(text, doc_text)
+            
+            if 'dice' in algorithms:
+                doc_similarities['dice'] = self.calculate_dice_coefficient(text, doc_text)
+        
         
         
         
