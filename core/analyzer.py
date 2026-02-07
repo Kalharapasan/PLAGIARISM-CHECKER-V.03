@@ -131,3 +131,5 @@ class AdvancedTextAnalyzer:
         return tokens
     
     def extract_sentences(self, text: str) -> List[str]:
+        if not text:
+            return []
