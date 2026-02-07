@@ -173,3 +173,6 @@ class AdvancedTextAnalyzer:
                     citation_info['pages'] = page_match.group(1)
                 
                 citations.append(citation_info)
+                citations.sort(key=lambda x: x['position'])
+        
+        return citations
