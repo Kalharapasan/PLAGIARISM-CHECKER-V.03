@@ -185,3 +185,5 @@ class AdvancedTextAnalyzer:
             return {}
         def count_syllables(word):
             word = word.lower()
+            if word.endswith('es') or word.endswith('ed'):
+                word = word[:-2]
