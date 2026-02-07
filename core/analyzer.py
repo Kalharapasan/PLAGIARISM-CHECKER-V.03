@@ -118,3 +118,5 @@ class AdvancedTextAnalyzer:
         }
         
     def tokenize_advanced(self, text: str, remove_stopwords: bool = True) -> List[str]:
+        if not text:
+            return []
