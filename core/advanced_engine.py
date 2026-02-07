@@ -73,7 +73,7 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             doc_text = doc.get('text', '')
             doc_similarities = {}
         
-        if 'cosine' in algorithms:
+            if 'cosine' in algorithms:
                 doc_similarities['cosine'] = self.calculate_cosine_similarity(text, doc_text)
             
             if 'jaccard' in algorithms:
@@ -87,6 +87,16 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             
             if 'dice' in algorithms:
                 doc_similarities['dice'] = self.calculate_dice_coefficient(text, doc_text)
+            
+            if 'sequence' in algorithms:
+                sequences = self.find_common_sequences(text, doc_text)
+                if sequences:
+                    total_seq_words = sum(s['length'] for s in sequences)
+                    doc_similarities['sequence'] = (total_seq_words / results['total_words']) * 100 if results['total_words'] > 0 else 0
+                else:
+                    doc_similarities['sequence'] = 0
+            
+            
         
         
         
