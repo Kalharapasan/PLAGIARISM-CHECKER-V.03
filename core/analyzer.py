@@ -146,3 +146,5 @@ class AdvancedTextAnalyzer:
             text = text.replace(abbr, abbr.replace('.', '@ABBR@'))
         sentences = re.split(r'[.!?]+\s+', text)
         sentences = [s.replace('@ABBR@', '.') for s in sentences]
+        sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
+        return sentences
