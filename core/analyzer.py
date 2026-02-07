@@ -150,3 +150,18 @@ class AdvancedTextAnalyzer:
         return sentences
     
     def detect_citations(self, text: str) -> List[Dict]:
+        citations = []
+        
+        for pattern_info in self.citation_patterns:
+            pattern = pattern_info['pattern']
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            
+            for match in matches:
+                citation_info = {
+                    'text': match.group(0),
+                    'position': match.start(),
+                    'type': pattern_info['type'],
+                    'name': pattern_info['name'],
+                    'author': match.group(1) if match.groups() else None,
+                    'full_match': match.group()
+                }
