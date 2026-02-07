@@ -45,3 +45,5 @@ class AdvancedTextAnalyzer:
             'would', 'yet', 'you', 'your', 'yours', 'yourself', 'yourselves'
         }
         return basic_stops
+    
+    def _load_common_phrases(self) -> List[str]:
