@@ -118,6 +118,8 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
                 
                 results['matches'].append(match_info)
                 all_similarities.append(avg_similarity)
+                
+            if all_similarities:
             
             
         
