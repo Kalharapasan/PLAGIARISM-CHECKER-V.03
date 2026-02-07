@@ -4,6 +4,16 @@ from collections import Counter
 import math
 
 class AdvancedPlagiarismEngine(BasePlagiarismEngine):
+    def __init__(self, config=None):
+        super().__init__(config)
+        self.algorithms = {
+            'cosine': True,
+            'jaccard': True,
+            'ngram': True,
+            'sequence': True,
+            'overlap': False,
+            'dice': False
+        }
     
     def calculate_ngram_similarity(self, text1: str, text2: str, n: int = 3) -> float:
         words1 = self.tokenize(text1)
