@@ -220,3 +220,7 @@ class AdvancedTextAnalyzer:
             complex_words = sum(1 for word in words if count_syllables(word) >= 3)
             percent_complex = (complex_words / total_words) * 100
             gunning_fog = 0.4 * (avg_sentence_length + percent_complex)
+            if total_sentences >= 3:
+                smog = 1.043 * math.sqrt(complex_words * (30 / total_sentences)) + 3.1291
+            else:
+                smog = 0
