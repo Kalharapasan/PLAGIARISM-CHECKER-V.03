@@ -144,3 +144,4 @@ class AdvancedTextAnalyzer:
         ]
         for abbr in abbreviations:
             text = text.replace(abbr, abbr.replace('.', '@ABBR@'))
+        sentences = re.split(r'[.!?]+\s+', text)
