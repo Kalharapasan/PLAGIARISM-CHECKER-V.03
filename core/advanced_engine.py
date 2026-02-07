@@ -50,6 +50,29 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
     def analyze_text(self, text: str, database: List[Dict], 
                     algorithms: List[str] = None) -> Dict:
         
+        if algorithms is None:
+            algorithms = [k for k, v in self.algorithms.items() if v]
+        
+        results = {
+            'overall_similarity': 0,
+            'total_words': len(self.tokenize(text)),
+            'total_sentences': len(self.get_sentences(text)),
+            'citations_found': len(self.detect_citations(text)),
+            'matches': [],
+            'algorithm_scores': {},
+            'statistics': {},
+            'metadata': {
+                'algorithms_used': algorithms,
+                'database_size': len(database)
+            }
+        }
+        
+        all_similarities = []
+        
+        for doc in database:
+            doc_text = doc.get('text', '')
+            doc_similarities = {}
+        
         
         
         
