@@ -133,3 +133,12 @@ class AdvancedTextAnalyzer:
     def extract_sentences(self, text: str) -> List[str]:
         if not text:
             return []
+        abbreviations = [
+            'Dr.', 'Mr.', 'Mrs.', 'Ms.', 'Prof.', 'Dr', 'Mr', 'Mrs', 'Ms', 'Prof',
+            'i.e.', 'e.g.', 'etc.', 'viz.', 'cf.', 'c.f.', 'et al.', 'et al',
+            'vs.', 'v.', 'Vol.', 'vol.', 'No.', 'no.', 'pp.', 'p.', 'ch.',
+            'chap.', 'ed.', 'trans.', 'approx.', 'appx.', 'fig.', 'ref.',
+            'Jan.', 'Feb.', 'Mar.', 'Apr.', 'Jun.', 'Jul.', 'Aug.', 'Sep.',
+            'Sept.', 'Oct.', 'Nov.', 'Dec.', 'Mon.', 'Tue.', 'Wed.', 'Thu.',
+            'Thur.', 'Fri.', 'Sat.', 'Sun.'
+        ]
