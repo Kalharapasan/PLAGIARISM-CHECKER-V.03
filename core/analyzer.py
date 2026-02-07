@@ -168,3 +168,8 @@ class AdvancedTextAnalyzer:
                 year_match = re.search(r'\d{4}', match.group(0))
                 if year_match:
                     citation_info['year'] = int(year_match.group())
+                page_match = re.search(r'pp?\.\s*(\d+(?:-\d+)?)', match.group(0))
+                if page_match:
+                    citation_info['pages'] = page_match.group(1)
+                
+                citations.append(citation_info)
