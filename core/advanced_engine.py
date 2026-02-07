@@ -197,8 +197,8 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         if not results['matches']:
             return {}
         
-        dralgo_scores = {}
-        or match in results['matches']:
+        algo_scores = {}
+        for match in results['matches']:
             for algo, score in match.get('algorithm_scores', {}).items():
                 if algo not in algo_scores:
                     algo_scores[algo] = []
