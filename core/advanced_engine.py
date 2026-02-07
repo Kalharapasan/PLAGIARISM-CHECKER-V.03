@@ -192,6 +192,8 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         }
         
         return stats
+    
+    def _calculate_algorithm_scores(self, results: Dict) -> Dict:
         
             
             
