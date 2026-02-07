@@ -226,3 +226,4 @@ class AdvancedTextAnalyzer:
                 smog = 0
             avg_letters_per_word = sum(len(word) for word in words) / total_words
             coleman_liau = (0.0588 * avg_letters_per_word * 100) - (0.296 * (100 / total_sentences)) - 15.8
+            ari = (4.71 * (sum(len(word) for word in words) / total_words)) + (0.5 * avg_sentence_length) - 21.43
