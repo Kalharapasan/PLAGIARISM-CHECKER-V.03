@@ -282,3 +282,5 @@ class AdvancedTextAnalyzer:
             academic_bonus = 1.0 + (0.15 * academic_terms_in_phrase)
             score = tf * length_bonus * academic_bonus * 100
             key_phrases.append((phrase, freq, round(score, 2)))
+            key_phrases.sort(key=lambda x: x[2], reverse=True)
+        return key_phrases[:n]
