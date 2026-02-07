@@ -142,3 +142,5 @@ class AdvancedTextAnalyzer:
             'Sept.', 'Oct.', 'Nov.', 'Dec.', 'Mon.', 'Tue.', 'Wed.', 'Thu.',
             'Thur.', 'Fri.', 'Sat.', 'Sun.'
         ]
+        for abbr in abbreviations:
+            text = text.replace(abbr, abbr.replace('.', '@ABBR@'))
