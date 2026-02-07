@@ -224,3 +224,5 @@ class AdvancedTextAnalyzer:
                 smog = 1.043 * math.sqrt(complex_words * (30 / total_sentences)) + 3.1291
             else:
                 smog = 0
+            avg_letters_per_word = sum(len(word) for word in words) / total_words
+            coleman_liau = (0.0588 * avg_letters_per_word * 100) - (0.296 * (100 / total_sentences)) - 15.8
