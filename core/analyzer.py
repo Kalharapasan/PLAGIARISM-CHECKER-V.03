@@ -165,3 +165,6 @@ class AdvancedTextAnalyzer:
                     'author': match.group(1) if match.groups() else None,
                     'full_match': match.group()
                 }
+                year_match = re.search(r'\d{4}', match.group(0))
+                if year_match:
+                    citation_info['year'] = int(year_match.group())
