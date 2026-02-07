@@ -194,6 +194,25 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         return stats
     
     def _calculate_algorithm_scores(self, results: Dict) -> Dict:
+        if not results['matches']:
+            return {}
+        
+        dralgo_scores = {}
+        or match in results['matches']:
+            for algo, score in match.get('algorithm_scores', {}).items():
+                if algo not in algo_scores:
+                    algo_scores[algo] = []
+                algo_scores[algo].append(score)
+        
+        performance = {}
+        for algo, scores in algo_scores.items():
+            performance[algo] = {
+                'average': round(sum(scores) / len(scores), 2),
+                'max': round(max(scores), 2),
+                'min': round(min(scores), 2)
+            }
+        
+        return performance
         
             
             
