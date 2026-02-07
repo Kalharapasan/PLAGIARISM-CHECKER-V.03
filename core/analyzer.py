@@ -277,3 +277,4 @@ class AdvancedTextAnalyzer:
         for phrase, freq in phrase_frequencies.items():
             tf = freq / total_phrases if total_phrases > 0 else 0
             words_in_phrase = len(phrase.split())
+            length_bonus = 1.0 + (0.1 * (words_in_phrase - 2))
