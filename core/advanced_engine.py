@@ -36,4 +36,21 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         return (intersection / min_size) * 100 if min_size > 0 else 0.0
     
     def calculate_dice_coefficient(self, text1: str, text2: str) -> float:
+        words1 = set(self.tokenize(text1))
+        words2 = set(self.tokenize(text2))
+        
+        if not words1 or not words2:
+            return 0.0
+        
+        intersection = len(words1.intersection(words2))
+        total = len(words1) + len(words2)
+        
+        return (2 * intersection / total) * 100 if total > 0 else 0.0
+
+    def analyze_text(self, text: str, database: List[Dict], 
+                    algorithms: List[str] = None) -> Dict:
+        
+        
+        
+        
         
