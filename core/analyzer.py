@@ -278,3 +278,5 @@ class AdvancedTextAnalyzer:
             tf = freq / total_phrases if total_phrases > 0 else 0
             words_in_phrase = len(phrase.split())
             length_bonus = 1.0 + (0.1 * (words_in_phrase - 2))
+            academic_terms_in_phrase = sum(1 for word in phrase.split() if word in self.academic_terms)
+            academic_bonus = 1.0 + (0.15 * academic_terms_in_phrase)
