@@ -61,3 +61,5 @@ class AdvancedTextAnalyzer:
             'as long as', 'so as to', 'in case', 'provided that',
             'assuming that', 'given that', 'in light of'
         ]
+    
+    def _load_citation_patterns(self) -> List[Dict]:
