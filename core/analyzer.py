@@ -312,5 +312,8 @@ class AdvancedTextAnalyzer:
         for para in paragraphs:
             para_lower = para.lower().strip()
             if len(para_lower) < 100:
+                 for section_name, pattern in section_patterns.items():
+                    if re.search(pattern, para_lower, re.IGNORECASE):
+                        structure[section_name] = True
             
         
