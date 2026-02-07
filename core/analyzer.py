@@ -286,3 +286,15 @@ class AdvancedTextAnalyzer:
         return key_phrases[:n]
     
     def detect_academic_structure(self, text: str) -> Dict:
+        structure = {
+            'abstract': False,
+            'introduction': False,
+            'literature_review': False,
+            'methodology': False,
+            'results': False,
+            'discussion': False,
+            'conclusion': False,
+            'references': False,
+            'sections': [],
+            'section_count': 0
+        }
