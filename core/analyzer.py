@@ -116,3 +116,5 @@ class AdvancedTextAnalyzer:
             'academic', 'argument', 'citation', 'plagiarism', 'reference', 'bibliography', 'footnote',
             'endnote', 'paraphrase', 'quotation', 'attribution', 'originality', 'integrity', 'ethics'
         }
+        
+    def tokenize_advanced(self, text: str, remove_stopwords: bool = True) -> List[str]:
