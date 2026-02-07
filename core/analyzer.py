@@ -309,3 +309,5 @@ class AdvancedTextAnalyzer:
             'references': r'\b(?:references|bibliography|works\s+cited|sources)\b'
         }
         paragraphs = text.split('\n\n')
+        for para in paragraphs:
+            para_lower = para.lower().strip()
