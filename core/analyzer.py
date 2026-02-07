@@ -47,3 +47,17 @@ class AdvancedTextAnalyzer:
         return basic_stops
     
     def _load_common_phrases(self) -> List[str]:
+        return [
+            'in conclusion', 'in summary', 'for example', 'for instance',
+            'according to', 'as shown in', 'it is important to note',
+            'in other words', 'on the other hand', 'as a result',
+            'in addition', 'furthermore', 'moreover', 'however',
+            'therefore', 'consequently', 'nevertheless', 'nonetheless',
+            'as stated', 'as mentioned', 'based on', 'due to',
+            'in terms of', 'with regard to', 'with respect to',
+            'it should be noted', 'it is clear that', 'the fact that',
+            'in order to', 'as well as', 'such as', 'so that',
+            'even though', 'as if', 'as though', 'as soon as',
+            'as long as', 'so as to', 'in case', 'provided that',
+            'assuming that', 'given that', 'in light of'
+        ]
