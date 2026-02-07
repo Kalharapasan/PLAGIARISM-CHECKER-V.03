@@ -22,3 +22,5 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         union = len(ngrams1.union(ngrams2))
         
         return (intersection / union) * 100 if union > 0 else 0.0
+    
+    def calculate_overlap_coefficient(self, text1: str, text2: str) -> float:
