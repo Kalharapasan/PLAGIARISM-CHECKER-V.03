@@ -194,3 +194,8 @@ class AdvancedTextAnalyzer:
             for i, char in enumerate(word):
                 is_vowel = char in vowels
                 if is_vowel and not previous_was_vowel:
+                    if char == 'y' and i == 0:
+                        continue
+                    count += 1
+                
+                previous_was_vowel = is_vowel
