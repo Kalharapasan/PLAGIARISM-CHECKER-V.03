@@ -260,3 +260,6 @@ class AdvancedTextAnalyzer:
             return []
         all_phrases = []
         phrase_frequencies = {}
+        for ngram_size in range(2, 5):  
+            for i in range(len(words) - ngram_size + 1):
+                phrase = ' '.join(words[i:i+ngram_size])
