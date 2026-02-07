@@ -265,4 +265,11 @@ class AdvancedTextAnalyzer:
                 phrase = ' '.join(words[i:i+ngram_size])
                 if all(word in self.stop_words for word in phrase.split()):
                     continue
+                if phrase in self.common_phrases:
+                    continue
+                
+                if phrase in phrase_frequencies:
+                    phrase_frequencies[phrase] += 1
+                else:
+                    phrase_frequencies[phrase] = 1
         
