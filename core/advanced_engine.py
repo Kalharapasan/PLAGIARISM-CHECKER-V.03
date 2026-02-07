@@ -149,6 +149,14 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         avg = sum(scores) / len(scores)
         variance = sum((s - avg) ** 2 for s in scores) / len(scores)
         std_dev = math.sqrt(variance)
+        cv = (std_dev / avg) * 100 if avg > 0 else 100
+        
+        if cv < 15:
+            return "High"
+        elif cv < 30:
+            return "Medium"
+        else:
+            return "Low"
         
             
             
