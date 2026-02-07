@@ -140,6 +140,9 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         results['algorithm_scores'] = self._calculate_algorithm_scores(results)
         
         return results
+    
+    def _calculate_confidence(self, algorithm_scores: Dict[str, float]) -> str:
+        
             
             
         
