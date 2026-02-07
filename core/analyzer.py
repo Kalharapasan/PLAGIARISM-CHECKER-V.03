@@ -178,3 +178,8 @@ class AdvancedTextAnalyzer:
         return citations
     
     def calculate_readability_scores(self, text: str) -> Dict:
+        sentences = self.extract_sentences(text)
+        words = self.tokenize_advanced(text, remove_stopwords=False)
+        
+        if not sentences or not words:
+            return {}
