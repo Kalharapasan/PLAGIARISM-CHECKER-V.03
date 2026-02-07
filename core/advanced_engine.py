@@ -11,3 +11,14 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         
         if len(words1) < n or len(words2) < n:
             return 0.0
+        
+        ngrams1 = set(' '.join(words1[i:i+n]) for i in range(len(words1) - n + 1))
+        ngrams2 = set(' '.join(words2[i:i+n]) for i in range(len(words2) - n + 1))
+        
+        if not ngrams1 or not ngrams2:
+            return 0.0
+        
+        intersection = len(ngrams1.intersection(ngrams2))
+        union = len(ngrams1.union(ngrams2))
+        
+        return (intersection / union) * 100 if union > 0 else 0.0
