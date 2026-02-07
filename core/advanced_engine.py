@@ -137,6 +137,9 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             )
         results['matches'].sort(key=lambda x: x['similarity'], reverse=True)
         results['statistics'] = self._calculate_statistics(results, text)
+        results['algorithm_scores'] = self._calculate_algorithm_scores(results)
+        
+        return results
             
             
         
