@@ -280,3 +280,5 @@ class AdvancedTextAnalyzer:
             length_bonus = 1.0 + (0.1 * (words_in_phrase - 2))
             academic_terms_in_phrase = sum(1 for word in phrase.split() if word in self.academic_terms)
             academic_bonus = 1.0 + (0.15 * academic_terms_in_phrase)
+            score = tf * length_bonus * academic_bonus * 100
+            key_phrases.append((phrase, freq, round(score, 2)))
