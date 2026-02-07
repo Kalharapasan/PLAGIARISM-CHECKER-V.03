@@ -136,6 +136,7 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
                 weighted_sum / total_weight if total_weight > 0 else 0, 2
             )
         results['matches'].sort(key=lambda x: x['similarity'], reverse=True)
+        results['statistics'] = self._calculate_statistics(results, text)
             
             
         
