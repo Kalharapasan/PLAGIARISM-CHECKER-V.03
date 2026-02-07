@@ -227,3 +227,28 @@ class AdvancedTextAnalyzer:
             avg_letters_per_word = sum(len(word) for word in words) / total_words
             coleman_liau = (0.0588 * avg_letters_per_word * 100) - (0.296 * (100 / total_sentences)) - 15.8
             ari = (4.71 * (sum(len(word) for word in words) / total_words)) + (0.5 * avg_sentence_length) - 21.43
+            easy_words = sum(1 for word in words if word not in self.academic_terms)
+            percent_difficult = ((total_words - easy_words) / total_words) * 100
+            dale_chall = (0.1579 * percent_difficult) + (0.0496 * avg_sentence_length)
+            if percent_difficult > 5:
+                dale_chall += 3.6365
+            
+            return {
+                'flesch_reading_ease': round(flesch_reading_ease, 2),
+                'flesch_kincaid_grade': round(flesch_kincaid_grade, 2),
+                'gunning_fog_index': round(gunning_fog, 2),
+                'smog_index': round(smog, 2),
+                'coleman_liau_index': round(coleman_liau, 2),
+                'automated_readability_index': round(ari, 2),
+                'dale_chall_score': round(dale_chall, 2),
+                'avg_sentence_length': round(avg_sentence_length, 2),
+                'avg_syllables_per_word': round(avg_syllables_per_word, 2),
+                'avg_letters_per_word': round(avg_letters_per_word, 2),
+                'complex_word_percentage': round(percent_complex, 2),
+                'difficult_word_percentage': round(percent_difficult, 2),
+                'total_syllables': total_syllables,
+                'total_sentences': total_sentences,
+                'total_words': total_words
+            }
+        
+        return {}
