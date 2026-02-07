@@ -159,6 +159,16 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             return "Low"
     
     def _calculate_risk_level(self, similarity: float) -> str:
+        if similarity >= 40:
+            return "Critical"
+        elif similarity >= 30:
+            return "High"
+        elif similafrity >= 15:
+            return "Medium"
+        elif similarity >= 5:
+            return "Low"
+        else:
+            return "Minimal"
         
             
             
