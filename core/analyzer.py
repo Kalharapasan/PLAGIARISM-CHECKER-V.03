@@ -129,3 +129,5 @@ class AdvancedTextAnalyzer:
             tokens = [t for t in tokens if t not in self.stop_words and len(t) > 2]
         
         return tokens
+    
+    def extract_sentences(self, text: str) -> List[str]:
