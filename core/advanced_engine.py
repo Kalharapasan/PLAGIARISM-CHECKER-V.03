@@ -142,6 +142,13 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
         return results
     
     def _calculate_confidence(self, algorithm_scores: Dict[str, float]) -> str:
+        if not algorithm_scores or len(algorithm_scores) < 2:
+            return "Low"
+        
+        scores = list(algorithm_scores.values())
+        avg = sum(scores) / len(scores)
+        variance = sum((s - avg) ** 2 for s in scores) / len(scores)
+        std_dev = math.sqrt(variance)
         
             
             
