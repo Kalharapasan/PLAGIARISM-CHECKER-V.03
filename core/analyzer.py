@@ -252,3 +252,6 @@ class AdvancedTextAnalyzer:
             }
         
         return {}
+    
+    def extract_key_phrases(self, text: str, n: int = 10, min_length: int = 2) -> List[Tuple[str, int, float]]:
+        
