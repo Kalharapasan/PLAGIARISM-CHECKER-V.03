@@ -169,6 +169,8 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             return "Low"
         else:
             return "Minimal"
+    
+    def _calculate_statistics(self, results: Dict, text: str) -> Dict:
         
             
             
