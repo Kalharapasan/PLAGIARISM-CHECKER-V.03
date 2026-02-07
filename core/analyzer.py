@@ -311,5 +311,6 @@ class AdvancedTextAnalyzer:
         paragraphs = text.split('\n\n')
         for para in paragraphs:
             para_lower = para.lower().strip()
+            if len(para_lower) < 100:
             
         
