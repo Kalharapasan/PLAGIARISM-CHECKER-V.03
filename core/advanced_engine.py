@@ -171,6 +171,27 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             return "Minimal"
     
     def _calculate_statistics(self, results: Dict, text: str) -> Dict:
+        total_words = results['total_words']
+        matched_words = sum(
+            sum(seq['length'] for seq in match['matched_sequences'])
+            for match in results['matches']
+        )
+        
+        all_sequences = [seq for match in results['matches'] for seq in match['matched_sequences']]
+        
+        stats = {
+            'total_words': total_words,
+            'matched_words': matched_words,
+            'unique_words': total_words - matched_words,
+            'unique_percentage': round((1 - matched_words / total_words) * 100, 2) if total_words > 0 else 100,
+            'total_sources': len(results['matches']),
+            'high_risk_sources': sum(1 for m in results['matches'] if m['risk_level'] in ['High', 'Critical']),
+            'total_sequences': len(all_sequences),
+            'average_sequence_length': round(sum(s['length'] for s in all_sequences) / len(all_sequences), 2) if all_sequences else 0,
+            'longest_sequence': max((s['length'] for s in all_sequences), default=0)
+        }
+        
+        return stats
         
             
             
