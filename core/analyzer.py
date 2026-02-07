@@ -125,3 +125,7 @@ class AdvancedTextAnalyzer:
         text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '', text)
         text = re.sub(r'[^\w\s\'-]', ' ', text)
         tokens = re.findall(r'\b[a-z0-9][a-z0-9\'-]+\b', text)
+        if remove_stopwords:
+            tokens = [t for t in tokens if t not in self.stop_words and len(t) > 2]
+        
+        return tokens
