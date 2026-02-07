@@ -176,3 +176,5 @@ class AdvancedTextAnalyzer:
                 citations.sort(key=lambda x: x['position'])
         
         return citations
+    
+    def calculate_readability_scores(self, text: str) -> Dict:
