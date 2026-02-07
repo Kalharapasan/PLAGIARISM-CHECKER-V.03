@@ -263,3 +263,6 @@ class AdvancedTextAnalyzer:
         for ngram_size in range(2, 5):  
             for i in range(len(words) - ngram_size + 1):
                 phrase = ' '.join(words[i:i+ngram_size])
+                if all(word in self.stop_words for word in phrase.split()):
+                    continue
+        
