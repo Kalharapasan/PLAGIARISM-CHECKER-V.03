@@ -14,6 +14,10 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             'overlap': False,
             'dice': False
         }
+        if config:
+            algo_config = config.get('detection.advanced.algorithms', [])
+            for algo in self.algorithms.keys():
+                self.algorithms[algo] = algo in algo_config
     
     def calculate_ngram_similarity(self, text1: str, text2: str, n: int = 3) -> float:
         words1 = self.tokenize(text1)
