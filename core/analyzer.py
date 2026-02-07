@@ -272,4 +272,6 @@ class AdvancedTextAnalyzer:
                     phrase_frequencies[phrase] += 1
                 else:
                     phrase_frequencies[phrase] = 1
+        key_phrases = []
+        total_phrases = len(phrase_frequencies)
         
