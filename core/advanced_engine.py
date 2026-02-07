@@ -120,6 +120,21 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
                 all_similarities.append(avg_similarity)
                 
             if all_similarities:
+                weights = []
+            for match in results['matches']:
+                if match['confidence'] == 'High':
+                    weights.append(1.5)
+                elif match['confidence'] == 'Medium':
+                    weights.append(1.0)
+                else:
+                    weights.append(0.5)
+            
+            total_weight = sum(w for w in weights)
+            weighted_sum = sum(s * w for s, w in zip(all_similarities, weights))
+            
+            results['overall_similarity'] = round(
+                weighted_sum / total_weight if total_weight > 0 else 0, 2
+            )
             
             
         
