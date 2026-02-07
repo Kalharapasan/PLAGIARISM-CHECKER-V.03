@@ -148,3 +148,5 @@ class AdvancedTextAnalyzer:
         sentences = [s.replace('@ABBR@', '.') for s in sentences]
         sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
         return sentences
+    
+    def detect_citations(self, text: str) -> List[Dict]:
