@@ -163,7 +163,7 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
             return "Critical"
         elif similarity >= 30:
             return "High"
-        elif similafrity >= 15:
+        elif similarity >= 15:
             return "Medium"
         elif similarity >= 5:
             return "Low"
