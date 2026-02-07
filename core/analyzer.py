@@ -207,3 +207,6 @@ class AdvancedTextAnalyzer:
                 count = 1
                 
             return count
+        total_syllables = sum(count_syllables(word) for word in words)
+        total_sentences = len(sentences)
+        total_words = len(words)
