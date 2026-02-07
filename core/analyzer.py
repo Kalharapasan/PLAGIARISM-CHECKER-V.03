@@ -78,3 +78,5 @@ class AdvancedTextAnalyzer:
             {'name': 'Page_reference', 'pattern': r'pp?\.\s*\d+(?:-\d+)?', 'type': 'page'},
             {'name': 'URL_reference', 'pattern': r'Retrieved from https?://[^\s]+', 'type': 'url'}
         ]
+    
+    def _load_academic_terms(self) -> Set[str]:
