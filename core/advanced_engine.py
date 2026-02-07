@@ -101,6 +101,23 @@ class AdvancedPlagiarismEngine(BasePlagiarismEngine):
                 avg_similarity = 0
             
             threshold = self.config.get('detection.advanced.threshold', 10.0)
+            if avg_similarity > threshold:
+                sequences = self.find_common_sequences(text, doc_text)
+                
+                match_info = {
+                    'source': doc.get('source', 'Unknown'),
+                    'url': doc.get('url', ''),
+                    'category': doc.get('category', 'General'),
+                    'similarity': round(avg_similarity, 2),
+                    'algorithm_scores': {k: round(v, 2) for k, v in doc_similarities.items()},
+                    'confidence': self._calculate_confidence(doc_similarities),
+                    'matched_sequences': sequences[:5],
+                    'total_sequences': len(sequences),
+                    'risk_level': self._calculate_risk_level(avg_similarity)
+                }
+                
+                results['matches'].append(match_info)
+                all_similarities.append(avg_similarity)
             
             
         
