@@ -63,3 +63,18 @@ class AdvancedTextAnalyzer:
         ]
     
     def _load_citation_patterns(self) -> List[Dict]:
+        return [
+            {'name': 'APA_inline', 'pattern': r'\(([A-Z][a-z]+(?:\s+(?:&|and)\s+[A-Z][a-z]+)?),\s*\d{4}\)', 'type': 'apa'},
+            {'name': 'APA_narrative', 'pattern': r'([A-Z][a-z]+(?:\s+(?:&|and)\s+[A-Z][a-z]+)?)\s+\(\d{4}\)', 'type': 'apa'},
+            {'name': 'MLA_inline', 'pattern': r'\(([A-Z][a-z]+)\s+\d+\)', 'type': 'mla'},
+            {'name': 'Chicago_footnote', 'pattern': r'\[\d+\]', 'type': 'chicago'},
+            {'name': 'Harvard', 'pattern': r'\(([A-Z][a-z]+)\s+\d{4}:\s*\d+\)', 'type': 'harvard'},
+            {'name': 'IEEE', 'pattern': r'\[\d+(?:,\s*\d+)*\]', 'type': 'ieee'},
+            {'name': 'Vancouver', 'pattern': r'\(\d+\)', 'type': 'vancouver'},
+            {'name': 'Author_etal', 'pattern': r'([A-Z][a-z]+\s+et\s+al\.)', 'type': 'general'},
+            {'name': 'According_to', 'pattern': r'(?:according to|as stated by|as noted by)\s+([A-Z][a-z]+)', 'type': 'narrative'},
+            {'name': 'Multiple_authors', 'pattern': r'\(([A-Z][a-z]+(?:\s+(?:&|and|et al\.)\s+[A-Z][a-z]+)+)\)', 'type': 'general'},
+            {'name': 'Year_only', 'pattern': r'\(\d{4}\)', 'type': 'general'},
+            {'name': 'Page_reference', 'pattern': r'pp?\.\s*\d+(?:-\d+)?', 'type': 'page'},
+            {'name': 'URL_reference', 'pattern': r'Retrieved from https?://[^\s]+', 'type': 'url'}
+        ]
