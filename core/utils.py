@@ -26,3 +26,5 @@ class ProgressTracker:
     
     def set_callback(self, callback):
         self.callback = callback
+
+class FileProcessor:
