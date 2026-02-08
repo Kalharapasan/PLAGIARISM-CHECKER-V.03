@@ -495,4 +495,38 @@ class AdvancedTextAnalyzer:
             if key in stats2['readability']:
                 diff = stats2['readability'][key] - stats1['readability'][key]
                 readability_diff[key] = round(diff, 2)
+        style_diff = {}
+        for key in stats1['writing_style']:
+            if key in stats2['writing_style']:
+                if isinstance(stats1['writing_style'][key], (int, float)):
+                    diff = stats2['writing_style'][key] - stats1['writing_style'][key]
+                    style_diff[key] = round(diff, 2)
         
+        return {
+            'similarity_metrics': {
+                'jaccard_similarity': round(jaccard_similarity * 100, 2),
+                'overlap_coefficient': round(overlap_coefficient * 100, 2),
+                'dice_coefficient': round(dice_coefficient * 100, 2),
+                'shared_words': intersection,
+                'unique_words_text1': len(words1) - intersection,
+                'unique_words_text2': len(words2) - intersection
+            },
+            'readability_comparison': readability_diff,
+            'writing_style_comparison': style_diff,
+            'text1_statistics': {
+                'words': stats1['basic_statistics']['total_words'],
+                'sentences': stats1['basic_statistics']['total_sentences'],
+                'readability_score': stats1['readability'].get('flesch_reading_ease', 0)
+            },
+            'text2_statistics': {
+                'words': stats2['basic_statistics']['total_words'],
+                'sentences': stats2['basic_statistics']['total_sentences'],
+                'readability_score': stats2['readability'].get('flesch_reading_ease', 0)
+            },
+            'key_differences': {
+                'word_count_diff': stats2['basic_statistics']['total_words'] - stats1['basic_statistics']['total_words'],
+                'sentence_count_diff': stats2['basic_statistics']['total_sentences'] - stats1['basic_statistics']['total_sentences'],
+                'avg_word_length_diff': round(stats2['averages']['avg_word_length'] - stats1['averages']['avg_word_length'], 2),
+                'avg_sentence_length_diff': round(stats2['averages']['avg_sentence_length'] - stats1['averages']['avg_sentence_length'], 2)
+            }
+        }
