@@ -442,3 +442,39 @@ class AdvancedTextAnalyzer:
         citations = self.detect_citations(text)
         key_phrases = self.extract_key_phrases(text, n=5)
         structure = self.detect_academic_structure(text)
+        paraphrasing = self.detect_paraphrasing_patterns(text)
+        
+        return {
+            'basic_statistics': {
+                'total_characters': total_chars,
+                'total_words': total_words,
+                'total_sentences': total_sentences,
+                'total_paragraphs': total_paragraphs,
+                'unique_words': len(unique_words),
+                'character_distribution': {
+                    'alphabetic': alphabetic_chars,
+                    'numeric': numeric_chars,
+                    'spaces': space_chars,
+                    'punctuation': punctuation_chars,
+                    'other': total_chars - (alphabetic_chars + numeric_chars + space_chars + punctuation_chars)
+                }
+            },
+            'averages': {
+                'avg_word_length': round(avg_word_length, 2),
+                'avg_sentence_length': round(avg_sentence_length, 2),
+                'avg_paragraph_length': round(avg_paragraph_length, 2),
+                'words_per_sentence': round(avg_sentence_length, 2),
+                'sentences_per_paragraph': round(total_sentences / total_paragraphs, 2) if total_paragraphs > 0 else 0
+            },
+            'readability': readability,
+            'writing_style': writing_style,
+            'citations': {
+                'total': len(citations),
+                'types': Counter(c['type'] for c in citations),
+                'list': citations[:10]  
+            },
+            'key_phrases': key_phrases,
+            'academic_structure': structure,
+            'paraphrasing_patterns': paraphrasing,
+            'analysis_timestamp': datetime.now().isoformat()
+        }
