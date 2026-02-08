@@ -71,3 +71,4 @@ class TextNormalizer:
         import re
         text = re.sub(r'<[^>]+>', ' ', text)
         text = re.sub(r'[*_`#\[\]]', ' ', text)
+        text = re.sub(r'http[s]?://\S+', ' ', text)
