@@ -415,8 +415,10 @@ class AdvancedTextAnalyzer:
                     'name': indicator['name'],
                     'description': indicator['description'],
                     'count': len(matches),
-                    'examples': [m.group(0) for m in matches[:3]]  # First 3 examples
+                    'examples': [m.group(0) for m in matches[:3]]  
                 })
         
         return patterns
+    
+    def generate_text_statistics(self, text: str) -> Dict:
         
