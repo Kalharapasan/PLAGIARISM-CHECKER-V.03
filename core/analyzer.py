@@ -343,6 +343,17 @@ class AdvancedTextAnalyzer:
         unique_words = set(words)
         vocabulary_richness = len(unique_words) / total_words if total_words > 0 else 0
         avg_word_length = sum(len(word) for word in words) / total_words if total_words > 0 else 0
+        passive_patterns = [
+            r'\b(?:is|are|was|were|be|been|being)\s+\w+ed\b',
+            r'\b(?:has|have|had)\s+been\s+\w+ed\b',
+            r'\b(?:will|would|shall|should|can|could|may|might|must)\s+be\s+\w+ed\b'
+        ]
+        
+        passive_count = 0
+        for pattern in passive_patterns:
+            passive_count += len(re.findall(pattern, text, re.IGNORECASE))
+        
+        passive_percentage = (passive_count / total_sentences) * 100 if total_sentences > 0 else 0
         
         
         
