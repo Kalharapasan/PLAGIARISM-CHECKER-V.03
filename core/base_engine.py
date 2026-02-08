@@ -167,3 +167,32 @@ class BasePlagiarismEngine:
         return hashlib.md5(text.encode()).hexdigest()
     
     def analyze_basic(self, text: str, database: List[Dict]) -> Dict:
+        results = {
+            'overall_similarity': 0,
+            'total_words': len(self.tokenize(text)),
+            'total_sentences': len(self.get_sentences(text)),
+            'citations_found': len(self.detect_citations(text)),
+            'matches': []
+        }
+        
+        for doc in database:
+            doc_text = doc.get('text', '')
+            similarity = self.calculate_cosine_similarity(text, doc_text)
+            
+            if similarity > self.config.get('detection.basic.threshold', 5):
+                sequences = self.find_common_sequences(text, doc_text)
+                match_info = {
+                    'source': doc.get('source', 'Unknown'),
+                    'url': doc.get('url', ''),
+                    'similarity': round(similarity, 2),
+                    'matched_sequences': sequences[:3]
+                }
+                results['matches'].append(match_info)
+        
+        if results['matches']:
+            results['overall_similarity'] = round(
+                sum(m['similarity'] for m in results['matches']) / len(results['matches']), 2
+            )
+        
+        results['matches'].sort(key=lambda x: x['similarity'], reverse=True)
+        return results
