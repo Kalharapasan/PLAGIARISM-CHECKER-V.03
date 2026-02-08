@@ -77,3 +77,13 @@ class BasePlagiarismEngine:
                 return '\n'.join(text)
         except ImportError:
             pass
+        try:
+            from pypdf import PdfReader
+            reader = PdfReader(filepath)
+            for page in reader.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text.append(page_text)
+            return '\n'.join(text)
+        except ImportError:
+            raise Exception("PDF support requires pdfplumber or pypdf")
