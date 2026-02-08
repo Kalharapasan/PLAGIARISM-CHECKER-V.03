@@ -105,3 +105,9 @@ class ErrorHandler:
     
     @staticmethod
     def handle_error(error: Exception, context: str = "") -> Dict:
+        error_info = {
+            'error': str(error),
+            'type': type(error).__name__,
+            'context': context,
+            'timestamp': datetime.now().isoformat()
+        }
