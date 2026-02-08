@@ -16,3 +16,5 @@ class BasePlagiarismEngine:
             'would', 'could', 'should', 'may', 'might', 'can', 'this', 'that',
             'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they'
         }
+    
+    def _load_citation_patterns(self) -> List[Dict]:
