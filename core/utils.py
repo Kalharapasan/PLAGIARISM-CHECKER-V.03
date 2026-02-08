@@ -68,3 +68,5 @@ class TextNormalizer:
     
     @staticmethod
     def remove_formatting(text: str) -> str:
+        import re
+        text = re.sub(r'<[^>]+>', ' ', text)
