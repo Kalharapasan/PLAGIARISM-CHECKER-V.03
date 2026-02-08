@@ -75,3 +75,5 @@ class TextNormalizer:
         text = re.sub(r'\S+@\S+', ' ', text)
         
         return TextNormalizer.normalize(text)
+
+class CacheManager:
