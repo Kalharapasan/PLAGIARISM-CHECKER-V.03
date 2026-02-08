@@ -100,3 +100,5 @@ class CacheManager:
     def clear(self):
         self.cache.clear()
         self.access_order.clear()
+
+class ErrorHandler:
