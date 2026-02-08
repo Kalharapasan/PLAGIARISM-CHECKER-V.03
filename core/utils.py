@@ -60,3 +60,4 @@ class TextNormalizer:
     def normalize(text: str) -> str:
         text = ' '.join(text.split())
         text = ' '.join(text.splitlines())
+        text = text.replace('"', "'")
