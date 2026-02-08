@@ -45,3 +45,5 @@ class BasePlagiarismEngine:
                     return f.read()
             except UnicodeDecodeError:
                 continue
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            return f.read()
