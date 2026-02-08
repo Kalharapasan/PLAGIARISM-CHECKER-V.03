@@ -165,3 +165,5 @@ class BasePlagiarismEngine:
     
     def generate_document_hash(self, text: str) -> str:
         return hashlib.md5(text.encode()).hexdigest()
+    
+    def analyze_basic(self, text: str, database: List[Dict]) -> Dict:
