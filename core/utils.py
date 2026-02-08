@@ -17,3 +17,6 @@ class ProgressTracker:
             
             if self.callback:
                 self.callback(self.current, self.total, self.message)
+    
+    def set_callback(self, callback):
+        self.callback = callback
