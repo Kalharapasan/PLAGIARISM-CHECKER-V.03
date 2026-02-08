@@ -437,4 +437,4 @@ class AdvancedTextAnalyzer:
         avg_word_length = sum(len(word) for word in words) / total_words if total_words > 0 else 0
         avg_sentence_length = total_words / total_sentences if total_sentences > 0 else 0
         avg_paragraph_length = total_words / total_paragraphs if total_paragraphs > 0 else 0
-        
+        readability = self.calculate_readability_scores(text)
