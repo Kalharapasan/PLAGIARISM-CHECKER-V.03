@@ -152,3 +152,13 @@ class BasePlagiarismEngine:
         return sorted(matches, key=lambda x: x['length'], reverse=True)
     
     def calculate_jaccard_similarity(self, text1: str, text2: str) -> float:
+        words1 = set(self.tokenize(text1))
+        words2 = set(self.tokenize(text2))
+        
+        if not words1 or not words2:
+            return 0.0
+        
+        intersection = len(words1.intersection(words2))
+        union = len(words1.union(words2))
+        
+        return (intersection / union) * 100 if union > 0 else 0.0
