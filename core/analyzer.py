@@ -380,4 +380,43 @@ class AdvancedTextAnalyzer:
         
     def detect_paraphrasing_patterns(self, text: str) -> List[Dict]:
         patterns = []
+        paraphrase_indicators = [
+            {
+                'name': 'synonym_replacement',
+                'pattern': r'\b(?:said|stated|mentioned|noted|explained|described|argued)\b',
+                'description': 'Reporting verb patterns often used in paraphrasing'
+            },
+            {
+                'name': 'in_other_words',
+                'pattern': r'\b(?:in other words|that is|i\.e\.|namely|specifically)\b',
+                'description': 'Phrases indicating reformulation'
+            },
+            {
+                'name': 'according_to',
+                'pattern': r'\b(?:according to|as stated by|as noted by|as argued by)\b',
+                'description': 'Attribution phrases'
+            },
+            {
+                'name': 'paraphrase_intro',
+                'pattern': r'\b(?:this means that|this suggests that|this indicates that|this shows that)\b',
+                'description': 'Paraphrase introduction phrases'
+            },
+            {
+                'name': 'quotation_markers',
+                'pattern': r'\b(?:quotes|states|writes|observes|comments|remarks)\b',
+                'description': 'Verbs introducing quoted or paraphrased material'
+            }
+        ]
+        
+        for indicator in paraphrase_indicators:
+            matches = list(re.finditer(indicator['pattern'], text, re.IGNORECASE))
+            if matches:
+                patterns.append({
+                    'name': indicator['name'],
+                    'description': indicator['description'],
+                    'count': len(matches),
+                    'examples': [m.group(0) for m in matches[:3]]  # First 3 examples
+                })
+        
+        return patterns
         
