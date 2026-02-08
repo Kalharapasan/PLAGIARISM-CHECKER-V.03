@@ -102,3 +102,6 @@ class CacheManager:
         self.access_order.clear()
 
 class ErrorHandler:
+    
+    @staticmethod
+    def handle_error(error: Exception, context: str = "") -> Dict:
