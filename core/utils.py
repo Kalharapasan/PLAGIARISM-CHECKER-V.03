@@ -49,3 +49,8 @@ class FileProcessor:
             'modified': datetime.fromtimestamp(path.stat().st_mtime).isoformat(),
             'hash': FileProcessor.get_file_hash(filepath)
         }
+    
+    @staticmethod
+    def is_supported_format(filepath: str, supported_formats: List[str]) -> bool:
+        ext = Path(filepath).suffix.lower()
+        return ext in supported_formats
