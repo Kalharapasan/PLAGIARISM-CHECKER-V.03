@@ -56,3 +56,5 @@ class FileProcessor:
         return ext in supported_formats
 
 class TextNormalizer:
+    @staticmethod
+    def normalize(text: str) -> str:
