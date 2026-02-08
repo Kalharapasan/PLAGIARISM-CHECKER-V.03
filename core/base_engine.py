@@ -65,3 +65,4 @@ class BasePlagiarismEngine:
                 return ' '.join(text.split())
     
     def _extract_pdf(self, filepath: str) -> str:
+        text = []
