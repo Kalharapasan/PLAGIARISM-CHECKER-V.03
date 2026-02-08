@@ -97,3 +97,14 @@ class BasePlagiarismEngine:
         return [s.strip() for s in sentences if len(s.strip()) > 10]
     
     def detect_citations(self, text: str) -> List[Dict]:
+        citations = []
+        for pattern_info in self.citation_patterns:
+            pattern = pattern_info['pattern']
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                citations.append({
+                    'text': match.group(0),
+                    'position': match.start(),
+                    'type': pattern_info['type']
+                })
+        return citations
