@@ -326,5 +326,13 @@ class AdvancedTextAnalyzer:
         return structure 
     
     def analyze_writing_style(self, text: str) -> Dict:
-            
+        sentences = self.extract_sentences(text)
+        words = self.tokenize_advanced(text, remove_stopwords=False)
+        
+        if not sentences or not words:
+            return {}
+        
+        total_sentences = len(sentences)
+        total_words = len(words)
+        
         
