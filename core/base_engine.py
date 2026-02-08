@@ -162,3 +162,6 @@ class BasePlagiarismEngine:
         union = len(words1.union(words2))
         
         return (intersection / union) * 100 if union > 0 else 0.0
+    
+    def generate_document_hash(self, text: str) -> str:
+        return hashlib.md5(text.encode()).hexdigest()
