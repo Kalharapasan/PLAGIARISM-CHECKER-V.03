@@ -482,3 +482,5 @@ class AdvancedTextAnalyzer:
     def compare_texts(self, text1: str, text2: str) -> Dict:
         stats1 = self.generate_text_statistics(text1)
         stats2 = self.generate_text_statistics(text2)
+        words1 = set(self.tokenize_advanced(text1, remove_stopwords=True))
+        words2 = set(self.tokenize_advanced(text2, remove_stopwords=True))
