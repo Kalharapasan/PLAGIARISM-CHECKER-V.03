@@ -8,6 +8,10 @@ import hashlib
 
 class BasePlagiarismEngine:
     def __init__(self, config=None):
+        self.config = config or {}
+        self.min_match_length = self.config.get('detection.basic.min_match_length', 5)
+        self.stop_words = self._load_stop_words()
+        self.citation_patterns = self._load_citation_patterns()
     
     def _load_stop_words(self) -> Set[str]:
         return {
