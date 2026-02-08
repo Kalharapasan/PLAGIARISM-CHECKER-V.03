@@ -117,3 +117,8 @@ class ErrorHandler:
     
     @staticmethod
     def log_error(error_info: Dict):
+        log_file = Path("logs/errors.log")
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(error_info) + '\n')
