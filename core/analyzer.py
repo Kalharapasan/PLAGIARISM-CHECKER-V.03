@@ -440,3 +440,4 @@ class AdvancedTextAnalyzer:
         readability = self.calculate_readability_scores(text)
         writing_style = self.analyze_writing_style(text)
         citations = self.detect_citations(text)
+        key_phrases = self.extract_key_phrases(text, n=5)
