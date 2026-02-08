@@ -484,3 +484,6 @@ class AdvancedTextAnalyzer:
         stats2 = self.generate_text_statistics(text2)
         words1 = set(self.tokenize_advanced(text1, remove_stopwords=True))
         words2 = set(self.tokenize_advanced(text2, remove_stopwords=True))
+        intersection = len(words1.intersection(words2))
+        union = len(words1.union(words2))
+        jaccard_similarity = intersection / union if union > 0 else 0
