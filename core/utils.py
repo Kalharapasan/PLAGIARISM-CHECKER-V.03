@@ -111,3 +111,6 @@ class ErrorHandler:
             'context': context,
             'timestamp': datetime.now().isoformat()
         }
+        ErrorHandler.log_error(error_info)
+        
+        return error_info
