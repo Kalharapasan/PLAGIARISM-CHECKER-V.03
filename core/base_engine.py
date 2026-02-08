@@ -7,6 +7,7 @@ import difflib
 import hashlib
 
 class BasePlagiarismEngine:
+    def __init__(self, config=None):
     
     def _load_stop_words(self) -> Set[str]:
         return {
