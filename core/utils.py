@@ -8,3 +8,5 @@ import queue
 import sys
 
 class ProgressTracker:
+    
+    def update(self, increment: int = 1, message: str = None):
