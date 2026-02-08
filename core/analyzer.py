@@ -338,5 +338,8 @@ class AdvancedTextAnalyzer:
         avg_sentence_length = sum(sentence_lengths) / total_sentences if total_sentences > 0 else 0
         max_sentence_length = max(sentence_lengths) if sentence_lengths else 0
         min_sentence_length = min(sentence_lengths) if sentence_lengths else 0
+        paragraphs = [p for p in text.split('\n\n') if p.strip()]
+        avg_paragraph_length = sum(len(self.tokenize_advanced(p, remove_stopwords=False)) for p in paragraphs) / len(paragraphs) if paragraphs else 0
+        
         
         
