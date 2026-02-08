@@ -478,3 +478,5 @@ class AdvancedTextAnalyzer:
             'paraphrasing_patterns': paraphrasing,
             'analysis_timestamp': datetime.now().isoformat()
         }
+        
+    def compare_texts(self, text1: str, text2: str) -> Dict:
