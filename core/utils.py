@@ -84,3 +84,5 @@ class CacheManager:
             self.access_order.append(key)
             return self.cache[key]
         return None
+    
+    def set(self, key: str, value):
