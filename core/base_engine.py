@@ -49,3 +49,17 @@ class BasePlagiarismEngine:
             return f.read()
     
     def _extract_docx(self, filepath: str) -> str:
+        try:
+            from docx import Document
+            doc = Document(filepath)
+            text = []
+            for para in doc.paragraphs:
+                if para.text.strip():
+                    text.append(para.text)
+            return '\n'.join(text)
+        except ImportError:
+            import zipfile
+            with zipfile.ZipFile(filepath) as docx:
+                xml_content = docx.read('word/document.xml').decode('utf-8')
+                text = re.sub(r'<[^>]+>', ' ', xml_content)
+                return ' '.join(text.split())
