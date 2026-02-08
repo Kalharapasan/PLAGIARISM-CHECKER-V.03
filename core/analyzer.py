@@ -490,4 +490,9 @@ class AdvancedTextAnalyzer:
         min_size = min(len(words1), len(words2))
         overlap_coefficient = intersection / min_size if min_size > 0 else 0
         dice_coefficient = (2 * intersection) / (len(words1) + len(words2)) if (len(words1) + len(words2)) > 0 else 0
+        readability_diff = {}
+        for key in stats1['readability']:
+            if key in stats2['readability']:
+                diff = stats2['readability'][key] - stats1['readability'][key]
+                readability_diff[key] = round(diff, 2)
         
