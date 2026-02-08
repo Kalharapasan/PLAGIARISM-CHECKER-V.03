@@ -421,4 +421,12 @@ class AdvancedTextAnalyzer:
         return patterns
     
     def generate_text_statistics(self, text: str) -> Dict:
+        words = self.tokenize_advanced(text, remove_stopwords=False)
+        sentences = self.extract_sentences(text)
+        paragraphs = [p for p in text.split('\n\n') if p.strip()]
+        
+        total_chars = len(text)
+        total_words = len(words)
+        total_sentences = len(sentences)
+        total_paragraphs = len(paragraphs)
         
