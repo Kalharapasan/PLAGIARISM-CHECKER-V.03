@@ -128,3 +128,5 @@ class BasePlagiarismEngine:
             return 0.0
         
         return (dot_product / (magnitude1 * magnitude2)) * 100
+    
+    def find_common_sequences(self, text1: str, text2: str, min_length: int = None) -> List[Dict]:
