@@ -441,3 +441,4 @@ class AdvancedTextAnalyzer:
         writing_style = self.analyze_writing_style(text)
         citations = self.detect_citations(text)
         key_phrases = self.extract_key_phrases(text, n=5)
+        structure = self.detect_academic_structure(text)
