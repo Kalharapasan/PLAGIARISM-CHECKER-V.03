@@ -433,4 +433,6 @@ class AdvancedTextAnalyzer:
         numeric_chars = sum(1 for c in text if c.isdigit())
         space_chars = sum(1 for c in text if c.isspace())
         punctuation_chars = sum(1 for c in text if c in '.,;:!?\'"()-[]{}')
+        unique_words = set(words)
+        avg_word_length = sum(len(word) for word in words) / total_words if total_words > 0 else 0
         
