@@ -18,3 +18,9 @@ class BasePlagiarismEngine:
         }
     
     def _load_citation_patterns(self) -> List[Dict]:
+        return [
+            {'pattern': r'\(([^)]+),\s*\d{4}\)', 'type': 'apa'},
+            {'pattern': r'\[(\d+)\]', 'type': 'numerical'},
+            {'pattern': r'according to ([^,\.]+)', 'type': 'narrative'},
+            {'pattern': r'([A-Z][a-z]+ et al\.)', 'type': 'author_etal'}
+        ]
