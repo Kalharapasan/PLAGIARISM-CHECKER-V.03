@@ -77,3 +77,5 @@ class TextNormalizer:
         return TextNormalizer.normalize(text)
 
 class CacheManager:
+    
+    def get(self, key: str):
