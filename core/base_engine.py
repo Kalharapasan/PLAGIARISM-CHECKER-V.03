@@ -63,3 +63,5 @@ class BasePlagiarismEngine:
                 xml_content = docx.read('word/document.xml').decode('utf-8')
                 text = re.sub(r'<[^>]+>', ' ', xml_content)
                 return ' '.join(text.split())
+    
+    def _extract_pdf(self, filepath: str) -> str:
