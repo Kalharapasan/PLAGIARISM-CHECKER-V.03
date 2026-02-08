@@ -323,6 +323,8 @@ class AdvancedTextAnalyzer:
         
         structure['section_count'] = len(structure['sections'])
         
-        return structure
+        return structure 
+    
+    def analyze_writing_style(self, text: str) -> Dict:
             
         
