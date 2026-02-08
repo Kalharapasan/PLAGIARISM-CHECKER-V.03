@@ -26,3 +26,13 @@ class BasePlagiarismEngine:
         ]
     
     def extract_text(self, filepath: str) -> str:
+        ext = Path(filepath).suffix.lower()
+        
+        if ext == '.txt':
+            return self._extract_txt(filepath)
+        elif ext == '.docx':
+            return self._extract_docx(filepath)
+        elif ext == '.pdf':
+            return self._extract_pdf(filepath)
+        else:
+            raise ValueError(f"Unsupported format: {ext}")
