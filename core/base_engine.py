@@ -130,3 +130,23 @@ class BasePlagiarismEngine:
         return (dot_product / (magnitude1 * magnitude2)) * 100
     
     def find_common_sequences(self, text1: str, text2: str, min_length: int = None) -> List[Dict]:
+        if min_length is None:
+            min_length = self.min_match_length
+        
+        words1 = self.tokenize(text1)
+        words2 = self.tokenize(text2)
+        
+        matcher = difflib.SequenceMatcher(None, words1, words2)
+        matches = []
+        
+        for match in matcher.get_matching_blocks():
+            if match.size >= min_length:
+                matched_text = ' '.join(words1[match.a:match.a + match.size])
+                matches.append({
+                    'text': matched_text,
+                    'length': match.size,
+                    'position': match.a,
+                    'similarity': (match.size / len(words1)) * 100 if words1 else 0
+                })
+        
+        return sorted(matches, key=lambda x: x['length'], reverse=True)
