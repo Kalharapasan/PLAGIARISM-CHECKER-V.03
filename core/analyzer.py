@@ -429,4 +429,8 @@ class AdvancedTextAnalyzer:
         total_words = len(words)
         total_sentences = len(sentences)
         total_paragraphs = len(paragraphs)
+        alphabetic_chars = sum(1 for c in text if c.isalpha())
+        numeric_chars = sum(1 for c in text if c.isdigit())
+        space_chars = sum(1 for c in text if c.isspace())
+        punctuation_chars = sum(1 for c in text if c in '.,;:!?\'"()-[]{}')
         
