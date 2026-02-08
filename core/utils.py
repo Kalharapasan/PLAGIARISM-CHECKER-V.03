@@ -6,3 +6,5 @@ from datetime import datetime
 import threading
 import queue
 import sys
+
+class ProgressTracker:
