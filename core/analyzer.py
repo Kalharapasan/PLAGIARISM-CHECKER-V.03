@@ -487,3 +487,5 @@ class AdvancedTextAnalyzer:
         intersection = len(words1.intersection(words2))
         union = len(words1.union(words2))
         jaccard_similarity = intersection / union if union > 0 else 0
+        min_size = min(len(words1), len(words2))
+        overlap_coefficient = intersection / min_size if min_size > 0 else 0
