@@ -93,3 +93,5 @@ class BasePlagiarismEngine:
         return [w for w in words if w not in self.stop_words and len(w) > 2]
 
     def get_sentences(self, text: str) -> List[str]:
+        sentences = re.split(r'[.!?]+\s+', text)
+        return [s.strip() for s in sentences if len(s.strip()) > 10]
