@@ -65,3 +65,6 @@ class TextNormalizer:
         text = re.sub(r'[^\w\s.,;:!?\'"-]', ' ', text)
         
         return text.strip()
+    
+    @staticmethod
+    def remove_formatting(text: str) -> str:
