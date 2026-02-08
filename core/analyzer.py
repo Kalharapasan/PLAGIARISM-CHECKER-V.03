@@ -334,5 +334,9 @@ class AdvancedTextAnalyzer:
         
         total_sentences = len(sentences)
         total_words = len(words)
+        sentence_lengths = [len(self.tokenize_advanced(s, remove_stopwords=False)) for s in sentences]
+        avg_sentence_length = sum(sentence_lengths) / total_sentences if total_sentences > 0 else 0
+        max_sentence_length = max(sentence_lengths) if sentence_lengths else 0
+        min_sentence_length = min(sentence_lengths) if sentence_lengths else 0
         
         
