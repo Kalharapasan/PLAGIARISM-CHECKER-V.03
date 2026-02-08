@@ -47,3 +47,5 @@ class BasePlagiarismEngine:
                 continue
         with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
             return f.read()
+    
+    def _extract_docx(self, filepath: str) -> str:
