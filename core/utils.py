@@ -114,3 +114,6 @@ class ErrorHandler:
         ErrorHandler.log_error(error_info)
         
         return error_info
+    
+    @staticmethod
+    def log_error(error_info: Dict):
