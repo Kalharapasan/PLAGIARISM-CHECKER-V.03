@@ -210,8 +210,8 @@ class AdvancedTextAnalyzer:
         total_syllables = sum(count_syllables(word) for word in words)
         total_sentences = len(sentences)
         total_words = len(words)
-    
-    if total_sentences > 0 and total_words > 0:
+        
+        if total_sentences > 0 and total_words > 0:
             avg_sentence_length = total_words / total_sentences
             avg_syllables_per_word = total_syllables / total_words
             
