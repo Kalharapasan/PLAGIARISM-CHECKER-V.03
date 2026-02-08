@@ -87,3 +87,5 @@ class BasePlagiarismEngine:
             return '\n'.join(text)
         except ImportError:
             raise Exception("PDF support requires pdfplumber or pypdf")
+    
+    def tokenize(self, text: str) -> List[str]:
