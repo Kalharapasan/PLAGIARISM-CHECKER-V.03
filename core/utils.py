@@ -28,3 +28,10 @@ class ProgressTracker:
         self.callback = callback
 
 class FileProcessor:
+    @staticmethod
+    def get_file_hash(filepath: str) -> str:
+        hash_md5 = hashlib.md5()
+        with open(filepath, "rb") as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                hash_md5.update(chunk)
+        return hash_md5.hexdigest()
