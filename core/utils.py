@@ -58,3 +58,4 @@ class FileProcessor:
 class TextNormalizer:
     @staticmethod
     def normalize(text: str) -> str:
+        text = ' '.join(text.split())
