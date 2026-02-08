@@ -489,4 +489,5 @@ class AdvancedTextAnalyzer:
         jaccard_similarity = intersection / union if union > 0 else 0
         min_size = min(len(words1), len(words2))
         overlap_coefficient = intersection / min_size if min_size > 0 else 0
+        dice_coefficient = (2 * intersection) / (len(words1) + len(words2)) if (len(words1) + len(words2)) > 0 else 0
         
