@@ -38,3 +38,10 @@ class BasePlagiarismEngine:
             raise ValueError(f"Unsupported format: {ext}")
     
     def _extract_txt(self, filepath: str) -> str:
+        encodings = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+        for encoding in encodings:
+            try:
+                with open(filepath, 'r', encoding=encoding) as f:
+                    return f.read()
+            except UnicodeDecodeError:
+                continue
