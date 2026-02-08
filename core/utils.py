@@ -86,3 +86,9 @@ class CacheManager:
         return None
     
     def set(self, key: str, value):
+        if len(self.cache) >= self.max_size:
+            lru_key = self.access_order.pop(0)
+            del self.cache[lru_key]
+        
+        self.cache[key] = value
+        self.access_order.append(key)
