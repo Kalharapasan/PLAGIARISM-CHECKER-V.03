@@ -7,3 +7,4 @@ import difflib
 import hashlib
 
 class BasePlagiarismEngine:
+    
