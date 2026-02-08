@@ -378,6 +378,6 @@ class AdvancedTextAnalyzer:
             'type_token_ratio': round(len(unique_words) / total_words, 4) if total_words > 0 else 0
         }
         
-    
+    def detect_paraphrasing_patterns(self, text: str) -> List[Dict]:
         
         
