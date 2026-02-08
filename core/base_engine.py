@@ -24,3 +24,5 @@ class BasePlagiarismEngine:
             {'pattern': r'according to ([^,\.]+)', 'type': 'narrative'},
             {'pattern': r'([A-Z][a-z]+ et al\.)', 'type': 'author_etal'}
         ]
+    
+    def extract_text(self, filepath: str) -> str:
