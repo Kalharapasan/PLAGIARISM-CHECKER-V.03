@@ -5,6 +5,12 @@ from collections import Counter
 from datetime import datetime
 
 class AdvancedTextAnalyzer:
+    def __init__(self, config=None):
+        self.config = config or {}
+        self.stop_words = self._load_comprehensive_stopwords()
+        self.common_phrases = self._load_common_phrases()
+        self.citation_patterns = self._load_citation_patterns()
+        self.academic_terms = self._load_academic_terms()
     
     def _load_comprehensive_stopwords(self) -> Set[str]:
         basic_stops = {
