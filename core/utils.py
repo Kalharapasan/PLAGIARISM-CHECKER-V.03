@@ -79,3 +79,8 @@ class TextNormalizer:
 class CacheManager:
     
     def get(self, key: str):
+        if key in self.cache:
+            self.access_order.remove(key)
+            self.access_order.append(key)
+            return self.cache[key]
+        return None
