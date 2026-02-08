@@ -92,3 +92,7 @@ class CacheManager:
         
         self.cache[key] = value
         self.access_order.append(key)
+    
+    def clear(self):
+        self.cache.clear()
+        self.access_order.clear()
