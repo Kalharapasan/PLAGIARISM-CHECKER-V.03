@@ -77,6 +77,10 @@ class TextNormalizer:
         return TextNormalizer.normalize(text)
 
 class CacheManager:
+    def __init__(self, max_size: int = 100):
+        self.cache = {}
+        self.max_size = max_size
+        self.access_order = []
     
     def get(self, key: str):
         if key in self.cache:
