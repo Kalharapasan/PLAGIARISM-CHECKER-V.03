@@ -89,3 +89,5 @@ class BasePlagiarismEngine:
             raise Exception("PDF support requires pdfplumber or pypdf")
     
     def tokenize(self, text: str) -> List[str]:
+        words = re.findall(r'\b[a-z0-9]+\b', text.lower())
+        return [w for w in words if w not in self.stop_words and len(w) > 2]
