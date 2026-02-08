@@ -54,3 +54,5 @@ class FileProcessor:
     def is_supported_format(filepath: str, supported_formats: List[str]) -> bool:
         ext = Path(filepath).suffix.lower()
         return ext in supported_formats
+
+class TextNormalizer:
