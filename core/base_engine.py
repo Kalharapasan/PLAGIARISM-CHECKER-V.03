@@ -150,3 +150,5 @@ class BasePlagiarismEngine:
                 })
         
         return sorted(matches, key=lambda x: x['length'], reverse=True)
+    
+    def calculate_jaccard_similarity(self, text1: str, text2: str) -> float:
