@@ -66,3 +66,14 @@ class BasePlagiarismEngine:
     
     def _extract_pdf(self, filepath: str) -> str:
         text = []
+        try:
+            import pdfplumber
+            with pdfplumber.open(filepath) as pdf:
+                for page in pdf.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text.append(page_text)
+            if text:
+                return '\n'.join(text)
+        except ImportError:
+            pass
