@@ -342,6 +342,7 @@ class AdvancedTextAnalyzer:
         avg_paragraph_length = sum(len(self.tokenize_advanced(p, remove_stopwords=False)) for p in paragraphs) / len(paragraphs) if paragraphs else 0
         unique_words = set(words)
         vocabulary_richness = len(unique_words) / total_words if total_words > 0 else 0
+        avg_word_length = sum(len(word) for word in words) / total_words if total_words > 0 else 0
         
         
         
