@@ -36,3 +36,5 @@ class BasePlagiarismEngine:
             return self._extract_pdf(filepath)
         else:
             raise ValueError(f"Unsupported format: {ext}")
+    
+    def _extract_txt(self, filepath: str) -> str:
