@@ -354,6 +354,28 @@ class AdvancedTextAnalyzer:
             passive_count += len(re.findall(pattern, text, re.IGNORECASE))
         
         passive_percentage = (passive_count / total_sentences) * 100 if total_sentences > 0 else 0
+        academic_indicators = {
+            'hedging': len(re.findall(r'\b(?:may|might|could|would|possibly|perhaps|likely|seems|appears)\b', text, re.IGNORECASE)),
+            'certainty': len(re.findall(r'\b(?:certainly|definitely|undoubtedly|clearly|obviously|evidently)\b', text, re.IGNORECASE)),
+            'contrast': len(re.findall(r'\b(?:however|nevertheless|nonetheless|although|though|whereas|while)\b', text, re.IGNORECASE)),
+            'addition': len(re.findall(r'\b(?:furthermore|moreover|additionally|also|besides|in addition)\b', text, re.IGNORECASE)),
+            'consequence': len(re.findall(r'\b(?:therefore|thus|hence|consequently|accordingly|as a result)\b', text, re.IGNORECASE)),
+            'exemplification': len(re.findall(r'\b(?:for example|for instance|such as|including|namely|specifically)\b', text, re.IGNORECASE))
+        }
         
+        return {
+            'avg_sentence_length': round(avg_sentence_length, 2),
+            'max_sentence_length': max_sentence_length,
+            'min_sentence_length': min_sentence_length,
+            'sentence_length_variation': round(max(sentence_lengths) - min(sentence_lengths), 2) if sentence_lengths else 0,
+            'avg_paragraph_length': round(avg_paragraph_length, 2),
+            'vocabulary_richness': round(vocabulary_richness, 4),
+            'avg_word_length': round(avg_word_length, 2),
+            'passive_voice_percentage': round(passive_percentage, 2),
+            'academic_indicators': academic_indicators,
+            'total_paragraphs': len(paragraphs),
+            'unique_words': len(unique_words),
+            'type_token_ratio': round(len(unique_words) / total_words, 4) if total_words > 0 else 0
+        }
         
         
