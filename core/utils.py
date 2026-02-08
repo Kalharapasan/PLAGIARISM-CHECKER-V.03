@@ -70,3 +70,4 @@ class TextNormalizer:
     def remove_formatting(text: str) -> str:
         import re
         text = re.sub(r'<[^>]+>', ' ', text)
+        text = re.sub(r'[*_`#\[\]]', ' ', text)
