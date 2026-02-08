@@ -10,3 +10,10 @@ import sys
 class ProgressTracker:
     
     def update(self, increment: int = 1, message: str = None):
+        with self.lock:
+            self.current += increment
+            if message:
+                self.message = message
+            
+            if self.callback:
+                self.callback(self.current, self.total, self.message)
