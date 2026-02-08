@@ -108,3 +108,5 @@ class BasePlagiarismEngine:
                     'type': pattern_info['type']
                 })
         return citations
+    
+    def calculate_cosine_similarity(self, text1: str, text2: str) -> float:
