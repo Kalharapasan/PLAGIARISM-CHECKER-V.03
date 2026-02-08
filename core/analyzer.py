@@ -379,5 +379,5 @@ class AdvancedTextAnalyzer:
         }
         
     def detect_paraphrasing_patterns(self, text: str) -> List[Dict]:
-        
+        patterns = []
         
