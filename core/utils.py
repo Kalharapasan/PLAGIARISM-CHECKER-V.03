@@ -61,3 +61,7 @@ class TextNormalizer:
         text = ' '.join(text.split())
         text = ' '.join(text.splitlines())
         text = text.replace('"', "'")
+        import re
+        text = re.sub(r'[^\w\s.,;:!?\'"-]', ' ', text)
+        
+        return text.strip()
