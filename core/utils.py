@@ -170,6 +170,11 @@ def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
 
 
 class RateLimiter:
+    def __init__(self, max_requests: int, time_window: int):
+        self.max_requests = max_requests
+        self.time_window = time_window
+        self.requests = []
+        self.lock = threading.Lock()
     
     def can_make_request(self) -> bool:
         with self.lock:
