@@ -68,3 +68,17 @@ class DatabaseManager:
                 INSERT OR IGNORE INTO categories (name, description, color)
                 VALUES (?, ?, ?)
             ''', (name, desc, color))
+            
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS statistics (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                date TEXT,
+                total_checks INTEGER DEFAULT 0,
+                total_documents INTEGER DEFAULT 0,
+                avg_similarity REAL DEFAULT 0,
+                checks_today INTEGER DEFAULT 0
+            )
+        ''')
+        
+        conn.commit()
+        conn.close()
