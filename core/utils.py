@@ -141,3 +141,5 @@ def save_config(config: Dict, config_file: str = "config.json"):
     
     with open(config_path, 'w', encoding='utf-8') as f:
         json.dump(config, f, indent=2, ensure_ascii=False)
+
+def format_file_size(size_bytes: int) -> str:
