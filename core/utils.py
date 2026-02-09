@@ -124,3 +124,11 @@ class ErrorHandler:
             f.write(json.dumps(error_info) + '\n')
     
     def load_config(config_file: str = "config.json") -> Dict:
+        config_path = Path(config_file)
+    
+        if config_path.exists():
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"Error loading config: {e}")
