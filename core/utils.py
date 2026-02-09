@@ -151,3 +151,5 @@ def format_file_size(size_bytes: int) -> str:
 
 def format_percentage(value: float) -> str:
     return f"{value:.2f}%"
+
+def format_timestamp(timestamp: str) -> str:
