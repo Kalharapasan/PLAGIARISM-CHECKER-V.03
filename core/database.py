@@ -51,3 +51,20 @@ class DatabaseManager:
                 document_count INTEGER DEFAULT 0
             )
         ''')
+        
+        default_categories = [
+            ('General', 'General reference documents', '#667eea'),
+            ('Academic', 'Academic papers and articles', '#4299e1'),
+            ('Technical', 'Technical documentation', '#48bb78'),
+            ('Literature', 'Literary works', '#ed8936'),
+            ('News', 'News articles', '#f56565'),
+            ('Research', 'Research papers', '#9f7aea'),
+            ('Legal', 'Legal documents', '#ed64a6'),
+            ('Business', 'Business documents', '#38b2ac')
+        ]
+        
+        for name, desc, color in default_categories:
+            cursor.execute('''
+                INSERT OR IGNORE INTO categories (name, description, color)
+                VALUES (?, ?, ?)
+            ''', (name, desc, color))
