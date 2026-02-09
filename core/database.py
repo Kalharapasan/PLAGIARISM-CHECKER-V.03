@@ -41,3 +41,13 @@ class DatabaseManager:
         
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_history_date ON check_history(check_date)')
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_history_score ON check_history(similarity_score)')
+        
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS categories (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT UNIQUE NOT NULL,
+                description TEXT,
+                color TEXT DEFAULT '#667eea',
+                document_count INTEGER DEFAULT 0
+            )
+        ''')
