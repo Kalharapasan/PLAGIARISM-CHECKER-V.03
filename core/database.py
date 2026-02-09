@@ -436,6 +436,12 @@ class DatabaseManager:
             return False
     
     def optimize_database(self):
+        try:
+            conn = self._get_connection()
+            cursor = conn.cursor()
+        except Exception as e:
+            print(f"Error optimizing database: {e}")
+            return False
 
 
         
