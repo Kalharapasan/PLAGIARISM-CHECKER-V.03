@@ -277,6 +277,10 @@ class DatabaseManager:
                 report_path,
                 analysis_data
             ))
+            self._update_statistics(cursor, results)
+            
+            conn.commit()
+            conn.close()
             
         except Exception as e:
             print(f"Error saving history: {e}")
