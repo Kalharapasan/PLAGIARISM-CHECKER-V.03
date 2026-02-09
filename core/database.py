@@ -288,7 +288,15 @@ class DatabaseManager:
     def _update_statistics(self, cursor, results: Dict):
         today = datetime.now().strftime('%Y-%m-%d')
         cursor.execute('SELECT id FROM statistics WHERE date = ?', (today,))
-        row = cursor.fetchone()
+        row = cursor.fetchone() 
+        if row:
+            cursor.execute('''
+                UPDATE statistics 
+                SET total_checks = total_checks + 1,
+                    checks_today = checks_today + 1,
+                    avg_similarity = (avg_similarity + ?) / 2
+                WHERE date = ?
+            ''', (results.get('overall_similarity', 0), today))
 
 
         
