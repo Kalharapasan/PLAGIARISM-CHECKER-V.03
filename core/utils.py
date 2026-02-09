@@ -134,3 +134,5 @@ def load_config(config_file: str = "config.json") -> Dict:
             print(f"Error loading config: {e}")
     from config import Config
     return Config().default_config
+
+def save_config(config: Dict, config_file: str = "config.json"):
