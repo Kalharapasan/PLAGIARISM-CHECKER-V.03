@@ -112,5 +112,13 @@ class DatabaseManager:
                 metadata_json,
                 word_count
             ))
+            cursor.execute('''
+                UPDATE categories 
+                SET document_count = document_count + 1 
+                WHERE name = ?
+            ''', (category,))
             
+            conn.commit()
+            conn.close()
+            return True
         
