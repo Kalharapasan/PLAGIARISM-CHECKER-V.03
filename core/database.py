@@ -234,6 +234,8 @@ class DatabaseManager:
         except Exception as e:
             print(f"Error deleting document: {e}")
             return False
+    
+    def get_categories(self) -> List[Dict]:
         
 
 
