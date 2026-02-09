@@ -85,3 +85,7 @@ class DatabaseManager:
     
     def _get_connection(self):
         return sqlite3.connect(str(self.db_path))
+    
+    def add_document(self, source: str, text: str, url: str = '', 
+                    category: str = 'General', metadata: Dict = None) -> bool:
+        
