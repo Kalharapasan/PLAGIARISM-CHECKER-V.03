@@ -167,3 +167,6 @@ def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
         else:
             return default
     return current
+
+
+class RateLimiter:
