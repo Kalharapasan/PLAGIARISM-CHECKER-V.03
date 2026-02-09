@@ -91,4 +91,6 @@ class DatabaseManager:
         
         try:
             text_hash = hashlib.sha256(text.encode()).hexdigest()
+            words = text.split()
+            word_count = len(words)
         
