@@ -305,6 +305,43 @@ class DatabaseManager:
     
     def get_check_history(self, limit: int = 50, 
                          start_date: str = None, end_date: str = None) -> List[Dict]:
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        
+        query = '''
+            SELECT filename, check_date, similarity_score, total_words, matched_sources, report_path
+            FROM check_history
+        '''
+        params = []
+        
+        if start_date and end_date:
+            query += ' WHERE check_date BETWEEN ? AND ?'
+            params.extend([start_date, end_date])
+        elif start_date:
+            query += ' WHERE check_date >= ?'
+            params.append(start_date)
+        elif end_date:
+            query += ' WHERE check_date <= ?'
+            params.append(end_date)
+        
+        query += ' ORDER BY check_date DESC LIMIT ?'
+        params.append(limit)
+        
+        cursor.execute(query, params)
+        
+        history = []
+        for row in cursor.fetchall():
+            history.append({
+                'filename': row[0],
+                'date': row[1],
+                'similarity': row[2],
+                'words': row[3],
+                'sources': row[4],
+                'report': row[5]
+            })
+        
+        conn.close()
+        return history
         
 
 
