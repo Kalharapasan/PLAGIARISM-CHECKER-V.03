@@ -153,3 +153,8 @@ def format_percentage(value: float) -> str:
     return f"{value:.2f}%"
 
 def format_timestamp(timestamp: str) -> str:
+    try:
+        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+        return dt.strftime('%Y-%m-%d %H:%M:%S')
+    except:
+        return timestamp
