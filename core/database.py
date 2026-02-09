@@ -84,3 +84,4 @@ class DatabaseManager:
         conn.close()
     
     def _get_connection(self):
+        return sqlite3.connect(str(self.db_path))
