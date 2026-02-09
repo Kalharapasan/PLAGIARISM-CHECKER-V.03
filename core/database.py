@@ -24,3 +24,5 @@ class DatabaseManager:
                 word_count INTEGER DEFAULT 0
             )
         ''')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_documents_category ON documents(category)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_documents_hash ON documents(hash)')
