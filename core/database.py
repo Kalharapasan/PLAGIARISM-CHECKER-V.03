@@ -112,4 +112,5 @@ class DatabaseManager:
                 metadata_json,
                 word_count
             ))
+            
         
