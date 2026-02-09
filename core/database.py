@@ -236,6 +236,26 @@ class DatabaseManager:
             return False
     
     def get_categories(self) -> List[Dict]:
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT name, description, color, document_count
+            FROM categories
+            ORDER BY document_count DESC
+        ''')
+        
+        categories = []
+        for row in cursor.fetchall():
+            categories.append({
+                'name': row[0],
+                'description': row[1],
+                'color': row[2],
+                'count': row[3]
+            })
+        
+        conn.close()
+        return categories
         
 
 
