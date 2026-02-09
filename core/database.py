@@ -418,6 +418,8 @@ class DatabaseManager:
         except Exception as e:
             print(f"Error clearing history: {e}")
             return 0
+    
+    def backup_database(self, backup_path: str = None) -> bool:
 
 
         
