@@ -173,6 +173,40 @@ class DatabaseManager:
         return docs
     
     def search_documents(self, query: str, category: str = None) -> List[Dict]:
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        
+        search_query = f"%{query}%"
+        
+        if category:
+            cursor.execute('''
+                SELECT source, url, text, category, added_date
+                FROM documents 
+                WHERE (source LIKE ? OR text LIKE ?) AND category = ?
+                ORDER BY added_date DESC
+                LIMIT 100
+            ''', (search_query, search_query, category))
+        else:
+            cursor.execute('''
+                SELECT source, url, text, category, added_date
+                FROM documents 
+                WHERE source LIKE ? OR text LIKE ?
+                ORDER BY added_date DESC
+                LIMIT 100
+            ''', (search_query, search_query))
+        
+        docs = []
+        for row in cursor.fetchall():
+            docs.append({
+                'source': row[0],
+                'url': row[1],
+                'text': row[2],
+                'category': row[3],
+                'added_date': row[4]
+            })
+        
+        conn.close()
+        return docs
         
 
 
