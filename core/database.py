@@ -121,4 +121,11 @@ class DatabaseManager:
             conn.commit()
             conn.close()
             return True
+        except sqlite3.IntegrityError:
+            return False
+        except Exception as e:
+            print(f"Error adding document: {e}")
+            return False
+
+
         
