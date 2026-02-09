@@ -158,3 +158,5 @@ def format_timestamp(timestamp: str) -> str:
         return dt.strftime('%Y-%m-%d %H:%M:%S')
     except:
         return timestamp
+    
+def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
