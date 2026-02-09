@@ -361,6 +361,40 @@ class DatabaseManager:
                 'avg_similarity': row[2],
                 'checks_today': row[3]
             })
+        
+        cursor.execute('SELECT COUNT(*) FROM documents')
+        total_documents = cursor.fetchone()[0]
+        
+        cursor.execute('SELECT COUNT(*) FROM check_history')
+        total_checks = cursor.fetchone()[0]
+        
+        cursor.execute('SELECT AVG(similarity_score) FROM check_history')
+        avg_similarity = cursor.fetchone()[0] or 0
+        
+        cursor.execute('''
+            SELECT category, COUNT(*) as count
+            FROM documents
+            GROUP BY category
+            ORDER BY count DESC
+        ''')
+        
+        category_stats = []
+        for row in cursor.fetchall():
+            category_stats.append({
+                'category': row[0],
+                'count': row[1]
+            })
+        
+        conn.close()
+        
+        return {
+            'total_documents': total_documents,
+            'total_checks': total_checks,
+            'avg_similarity': round(avg_similarity, 2),
+            'daily_stats': daily_stats,
+            'category_stats': category_stats,
+            'analysis_period_days': days
+        }
 
 
         
