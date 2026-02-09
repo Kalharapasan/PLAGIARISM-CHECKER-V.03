@@ -217,6 +217,7 @@ class DatabaseManager:
             
             if row:
                 category = row[0]
+                cursor.execute('DELETE FROM documents WHERE source = ?', (source,))
         
         except Exception as e:
             print(f"Error deleting document: {e}")
