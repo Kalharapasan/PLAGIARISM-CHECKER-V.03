@@ -26,3 +26,15 @@ class DatabaseManager:
         ''')
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_documents_category ON documents(category)')
         cursor.execute('CREATE INDEX IF NOT EXISTS idx_documents_hash ON documents(hash)')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS check_history (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                filename TEXT NOT NULL,
+                check_date TEXT,
+                similarity_score REAL,
+                total_words INTEGER,
+                matched_sources INTEGER,
+                report_path TEXT,
+                analysis_data TEXT
+            )
+        ''')
