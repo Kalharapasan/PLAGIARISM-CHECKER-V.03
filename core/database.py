@@ -82,3 +82,5 @@ class DatabaseManager:
         
         conn.commit()
         conn.close()
+    
+    def _get_connection(self):
