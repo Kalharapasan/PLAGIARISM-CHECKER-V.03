@@ -280,6 +280,8 @@ class DatabaseManager:
             
         except Exception as e:
             print(f"Error saving history: {e}")
+    
+    def _update_statistics(self, cursor, results: Dict):
 
 
         
