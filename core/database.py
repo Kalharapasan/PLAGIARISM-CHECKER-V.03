@@ -212,6 +212,11 @@ class DatabaseManager:
         try:
             conn = self._get_connection()
             cursor = conn.cursor()
+            cursor.execute('SELECT category FROM documents WHERE source = ?', (source,))
+            row = cursor.fetchone()
+            
+            if row:
+                category = row[0]
         
         except Exception as e:
             print(f"Error deleting document: {e}")
