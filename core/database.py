@@ -209,6 +209,13 @@ class DatabaseManager:
         return docs
     
     def delete_document(self, source: str) -> bool:
+        try:
+            conn = self._get_connection()
+            cursor = conn.cursor()
+        
+        except Exception as e:
+            print(f"Error deleting document: {e}")
+            return False
         
 
 
