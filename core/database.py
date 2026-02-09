@@ -128,6 +128,39 @@ class DatabaseManager:
             return False
     
     def get_all_documents(self, category: str = None) -> List[Dict]:
+        conn = self._get_connection()
+        cursor = conn.cursor()
+        
+        if category:
+            cursor.execute('''
+                SELECT source, url, text, category, added_date, word_count, metadata
+                FROM documents 
+                WHERE category = ?
+                ORDER BY added_date DESC
+            ''', (category,))
+        else:
+            cursor.execute('''
+                SELECT source, url, text, category, added_date, word_count, metadata
+                FROM documents 
+                ORDER BY added_date DESC
+            ''')
+        
+        docs = []
+        for row in cursor.fetchall():
+            try:
+                metadata = json.loads(row[6]) if row[6] else {}
+            except:
+                metadata = {}
+            
+            docs.append({
+                'source': row[0],
+                'url': row[1],
+                'text': row[2],
+                'category': row[3],
+                'added_date': row[4],
+                'word_count': row[5],
+                'metadata': metadata
+            })
 
 
         
