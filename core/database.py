@@ -218,6 +218,18 @@ class DatabaseManager:
             if row:
                 category = row[0]
                 cursor.execute('DELETE FROM documents WHERE source = ?', (source,))
+                cursor.execute('''
+                    UPDATE categories 
+                    SET document_count = document_count - 1 
+                    WHERE name = ? AND document_count > 0
+                ''', (category,))
+                
+                conn.commit()
+                conn.close()
+                return True
+            else:
+                conn.close()
+                return False
         
         except Exception as e:
             print(f"Error deleting document: {e}")
