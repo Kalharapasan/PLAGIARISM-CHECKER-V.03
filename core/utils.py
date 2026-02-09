@@ -132,3 +132,5 @@ class ErrorHandler:
                     return json.load(f)
             except Exception as e:
                 print(f"Error loading config: {e}")
+        from config import Config
+        return Config().default_config
