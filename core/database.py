@@ -89,3 +89,6 @@ class DatabaseManager:
     def add_document(self, source: str, text: str, url: str = '', 
                     category: str = 'General', metadata: Dict = None) -> bool:
         
+        try:
+            text_hash = hashlib.sha256(text.encode()).hexdigest()
+        
