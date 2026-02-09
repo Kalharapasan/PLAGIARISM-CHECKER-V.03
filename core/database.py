@@ -93,4 +93,23 @@ class DatabaseManager:
             text_hash = hashlib.sha256(text.encode()).hexdigest()
             words = text.split()
             word_count = len(words)
+            metadata_json = json.dumps(metadata) if metadata else '{}'
+            
+            conn = self._get_connection()
+            cursor = conn.cursor()
+            
+            cursor.execute('''
+                INSERT INTO documents 
+                (source, url, text, category, added_date, hash, metadata, word_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                source,
+                url,
+                text,
+                category,
+                datetime.now().isoformat(),
+                text_hash,
+                metadata_json,
+                word_count
+            ))
         
