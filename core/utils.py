@@ -174,3 +174,13 @@ class RateLimiter:
     def can_make_request(self) -> bool:
         with self.lock:
             now = datetime.now()
+            self.requests = [
+                req_time for req_time in self.requests
+                if (now - req_time).total_seconds() < self.time_window
+            ]
+            
+            if len(self.requests) < self.max_requests:
+                self.requests.append(now)
+                return True
+            
+            return False
