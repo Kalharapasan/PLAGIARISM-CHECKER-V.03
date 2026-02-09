@@ -256,7 +256,8 @@ class DatabaseManager:
         
         conn.close()
         return categories
-        
+    
+    def save_check_history(self, filename: str, results: Dict, report_path: str = ''):
 
 
         
