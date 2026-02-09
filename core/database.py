@@ -342,7 +342,8 @@ class DatabaseManager:
         
         conn.close()
         return history
-        
+    
+    def get_statistics(self, days: int = 30) -> Dict:
 
 
         
