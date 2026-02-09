@@ -344,6 +344,8 @@ class DatabaseManager:
         return history
     
     def get_statistics(self, days: int = 30) -> Dict:
+        conn = self._get_connection()
+        cursor = conn.cursor()
 
 
         
