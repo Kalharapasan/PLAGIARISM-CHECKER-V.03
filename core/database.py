@@ -296,7 +296,13 @@ class DatabaseManager:
                     checks_today = checks_today + 1,
                     avg_similarity = (avg_similarity + ?) / 2
                 WHERE date = ?
-            ''', (results.get('overall_similarity', 0), today))
+            ''', (results.get('overall_similarity', 0), today))  
+        else:
+            cursor.execute('''
+                INSERT INTO statistics (date, total_checks, checks_today, avg_similarity)
+                VALUES (?, 1, 1, ?)
+            ''', (today, results.get('overall_similarity', 0)))
+        
 
 
         
