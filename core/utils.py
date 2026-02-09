@@ -194,3 +194,5 @@ class RateLimiter:
         while not self.can_make_request():
             import time
             time.sleep(0.1)
+
+def setup_logging():
