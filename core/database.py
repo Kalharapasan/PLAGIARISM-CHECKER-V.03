@@ -420,6 +420,13 @@ class DatabaseManager:
             return 0
     
     def backup_database(self, backup_path: str = None) -> bool:
+        try:
+            if backup_path is None:
+                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                backup_path = f"backups/database_backup_{timestamp}.sqlite"
+            
+            backup_path = Path(backup_path)
+            backup_path.parent.mkdir(parents=True, exist_ok=True)
 
 
         
