@@ -395,6 +395,8 @@ class DatabaseManager:
             'category_stats': category_stats,
             'analysis_period_days': days
         }
+    
+    def clear_history(self, days_older_than: int = None) -> int:
 
 
         
