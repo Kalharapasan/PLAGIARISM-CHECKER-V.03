@@ -160,3 +160,10 @@ def format_timestamp(timestamp: str) -> str:
         return timestamp
     
 def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
+    current = dictionary
+    for key in keys:
+        if isinstance(current, dict) and key in current:
+            current = current[key]
+        else:
+            return default
+    return current
