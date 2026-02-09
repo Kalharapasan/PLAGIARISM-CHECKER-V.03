@@ -346,6 +346,21 @@ class DatabaseManager:
     def get_statistics(self, days: int = 30) -> Dict:
         conn = self._get_connection()
         cursor = conn.cursor()
+        cursor.execute('''
+            SELECT date, total_checks, avg_similarity, checks_today
+            FROM statistics
+            WHERE date >= date('now', ?)
+            ORDER BY date DESC
+        ''', (f'-{days} days',))
+        
+        daily_stats = []
+        for row in cursor.fetchall():
+            daily_stats.append({
+                'date': row[0],
+                'total_checks': row[1],
+                'avg_similarity': row[2],
+                'checks_today': row[3]
+            })
 
 
         
