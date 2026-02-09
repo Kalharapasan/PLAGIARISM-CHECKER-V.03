@@ -168,7 +168,6 @@ def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
             return default
     return current
 
-
 class RateLimiter:
     def __init__(self, max_requests: int, time_window: int):
         self.max_requests = max_requests
