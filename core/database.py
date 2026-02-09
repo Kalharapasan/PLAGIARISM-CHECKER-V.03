@@ -302,6 +302,9 @@ class DatabaseManager:
                 INSERT INTO statistics (date, total_checks, checks_today, avg_similarity)
                 VALUES (?, 1, 1, ?)
             ''', (today, results.get('overall_similarity', 0)))
+    
+    def get_check_history(self, limit: int = 50, 
+                         start_date: str = None, end_date: str = None) -> List[Dict]:
         
 
 
