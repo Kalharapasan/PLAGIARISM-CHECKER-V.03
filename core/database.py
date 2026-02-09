@@ -8,3 +8,5 @@ import hashlib
 class DatabaseManager:
     
     def _initialize_db(self):
+        conn = self._get_connection()
+        cursor = conn.cursor()
