@@ -170,3 +170,5 @@ def safe_get(dictionary: Dict, keys: List, default: Any = None) -> Any:
 
 
 class RateLimiter:
+    
+    def can_make_request(self) -> bool:
