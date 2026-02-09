@@ -397,6 +397,27 @@ class DatabaseManager:
         }
     
     def clear_history(self, days_older_than: int = None) -> int:
+        try:
+            conn = self._get_connection()
+            cursor = conn.cursor()
+            
+            if days_older_than:
+                cursor.execute('''
+                    DELETE FROM check_history 
+                    WHERE date(check_date) < date('now', ?)
+                ''', (f'-{days_older_than} days',))
+            else:
+                cursor.execute('DELETE FROM check_history')
+            
+            deleted_count = cursor.rowcount
+            conn.commit()
+            conn.close()
+            
+            return deleted_count
+            
+        except Exception as e:
+            print(f"Error clearing history: {e}")
+            return 0
 
 
         
