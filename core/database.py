@@ -6,6 +6,11 @@ from typing import List, Dict, Optional
 import hashlib
 
 class DatabaseManager:
+    def __init__(self, config):
+        self.config = config
+        self.db_path = Path(config.get('paths.database', 'data/database.sqlite'))
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self._initialize_db()
     
     def _initialize_db(self):
         conn = self._get_connection()
