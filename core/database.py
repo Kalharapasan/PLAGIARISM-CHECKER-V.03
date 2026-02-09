@@ -207,6 +207,8 @@ class DatabaseManager:
         
         conn.close()
         return docs
+    
+    def delete_document(self, source: str) -> bool:
         
 
 
