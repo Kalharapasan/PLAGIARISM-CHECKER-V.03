@@ -122,3 +122,5 @@ class ErrorHandler:
         
         with open(log_file, 'a', encoding='utf-8') as f:
             f.write(json.dumps(error_info) + '\n')
+    
+    def load_config(config_file: str = "config.json") -> Dict:
