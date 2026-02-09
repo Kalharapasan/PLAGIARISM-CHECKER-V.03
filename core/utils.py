@@ -186,3 +186,6 @@ class RateLimiter:
             return False
     
     def wait_if_needed(self):
+        while not self.can_make_request():
+            import time
+            time.sleep(0.1)
