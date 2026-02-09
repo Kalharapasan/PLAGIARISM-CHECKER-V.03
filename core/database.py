@@ -126,6 +126,8 @@ class DatabaseManager:
         except Exception as e:
             print(f"Error adding document: {e}")
             return False
+    
+    def get_all_documents(self, category: str = None) -> List[Dict]:
 
 
         
