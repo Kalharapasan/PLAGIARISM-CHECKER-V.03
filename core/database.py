@@ -171,6 +171,9 @@ class DatabaseManager:
         conn.commit()
         conn.close()
         return docs
+    
+    def search_documents(self, query: str, category: str = None) -> List[Dict]:
+        
 
 
         
