@@ -258,6 +258,28 @@ class DatabaseManager:
         return categories
     
     def save_check_history(self, filename: str, results: Dict, report_path: str = ''):
+        try:
+            analysis_data = json.dumps(results)
+            
+            conn = self._get_connection()
+            cursor = conn.cursor()
+            
+            cursor.execute('''
+                INSERT INTO check_history 
+                (filename, check_date, similarity_score, total_words, matched_sources, report_path, analysis_data)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                filename,
+                datetime.now().isoformat(),
+                results.get('overall_similarity', 0),
+                results.get('total_words', 0),
+                len(results.get('matches', [])),
+                report_path,
+                analysis_data
+            ))
+            
+        except Exception as e:
+            print(f"Error saving history: {e}")
 
 
         
