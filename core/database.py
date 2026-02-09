@@ -439,6 +439,7 @@ class DatabaseManager:
         try:
             conn = self._get_connection()
             cursor = conn.cursor()
+            cursor.execute('VACUUM')
         except Exception as e:
             print(f"Error optimizing database: {e}")
             return False
