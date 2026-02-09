@@ -427,6 +427,13 @@ class DatabaseManager:
             
             backup_path = Path(backup_path)
             backup_path.parent.mkdir(parents=True, exist_ok=True)
+            import shutil
+            shutil.copy2(self.db_path, backup_path)
+            
+            return True
+        except Exception as e:
+            print(f"Error backing up database: {e}")
+            return False
 
 
         
