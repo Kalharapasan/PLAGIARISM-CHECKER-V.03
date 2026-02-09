@@ -161,6 +161,16 @@ class DatabaseManager:
                 'word_count': row[5],
                 'metadata': metadata
             })
+        for doc in docs:
+            cursor.execute('''
+                UPDATE documents 
+                SET last_accessed = ?
+                WHERE source = ?
+            ''', (datetime.now().isoformat(), doc['source']))
+        
+        conn.commit()
+        conn.close()
+        return docs
 
 
         
