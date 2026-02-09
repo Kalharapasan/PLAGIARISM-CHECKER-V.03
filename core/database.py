@@ -6,3 +6,5 @@ from typing import List, Dict, Optional
 import hashlib
 
 class DatabaseManager:
+    
+    def _initialize_db(self):
