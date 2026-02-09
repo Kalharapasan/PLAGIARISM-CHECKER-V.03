@@ -434,6 +434,8 @@ class DatabaseManager:
         except Exception as e:
             print(f"Error backing up database: {e}")
             return False
+    
+    def optimize_database(self):
 
 
         
