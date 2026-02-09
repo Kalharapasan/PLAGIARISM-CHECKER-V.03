@@ -148,3 +148,6 @@ def format_file_size(size_bytes: int) -> str:
             return f"{size_bytes:.2f} {unit}"
         size_bytes /= 1024.0
     return f"{size_bytes:.2f} TB"
+
+def format_percentage(value: float) -> str:
+    return f"{value:.2f}%"
