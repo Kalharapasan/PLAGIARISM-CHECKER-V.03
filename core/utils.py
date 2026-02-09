@@ -184,3 +184,5 @@ class RateLimiter:
                 return True
             
             return False
+    
+    def wait_if_needed(self):
