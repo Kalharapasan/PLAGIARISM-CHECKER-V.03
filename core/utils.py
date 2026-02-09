@@ -136,3 +136,8 @@ def load_config(config_file: str = "config.json") -> Dict:
     return Config().default_config
 
 def save_config(config: Dict, config_file: str = "config.json"):
+    config_path = Path(config_file)
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(config_path, 'w', encoding='utf-8') as f:
+        json.dump(config, f, indent=2, ensure_ascii=False)
