@@ -38,3 +38,6 @@ class DatabaseManager:
                 analysis_data TEXT
             )
         ''')
+        
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_history_date ON check_history(check_date)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_history_score ON check_history(similarity_score)')
