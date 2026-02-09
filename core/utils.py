@@ -143,3 +143,8 @@ def save_config(config: Dict, config_file: str = "config.json"):
         json.dump(config, f, indent=2, ensure_ascii=False)
 
 def format_file_size(size_bytes: int) -> str:
+    for unit in ['B', 'KB', 'MB', 'GB']:
+        if size_bytes < 1024.0:
+            return f"{size_bytes:.2f} {unit}"
+        size_bytes /= 1024.0
+    return f"{size_bytes:.2f} TB"
