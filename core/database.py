@@ -287,6 +287,8 @@ class DatabaseManager:
     
     def _update_statistics(self, cursor, results: Dict):
         today = datetime.now().strftime('%Y-%m-%d')
+        cursor.execute('SELECT id FROM statistics WHERE date = ?', (today,))
+        row = cursor.fetchone()
 
 
         
