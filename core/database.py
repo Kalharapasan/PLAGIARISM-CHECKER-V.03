@@ -286,6 +286,7 @@ class DatabaseManager:
             print(f"Error saving history: {e}")
     
     def _update_statistics(self, cursor, results: Dict):
+        today = datetime.now().strftime('%Y-%m-%d')
 
 
         
