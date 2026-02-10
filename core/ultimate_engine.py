@@ -170,4 +170,6 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
     
     def analyze_comprehensive(self, text: str, database: List[Dict], 
                             selected_algorithms: List[str] = None) -> Dict:
+        if selected_algorithms is None:
+            selected_algorithms = [k for k, v in self.algorithms.items() if v]
     
