@@ -142,3 +142,5 @@ Categories=Education;Office;
     def _create_mac_shortcut(self):
         print("ℹ️ macOS shortcut creation requires manual setup")
     
+    def run(self, install_type="basic"):
+    
