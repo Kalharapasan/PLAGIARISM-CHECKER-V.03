@@ -7,3 +7,6 @@ if ! command -v python3 &> /dev/null; then
     echo "Please install Python 3.8 or higher from your package manager."
     exit 1
 fi
+
+python_version=$(python3 --version | cut -d' ' -f2)
+echo "Python $python_version detected"
