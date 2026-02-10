@@ -143,4 +143,7 @@ Categories=Education;Office;
         print("ℹ️ macOS shortcut creation requires manual setup")
     
     def run(self, install_type="basic"):
+        print("=" * 60)
+        print("Plagiarism Checker Pro - Installation")
+        print("=" * 60)
     
