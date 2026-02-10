@@ -3,6 +3,8 @@ import numpy as np
 from .advanced_engine import AdvancedPlagiarismEngine
 
 class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
+    def __init__(self, config=None):
+        super().__init__(config)
     
     def _init_nlp_components(self):
         if self.enable_nlp:
