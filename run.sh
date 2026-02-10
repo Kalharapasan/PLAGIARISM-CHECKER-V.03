@@ -52,3 +52,4 @@ case $mode in
         ;;
 esac
 
+read -p "Press Enter to continue..."
