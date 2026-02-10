@@ -50,3 +50,5 @@ if "%mode%"=="1" (
 ) else (
     python main.py --mode basic
 )
+
+pause
