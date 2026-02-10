@@ -27,3 +27,13 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
                 pass
     
     def calculate_cosine_similarity_tfidf(self, text1: str, text2: str) -> float:
+        if 'tfidf' not in self.nlp_components:
+            return 0.0
+        
+        try:
+            vectorizer = self.nlp_components['tfidf']
+            tfidf_matrix = vectorizer.fit_transform([text1, text2])
+            similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+            return similarity * 100
+        except:
+            return 0.0
