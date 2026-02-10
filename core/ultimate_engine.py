@@ -57,3 +57,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         except:
             return 0.0
     
+    def calculate_levenshtein_distance(self, text1: str, text2: str) -> float:
+    
