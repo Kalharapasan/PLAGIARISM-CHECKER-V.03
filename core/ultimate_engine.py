@@ -39,3 +39,17 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             return 0.0
     
     def calculate_semantic_similarity(self, text1: str, text2: str) -> float:
+        if 'lsi' not in self.nlp_components:
+            return 0.0
+        
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            from sklearn.decomposition import LatentDirichletAllocation
+            from sklearn.metrics.pairwise import cosine_similarity
+            
+            vectorizer = TfidfVectorizer(max_features=100, stop_words='english')
+            tfidf_matrix = vectorizer.fit_transform([text1, text2])
+        
+        except:
+            return 0.0
+    
