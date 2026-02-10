@@ -4,3 +4,6 @@ import subprocess
 import platform
 from pathlib import Path
 import json
+
+class Installer:
+    
