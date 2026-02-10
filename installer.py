@@ -134,3 +134,8 @@ Categories=Education;Office;
         
         with open(desktop_file, 'w') as f:
             f.write(desktop_entry)
+        import os
+        os.chmod(desktop_file, 0o755)
+        
+        print("✓ Created desktop entry for Linux")
+    
