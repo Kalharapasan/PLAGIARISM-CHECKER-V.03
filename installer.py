@@ -66,3 +66,31 @@ class Installer:
         
         config = Config()
         db_manager = DatabaseManager(config.config)
+        sample_docs = [
+            {
+                'source': 'Wikipedia - Academic Integrity',
+                'url': 'https://en.wikipedia.org/wiki/Academic_integrity',
+                'text': '''Academic integrity is the moral code or ethical policy of academia. 
+                It includes values such as avoidance of cheating or plagiarism, maintenance of 
+                academic standards, and honesty and rigor in research and academic publishing.''',
+                'category': 'Academic'
+            },
+            {
+                'source': 'Educational Research Journal',
+                'url': 'https://example.com/research',
+                'text': '''Plagiarism is the representation of another author's language, thoughts, 
+                ideas, or expressions as one's own original work. In educational contexts, proper 
+                attribution is essential.''',
+                'category': 'Academic'
+            }
+        ]
+        
+        for doc in sample_docs:
+            db_manager.add_document(
+                doc['source'],
+                doc['text'],
+                doc['url'],
+                doc['category']
+            )
+        
+        print("✓ Created sample database")
