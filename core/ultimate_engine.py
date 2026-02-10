@@ -15,3 +15,13 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
                 )
             except ImportError:
                 pass
+            
+            try:
+                from sklearn.decomposition import LatentDirichletAllocation
+                from sklearn.metrics.pairwise import cosine_similarity
+                self.nlp_components['lsi'] = {
+                    'decomposition': LatentDirichletAllocation,
+                    'similarity': cosine_similarity
+                }
+            except ImportError:
+                pass
