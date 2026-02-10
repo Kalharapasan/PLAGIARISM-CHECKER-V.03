@@ -5,6 +5,13 @@ from .advanced_engine import AdvancedPlagiarismEngine
 class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
     def __init__(self, config=None):
         super().__init__(config)
+        self.algorithms.update({
+            'cosine_tfidf': False,
+            'cosine_count': False,
+            'semantic': False,
+            'lsi': False,
+            'levenshtein': False
+        })
     
     def _init_nlp_components(self):
         if self.enable_nlp:
