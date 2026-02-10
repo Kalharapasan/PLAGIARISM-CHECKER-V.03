@@ -37,3 +37,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             return similarity * 100
         except:
             return 0.0
+    
+    def calculate_semantic_similarity(self, text1: str, text2: str) -> float:
