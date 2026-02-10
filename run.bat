@@ -19,3 +19,9 @@ if not exist ".venv" (
 )
 
 call .venv\Scripts\activate.bat
+
+if not exist "requirements_installed.flag" (
+    echo Installing requirements...
+    pip install -r requirements.txt
+    echo. > requirements_installed.flag
+)
