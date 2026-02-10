@@ -13,3 +13,14 @@ class Installer:
             return False
         print(f"✓ Python {self.python_version.major}.{self.python_version.minor} detected")
         return True
+    
+    def install_packages(self, packages):
+        for package in packages:
+            print(f"Installing {package}...")
+            try:
+                subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+                print(f"✓ {package} installed successfully")
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Failed to install {package}: {e}")
+                return False
+        return True
