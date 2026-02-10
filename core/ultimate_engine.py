@@ -172,4 +172,6 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
                             selected_algorithms: List[str] = None) -> Dict:
         if selected_algorithms is None:
             selected_algorithms = [k for k, v in self.algorithms.items() if v]
+            
+        results = super().analyze_text(text, database, selected_algorithms)
     
