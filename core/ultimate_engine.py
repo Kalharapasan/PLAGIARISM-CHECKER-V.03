@@ -180,4 +180,13 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         if self.enable_nlp:
             results['key_phrases'] = self.extract_key_phrases(text)
             results['advanced_citations'] = self.detect_advanced_citations(text)
+        
+        results['metadata'].update({
+            'engine_version': 'ultimate',
+            'ml_enabled': self.enable_ml,
+            'nlp_enabled': self.enable_nlp,
+            'readability_enabled': self.enable_readability
+        })
+        
+        return results
     
