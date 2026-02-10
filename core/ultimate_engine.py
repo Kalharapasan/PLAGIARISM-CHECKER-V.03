@@ -168,3 +168,6 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         
         return citations
     
+    def analyze_comprehensive(self, text: str, database: List[Dict], 
+                            selected_algorithms: List[str] = None) -> Dict:
+    
