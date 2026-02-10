@@ -24,3 +24,18 @@ class Installer:
                 print(f"❌ Failed to install {package}: {e}")
                 return False
         return True
+    
+    def create_directories(self):
+        directories = [
+            'data',
+            'data/sample_documents',
+            'data/templates',
+            'reports',
+            'logs',
+            'exports',
+            'backups'
+        ]
+        
+        for directory in directories:
+            Path(directory).mkdir(parents=True, exist_ok=True)
+            print(f"✓ Created directory: {directory}")
