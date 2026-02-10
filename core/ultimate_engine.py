@@ -16,6 +16,9 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             algo_config = config.get('detection.ultimate.algorithms', [])
             for algo in self.algorithms.keys():
                 self.algorithms[algo] = algo in algo_config
+        self.enable_ml = config.get('detection.ultimate.enable_ml', False)
+        self.enable_nlp = config.get('detection.ultimate.enable_nlp', False)
+        self.enable_readability = config.get('detection.ultimate.enable_readability', False)
     
     def _init_nlp_components(self):
         if self.enable_nlp:
