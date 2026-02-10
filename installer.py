@@ -94,3 +94,11 @@ class Installer:
             )
         
         print("✓ Created sample database")
+    
+    def create_shortcuts(self):
+        if self.system == "Windows":
+            self._create_windows_shortcut()
+        elif self.system == "Linux":
+            self._create_linux_shortcut()
+        elif self.system == "Darwin":
+            self._create_mac_shortcut()
