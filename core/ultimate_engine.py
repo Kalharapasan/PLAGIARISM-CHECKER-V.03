@@ -140,4 +140,31 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         return all_phrases[:n]
     
     def detect_advanced_citations(self, text: str) -> List[Dict]:
+        citation_patterns = [
+            {'name': 'APA_inline', 'pattern': r'\(([A-Z][a-z]+(?:\s+(?:&|and)\s+[A-Z][a-z]+)?),\s*\d{4}\)', 'type': 'apa'},
+            {'name': 'APA_narrative', 'pattern': r'([A-Z][a-z]+(?:\s+(?:&|and)\s+[A-Z][a-z]+)?)\s+\(\d{4}\)', 'type': 'apa'},
+            {'name': 'MLA_inline', 'pattern': r'\(([A-Z][a-z]+)\s+\d+\)', 'type': 'mla'},
+            {'name': 'Chicago_footnote', 'pattern': r'\[\d+\]', 'type': 'chicago'},
+            {'name': 'Harvard', 'pattern': r'\(([A-Z][a-z]+)\s+\d{4}:\s*\d+\)', 'type': 'harvard'},
+            {'name': 'IEEE', 'pattern': r'\[\d+(?:,\s*\d+)*\]', 'type': 'ieee'},
+            {'name': 'Vancouver', 'pattern': r'\(\d+\)', 'type': 'vancouver'},
+            {'name': 'Author_etal', 'pattern': r'([A-Z][a-z]+\s+et\s+al\.)', 'type': 'general'},
+            {'name': 'According_to', 'pattern': r'(?:according to|as stated by|as noted by)\s+([A-Z][a-z]+)', 'type': 'narrative'}
+        ]
+        
+        citations = []
+        for pattern_info in citation_patterns:
+            pattern = pattern_info['pattern']
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            
+            for match in matches:
+                citations.append({
+                    'text': match.group(0),
+                    'position': match.start(),
+                    'type': pattern_info['type'],
+                    'name': pattern_info['name'],
+                    'author': match.group(1) if match.groups() else None
+                })
+        
+        return citations
     
