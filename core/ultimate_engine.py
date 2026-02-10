@@ -62,4 +62,17 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             return self.calculate_levenshtein_distance(text2, text1)
         if len(text2) == 0:
             return 100.0
+        
+        previous_row = range(len(text2) + 1)
+        for i, c1 in enumerate(text1):
+            current_row = [i + 1]
+            for j, c2 in enumerate(text2):
+                insertions = previous_row[j + 1] + 1
+                deletions = current_row[j] + 1
+                substitutions = previous_row[j] + (c1 != c2)
+                current_row.append(min(insertions, deletions, substitutions))
+            previous_row = current_row
+        
+        distance = previous_row[-1]
+        max_len = max(len(text1), len(text2))
     
