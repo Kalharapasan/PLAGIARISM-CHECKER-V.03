@@ -28,6 +28,7 @@ class Installer:
                 'textblob>=0.17.1'
             ]
         }
+        
     def check_python_version(self):
         if self.python_version.major < 3 or (self.python_version.major == 3 and self.python_version.minor < 8):
             print("❌ Python 3.8 or higher is required")
@@ -192,4 +193,5 @@ Categories=Education;Office;
         print("\nFor help: python main.py --help")
         
         return True
-    
+
+def main():
