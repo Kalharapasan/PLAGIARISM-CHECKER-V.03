@@ -126,3 +126,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         
         return {}
     
+    def extract_key_phrases(self, text: str, n: int = 10) -> List[Tuple[str, int]]:
+    
