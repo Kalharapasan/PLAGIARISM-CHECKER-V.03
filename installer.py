@@ -146,4 +146,6 @@ Categories=Education;Office;
         print("=" * 60)
         print("Plagiarism Checker Pro - Installation")
         print("=" * 60)
+        if not self.check_python_version():
+            return False
     
