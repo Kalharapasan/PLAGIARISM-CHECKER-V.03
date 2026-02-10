@@ -19,6 +19,8 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         self.enable_ml = config.get('detection.ultimate.enable_ml', False)
         self.enable_nlp = config.get('detection.ultimate.enable_nlp', False)
         self.enable_readability = config.get('detection.ultimate.enable_readability', False)
+        self.nlp_components = {}
+        self._init_nlp_components()
     
     def _init_nlp_components(self):
         if self.enable_nlp:
