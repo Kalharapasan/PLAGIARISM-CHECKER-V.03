@@ -105,4 +105,9 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             return count
         
         total_syllables = sum(count_syllables(word) for word in words)
+        if len(sentences) > 0 and len(words) > 0:
+            avg_sentence_length = len(words) / len(sentences)
+            avg_syllables_per_word = total_syllables / len(words)
+            
+            flesch_reading_ease = 206.835 - 1.015 * avg_sentence_length - 84.6 * avg_syllables_per_word
     
