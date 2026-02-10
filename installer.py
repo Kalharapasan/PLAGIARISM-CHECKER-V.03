@@ -102,3 +102,17 @@ class Installer:
             self._create_linux_shortcut()
         elif self.system == "Darwin":
             self._create_mac_shortcut()
+    
+    def _create_windows_shortcut(self):
+        try:
+            import win32com.client
+            shell = win32com.client.Dispatch("WScript.Shell")
+            shortcut = shell.CreateShortCut(str(Path.home() / "Desktop" / "Plagiarism Checker.lnk"))
+            shortcut.TargetPath = sys.executable
+            shortcut.Arguments = "main.py --mode basic"
+            shortcut.WorkingDirectory = str(Path.cwd())
+            shortcut.IconLocation = sys.executable
+            shortcut.save()
+            print("✓ Created desktop shortcut for Windows")
+        except:
+            print("ℹ️ Could not create Windows shortcut (pywin32 not installed)")
