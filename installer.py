@@ -116,3 +116,21 @@ class Installer:
             print("✓ Created desktop shortcut for Windows")
         except:
             print("ℹ️ Could not create Windows shortcut (pywin32 not installed)")
+    
+    def _create_linux_shortcut(self):
+        desktop_entry = """[Desktop Entry]
+Type=Application
+Name=Plagiarism Checker Pro
+Comment=Advanced plagiarism detection tool
+Exec=python3 {}/main.py --mode basic
+Path={}
+Icon={}/icon.png
+Terminal=false
+Categories=Education;Office;
+""".format(Path.cwd(), Path.cwd(), Path.cwd())
+        
+        desktop_file = Path.home() / ".local" / "share" / "applications" / "plagiarism-checker.desktop"
+        desktop_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(desktop_file, 'w') as f:
+            f.write(desktop_entry)
