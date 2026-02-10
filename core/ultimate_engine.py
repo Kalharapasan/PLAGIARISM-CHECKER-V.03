@@ -25,3 +25,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
                 }
             except ImportError:
                 pass
+    
+    def calculate_cosine_similarity_tfidf(self, text1: str, text2: str) -> float:
