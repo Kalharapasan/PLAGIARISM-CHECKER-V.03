@@ -159,5 +159,6 @@ Categories=Education;Office;
         if not self.install_packages(packages):
             return False
         self.create_sample_config()
+        self.create_sample_database()
         
     
