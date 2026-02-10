@@ -79,4 +79,9 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         return max(0, similarity)
     
     def calculate_readability_scores(self, text: str) -> Dict:
+        sentences = self.get_sentences(text)
+        words = self.tokenize(text)
+        
+        if not sentences or not words:
+            return {}
     
