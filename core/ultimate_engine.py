@@ -78,3 +78,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         similarity = 100 - (distance / max_len * 100)
         return max(0, similarity)
     
+    def calculate_readability_scores(self, text: str) -> Dict:
+    
