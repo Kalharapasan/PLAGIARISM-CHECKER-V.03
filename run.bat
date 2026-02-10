@@ -1,0 +1,3 @@
+@echo off
+echo Starting Plagiarism Checker Pro...
+echo.
