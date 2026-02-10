@@ -174,4 +174,10 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             selected_algorithms = [k for k, v in self.algorithms.items() if v]
             
         results = super().analyze_text(text, database, selected_algorithms)
+        if self.enable_readability:
+            results['readability'] = self.calculate_readability_scores(text)
+        
+        if self.enable_nlp:
+            results['key_phrases'] = self.extract_key_phrases(text)
+            results['advanced_citations'] = self.detect_advanced_citations(text)
     
