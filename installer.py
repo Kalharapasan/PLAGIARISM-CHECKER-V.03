@@ -139,3 +139,6 @@ Categories=Education;Office;
         
         print("✓ Created desktop entry for Linux")
     
+    def _create_mac_shortcut(self):
+        print("ℹ️ macOS shortcut creation requires manual setup")
+    
