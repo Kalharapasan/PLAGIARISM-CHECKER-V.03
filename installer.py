@@ -6,7 +6,28 @@ from pathlib import Path
 import json
 
 class Installer:
-    
+    def __init__(self):
+        self.system = platform.system()
+        self.python_version = sys.version_info
+        self.requirements = {
+            'core': [
+                'python-docx>=0.8.11',
+                'pypdf>=3.0.0',
+                'pdfplumber>=0.10.0'
+            ],
+            'advanced': [
+                'numpy>=1.21.0',
+                'scikit-learn>=1.0.0',
+                'matplotlib>=3.5.0',
+                'nltk>=3.7'
+            ],
+            'ultimate': [
+                'pandas>=1.5.0',
+                'seaborn>=0.12.0',
+                'spacy>=3.5.0',
+                'textblob>=0.17.1'
+            ]
+        }
     def check_python_version(self):
         if self.python_version.major < 3 or (self.python_version.major == 3 and self.python_version.minor < 8):
             print("❌ Python 3.8 or higher is required")
