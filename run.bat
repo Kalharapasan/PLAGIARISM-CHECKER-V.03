@@ -12,3 +12,8 @@ if errorlevel 1 (
 
 for /f "tokens=2" %%i in ('python --version 2^>^&1') do set "python_version=%%i"
 echo Python %python_version% detected
+
+if not exist ".venv" (
+    echo Creating virtual environment...
+    python -m venv .venv
+)
