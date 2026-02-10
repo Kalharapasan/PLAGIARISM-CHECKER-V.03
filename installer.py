@@ -59,3 +59,10 @@ class Installer:
             json.dump(config, f, indent=2)
         
         print("✓ Created sample configuration")
+    
+    def create_sample_database(self):
+        from core.database import DatabaseManager
+        from config import Config
+        
+        config = Config()
+        db_manager = DatabaseManager(config.config)
