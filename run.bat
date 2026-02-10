@@ -9,3 +9,6 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
+
+for /f "tokens=2" %%i in ('python --version 2^>^&1') do set "python_version=%%i"
+echo Python %python_version% detected
