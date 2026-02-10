@@ -12,6 +12,10 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             'lsi': False,
             'levenshtein': False
         })
+        if config:
+            algo_config = config.get('detection.ultimate.algorithms', [])
+            for algo in self.algorithms.keys():
+                self.algorithms[algo] = algo in algo_config
     
     def _init_nlp_components(self):
         if self.enable_nlp:
