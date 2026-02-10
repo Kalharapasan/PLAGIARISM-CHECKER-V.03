@@ -150,5 +150,13 @@ Categories=Education;Office;
             return False
         self.create_directories()
         packages = self.requirements['core']
+        if install_type == "advanced":
+            packages.extend(self.requirements['advanced'])
+        elif install_type == "ultimate":
+            packages.extend(self.requirements['advanced'])
+            packages.extend(self.requirements['ultimate'])
+        
+        if not self.install_packages(packages):
+            return False
         
     
