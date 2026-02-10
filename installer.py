@@ -160,5 +160,5 @@ Categories=Education;Office;
             return False
         self.create_sample_config()
         self.create_sample_database()
-        
+        self.create_shortcuts()
     
