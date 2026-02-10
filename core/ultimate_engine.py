@@ -134,4 +134,8 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         trigrams = [' '.join(words[i:i+3]) for i in range(len(words)-2)]
         bigram_freq = Counter(bigrams)
         trigram_freq = Counter(trigrams)
+        all_phrases = list(bigram_freq.items()) + list(trigram_freq.items())
+        all_phrases.sort(key=lambda x: x[1], reverse=True)
+        
+        return all_phrases[:n]
     
