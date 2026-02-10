@@ -10,3 +10,7 @@ fi
 
 python_version=$(python3 --version | cut -d' ' -f2)
 echo "Python $python_version detected"
+if [ ! -d "venv" ]; then
+    echo "Creating virtual environment..."
+    python3 -m venv venv
+fi
