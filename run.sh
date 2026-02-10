@@ -10,8 +10,13 @@ fi
 
 python_version=$(python3 --version | cut -d' ' -f2)
 echo "Python $python_version detected"
-if [ ! -d "venv" ]; then
+if [ ! -d ".venv" ]; then
     echo "Creating virtual environment..."
-    python3 -m venv venv
+    python3 -m venv .venv
 fi
-source venv/bin/activate
+source .venv/bin/activate
+if [ ! -f "requirements_installed.flag" ]; then
+    echo "Installing requirements..."
+    pip install -r requirements.txt
+    touch requirements_installed.flag
+fi
