@@ -49,6 +49,8 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             
             vectorizer = TfidfVectorizer(max_features=100, stop_words='english')
             tfidf_matrix = vectorizer.fit_transform([text1, text2])
+            lsi = LatentDirichletAllocation(n_components=min(10, tfidf_matrix.shape[1]))
+            lsi_matrix = lsi.fit_transform(tfidf_matrix)
         
         except:
             return 0.0
