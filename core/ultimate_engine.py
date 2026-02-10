@@ -139,3 +139,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         
         return all_phrases[:n]
     
+    def detect_advanced_citations(self, text: str) -> List[Dict]:
+    
