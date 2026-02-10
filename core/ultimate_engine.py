@@ -75,4 +75,6 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         
         distance = previous_row[-1]
         max_len = max(len(text1), len(text2))
+        similarity = 100 - (distance / max_len * 100)
+        return max(0, similarity)
     
