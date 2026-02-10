@@ -149,5 +149,6 @@ Categories=Education;Office;
         if not self.check_python_version():
             return False
         self.create_directories()
+        packages = self.requirements['core']
         
     
