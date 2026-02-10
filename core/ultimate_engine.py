@@ -111,4 +111,18 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             
             flesch_reading_ease = 206.835 - 1.015 * avg_sentence_length - 84.6 * avg_syllables_per_word
             flesch_kincaid_grade = 0.39 * avg_sentence_length + 11.8 * avg_syllables_per_word - 15.59
+            complex_words = sum(1 for word in words if count_syllables(word) >= 3)
+            percent_complex = (complex_words / len(words)) * 100
+            gunning_fog = 0.4 * (avg_sentence_length + percent_complex)
+            
+            return {
+                'flesch_reading_ease': round(flesch_reading_ease, 2),
+                'flesch_kincaid_grade': round(flesch_kincaid_grade, 2),
+                'gunning_fog_index': round(gunning_fog, 2),
+                'avg_sentence_length': round(avg_sentence_length, 2),
+                'avg_syllables_per_word': round(avg_syllables_per_word, 2),
+                'complex_word_percentage': round(percent_complex, 2)
+            }
+        
+        return {}
     
