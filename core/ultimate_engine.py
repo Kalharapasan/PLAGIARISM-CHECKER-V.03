@@ -51,6 +51,8 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
             tfidf_matrix = vectorizer.fit_transform([text1, text2])
             lsi = LatentDirichletAllocation(n_components=min(10, tfidf_matrix.shape[1]))
             lsi_matrix = lsi.fit_transform(tfidf_matrix)
+            similarity = cosine_similarity(lsi_matrix[0:1], lsi_matrix[1:2])[0][0]
+            return similarity * 100
         
         except:
             return 0.0
