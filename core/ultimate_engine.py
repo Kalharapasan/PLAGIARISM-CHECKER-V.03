@@ -131,4 +131,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         
         words = self.tokenize(text)
         bigrams = [' '.join(words[i:i+2]) for i in range(len(words)-1)]
+        trigrams = [' '.join(words[i:i+3]) for i in range(len(words)-2)]
     
