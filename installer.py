@@ -195,3 +195,22 @@ Categories=Education;Office;
         return True
 
 def main():
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Install Plagiarism Checker Pro")
+    parser.add_argument(
+        "--type",
+        choices=["basic", "advanced", "ultimate"],
+        default="basic",
+        help="Installation type"
+    )
+    
+    args = parser.parse_args()
+    
+    installer = Installer()
+    success = installer.run(args.type)
+    
+    if success:
+        sys.exit(0)
+    else:
+        sys.exit(1)
