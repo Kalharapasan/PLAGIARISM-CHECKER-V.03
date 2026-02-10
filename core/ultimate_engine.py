@@ -145,16 +145,14 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         return {}
     
     def extract_key_phrases(self, text: str, n: int = 10) -> List[Tuple[str, int]]:
-        from collections import Counter
-        
+        from collections import Counter       
         words = self.tokenize(text)
         bigrams = [' '.join(words[i:i+2]) for i in range(len(words)-1)]
         trigrams = [' '.join(words[i:i+3]) for i in range(len(words)-2)]
         bigram_freq = Counter(bigrams)
         trigram_freq = Counter(trigrams)
         all_phrases = list(bigram_freq.items()) + list(trigram_freq.items())
-        all_phrases.sort(key=lambda x: x[1], reverse=True)
-        
+        all_phrases.sort(key=lambda x: x[1], reverse=True)       
         return all_phrases[:n]
     
     def detect_advanced_citations(self, text: str) -> List[Dict]:
