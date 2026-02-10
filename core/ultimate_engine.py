@@ -130,4 +130,5 @@ class UltimatePlagiarismEngine(AdvancedPlagiarismEngine):
         from collections import Counter
         
         words = self.tokenize(text)
+        bigrams = [' '.join(words[i:i+2]) for i in range(len(words)-1)]
     
