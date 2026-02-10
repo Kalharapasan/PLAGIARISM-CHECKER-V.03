@@ -161,4 +161,14 @@ Categories=Education;Office;
         self.create_sample_config()
         self.create_sample_database()
         self.create_shortcuts()
+        print("\n" + "=" * 60)
+        print("✅ Installation Complete!")
+        print("=" * 60)
+        print("\nYou can now run:")
+        print("  Basic mode:    python main.py --mode basic")
+        print("  Advanced mode: python main.py --mode advanced")
+        print("  CLI mode:      python main.py --mode cli --document your_file.txt")
+        print("\nFor help: python main.py --help")
+        
+        return True
     
