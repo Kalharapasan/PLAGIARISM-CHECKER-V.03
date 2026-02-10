@@ -39,3 +39,23 @@ class Installer:
         for directory in directories:
             Path(directory).mkdir(parents=True, exist_ok=True)
             print(f"✓ Created directory: {directory}")
+            
+    
+    def create_sample_config(self):
+        config = {
+            "application": {
+                "name": "Plagiarism Checker Pro",
+                "version": "3.0",
+                "default_mode": "basic"
+            },
+            "database": {
+                "path": "data/database.sqlite",
+                "backup_enabled": True
+            }
+        }
+        
+        config_path = Path("config.json")
+        with open(config_path, 'w', encoding='utf-8') as f:
+            json.dump(config, f, indent=2)
+        
+        print("✓ Created sample configuration")
