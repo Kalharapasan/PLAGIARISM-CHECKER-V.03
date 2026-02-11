@@ -284,3 +284,5 @@ class TextProcessor:
         if remove_stopwords:
             words = [w for w in words if w not in self.stopwords and len(w) > 2]
         return words
+    
+    def extract_sentences(self, text: str) -> List[str]:
