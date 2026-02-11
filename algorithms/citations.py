@@ -482,3 +482,6 @@ class TextProcessor:
                             title = lines[0].strip()
                             if title and title not in structure['sections']:
                                 structure['sections'].append(title)
+        structure['section_count'] = len(structure['sections'])
+        
+        return structure
