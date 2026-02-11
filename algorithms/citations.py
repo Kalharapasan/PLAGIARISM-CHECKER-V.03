@@ -23,3 +23,17 @@ class TextCategory(Enum):
     UNKNOWN = "unknown"
 
 class Language(Enum):
+    ENGLISH = "en"
+    SPANISH = "es"
+    FRENCH = "fr"
+    GERMAN = "de"
+    ITALIAN = "it"
+    PORTUGUESE = "pt"
+    DUTCH = "nl"
+    RUSSIAN = "ru"
+    CHINESE = "zh"
+    JAPANESE = "ja"
+    KOREAN = "ko"
+    ARABIC = "ar"
+    HINDI = "hi"
+    UNKNOWN = "unknown"
