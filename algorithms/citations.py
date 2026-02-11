@@ -267,3 +267,5 @@ class TextProcessor:
         'conclusion': {'in conclusion', 'to conclude', 'to summarize', 
                       'in summary', 'overall', 'all in all', 'in brief'}
     }
+    
+    def clean_text(self, text: str) -> str:
