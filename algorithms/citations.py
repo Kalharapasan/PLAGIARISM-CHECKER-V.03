@@ -37,3 +37,7 @@ class Language(Enum):
     ARABIC = "ar"
     HINDI = "hi"
     UNKNOWN = "unknown"
+    
+
+@dataclass
+class NLPAnalysis:
