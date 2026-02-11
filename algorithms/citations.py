@@ -150,3 +150,55 @@ class NLPAnalysis:
         }
 
 class TextProcessor:
+    STOPWORDS = {
+        'en': {
+            'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+            'of', 'with', 'by', 'as', 'is', 'was', 'are', 'were', 'be', 'been',
+            'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
+            'could', 'should', 'may', 'might', 'must', 'can', 'shall', 'ought',
+            'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 
+            'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 
+            'her', 'its', 'our', 'their', 'mine', 'yours', 'hers', 'ours', 'theirs',
+            'myself', 'yourself', 'himself', 'herself', 'itself', 'ourselves',
+            'yourselves', 'themselves', 'what', 'which', 'who', 'whom', 'whose',
+            'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few',
+            'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only',
+            'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will',
+            'just', 'don', 'should', 'now', 'd', 'll', 'm', 'o', 're', 've', 'y',
+            'ain', 'aren', 'couldn', 'didn', 'doesn', 'hadn', 'hasn', 'haven',
+            'isn', 'ma', 'mightn', 'mustn', 'needn', 'shan', 'shouldn', 'wasn',
+            'weren', 'won', 'wouldn'
+        },
+        'es': {
+            'de', 'la', 'que', 'el', 'en', 'y', 'a', 'los', 'del', 'se', 'las',
+            'por', 'un', 'para', 'con', 'no', 'una', 'su', 'al', 'lo', 'como',
+            'más', 'pero', 'sus', 'le', 'ya', 'o', 'este', 'sí', 'porque',
+            'esta', 'entre', 'cuando', 'muy', 'sin', 'sobre', 'también', 'me',
+            'hasta', 'hay', 'donde', 'quien', 'desde', 'todo', 'nos', 'durante',
+            'todos', 'uno', 'les', 'ni', 'contra', 'otros', 'ese', 'eso', 'ante',
+            'ellos', 'e', 'esto', 'mí', 'antes', 'algunos', 'qué', 'unos', 'yo',
+            'otro', 'otras', 'otra', 'él', 'tanto', 'esa', 'estos', 'mucho',
+            'quienes', 'nada', 'muchos', 'cual', 'poco', 'ella', 'estar', 'estas',
+            'algunas', 'algo', 'nosotros', 'mi', 'mis', 'tú', 'te', 'ti', 'tu',
+            'tus', 'ellas', 'nosotras', 'vosotros', 'vosotras', 'os', 'mío',
+            'mía', 'míos', 'mías', 'tuyo', 'tuya', 'tuyos', 'tuyas', 'suyo',
+            'suya', 'suyos', 'suyas', 'nuestro', 'nuestra', 'nuestros',
+            'nuestras', 'vuestro', 'vuestra', 'vuestros', 'vuestras', 'esos',
+            'esas', 'estoy', 'estás', 'está', 'estamos', 'estáis', 'están',
+            'esté', 'estés', 'estemos', 'estéis', 'estén', 'estaré', 'estarás',
+            'estará', 'estaremos', 'estaréis', 'estarán', 'estaría', 'estarías',
+            'estaríamos', 'estaríais', 'estarían', 'estaba', 'estabas', 'estábamos',
+            'estabais', 'estaban', 'estuve', 'estuviste', 'estuvo', 'estuvimos',
+            'estuvisteis', 'estuvieron', 'estuviera', 'estuvieras', 'estuviéramos',
+            'estuvierais', 'estuvieran', 'estuviese', 'estuvieses', 'estuviésemos',
+            'estuvieseis', 'estuviesen', 'estando', 'estado', 'estada', 'estados',
+            'estadas', 'estad', 'he', 'has', 'ha', 'hemos', 'habéis', 'han',
+            'haya', 'hayas', 'hayamos', 'hayáis', 'hayan', 'habré', 'habrás',
+            'habrá', 'habremos', 'habréis', 'habrán', 'habría', 'habrías',
+            'habríamos', 'habríais', 'habrían', 'había', 'habías', 'habíamos',
+            'habíais', 'habían', 'hube', 'hubiste', 'hubo', 'hubimos', 'hubisteis',
+            'hubieron', 'hubiera', 'hubieras', 'hubiéramos', 'hubierais',
+            'hubieran', 'hubiese', 'hubieses', 'hubiésemos', 'hubieseis',
+            'hubiesen', 'habiendo', 'habido', 'habida', 'habidos', 'habidas'
+        }
+    }
