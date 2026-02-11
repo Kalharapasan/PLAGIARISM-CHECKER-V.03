@@ -61,3 +61,8 @@ class NLPAnalysis:
     avg_syllables_per_word: float = 0.0
     passive_voice_percentage: float = 0.0
     lexical_density: float = 0.0
+    text_category: TextCategory = TextCategory.UNKNOWN
+    detected_language: Language = Language.UNKNOWN
+    topics: List[str] = field(default_factory=list)
+    key_phrases: List[Dict[str, Any]] = field(default_factory=list)
+    named_entities: List[Dict[str, Any]] = field(default_factory=list)
