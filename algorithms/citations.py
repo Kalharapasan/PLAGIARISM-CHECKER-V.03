@@ -350,3 +350,4 @@ class TextProcessor:
         return passive_count
     
     def extract_named_entities(self, text: str) -> List[Dict[str, Any]]:
+        entities = []
