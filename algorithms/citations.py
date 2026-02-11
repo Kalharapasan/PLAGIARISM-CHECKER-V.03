@@ -73,3 +73,7 @@ class NLPAnalysis:
     has_introduction: bool = False
     has_conclusion: bool = False
     has_references: bool = False
+    
+    sentiment_score: float = 0.0 
+    subjectivity_score: float = 0.0 
+    formality_score: float = 0.0 
