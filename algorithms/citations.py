@@ -434,3 +434,11 @@ class TextProcessor:
             length_bonus = 1.0 + (0.1 * (words_in_phrase - 2))
             academic_terms = sum(1 for word in phrase.split() if word in self.ACADEMIC_WORDS)
             academic_bonus = 1.0 + (0.15 * academic_terms)
+            score = tf * length_bonus * academic_bonus * 100
+            
+            key_phrases.append({
+                'phrase': phrase,
+                'frequency': freq,
+                'score': round(score, 2),
+                'length': words_in_phrase
+            })
