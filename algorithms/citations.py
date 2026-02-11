@@ -311,3 +311,4 @@ class TextProcessor:
         paragraphs = [p.strip() for p in paragraphs if p.strip()]
         return paragraphs
     
+    def count_syllables(self, word: str) -> int:
