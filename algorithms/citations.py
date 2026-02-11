@@ -549,3 +549,6 @@ class TextProcessor:
                     citation_info['year'] = int(year_match.group())
                 
                 citations.append(citation_info)
+        citations.sort(key=lambda x: x['position'])
+        
+        return citations
