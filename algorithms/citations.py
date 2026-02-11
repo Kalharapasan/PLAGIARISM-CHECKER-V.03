@@ -279,3 +279,4 @@ class TextProcessor:
         return text.strip()
     
     def tokenize(self, text: str, remove_stopwords: bool = True) -> List[str]:
+        text = self.clean_text(text)
