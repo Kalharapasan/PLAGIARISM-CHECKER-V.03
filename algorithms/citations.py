@@ -280,3 +280,4 @@ class TextProcessor:
     
     def tokenize(self, text: str, remove_stopwords: bool = True) -> List[str]:
         text = self.clean_text(text)
+        words = re.findall(r'\b[a-z0-9][a-z0-9\'-]*\b', text)
