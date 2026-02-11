@@ -268,6 +268,10 @@ class TextProcessor:
                       'in summary', 'overall', 'all in all', 'in brief'}
     }
     
+    def __init__(self, language: str = 'en'):
+        self.language = language
+        self.stopwords = self.STOPWORDS.get(language, self.STOPWORDS['en'])
+    
     def clean_text(self, text: str) -> str:
         if not text:
             return ""
