@@ -12,3 +12,12 @@ import itertools
 import numpy as np
 
 class TextCategory(Enum):
+    ACADEMIC = "academic"
+    TECHNICAL = "technical"
+    LITERARY = "literary"
+    JOURNALISTIC = "journalistic"
+    CASUAL = "casual"
+    LEGAL = "legal"
+    MEDICAL = "medical"
+    SCIENTIFIC = "scientific"
+    UNKNOWN = "unknown"
