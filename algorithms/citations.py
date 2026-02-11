@@ -444,3 +444,5 @@ class TextProcessor:
             })
         key_phrases.sort(key=lambda x: x['score'], reverse=True)
         return key_phrases[:top_n]
+    
+    def detect_academic_structure(self, text: str) -> Dict[str, Any]:
