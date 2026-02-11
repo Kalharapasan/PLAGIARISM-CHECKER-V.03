@@ -308,3 +308,6 @@ class TextProcessor:
         if not text:
             return []
         paragraphs = re.split(r'\n\s*\n', text)
+        paragraphs = [p.strip() for p in paragraphs if p.strip()]
+        return paragraphs
+    
