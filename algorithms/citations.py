@@ -556,3 +556,18 @@ class TextProcessor:
         citations.sort(key=lambda x: x['position'])
         
         return citations
+
+
+
+__all__ = [
+    'TextCategory',
+    'Language',
+    'NLPAnalysis',
+    'TextProcessor',
+    'ReadabilityAnalyzer',
+    'TextAnalyzer',
+    'summarize_text',
+    'extract_keywords',
+    'detect_language',
+    'calculate_readability'
+]
