@@ -307,4 +307,4 @@ class TextProcessor:
     def extract_paragraphs(self, text: str) -> List[str]:
         if not text:
             return []
-        
+        paragraphs = re.split(r'\n\s*\n', text)
