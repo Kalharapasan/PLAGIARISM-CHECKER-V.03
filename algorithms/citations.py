@@ -250,3 +250,20 @@ class TextProcessor:
         'reference', 'bibliography', 'footnote', 'endnote', 'paraphrase',
         'quotation', 'attribution', 'originality', 'integrity', 'ethics'
     }
+    
+    TRANSITION_WORDS = {
+        'addition': {'furthermore', 'moreover', 'additionally', 'also', 'besides', 
+                    'in addition', 'likewise', 'similarly'},
+        'contrast': {'however', 'nevertheless', 'nonetheless', 'on the other hand', 
+                    'in contrast', 'conversely', 'although', 'though', 'whereas', 
+                    'while', 'despite', 'in spite of'},
+        'cause_effect': {'therefore', 'thus', 'consequently', 'as a result', 
+                        'hence', 'accordingly', 'so', 'because', 'since', 
+                        'due to', 'owing to'},
+        'example': {'for example', 'for instance', 'such as', 'namely', 
+                   'specifically', 'to illustrate', 'in particular'},
+        'time': {'meanwhile', 'subsequently', 'afterward', 'then', 'next', 
+                'previously', 'finally', 'eventually', 'simultaneously'},
+        'conclusion': {'in conclusion', 'to conclude', 'to summarize', 
+                      'in summary', 'overall', 'all in all', 'in brief'}
+    }
