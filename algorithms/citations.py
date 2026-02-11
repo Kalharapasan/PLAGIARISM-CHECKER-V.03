@@ -586,6 +586,9 @@ class ReadabilityAnalyzer:
         
         avg_sentence_length = len(words) / len(sentences)
         avg_syllables_per_word = total_syllables / len(words)
+        grade = (0.39 * avg_sentence_length) + (11.8 * avg_syllables_per_word) - 15.59
+        
+        return round(max(0, grade), 2)
     
 
 def detect_language(text: str) -> str:
