@@ -557,6 +557,7 @@ class TextProcessor:
         
         return citations
 
+class ReadabilityAnalyzer:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
