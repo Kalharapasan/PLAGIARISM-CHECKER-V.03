@@ -375,3 +375,18 @@ class TextProcessor:
                     'start': text.find(org),
                     'end': text.find(org) + len(org)
                 })
+        location_patterns = [
+            r'\b([A-Z][a-z]+\s+(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Drive|Dr))\b',
+            r'\b([A-Z][a-z]+\s+(?:City|Town|Village|County|State|Province|Country))\b',
+            r'\b(\d+\s+[A-Z][a-z]+\s+(?:Street|St|Avenue|Ave|Road|Rd))\b'
+        ]
+        
+        for pattern in location_patterns:
+            locations = re.findall(pattern, text)
+            for location in locations:
+                entities.append({
+                    'text': location,
+                    'type': 'LOCATION',
+                    'start': text.find(location),
+                    'end': text.find(location) + len(location)
+                })
