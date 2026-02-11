@@ -611,6 +611,9 @@ class ReadabilityAnalyzer:
         if len(sentences) < 3:
             return 0.0
         polysyllabic_words = sum(1 for word in words if self.processor.count_syllables(word) >= 3)
+        smog = 1.043 * math.sqrt(polysyllabic_words * (30 / len(sentences))) + 3.1291
+        
+        return round(max(0, smog), 2)
     
 
 def detect_language(text: str) -> str:
