@@ -77,3 +77,7 @@ class NLPAnalysis:
     sentiment_score: float = 0.0 
     subjectivity_score: float = 0.0 
     formality_score: float = 0.0 
+    
+    coherence_score: float = 0.0 
+    cohesion_score: float = 0.0  
+    transition_word_density: float = 0.0
