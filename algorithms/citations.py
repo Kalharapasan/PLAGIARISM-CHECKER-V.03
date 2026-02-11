@@ -477,3 +477,8 @@ class TextProcessor:
                 for section_name, pattern in section_patterns.items():
                     if re.search(pattern, para_lower, re.IGNORECASE):
                         structure[f'has_{section_name}'] = True
+                        lines = para.split('\n')
+                        if lines:
+                            title = lines[0].strip()
+                            if title and title not in structure['sections']:
+                                structure['sections'].append(title)
