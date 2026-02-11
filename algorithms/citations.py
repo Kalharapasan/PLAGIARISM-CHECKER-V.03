@@ -600,6 +600,9 @@ class ReadabilityAnalyzer:
         
         avg_sentence_length = len(words) / len(sentences)
         percent_complex = (complex_words / len(words)) * 100
+        fog_index = 0.4 * (avg_sentence_length + percent_complex)
+        
+        return round(max(0, fog_index), 2)
     
 
 def detect_language(text: str) -> str:
