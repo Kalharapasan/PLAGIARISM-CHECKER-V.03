@@ -271,3 +271,4 @@ class TextProcessor:
     def clean_text(self, text: str) -> str:
         if not text:
             return ""
+        text = text.lower()
