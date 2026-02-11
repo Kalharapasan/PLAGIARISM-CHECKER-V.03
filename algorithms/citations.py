@@ -458,3 +458,14 @@ class TextProcessor:
             'sections': [],
             'section_count': 0
         }
+        
+        section_patterns = {
+            'abstract': r'\b(?:abstract|summary|executive\s+summary)\b',
+            'introduction': r'\b(?:introduction|background|context)\b',
+            'literature_review': r'\b(?:literature\s+review|related\s+work|previous\s+research)\b',
+            'methodology': r'\b(?:methodology|methods|research\s+design|procedure)\b',
+            'results': r'\b(?:results|findings|analysis|data\s+analysis)\b',
+            'discussion': r'\b(?:discussion|interpretation|implications)\b',
+            'conclusion': r'\b(?:conclusion|conclusions|summary\s+and\s+conclusions)\b',
+            'references': r'\b(?:references|bibliography|works\s+cited|sources)\b'
+        }
