@@ -604,6 +604,8 @@ class ReadabilityAnalyzer:
         
         return round(max(0, fog_index), 2)
     
+    def calculate_smog_index(self, text: str) -> float:
+    
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
