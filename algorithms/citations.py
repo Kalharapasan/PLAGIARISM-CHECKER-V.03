@@ -303,3 +303,6 @@ class TextProcessor:
         sentences = [s.replace('@ABBR@', '.') for s in sentences]
         sentences = [s.strip() for s in sentences if len(s.strip()) > 10]
         return sentences
+    
+    def extract_paragraphs(self, text: str) -> List[str]:
+        
