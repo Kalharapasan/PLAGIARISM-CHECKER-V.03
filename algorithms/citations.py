@@ -574,6 +574,9 @@ class ReadabilityAnalyzer:
         score = 206.835 - (1.015 * avg_sentence_length) - (84.6 * avg_syllables_per_word)
         
         return round(max(0, min(100, score)), 2)
+    
+    def calculate_flesch_kincaid_grade(self, text: str) -> float:
+    
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
