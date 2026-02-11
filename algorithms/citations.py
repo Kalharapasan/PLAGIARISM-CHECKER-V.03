@@ -360,3 +360,18 @@ class TextProcessor:
                 'start': text.find(person),
                 'end': text.find(person) + len(person)
             })
+        org_patterns = [
+            r'\b([A-Z][A-Za-z]+\s+(?:Corp|Corporation|Inc|Co|Company|Ltd|LLC))\b',
+            r'\b([A-Z][A-Za-z]+\s+(?:University|College|Institute|Academy))\b',
+            r'\b([A-Z][A-Za-z]+\s+(?:Hospital|Clinic|Center|Laboratory))\b'
+        ]
+        
+        for pattern in org_patterns:
+            orgs = re.findall(pattern, text)
+            for org in orgs:
+                entities.append({
+                    'text': org,
+                    'type': 'ORGANIZATION',
+                    'start': text.find(org),
+                    'end': text.find(org) + len(org)
+                })
