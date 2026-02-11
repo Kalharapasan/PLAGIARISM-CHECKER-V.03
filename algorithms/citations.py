@@ -559,6 +559,11 @@ class TextProcessor:
 
 
 
+
+def calculate_readability(text: str) -> Dict[str, float]:
+    analyzer = ReadabilityAnalyzer()
+    return analyzer.analyze_readability(text)
+
 __all__ = [
     'TextCategory',
     'Language',
