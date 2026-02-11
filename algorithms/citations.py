@@ -327,3 +327,7 @@ class TextProcessor:
                 count += 1
             
             previous_was_vowel = is_vowel
+        if word.endswith('e'):
+            count -= 1
+        if word.endswith('le') and len(word) > 2 and word[-3] not in vowels:
+            count += 1
