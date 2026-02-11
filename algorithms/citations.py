@@ -312,3 +312,4 @@ class TextProcessor:
         return paragraphs
     
     def count_syllables(self, word: str) -> int:
+        word = word.lower()
