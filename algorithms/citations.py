@@ -295,3 +295,6 @@ class TextProcessor:
             'trans.', 'approx.', 'appx.', 'fig.', 'ref.', 'jan.', 'feb.', 'mar.',
             'apr.', 'jun.', 'jul.', 'aug.', 'sep.', 'sept.', 'oct.', 'nov.', 'dec.'
         ]
+        
+        for abbr in abbreviations:
+            text = text.replace(abbr, abbr.replace('.', '@ABBR@'))
