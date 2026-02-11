@@ -313,3 +313,5 @@ class TextProcessor:
     
     def count_syllables(self, word: str) -> int:
         word = word.lower()
+        if word.endswith('es') or word.endswith('ed'):
+            word = word[:-2]
