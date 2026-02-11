@@ -305,4 +305,6 @@ class TextProcessor:
         return sentences
     
     def extract_paragraphs(self, text: str) -> List[str]:
+        if not text:
+            return []
         
