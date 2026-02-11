@@ -351,3 +351,12 @@ class TextProcessor:
     
     def extract_named_entities(self, text: str) -> List[Dict[str, Any]]:
         entities = []
+        person_pattern = r'\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\b'
+        persons = re.findall(person_pattern, text)
+        for person in persons:
+            entities.append({
+                'text': person,
+                'type': 'PERSON',
+                'start': text.find(person),
+                'end': text.find(person) + len(person)
+            })
