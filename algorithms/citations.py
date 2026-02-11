@@ -46,3 +46,5 @@ class NLPAnalysis:
     paragraph_count: int = 0
     character_count: int = 0
     word_count: int = 0
+    vocabulary_size: int = 0
+    type_token_ratio: float = 0.0
