@@ -889,6 +889,7 @@ class TextAnalyzer:
         
         if len(sentences) < 2:
             return 1.0 
+        coherence_score = 0.0
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
