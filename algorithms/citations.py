@@ -876,6 +876,13 @@ class TextAnalyzer:
         
         formal_score = sum(formal_indicators.values()) / total_words
         informal_score = sum(informal_indicators.values()) / total_words
+        
+        if formal_score + informal_score > 0:
+            formality = formal_score / (formal_score + informal_score)
+        else:
+            formality = 0.5
+        
+        return max(0.0, min(1.0, formality))
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
