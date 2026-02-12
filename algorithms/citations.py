@@ -988,6 +988,8 @@ def summarize_text(text: str, max_sentences: int = 3) -> str:
         score += len(words) * 0.5
         
         sentence_scores.append((score, i, sentence))
+    sentence_scores.sort(reverse=True)
+    selected_indices = sorted([idx for _, idx, _ in sentence_scores[:max_sentences]])
     
 
 def detect_language(text: str) -> str:
