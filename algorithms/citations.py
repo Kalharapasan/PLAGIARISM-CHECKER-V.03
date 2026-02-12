@@ -918,6 +918,9 @@ class TextAnalyzer:
             transition_density = transition_count / len(all_words)
         else:
             transition_density = 0
+        cohesion = min(1.0, transition_density / 0.05)
+        
+        return max(0.0, min(1.0, cohesion))
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
