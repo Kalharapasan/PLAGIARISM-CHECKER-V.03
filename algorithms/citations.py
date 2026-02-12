@@ -735,6 +735,10 @@ class TextAnalyzer:
         passive_count = self.processor.detect_passive_voice(text)
         if analysis.sentence_count > 0:
             analysis.passive_voice_percentage = (passive_count / analysis.sentence_count) * 100
+        
+        content_words = [w for w in words if w not in self.processor.stopwords]
+        if analysis.word_count > 0:
+            analysis.lexical_density = len(content_words) / analysis.word_count
 
 
 def detect_language(text: str) -> str:
