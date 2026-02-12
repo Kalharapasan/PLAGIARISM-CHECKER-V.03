@@ -707,6 +707,11 @@ class TextAnalyzer:
         
         paragraphs = self.processor.extract_paragraphs(text)
         analysis.paragraph_count = len(paragraphs)
+        unique_words = set(words)
+        analysis.vocabulary_size = len(unique_words)
+        
+        if analysis.word_count > 0:
+            analysis.type_token_ratio = analysis.vocabulary_size / analysis.word_count
 
 
 def detect_language(text: str) -> str:
