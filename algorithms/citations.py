@@ -967,6 +967,8 @@ class TextAnalyzer:
             'comparison_timestamp': datetime.now().isoformat()
         }
 
+
+
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
     language = analyzer._detect_language(text)
