@@ -822,6 +822,24 @@ class TextAnalyzer:
         return unique_topics
     
     def _analyze_sentiment(self, text: str) -> Dict[str, float]:
+        positive_words = {
+            'good', 'great', 'excellent', 'amazing', 'wonderful', 'best',
+            'positive', 'happy', 'joy', 'love', 'like', 'nice', 'perfect'
+        }
+        
+        negative_words = {
+            'bad', 'terrible', 'awful', 'horrible', 'worst', 'negative',
+            'sad', 'angry', 'hate', 'dislike', 'poor', 'wrong', 'fail'
+        }
+        
+        words = self.processor.tokenize(text, remove_stopwords=True)
+        
+        positive_count = sum(1 for word in words if word in positive_words)
+        negative_count = sum(1 for word in words if word in negative_words)
+        total_words = len(words)
+        
+        if total_words == 0:
+            return {'score': 0.0, 'subjectivity': 0.0}
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
