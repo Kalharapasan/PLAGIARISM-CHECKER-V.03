@@ -922,7 +922,7 @@ class TextAnalyzer:
         
         return max(0.0, min(1.0, cohesion))
     
-    
+    def _calculate_transition_density(self, text: str) -> float:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
