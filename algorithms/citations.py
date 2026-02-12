@@ -615,6 +615,8 @@ class ReadabilityAnalyzer:
         
         return round(max(0, smog), 2)
     
+    def calculate_coleman_liau_index(self, text: str) -> float:
+    
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
