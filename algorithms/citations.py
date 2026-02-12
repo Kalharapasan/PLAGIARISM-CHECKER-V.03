@@ -626,7 +626,6 @@ class ReadabilityAnalyzer:
         avg_letters_per_word = chars / len(words)
         avg_sentences_per_word = len(sentences) / len(words)
         grade = (0.0588 * avg_letters_per_word * 100) - (0.296 * avg_sentences_per_word * 100) - 15.8
-        
         return round(max(0, grade), 2)
     
 
