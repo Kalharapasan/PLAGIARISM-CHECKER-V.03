@@ -768,6 +768,8 @@ class TextAnalyzer:
         return analysis
     
     def _classify_text_category(self, text: str) -> TextCategory:
+        words = self.processor.tokenize(text, remove_stopwords=True)
+        word_freq = Counter(words)
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
