@@ -885,6 +885,10 @@ class TextAnalyzer:
         return max(0.0, min(1.0, formality))
     
     def _calculate_coherence(self, text: str) -> float:
+        sentences = self.processor.extract_sentences(text)
+        
+        if len(sentences) < 2:
+            return 1.0 
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
