@@ -850,6 +850,8 @@ class TextAnalyzer:
             'score': max(-1.0, min(1.0, sentiment)),
             'subjectivity': max(0.0, min(1.0, subjectivity))
         }
+    
+    def _calculate_formality(self, text: str) -> float:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
