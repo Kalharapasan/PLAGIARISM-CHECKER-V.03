@@ -774,6 +774,16 @@ class TextAnalyzer:
         academic_ratio = academic_words / len(words) if words else 0
         citations = self.processor.detect_citations(text)
         structure = self.processor.detect_academic_structure(text)
+        if academic_ratio > 0.1 or citations or structure['section_count'] > 3:
+            return TextCategory.ACADEMIC
+        elif academic_ratio > 0.05:
+            return TextCategory.TECHNICAL
+        elif any(word in ['court', 'legal', 'law', 'judge'] for word in words):
+            return TextCategory.LEGAL
+        elif any(word in ['patient', 'medical', 'health', 'disease'] for word in words):
+            return TextCategory.MEDICAL
+        else:
+            return TextCategory.UNKNOWN
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
