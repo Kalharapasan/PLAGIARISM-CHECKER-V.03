@@ -883,6 +883,8 @@ class TextAnalyzer:
             formality = 0.5
         
         return max(0.0, min(1.0, formality))
+    
+    def _calculate_coherence(self, text: str) -> float:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
