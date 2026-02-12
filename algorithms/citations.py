@@ -967,7 +967,7 @@ class TextAnalyzer:
             'comparison_timestamp': datetime.now().isoformat()
         }
 
-
+def summarize_text(text: str, max_sentences: int = 3) -> str:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
