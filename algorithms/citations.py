@@ -772,6 +772,7 @@ class TextAnalyzer:
         word_freq = Counter(words)
         academic_words = sum(word_freq[word] for word in self.processor.ACADEMIC_WORDS if word in word_freq)
         academic_ratio = academic_words / len(words) if words else 0
+        citations = self.processor.detect_citations(text)
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
