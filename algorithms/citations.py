@@ -852,6 +852,7 @@ class TextAnalyzer:
         }
     
     def _calculate_formality(self, text: str) -> float:
+        formal_indicators = {
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
