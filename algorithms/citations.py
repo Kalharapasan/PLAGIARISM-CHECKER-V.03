@@ -807,6 +807,8 @@ class TextAnalyzer:
                 return detected[0]
         
         return Language.UNKNOWN
+    
+    def _extract_topics(self, text: str, top_n: int = 5) -> List[str]:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
