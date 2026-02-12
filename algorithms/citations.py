@@ -893,6 +893,9 @@ class TextAnalyzer:
         for i in range(len(sentences) - 1):
             words1 = set(self.processor.tokenize(sentences[i]))
             words2 = set(self.processor.tokenize(sentences[i+1]))
+            if words1 and words2:
+                overlap = len(words1.intersection(words2)) / len(words1.union(words2))
+                coherence_score += overlap
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
