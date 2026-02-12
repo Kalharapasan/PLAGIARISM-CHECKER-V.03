@@ -784,6 +784,8 @@ class TextAnalyzer:
             return TextCategory.MEDICAL
         else:
             return TextCategory.UNKNOWN
+    
+    def _detect_language(self, text: str) -> Language:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
