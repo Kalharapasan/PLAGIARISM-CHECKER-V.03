@@ -861,6 +861,8 @@ class TextAnalyzer:
                                     if word in {'furthermore', 'moreover', 'however', 'therefore', 
                                                'consequently', 'nevertheless', 'nonetheless'})
         }
+        
+        informal_indicators = {}
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
