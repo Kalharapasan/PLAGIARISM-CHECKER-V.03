@@ -896,6 +896,9 @@ class TextAnalyzer:
             if words1 and words2:
                 overlap = len(words1.intersection(words2)) / len(words1.union(words2))
                 coherence_score += overlap
+        avg_coherence = coherence_score / (len(sentences) - 1) if len(sentences) > 1 else 0
+        
+        return max(0.0, min(1.0, avg_coherence))
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
