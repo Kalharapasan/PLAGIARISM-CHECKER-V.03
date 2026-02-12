@@ -621,6 +621,10 @@ class ReadabilityAnalyzer:
         
         if not sentences or not words:
             return 0.0
+        chars = sum(len(word) for word in words)
+        
+        avg_letters_per_word = chars / len(words)
+        avg_sentences_per_word = len(sentences) / len(words)
     
 
 def detect_language(text: str) -> str:
