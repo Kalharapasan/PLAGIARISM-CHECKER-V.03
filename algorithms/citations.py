@@ -731,6 +731,10 @@ class TextAnalyzer:
             
             total_syllables = sum(self.processor.count_syllables(word) for word in words)
             analysis.avg_syllables_per_word = total_syllables / analysis.word_count
+        
+        passive_count = self.processor.detect_passive_voice(text)
+        if analysis.sentence_count > 0:
+            analysis.passive_voice_percentage = (passive_count / analysis.sentence_count) * 100
 
 
 def detect_language(text: str) -> str:
