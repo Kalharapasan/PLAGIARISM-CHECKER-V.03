@@ -792,6 +792,12 @@ class TextAnalyzer:
         english_words = {'the', 'and', 'of', 'to', 'in', 'that', 'it', 'with', 'as', 'for'}
         english_score = sum(1 for word in english_words if word in text_lower)
         language_scores[Language.ENGLISH] = english_score
+        
+        spanish_words = {'el', 'la', 'de', 'que', 'y', 'en', 'los', 'del', 'se', 'las'}
+        spanish_score = sum(1 for word in spanish_words if word in text_lower)
+        language_scores[Language.SPANISH] = spanish_score
+        
+        
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
