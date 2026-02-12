@@ -800,6 +800,13 @@ class TextAnalyzer:
         french_words = {'le', 'la', 'de', 'et', 'à', 'les', 'des', 'en', 'un', 'une'}
         french_score = sum(1 for word in french_words if word in text_lower)
         language_scores[Language.FRENCH] = french_score
+        
+        if language_scores:
+            detected = max(language_scores.items(), key=lambda x: x[1])
+            if detected[1] > 0:
+                return detected[0]
+        
+        return Language.UNKNOWN
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
