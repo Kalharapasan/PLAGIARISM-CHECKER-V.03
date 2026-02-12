@@ -676,6 +676,10 @@ class ReadabilityAnalyzer:
 class TextAnalyzer:
     
     def _load_models(self):
+        try:
+            import spacy
+            try:
+                self.spacy_model = spacy.load('en_core_web_sm')
 
 
 def detect_language(text: str) -> str:
