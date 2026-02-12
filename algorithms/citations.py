@@ -558,7 +558,9 @@ class TextProcessor:
         return citations
 
 class ReadabilityAnalyzer:
-    
+    def __init__(self, language: str = 'en'):
+        self.language = language
+        self.processor = TextProcessor(language)
     
     def calculate_flesch_reading_ease(self, text: str) -> float:
         sentences = self.processor.extract_sentences(text)
