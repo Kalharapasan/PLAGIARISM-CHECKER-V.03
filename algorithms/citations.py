@@ -674,6 +674,8 @@ class ReadabilityAnalyzer:
 
 
 class TextAnalyzer:
+    
+    def _load_models(self):
 
 
 def detect_language(text: str) -> str:
