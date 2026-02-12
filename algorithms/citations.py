@@ -907,6 +907,13 @@ class TextAnalyzer:
             return 1.0
         transition_count = 0
         all_words = self.processor.tokenize(text)
+        all_transition_words = set()
+        for category in self.processor.TRANSITION_WORDS.values():
+            all_transition_words.update(category)
+        
+        for word in all_words:
+            if word in all_transition_words:
+                transition_count += 1
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
