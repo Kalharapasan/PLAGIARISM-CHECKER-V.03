@@ -914,6 +914,10 @@ class TextAnalyzer:
         for word in all_words:
             if word in all_transition_words:
                 transition_count += 1
+        if len(all_words) > 0:
+            transition_density = transition_count / len(all_words)
+        else:
+            transition_density = 0
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
