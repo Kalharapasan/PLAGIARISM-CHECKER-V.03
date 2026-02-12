@@ -840,6 +840,10 @@ class TextAnalyzer:
         
         if total_words == 0:
             return {'score': 0.0, 'subjectivity': 0.0}
+        
+        sentiment = (positive_count - negative_count) / total_words
+        
+        
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
