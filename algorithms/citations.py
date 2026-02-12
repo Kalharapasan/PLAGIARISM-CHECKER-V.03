@@ -689,6 +689,8 @@ class TextAnalyzer:
             self.nltk_available = True
         except ImportError:
             pass
+    
+    def analyze_text(self, text: str) -> NLPAnalysis:
 
 
 def detect_language(text: str) -> str:
