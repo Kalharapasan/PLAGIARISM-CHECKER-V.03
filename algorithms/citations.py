@@ -712,6 +712,8 @@ class TextAnalyzer:
         
         if analysis.word_count > 0:
             analysis.type_token_ratio = analysis.vocabulary_size / analysis.word_count
+        word_freq = Counter(words)
+        analysis.hapax_legomena = sum(1 for count in word_freq.values() if count == 1)
 
 
 def detect_language(text: str) -> str:
