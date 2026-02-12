@@ -869,6 +869,13 @@ class TextAnalyzer:
             'informal_words': sum(1 for word in self.processor.tokenize(text)
                                 if word in {'really', 'very', 'so', 'just', 'like', 'got', 'get'})
         }
+        total_words = len(self.processor.tokenize(text))
+        
+        if total_words == 0:
+            return 0.5
+        
+        formal_score = sum(formal_indicators.values()) / total_words
+        informal_score = sum(informal_indicators.values()) / total_words
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
