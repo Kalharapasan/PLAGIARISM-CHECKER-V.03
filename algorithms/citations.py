@@ -680,6 +680,10 @@ class TextAnalyzer:
             import spacy
             try:
                 self.spacy_model = spacy.load('en_core_web_sm')
+            except:
+                pass
+        except ImportError:
+            pass
 
 
 def detect_language(text: str) -> str:
