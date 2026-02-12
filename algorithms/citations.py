@@ -746,6 +746,11 @@ class TextAnalyzer:
         analysis.key_phrases = self.processor.extract_key_phrases(text)
         analysis.named_entities = self.processor.extract_named_entities(text)
 
+        academic_structure = self.processor.detect_academic_structure(text)
+        analysis.has_abstract = academic_structure['has_abstract']
+        analysis.has_introduction = academic_structure['has_introduction']
+        analysis.has_conclusion = academic_structure['has_conclusion']
+        analysis.has_references = academic_structure['has_references']
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
