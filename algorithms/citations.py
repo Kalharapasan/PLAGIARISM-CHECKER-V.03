@@ -946,6 +946,13 @@ class TextAnalyzer:
             jaccard_similarity = intersection / union if union > 0 else 0
         else:
             jaccard_similarity = 1.0
+            
+        style_differences = {
+            'avg_sentence_length': analysis2.avg_sentence_length - analysis1.avg_sentence_length,
+            'avg_word_length': analysis2.avg_word_length - analysis1.avg_word_length,
+            'passive_voice': analysis2.passive_voice_percentage - analysis1.passive_voice_percentage,
+            'lexical_density': analysis2.lexical_density - analysis1.lexical_density
+        }
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
