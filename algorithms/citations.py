@@ -660,6 +660,15 @@ class ReadabilityAnalyzer:
         return round(max(0, score), 2)
     
     def analyze_readability(self, text: str) -> Dict[str, Any]:
+        return {
+            'flesch_reading_ease': self.calculate_flesch_reading_ease(text),
+            'flesch_kincaid_grade': self.calculate_flesch_kincaid_grade(text),
+            'gunning_fog_index': self.calculate_gunning_fog_index(text),
+            'smog_index': self.calculate_smog_index(text),
+            'coleman_liau_index': self.calculate_coleman_liau_index(text),
+            'automated_readability_index': self.calculate_automated_readability_index(text),
+            'dale_chall_score': self.calculate_dale_chall_score(text)
+        }
     
 
 def detect_language(text: str) -> str:
