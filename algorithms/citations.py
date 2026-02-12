@@ -820,6 +820,8 @@ class TextAnalyzer:
         unique_topics = list(dict.fromkeys(topics))[:top_n]
         
         return unique_topics
+    
+    def _analyze_sentiment(self, text: str) -> Dict[str, float]:
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
