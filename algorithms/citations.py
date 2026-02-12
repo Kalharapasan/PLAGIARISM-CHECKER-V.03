@@ -944,6 +944,8 @@ class TextAnalyzer:
             intersection = len(words1.intersection(words2))
             union = len(words1.union(words2))
             jaccard_similarity = intersection / union if union > 0 else 0
+        else:
+            jaccard_similarity = 1.0
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
