@@ -628,6 +628,8 @@ class ReadabilityAnalyzer:
         grade = (0.0588 * avg_letters_per_word * 100) - (0.296 * avg_sentences_per_word * 100) - 15.8
         return round(max(0, grade), 2)
     
+    def calculate_automated_readability_index(self, text: str) -> float:
+    
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
