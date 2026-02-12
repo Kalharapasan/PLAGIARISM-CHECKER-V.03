@@ -890,6 +890,9 @@ class TextAnalyzer:
         if len(sentences) < 2:
             return 1.0 
         coherence_score = 0.0
+        for i in range(len(sentences) - 1):
+            words1 = set(self.processor.tokenize(sentences[i]))
+            words2 = set(self.processor.tokenize(sentences[i+1]))
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
