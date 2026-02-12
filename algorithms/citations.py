@@ -629,6 +629,11 @@ class ReadabilityAnalyzer:
         return round(max(0, grade), 2)
     
     def calculate_automated_readability_index(self, text: str) -> float:
+        sentences = self.processor.extract_sentences(text)
+        words = self.processor.tokenize(text, remove_stopwords=False)
+        
+        if not sentences or not words:
+            return 0.0
     
 
 def detect_language(text: str) -> str:
