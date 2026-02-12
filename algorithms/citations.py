@@ -755,6 +755,11 @@ class TextAnalyzer:
         citations = self.processor.detect_citations(text)
         analysis.citation_count = len(citations)
         analysis.reference_count = len(citations)
+        
+        sentiment_result = self._analyze_sentiment(text)
+        analysis.sentiment_score = sentiment_result['score']
+        analysis.subjectivity_score = sentiment_result['subjectivity']
+        analysis.formality_score = self._calculate_formality(text)
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
