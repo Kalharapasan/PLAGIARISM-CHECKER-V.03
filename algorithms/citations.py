@@ -813,6 +813,8 @@ class TextAnalyzer:
         named_entities = self.processor.extract_named_entities(text)
         
         topics = []
+        for phrase in key_phrases[:top_n]:
+            topics.append(phrase['phrase'])
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
