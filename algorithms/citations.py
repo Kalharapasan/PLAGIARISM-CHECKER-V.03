@@ -714,6 +714,14 @@ class TextAnalyzer:
             analysis.type_token_ratio = analysis.vocabulary_size / analysis.word_count
         word_freq = Counter(words)
         analysis.hapax_legomena = sum(1 for count in word_freq.values() if count == 1)
+        readability_scores = self.readability.analyze_readability(text)
+        analysis.flesch_reading_ease = readability_scores['flesch_reading_ease']
+        analysis.flesch_kincaid_grade = readability_scores['flesch_kincaid_grade']
+        analysis.gunning_fog_index = readability_scores['gunning_fog_index']
+        analysis.smog_index = readability_scores['smog_index']
+        analysis.coleman_liau_index = readability_scores['coleman_liau_index']
+        analysis.automated_readability_index = readability_scores['automated_readability_index']
+        analysis.dale_chall_score = readability_scores['dale_chall_score']
 
 
 def detect_language(text: str) -> str:
