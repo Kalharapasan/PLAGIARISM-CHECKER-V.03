@@ -760,6 +760,9 @@ class TextAnalyzer:
         analysis.sentiment_score = sentiment_result['score']
         analysis.subjectivity_score = sentiment_result['subjectivity']
         analysis.formality_score = self._calculate_formality(text)
+        analysis.coherence_score = self._calculate_coherence(text)
+        analysis.cohesion_score = self._calculate_cohesion(text)
+        analysis.transition_word_density = self._calculate_transition_density(text)
 
 def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
