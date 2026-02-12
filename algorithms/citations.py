@@ -997,6 +997,7 @@ def extract_keywords(text: str, top_n: int = 10) -> List[str]:
     processor = TextProcessor()
     words = processor.tokenize(text, remove_stopwords=True)
     words = [w for w in words if len(w) > 3]
+    word_freq = Counter(words)
     
 
 def detect_language(text: str) -> str:
