@@ -398,3 +398,5 @@ class MLFeatures:
         import re
         sentences = re.split(r'[.!?]+\s+', text)
         return len([s for s in sentences if len(s.strip()) > 5])
+
+    def _count_paragraphs(self, text: str) -> int:
