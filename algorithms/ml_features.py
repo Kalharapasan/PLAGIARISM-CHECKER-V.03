@@ -234,3 +234,10 @@ class MLFeatures:
         all_features['embeddings'] = embeddings
         combined_vector = self._create_combined_feature_vector(text)
         all_features['combined_vector'] = combined_vector.tolist()
+        all_features['metadata'] = {
+            'text_length': len(text),
+            'feature_extraction_time': datetime.now().isoformat(),
+            'total_features': len(combined_vector)
+        }
+        
+        return all_features
