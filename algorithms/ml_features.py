@@ -512,7 +512,8 @@ class MLFeatures:
             
             nlp = self.models['spacy_nlp']
             doc = nlp(text)
-            
+            features['spacy_token_count'] = len(doc)
+            features['spacy_sentence_count'] = len(list(doc.sents))
         
         except ImportError:
             pass
