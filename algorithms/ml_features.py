@@ -120,3 +120,6 @@ class MLFeatures:
         if words:
             function_word_count = sum(1 for w in words if w in function_words)
             features['function_word_ratio'] = function_word_count / len(words)
+        pos_tags = self._estimate_pos_tags(text)
+        for pos, count in pos_tags.items():
+            features[f'pos_{pos}_ratio'] = count / max(sum(pos_tags.values()), 1)
