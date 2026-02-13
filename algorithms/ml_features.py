@@ -402,3 +402,5 @@ class MLFeatures:
     def _count_paragraphs(self, text: str) -> int:
         paragraphs = text.split('\n\n')
         return len([p for p in paragraphs if len(p.strip()) > 20])
+    
+    def _estimate_pos_tags(self, text: str) -> Dict[str, int]:
