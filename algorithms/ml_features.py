@@ -278,3 +278,8 @@ class MLFeatures:
                 results['cluster_assignment'] = cluster_id
         except:
             pass
+        
+        recommendations = self._generate_recommendations(results)
+        results['recommendations'] = recommendations
+        
+        return results
