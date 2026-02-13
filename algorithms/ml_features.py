@@ -183,3 +183,8 @@ class MLFeatures:
             elif method == 'char':
                 vectorizer = self.vectorizers['char']
                 embedding = vectorizer.fit_transform([text]).toarray()[0]
+            elif method == 'svd':
+                tfidf_vec = self.vectorizers['tfidf']
+                tfidf_matrix = tfidf_vec.fit_transform([text])
+                svd_model = self.models['svd']
+                embedding = svd_model.fit_transform(tfidf_matrix).flatten()
