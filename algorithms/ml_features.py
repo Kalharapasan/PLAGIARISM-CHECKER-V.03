@@ -374,3 +374,10 @@ class MLFeatures:
     def predict_plagiarism(self, text: str) -> Dict[str, Any]:
         if 'plagiarism_classifier' not in self.models:
             return {'error': 'No trained classifier available'}
+        
+        try:
+            features = self.extract_all_features(text)
+            X = features['combined_vector'].reshape(1, -1)
+            
+        except Exception as e:
+            return {'error': f"Prediction failed: {e}"}
