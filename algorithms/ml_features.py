@@ -381,6 +381,15 @@ class MLFeatures:
             model = self.models['plagiarism_classifier']
             prediction = model.predict(X)[0]
             probability = model.predict_proba(X)[0][1]
+            contributions = self._get_feature_contributions(model, X[0])
+            
+            return {
+                'is_plagiarized': bool(prediction),
+                'plagiarism_probability': float(probability),
+                'confidence': self._calculate_confidence(probability),
+                'feature_contributions': contributions[:10],  
+                'recommendation': self._get_prediction_recommendation(probability)
+            }
             
         except Exception as e:
             return {'error': f"Prediction failed: {e}"}
