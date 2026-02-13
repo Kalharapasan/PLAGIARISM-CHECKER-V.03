@@ -395,3 +395,6 @@ class MLFeatures:
             return {'error': f"Prediction failed: {e}"}
         
     def _count_sentences(self, text: str) -> int:
+        import re
+        sentences = re.split(r'[.!?]+\s+', text)
+        return len([s for s in sentences if len(s.strip()) > 5])
