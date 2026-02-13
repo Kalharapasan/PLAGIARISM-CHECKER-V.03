@@ -271,3 +271,10 @@ class MLFeatures:
         
         patterns = self._detect_specific_patterns(text, features)
         results['pattern_matches'] = patterns
+        
+        try:
+            if 'combined_vector' in features:
+                cluster_id = self._assign_to_cluster(features['combined_vector'])
+                results['cluster_assignment'] = cluster_id
+        except:
+            pass
