@@ -217,3 +217,5 @@ class MLFeatures:
     
     def extract_all_features(self, text: str) -> Dict[str, Any]:
         all_features = {}
+        linguistic = self.extract_linguistic_features(text)
+        all_features['linguistic'] = linguistic
