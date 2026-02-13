@@ -67,3 +67,7 @@ class MLFeatures:
             print(f"⚠ Some ML components not available: {e}")
     
     def extract_linguistic_features(self, text: str) -> Dict[str, float]:
+        features['char_count'] = len(text)
+        features['word_count'] = len(text.split())
+        features['sentence_count'] = self._count_sentences(text)
+        features['paragraph_count'] = self._count_paragraphs(text)
