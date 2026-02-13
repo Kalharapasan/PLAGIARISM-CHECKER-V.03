@@ -415,3 +415,32 @@ class MLFeatures:
             'pronoun': 0,
             'determiner': 0
         }
+        nouns = {'time', 'person', 'year', 'way', 'day', 'thing', 'man', 'world', 'life', 'hand'}
+        verbs = {'be', 'have', 'do', 'say', 'get', 'make', 'go', 'know', 'take', 'see'}
+        adjectives = {'good', 'new', 'first', 'last', 'long', 'great', 'little', 'own', 'other', 'old'}
+        adverbs = {'not', 'also', 'very', 'often', 'well', 'too', 'just', 'more', 'so', 'now'}
+        prepositions = {'of', 'in', 'to', 'for', 'with', 'on', 'at', 'from', 'by', 'about'}
+        conjunctions = {'and', 'but', 'or', 'so', 'yet', 'for', 'nor', 'although', 'because'}
+        pronouns = {'I', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her'}
+        determiners = {'the', 'a', 'an', 'this', 'that', 'these', 'those', 'my', 'your', 'his'}
+        
+        for word in words:
+            word_lower = word.lower()
+            if word_lower in nouns:
+                pos_counts['noun'] += 1
+            elif word_lower in verbs:
+                pos_counts['verb'] += 1
+            elif word_lower in adjectives:
+                pos_counts['adjective'] += 1
+            elif word_lower in adverbs:
+                pos_counts['adverb'] += 1
+            elif word_lower in prepositions:
+                pos_counts['preposition'] += 1
+            elif word_lower in conjunctions:
+                pos_counts['conjunction'] += 1
+            elif word_lower in pronouns:
+                pos_counts['pronoun'] += 1
+            elif word_lower in determiners:
+                pos_counts['determiner'] += 1
+        
+        return pos_counts
