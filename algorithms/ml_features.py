@@ -378,6 +378,9 @@ class MLFeatures:
         try:
             features = self.extract_all_features(text)
             X = features['combined_vector'].reshape(1, -1)
+            model = self.models['plagiarism_classifier']
+            prediction = model.predict(X)[0]
+            probability = model.predict_proba(X)[0][1]
             
         except Exception as e:
             return {'error': f"Prediction failed: {e}"}
