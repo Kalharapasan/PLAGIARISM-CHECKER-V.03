@@ -124,3 +124,8 @@ class MLFeatures:
         for pos, count in pos_tags.items():
             features[f'pos_{pos}_ratio'] = count / max(sum(pos_tags.values()), 1)
         sentences = self._extract_sentences(text)
+        if sentences:
+            sent_lengths = [len(s.split()) for s in sentences]
+            features['sentence_length_mean'] = np.mean(sent_lengths)
+            features['sentence_length_std'] = np.std(sent_lengths)
+            features['sentence_length_cv'] = features['sentence_length_std'] / max(features['sentence_length_mean'], 1)
