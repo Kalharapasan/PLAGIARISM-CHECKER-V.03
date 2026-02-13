@@ -252,3 +252,5 @@ class MLFeatures:
             'recommendations': []
         }
         features = self.extract_all_features(text)
+        anomaly_scores = self._calculate_anomaly_scores(features['combined_vector'])
+        results['anomaly_scores'] = anomaly_scores
