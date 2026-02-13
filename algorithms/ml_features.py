@@ -219,3 +219,5 @@ class MLFeatures:
         all_features = {}
         linguistic = self.extract_linguistic_features(text)
         all_features['linguistic'] = linguistic
+        stylometric = self.extract_stylometric_features(text)
+        all_features['stylometric'] = stylometric
