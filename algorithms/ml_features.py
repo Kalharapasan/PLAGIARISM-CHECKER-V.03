@@ -65,3 +65,5 @@ class MLFeatures:
         
         except ImportError as e:
             print(f"⚠ Some ML components not available: {e}")
+    
+    def extract_linguistic_features(self, text: str) -> Dict[str, float]:
