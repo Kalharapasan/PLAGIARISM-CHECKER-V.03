@@ -446,3 +446,6 @@ class MLFeatures:
         return pos_counts
     
     def _extract_sentences(self, text: str) -> List[str]:
+        import re
+        sentences = re.split(r'[.!?]+\s+', text)
+        return [s.strip() for s in sentences if len(s.strip()) > 10]
