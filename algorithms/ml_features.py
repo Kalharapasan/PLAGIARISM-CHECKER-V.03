@@ -334,6 +334,9 @@ class MLFeatures:
                 model = RandomForestClassifier(random_state=42)
             
             model.fit(X_train, y_train)
+            
+            y_pred = model.predict(X_test)
+            y_pred_proba = model.predict_proba(X_test)[:, 1]
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
