@@ -150,3 +150,5 @@ class MLFeatures:
         features['dislegomena_ratio'] = dislegomena_count / max(len(word_freq), 1)
         
         return features
+    
+    def extract_nlp_features(self, text: str) -> Dict[str, Any]:
