@@ -195,3 +195,7 @@ class MLFeatures:
                 count_matrix = count_vec.fit_transform([text])
                 lda_model = self.models['lda']
                 embedding = lda_model.fit_transform(count_matrix).flatten()
+            
+            else:
+                vectorizer = self.vectorizers['tfidf']
+                embedding = vectorizer.fit_transform([text]).toarray()[0]
