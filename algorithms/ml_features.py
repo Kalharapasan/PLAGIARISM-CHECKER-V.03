@@ -251,3 +251,4 @@ class MLFeatures:
             'cluster_assignment': None,
             'recommendations': []
         }
+        features = self.extract_all_features(text)
