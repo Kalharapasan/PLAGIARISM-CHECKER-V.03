@@ -132,3 +132,5 @@ class MLFeatures:
             sentence_beginnings = [s.split()[0].lower() if s.split() else '' for s in sentences[:50]]
             conjunction_beginnings = sum(1 for w in sentence_beginnings if w in {'and', 'but', 'or', 'however', 'therefore', 'thus', 'hence'})
             features['conjunction_sentence_start_ratio'] = conjunction_beginnings / len(sentences)
+        sophisticated_words = self._identify_sophisticated_words(text)
+        features['sophisticated_word_ratio'] = len(sophisticated_words) / max(len(words), 1)
