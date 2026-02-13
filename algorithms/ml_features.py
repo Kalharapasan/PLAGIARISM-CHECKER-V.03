@@ -167,3 +167,19 @@ class MLFeatures:
                                  method: str = 'tfidf') -> np.ndarray:
         if method not in self.vectorizers and method not in self.models:
             raise ValueError(f"Unsupported embedding method: {method}")
+        cache_key = f"{hashlib.md5(text.encode()).hexdigest()}_{method}"
+        if cache_key in self.feature_cache:
+            return self.feature_cache[cache_key]
+        
+        try:
+            if method == 'tfidf':
+                vectorizer = self.vectorizers['tfidf']
+                embedding = vectorizer.fit_transform([text]).toarray()[0]
+            
+            elif method == 'count':
+                vectorizer = self.vectorizers['count']
+                embedding = vectorizer.fit_transform([text]).toarray()[0]
+            
+            elif method == 'char':
+                vectorizer = self.vectorizers['char']
+                embedding = vectorizer.fit_transform([text]).toarray()[0]
