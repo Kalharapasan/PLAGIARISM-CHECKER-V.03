@@ -89,3 +89,5 @@ class MLFeatures:
             features['uppercase_ratio'] = sum(c.isupper() for c in text) / len(text)
         features['avg_sentence_length'] = features['word_count'] / max(features['sentence_count'], 1)
         features['avg_paragraph_length'] = features['sentence_count'] / max(features['paragraph_count'], 1)
+        complex_words = [w for w in words if len(w) > 6]
+        features['complex_word_ratio'] = len(complex_words) / max(len(words), 1)
