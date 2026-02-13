@@ -15,3 +15,13 @@ class MLFeatures:
     
     
     def _initialize_ml_components(self):
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+            from sklearn.preprocessing import StandardScaler, MinMaxScaler
+            from sklearn.decomposition import PCA, TruncatedSVD, LatentDirichletAllocation
+            from sklearn.cluster import KMeans, DBSCAN
+            from sklearn.ensemble import IsolationForest
+            from sklearn.neighbors import LocalOutlierFactor
+        
+        except ImportError as e:
+            print(f"⚠ Some ML components not available: {e}")
