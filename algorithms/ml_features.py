@@ -134,3 +134,6 @@ class MLFeatures:
             features['conjunction_sentence_start_ratio'] = conjunction_beginnings / len(sentences)
         sophisticated_words = self._identify_sophisticated_words(text)
         features['sophisticated_word_ratio'] = len(sophisticated_words) / max(len(words), 1)
+        punctuation_counts = Counter(c for c in text if c in '.,;:!?\'"()-[]{}')
+        for punct, count in punctuation_counts.items():
+            features[f'punctuation_{punct}_ratio'] = count / max(len(text), 1)
