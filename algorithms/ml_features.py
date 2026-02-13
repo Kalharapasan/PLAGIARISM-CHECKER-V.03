@@ -81,3 +81,9 @@ class MLFeatures:
             common_words = {'the', 'and', 'of', 'to', 'in', 'a', 'is', 'that', 'for', 'it'}
             common_word_count = sum(1 for w in words if w.lower() in common_words)
             features['common_word_ratio'] = common_word_count / len(words)
+        if text:
+            features['digit_ratio'] = sum(c.isdigit() for c in text) / len(text)
+            features['letter_ratio'] = sum(c.isalpha() for c in text) / len(text)
+            features['space_ratio'] = sum(c.isspace() for c in text) / len(text)
+            features['punctuation_ratio'] = sum(c in '.,;:!?\'"()-[]{}' for c in text) / len(text)
+            features['uppercase_ratio'] = sum(c.isupper() for c in text) / len(text)
