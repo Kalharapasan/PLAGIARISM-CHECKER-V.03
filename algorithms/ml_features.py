@@ -355,6 +355,16 @@ class MLFeatures:
                 'false_negative': int(cm[1, 0]),
                 'true_positive': int(cm[1, 1])
             }
+            self.models['plagiarism_classifier'] = model
+            
+            return {
+                'model_type': model_type,
+                'metrics': metrics,
+                'confusion_matrix': cm_dict,
+                'feature_importance': self._get_feature_importance(model, X.shape[1]),
+                'training_samples': len(X_train),
+                'test_samples': len(X_test)
+            }
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
