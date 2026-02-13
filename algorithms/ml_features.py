@@ -87,3 +87,5 @@ class MLFeatures:
             features['space_ratio'] = sum(c.isspace() for c in text) / len(text)
             features['punctuation_ratio'] = sum(c in '.,;:!?\'"()-[]{}' for c in text) / len(text)
             features['uppercase_ratio'] = sum(c.isupper() for c in text) / len(text)
+        features['avg_sentence_length'] = features['word_count'] / max(features['sentence_count'], 1)
+        features['avg_paragraph_length'] = features['sentence_count'] / max(features['paragraph_count'], 1)
