@@ -322,6 +322,18 @@ class MLFeatures:
                 model = MultinomialNB()
             elif model_type == 'xgboost':
                 model = xgb.XGBClassifier(random_state=42)
+            elif model_type == 'ensemble':
+                from sklearn.ensemble import VotingClassifier
+                models = [
+                    ('lr', LogisticRegression(random_state=42, max_iter=1000)),
+                    ('rf', RandomForestClassifier(random_state=42, n_estimators=50)),
+                    ('svm', SVC(random_state=42, probability=True))
+                ]
+                model = VotingClassifier(estimators=models, voting='soft')
+            else:
+                model = RandomForestClassifier(random_state=42)
+            
+            model.fit(X_train, y_train)
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
