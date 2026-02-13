@@ -529,6 +529,8 @@ class MLFeatures:
             
             features['spacy_max_dependency_depth'] = max_depth
             features['spacy_named_entity_count'] = len(doc.ents)
+            unique_lemmas = len(set([token.lemma_ for token in doc]))
+            features['spacy_unique_lemma_ratio'] = unique_lemmas / len(doc)
             
         except ImportError:
             pass
