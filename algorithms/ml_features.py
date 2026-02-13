@@ -295,6 +295,16 @@ class MLFeatures:
             from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
             from sklearn.naive_bayes import MultinomialNB
             import xgboost as xgb
+            
+            print("Extracting features...")
+            feature_vectors = []
+            for text in texts:
+                features = self.extract_all_features(text)
+                vector = features['combined_vector']
+                feature_vectors.append(vector)
+            
+            X = np.array(feature_vectors)
+            y = np.array(labels)
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
