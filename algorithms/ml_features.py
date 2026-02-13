@@ -283,3 +283,8 @@ class MLFeatures:
         results['recommendations'] = recommendations
         
         return results
+    
+    def train_plagiarism_classifier(self, texts: List[str], 
+                                  labels: List[int],
+                                  model_type: str = 'ensemble') -> Dict[str, Any]:
+        
