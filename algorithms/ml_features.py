@@ -199,3 +199,6 @@ class MLFeatures:
             else:
                 vectorizer = self.vectorizers['tfidf']
                 embedding = vectorizer.fit_transform([text]).toarray()[0]
+            self.feature_cache[cache_key] = embedding
+            
+            return embedding
