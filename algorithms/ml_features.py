@@ -162,3 +162,6 @@ class MLFeatures:
         semantic_features = self._extract_semantic_features(text)
         features.update(semantic_features)        
         return features
+    
+    def extract_embedding_features(self, text: str, 
+                                 method: str = 'tfidf') -> np.ndarray:
