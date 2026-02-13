@@ -12,3 +12,6 @@ from datetime import datetime
 warnings.filterwarnings('ignore')
 
 class MLFeatures:
+    
+    
+    def _initialize_ml_components(self):
