@@ -372,3 +372,5 @@ class MLFeatures:
             return {'error': f"Training failed: {e}"}
     
     def predict_plagiarism(self, text: str) -> Dict[str, Any]:
+        if 'plagiarism_classifier' not in self.models:
+            return {'error': 'No trained classifier available'}
