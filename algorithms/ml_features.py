@@ -52,6 +52,16 @@ class MLFeatures:
             )
             self.models['kmeans'] = KMeans(n_clusters=5, random_state=42)
             self.models['dbscan'] = DBSCAN(eps=0.5, min_samples=5)
+            self.models['isolation_forest'] = IsolationForest(
+                contamination=0.1,
+                random_state=42
+            )
+            self.models['lof'] = LocalOutlierFactor(
+                contamination=0.1,
+                novelty=True
+            )
+            
+            print("✓ ML components initialized successfully")
         
         except ImportError as e:
             print(f"⚠ Some ML components not available: {e}")
