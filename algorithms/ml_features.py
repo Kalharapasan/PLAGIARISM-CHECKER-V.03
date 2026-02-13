@@ -137,3 +137,8 @@ class MLFeatures:
         punctuation_counts = Counter(c for c in text if c in '.,;:!?\'"()-[]{}')
         for punct, count in punctuation_counts.items():
             features[f'punctuation_{punct}_ratio'] = count / max(len(text), 1)
+        word_lengths = [len(w) for w in words]
+        if word_lengths:
+            features['word_length_mean'] = np.mean(word_lengths)
+            features['word_length_std'] = np.std(word_lengths)
+            features['word_length_skew'] = self._calculate_skewness(word_lengths)
