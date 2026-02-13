@@ -444,3 +444,5 @@ class MLFeatures:
                 pos_counts['determiner'] += 1
         
         return pos_counts
+    
+    def _extract_sentences(self, text: str) -> List[str]:
