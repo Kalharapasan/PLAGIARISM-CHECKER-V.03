@@ -268,3 +268,6 @@ class MLFeatures:
                     'std': np.std(similarities)
                 }
                 results['plagiarism_score'] = np.max(similarities)
+        
+        patterns = self._detect_specific_patterns(text, features)
+        results['pattern_matches'] = patterns
