@@ -472,3 +472,15 @@ class MLFeatures:
         return list(set(sophisticated))[:20]
     
     def _calculate_skewness(self, data: List[float]) -> float:
+        if len(data) < 2:
+            return 0.0
+        
+        data_array = np.array(data)
+        mean = np.mean(data_array)
+        std = np.std(data_array)
+        
+        if std == 0:
+            return 0.0
+        
+        skewness = np.mean(((data_array - mean) / std) ** 3)
+        return float(skewness)
