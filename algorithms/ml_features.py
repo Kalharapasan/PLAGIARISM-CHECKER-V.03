@@ -503,7 +503,16 @@ class MLFeatures:
         try:
             import spacy
             if 'spacy_nlp' not in self.models:
-                
+                try:
+                    self.models['spacy_nlp'] = spacy.load('en_core_web_sm')
+                except:
+                    import subprocess
+                    subprocess.run(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
+                    self.models['spacy_nlp'] = spacy.load('en_core_web_sm')
+            
+            nlp = self.models['spacy_nlp']
+            doc = nlp(text)
+            
         
         except ImportError:
             pass
