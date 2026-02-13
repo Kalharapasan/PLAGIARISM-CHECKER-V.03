@@ -123,3 +123,4 @@ class MLFeatures:
         pos_tags = self._estimate_pos_tags(text)
         for pos, count in pos_tags.items():
             features[f'pos_{pos}_ratio'] = count / max(sum(pos_tags.values()), 1)
+        sentences = self._extract_sentences(text)
