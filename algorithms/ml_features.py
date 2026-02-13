@@ -10,3 +10,5 @@ import hashlib
 from datetime import datetime
 
 warnings.filterwarnings('ignore')
+
+class MLFeatures:
