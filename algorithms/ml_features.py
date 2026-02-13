@@ -400,3 +400,5 @@ class MLFeatures:
         return len([s for s in sentences if len(s.strip()) > 5])
 
     def _count_paragraphs(self, text: str) -> int:
+        paragraphs = text.split('\n\n')
+        return len([p for p in paragraphs if len(p.strip()) > 20])
