@@ -486,3 +486,14 @@ class MLFeatures:
         return float(skewness)
     
     def _calculate_ttr_segments(self, text: str, segment_size: int = 100) -> List[float]:
+        words = text.split()
+        ttr_values = []
+        
+        for i in range(0, len(words), segment_size):
+            segment = words[i:i + segment_size]
+            if segment:
+                unique_words = len(set(segment))
+                ttr = unique_words / len(segment)
+                ttr_values.append(ttr)
+        
+        return ttr_values
