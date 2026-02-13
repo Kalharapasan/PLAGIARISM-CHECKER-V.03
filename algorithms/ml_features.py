@@ -152,3 +152,4 @@ class MLFeatures:
         return features
     
     def extract_nlp_features(self, text: str) -> Dict[str, Any]:
+        features = {}
