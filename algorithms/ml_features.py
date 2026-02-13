@@ -308,6 +308,20 @@ class MLFeatures:
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y, test_size=0.2, random_state=42, stratify=y
             )
+            print(f"Training {model_type} classifier...")
+            
+            if model_type == 'logistic':
+                model = LogisticRegression(random_state=42, max_iter=1000)
+            elif model_type == 'svm':
+                model = SVC(random_state=42, probability=True)
+            elif model_type == 'random_forest':
+                model = RandomForestClassifier(random_state=42, n_estimators=100)
+            elif model_type == 'gradient_boosting':
+                model = GradientBoostingClassifier(random_state=42)
+            elif model_type == 'naive_bayes':
+                model = MultinomialNB()
+            elif model_type == 'xgboost':
+                model = xgb.XGBClassifier(random_state=42)
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
