@@ -470,3 +470,5 @@ class MLFeatures:
         common_suffixes = {'ing', 'ed', 'ly', 'tion', 'ment', 'ness', 'able', 'ible'}
         sophisticated = [w for w in sophisticated if not any(w.endswith(suffix) for suffix in common_suffixes)]
         return list(set(sophisticated))[:20]
+    
+    def _calculate_skewness(self, data: List[float]) -> float:
