@@ -404,3 +404,14 @@ class MLFeatures:
         return len([p for p in paragraphs if len(p.strip()) > 20])
     
     def _estimate_pos_tags(self, text: str) -> Dict[str, int]:
+        words = text.split()
+        pos_counts = {
+            'noun': 0,
+            'verb': 0,
+            'adjective': 0,
+            'adverb': 0,
+            'preposition': 0,
+            'conjunction': 0,
+            'pronoun': 0,
+            'determiner': 0
+        }
