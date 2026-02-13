@@ -528,7 +528,7 @@ class MLFeatures:
                 max_depth = max(max_depth, depth)
             
             features['spacy_max_dependency_depth'] = max_depth
-            
+            features['spacy_named_entity_count'] = len(doc.ents)
             
         except ImportError:
             pass
