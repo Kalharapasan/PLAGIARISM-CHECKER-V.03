@@ -159,3 +159,6 @@ class MLFeatures:
         features.update(nltk_features)
         graph_features = self._extract_graph_features(text)
         features.update(graph_features)
+        semantic_features = self._extract_semantic_features(text)
+        features.update(semantic_features)        
+        return features
