@@ -142,3 +142,6 @@ class MLFeatures:
             features['word_length_mean'] = np.mean(word_lengths)
             features['word_length_std'] = np.std(word_lengths)
             features['word_length_skew'] = self._calculate_skewness(word_lengths)
+        ttr_segments = self._calculate_ttr_segments(text)
+        features['ttr_mean'] = np.mean(ttr_segments)
+        features['ttr_std'] = np.std(ttr_segments)
