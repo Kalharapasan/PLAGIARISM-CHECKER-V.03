@@ -157,3 +157,5 @@ class MLFeatures:
         features.update(spacy_features)
         nltk_features = self._extract_nltk_features(text)
         features.update(nltk_features)
+        graph_features = self._extract_graph_features(text)
+        features.update(graph_features)
