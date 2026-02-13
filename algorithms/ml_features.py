@@ -95,3 +95,5 @@ class MLFeatures:
         features['hapax_legomena_ratio'] = hapax_count / max(len(word_freq), 1)
         
         return features
+    
+    def extract_stylometric_features(self, text: str) -> Dict[str, float]:
