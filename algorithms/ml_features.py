@@ -241,3 +241,6 @@ class MLFeatures:
         }
         
         return all_features
+    
+    def detect_plagiarism_patterns(self, text: str, 
+                                 reference_texts: List[str] = None) -> Dict[str, Any]:
