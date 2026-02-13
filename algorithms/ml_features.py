@@ -129,3 +129,6 @@ class MLFeatures:
             features['sentence_length_mean'] = np.mean(sent_lengths)
             features['sentence_length_std'] = np.std(sent_lengths)
             features['sentence_length_cv'] = features['sentence_length_std'] / max(features['sentence_length_mean'], 1)
+            sentence_beginnings = [s.split()[0].lower() if s.split() else '' for s in sentences[:50]]
+            conjunction_beginnings = sum(1 for w in sentence_beginnings if w in {'and', 'but', 'or', 'however', 'therefore', 'thus', 'hence'})
+            features['conjunction_sentence_start_ratio'] = conjunction_beginnings / len(sentences)
