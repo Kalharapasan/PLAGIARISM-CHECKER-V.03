@@ -153,3 +153,5 @@ class MLFeatures:
     
     def extract_nlp_features(self, text: str) -> Dict[str, Any]:
         features = {}
+        spacy_features = self._extract_spacy_features(text)
+        features.update(spacy_features)
