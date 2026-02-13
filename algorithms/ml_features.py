@@ -216,3 +216,4 @@ class MLFeatures:
                 return np.zeros(100)
     
     def extract_all_features(self, text: str) -> Dict[str, Any]:
+        all_features = {}
