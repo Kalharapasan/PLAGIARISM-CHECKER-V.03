@@ -500,3 +500,14 @@ class MLFeatures:
     
     def _extract_spacy_features(self, text: str) -> Dict[str, float]:
         features = {}
+        try:
+            import spacy
+            if 'spacy_nlp' not in self.models:
+                
+        
+        except ImportError:
+            pass
+        except Exception as e:
+            print(f"Warning: spaCy feature extraction failed: {e}")
+        
+        return features
