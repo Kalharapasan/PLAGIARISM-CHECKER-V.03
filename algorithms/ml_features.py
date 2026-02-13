@@ -449,3 +449,5 @@ class MLFeatures:
         import re
         sentences = re.split(r'[.!?]+\s+', text)
         return [s.strip() for s in sentences if len(s.strip()) > 10]
+    
+    def _identify_sophisticated_words(self, text: str) -> List[str]:
