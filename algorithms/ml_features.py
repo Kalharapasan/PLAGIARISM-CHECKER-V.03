@@ -165,3 +165,5 @@ class MLFeatures:
     
     def extract_embedding_features(self, text: str, 
                                  method: str = 'tfidf') -> np.ndarray:
+        if method not in self.vectorizers and method not in self.models:
+            raise ValueError(f"Unsupported embedding method: {method}")
