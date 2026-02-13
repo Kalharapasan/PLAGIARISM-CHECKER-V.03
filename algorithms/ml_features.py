@@ -97,3 +97,4 @@ class MLFeatures:
         return features
     
     def extract_stylometric_features(self, text: str) -> Dict[str, float]:
+        features = {}
