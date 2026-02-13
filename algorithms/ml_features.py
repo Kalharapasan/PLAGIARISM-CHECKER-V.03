@@ -41,6 +41,8 @@ class MLFeatures:
                 ngram_range=(3, 5),
                 max_features=2000
             )
+            self.models['scaler'] = StandardScaler()
+            self.models['minmax'] = MinMaxScaler()
         
         except ImportError as e:
             print(f"⚠ Some ML components not available: {e}")
