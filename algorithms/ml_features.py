@@ -499,3 +499,4 @@ class MLFeatures:
         return ttr_values
     
     def _extract_spacy_features(self, text: str) -> Dict[str, float]:
+        features = {}
