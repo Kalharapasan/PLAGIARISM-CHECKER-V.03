@@ -469,3 +469,4 @@ class MLFeatures:
         sophisticated = [w for w in words if len(w) > 6 and w not in common_words]
         common_suffixes = {'ing', 'ed', 'ly', 'tion', 'ment', 'ness', 'able', 'ible'}
         sophisticated = [w for w in sophisticated if not any(w.endswith(suffix) for suffix in common_suffixes)]
+        return list(set(sophisticated))[:20]
