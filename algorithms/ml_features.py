@@ -370,3 +370,5 @@ class MLFeatures:
             return {'error': f"Required libraries not available: {e}"}
         except Exception as e:
             return {'error': f"Training failed: {e}"}
+    
+    def predict_plagiarism(self, text: str) -> Dict[str, Any]:
