@@ -71,3 +71,8 @@ class MLFeatures:
         features['word_count'] = len(text.split())
         features['sentence_count'] = self._count_sentences(text)
         features['paragraph_count'] = self._count_paragraphs(text)
+        words = text.split()
+        if words:
+            features['avg_word_length'] = sum(len(w) for w in words) / len(words)
+            features['max_word_length'] = max(len(w) for w in words)
+            features['unique_word_ratio'] = len(set(words)) / len(words)
