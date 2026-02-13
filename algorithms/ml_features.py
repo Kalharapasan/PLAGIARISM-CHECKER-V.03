@@ -202,3 +202,15 @@ class MLFeatures:
             self.feature_cache[cache_key] = embedding
             
             return embedding
+        except Exception as e:
+            print(f"Warning: Embedding extraction failed: {e}")
+            if method in ['tfidf', 'count']:
+                return np.zeros(5000)
+            elif method == 'char':
+                return np.zeros(2000)
+            elif method == 'svd':
+                return np.zeros(100)
+            elif method == 'lda':
+                return np.zeros(10)
+            else:
+                return np.zeros(100)
