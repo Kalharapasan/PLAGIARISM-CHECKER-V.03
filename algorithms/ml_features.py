@@ -145,3 +145,8 @@ class MLFeatures:
         ttr_segments = self._calculate_ttr_segments(text)
         features['ttr_mean'] = np.mean(ttr_segments)
         features['ttr_std'] = np.std(ttr_segments)
+        word_freq = Counter(words)
+        dislegomena_count = sum(1 for count in word_freq.values() if count == 2)
+        features['dislegomena_ratio'] = dislegomena_count / max(len(word_freq), 1)
+        
+        return features
