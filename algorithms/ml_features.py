@@ -517,7 +517,19 @@ class MLFeatures:
             pos_counts = Counter([token.pos_ for token in doc])
             for pos, count in pos_counts.items():
                 features[f'spacy_{pos.lower()}_ratio'] = count / len(doc)
-        
+
+            max_depth = 0
+            for token in doc:
+                depth = 0
+                current = token
+                while current.head != current:
+                    depth += 1
+                    current = current.head
+                max_depth = max(max_depth, depth)
+            
+            features['spacy_max_dependency_depth'] = max_depth
+            
+            
         except ImportError:
             pass
         except Exception as e:
