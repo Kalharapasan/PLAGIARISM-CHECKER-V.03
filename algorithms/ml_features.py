@@ -465,3 +465,5 @@ class MLFeatures:
             'well', 'way', 'even', 'new', 'want', 'because', 'any', 'these',
             'give', 'day', 'most', 'us'
         }
+        words = text.lower().split()
+        sophisticated = [w for w in words if len(w) > 6 and w not in common_words]
