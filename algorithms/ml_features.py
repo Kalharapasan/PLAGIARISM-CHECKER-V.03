@@ -223,3 +223,12 @@ class MLFeatures:
         all_features['stylometric'] = stylometric
         nlp = self.extract_nlp_features(text)
         all_features['nlp'] = nlp
+        embeddings = {}
+        for method in ['tfidf', 'count', 'char', 'svd', 'lda']:
+            try:
+                embedding = self.extract_embedding_features(text, method)
+                embeddings[method] = embedding.tolist()
+            except:
+                pass
+        
+        all_features['embeddings'] = embeddings
