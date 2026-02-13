@@ -514,6 +514,9 @@ class MLFeatures:
             doc = nlp(text)
             features['spacy_token_count'] = len(doc)
             features['spacy_sentence_count'] = len(list(doc.sents))
+            pos_counts = Counter([token.pos_ for token in doc])
+            for pos, count in pos_counts.items():
+                features[f'spacy_{pos.lower()}_ratio'] = count / len(doc)
         
         except ImportError:
             pass
