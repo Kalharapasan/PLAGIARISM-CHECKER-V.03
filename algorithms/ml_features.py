@@ -76,3 +76,5 @@ class MLFeatures:
             features['avg_word_length'] = sum(len(w) for w in words) / len(words)
             features['max_word_length'] = max(len(w) for w in words)
             features['unique_word_ratio'] = len(set(words)) / len(words)
+            word_freq = Counter(words)
+            features['vocabulary_richness'] = len(word_freq) / len(words)
