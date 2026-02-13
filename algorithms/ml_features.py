@@ -22,6 +22,25 @@ class MLFeatures:
             from sklearn.cluster import KMeans, DBSCAN
             from sklearn.ensemble import IsolationForest
             from sklearn.neighbors import LocalOutlierFactor
+            self.vectorizers['tfidf'] = TfidfVectorizer(
+                max_features=5000,
+                stop_words='english',
+                ngram_range=(1, 3),
+                min_df=2,
+                max_df=0.95
+            )
+            
+            self.vectorizers['count'] = CountVectorizer(
+                max_features=3000,
+                stop_words='english',
+                ngram_range=(1, 2)
+            )
+            
+            self.vectorizers['char'] = CountVectorizer(
+                analyzer='char',
+                ngram_range=(3, 5),
+                max_features=2000
+            )
         
         except ImportError as e:
             print(f"⚠ Some ML components not available: {e}")
