@@ -484,3 +484,5 @@ class MLFeatures:
         
         skewness = np.mean(((data_array - mean) / std) ** 3)
         return float(skewness)
+    
+    def _calculate_ttr_segments(self, text: str, segment_size: int = 100) -> List[float]:
