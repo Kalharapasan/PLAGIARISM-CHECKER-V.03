@@ -267,3 +267,4 @@ class MLFeatures:
                     'min': np.min(similarities),
                     'std': np.std(similarities)
                 }
+                results['plagiarism_score'] = np.max(similarities)
