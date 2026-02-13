@@ -347,6 +347,14 @@ class MLFeatures:
                 'f1_score': f1_score(y_test, y_pred, zero_division=0),
                 'roc_auc': roc_auc_score(y_test, y_pred_proba)
             }
+            
+            cm = confusion_matrix(y_test, y_pred)
+            cm_dict = {
+                'true_negative': int(cm[0, 0]),
+                'false_positive': int(cm[0, 1]),
+                'false_negative': int(cm[1, 0]),
+                'true_positive': int(cm[1, 1])
+            }
         
         except ImportError as e:
             return {'error': f"Required libraries not available: {e}"}
