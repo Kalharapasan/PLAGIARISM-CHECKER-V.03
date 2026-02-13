@@ -394,4 +394,4 @@ class MLFeatures:
         except Exception as e:
             return {'error': f"Prediction failed: {e}"}
         
-        
+    def _count_sentences(self, text: str) -> int:
