@@ -91,3 +91,7 @@ class MLFeatures:
         features['avg_paragraph_length'] = features['sentence_count'] / max(features['paragraph_count'], 1)
         complex_words = [w for w in words if len(w) > 6]
         features['complex_word_ratio'] = len(complex_words) / max(len(words), 1)
+        hapax_count = sum(1 for word, count in word_freq.items() if count == 1)
+        features['hapax_legomena_ratio'] = hapax_count / max(len(word_freq), 1)
+        
+        return features
