@@ -43,6 +43,13 @@ class MLFeatures:
             )
             self.models['scaler'] = StandardScaler()
             self.models['minmax'] = MinMaxScaler()
+            self.models['pca'] = PCA(n_components=50, random_state=42)
+            self.models['svd'] = TruncatedSVD(n_components=100, random_state=42)
+            self.models['lda'] = LatentDirichletAllocation(
+                n_components=10,
+                random_state=42,
+                max_iter=10
+            )
         
         except ImportError as e:
             print(f"⚠ Some ML components not available: {e}")
