@@ -232,3 +232,5 @@ class MLFeatures:
                 pass
         
         all_features['embeddings'] = embeddings
+        combined_vector = self._create_combined_feature_vector(text)
+        all_features['combined_vector'] = combined_vector.tolist()
