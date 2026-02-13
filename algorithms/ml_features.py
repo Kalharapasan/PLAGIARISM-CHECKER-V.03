@@ -98,3 +98,25 @@ class MLFeatures:
     
     def extract_stylometric_features(self, text: str) -> Dict[str, float]:
         features = {}
+        function_words = {
+            'the', 'and', 'to', 'of', 'a', 'in', 'that', 'is', 'was', 'he', 'for', 'it',
+            'with', 'as', 'his', 'on', 'be', 'at', 'by', 'I', 'this', 'had', 'not', 'are',
+            'but', 'from', 'or', 'have', 'an', 'they', 'which', 'one', 'you', 'were', 'her',
+            'all', 'she', 'there', 'would', 'their', 'we', 'him', 'been', 'has', 'when',
+            'who', 'will', 'more', 'no', 'if', 'out', 'so', 'said', 'what', 'up', 'its',
+            'about', 'into', 'than', 'them', 'can', 'only', 'other', 'new', 'some', 'could',
+            'time', 'these', 'two', 'may', 'then', 'do', 'first', 'any', 'my', 'now', 'such',
+            'like', 'our', 'over', 'man', 'me', 'even', 'most', 'made', 'after', 'also',
+            'did', 'many', 'before', 'must', 'through', 'back', 'years', 'where', 'much',
+            'your', 'way', 'well', 'should', 'because', 'each', 'just', 'those', 'people',
+            'how', 'too', 'little', 'state', 'good', 'very', 'make', 'world', 'still',
+            'own', 'see', 'men', 'work', 'long', 'get', 'here', 'between', 'both', 'life',
+            'being', 'under', 'never', 'day', 'same', 'another', 'know', 'while', 'last',
+            'might', 'us', 'great', 'old', 'year', 'off', 'come', 'since', 'against',
+            'go', 'came', 'right', 'used', 'take', 'three'
+        }
+        
+        words = text.lower().split()
+        if words:
+            function_word_count = sum(1 for w in words if w in function_words)
+            features['function_word_ratio'] = function_word_count / len(words)
