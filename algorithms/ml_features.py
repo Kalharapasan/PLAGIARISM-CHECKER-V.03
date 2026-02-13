@@ -78,3 +78,6 @@ class MLFeatures:
             features['unique_word_ratio'] = len(set(words)) / len(words)
             word_freq = Counter(words)
             features['vocabulary_richness'] = len(word_freq) / len(words)
+            common_words = {'the', 'and', 'of', 'to', 'in', 'a', 'is', 'that', 'for', 'it'}
+            common_word_count = sum(1 for w in words if w.lower() in common_words)
+            features['common_word_ratio'] = common_word_count / len(words)
