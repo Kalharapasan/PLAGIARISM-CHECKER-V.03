@@ -254,3 +254,16 @@ class MLFeatures:
         features = self.extract_all_features(text)
         anomaly_scores = self._calculate_anomaly_scores(features['combined_vector'])
         results['anomaly_scores'] = anomaly_scores
+        if reference_texts:
+            similarities = []
+            for ref_text in reference_texts:
+                sim_score = self._calculate_feature_similarity(text, ref_text)
+                similarities.append(sim_score)
+            
+            if similarities:
+                results['reference_similarities'] = {
+                    'mean': np.mean(similarities),
+                    'max': np.max(similarities),
+                    'min': np.min(similarities),
+                    'std': np.std(similarities)
+                }
