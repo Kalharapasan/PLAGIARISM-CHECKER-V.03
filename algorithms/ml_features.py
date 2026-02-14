@@ -616,3 +616,4 @@ class MLFeatures:
         return features
     
     def _extract_semantic_features(self, text: str) -> Dict[str, float]:
+        features = {}
