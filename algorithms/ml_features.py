@@ -761,3 +761,8 @@ class MLFeatures:
                 recommendations.append("Consider varying vocabulary for better originality.")
             elif pattern['pattern'] == 'high_common_word_ratio':
                 recommendations.append("Try to use more specific and varied terminology.")
+        recommendations.append("Always cite sources using appropriate citation style.")
+        recommendations.append("Use paraphrasing techniques to express ideas in your own words.")
+        recommendations.append("Consider using plagiarism detection tools before submission.")
+        
+        return recommendations
