@@ -617,3 +617,10 @@ class MLFeatures:
     
     def _extract_semantic_features(self, text: str) -> Dict[str, float]:
         features = {}
+        try:
+            words = text.lower().split()
+        
+        except Exception as e:
+            print(f"Warning: Semantic feature extraction failed: {e}")
+        
+        return features
