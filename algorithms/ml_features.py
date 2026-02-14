@@ -652,3 +652,10 @@ class MLFeatures:
         vectors.append(stylometric_vector)
         nlp_vector = list(nlp.values())
         vectors.append(nlp_vector)
+        for method in ['tfidf', 'count', 'char']:
+            try:
+                embedding = self.extract_embedding_features(text, method)
+                
+            except:
+                pass
+    
