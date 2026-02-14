@@ -673,6 +673,10 @@ class MLFeatures:
                 model = self.models['isolation_forest']
                 score = model.fit_predict(X)[0]
                 scores['isolation_forest'] = float(score)
+            if 'lof' in self.models:
+                model = self.models['lof']
+                score = model.fit_predict(X)[0]
+                scores['local_outlier_factor'] = float(score)
         
         except Exception as e:    
             print(f"Warning: Anomaly score calculation failed: {e}")
