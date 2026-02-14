@@ -698,3 +698,5 @@ class MLFeatures:
         except Exception as e:
             print(f"Warning: Feature similarity calculation failed: {e}")
             return 0.0
+    
+    def _detect_specific_patterns(self, text: str, features: Dict[str, Any]) -> List[Dict[str, Any]]:
