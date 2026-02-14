@@ -658,4 +658,4 @@ class MLFeatures:
                 vectors.append(embedding[:100])  
             except:
                 pass
-    
+        combined = np.concatenate(vectors)        
