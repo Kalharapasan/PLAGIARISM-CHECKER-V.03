@@ -743,3 +743,5 @@ class MLFeatures:
         except:
             pass
         return None
+    
+    def _generate_recommendations(self, results: Dict[str, Any]) -> List[str]:
