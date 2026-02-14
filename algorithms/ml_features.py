@@ -780,6 +780,8 @@ class MLFeatures:
             feature_names.extend([f"linguistic_{k}" for k in linguistic_sample.keys()])
             stylometric_sample = self.extract_stylometric_features("sample")
             feature_names.extend([f"stylometric_{k}" for k in stylometric_sample.keys()])
+            nlp_sample = self.extract_nlp_features("sample")
+            feature_names.extend([f"nlp_{k}" for k in nlp_sample.keys()])
         
         except:
             return []
