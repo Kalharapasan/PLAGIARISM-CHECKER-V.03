@@ -606,6 +606,9 @@ class MLFeatures:
                 for j in range(i + 1, min(i + window_size, len(words))):
                     pair = tuple(sorted([words[i], words[j]]))
                     cooccurrence[pair] += 1
+            
+            features['graph_cooccurrence_pairs'] = len(cooccurrence)
+            features['graph_avg_cooccurrence'] = np.mean(list(cooccurrence.values())) if cooccurrence else 0
         
         except Exception as e:
             print(f"Warning: Graph feature extraction failed: {e}")
