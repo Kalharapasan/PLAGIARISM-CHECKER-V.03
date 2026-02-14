@@ -581,6 +581,9 @@ class MLFeatures:
             
             for category, count in category_counts.items():
                 features[f'nltk_{category}_ratio'] = count / len(words)
+            stop_words = set(stopwords.words('english'))
+            stopword_count = sum(1 for w in words if w in stop_words)
+            features['nltk_stopword_ratio'] = stopword_count / len(words)
         
         except ImportError:
             pass
