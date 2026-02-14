@@ -784,6 +784,7 @@ class MLFeatures:
             feature_names.extend([f"nlp_{k}" for k in nlp_sample.keys()])
             while len(feature_names) < len(importances):
                 feature_names.append(f"feature_{len(feature_names)}")
+            indices = np.argsort(importances)[::-1]
         
         except:
             return []
