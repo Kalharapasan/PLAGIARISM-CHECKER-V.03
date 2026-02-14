@@ -701,3 +701,11 @@ class MLFeatures:
     
     def _detect_specific_patterns(self, text: str, features: Dict[str, Any]) -> List[Dict[str, Any]]:
         patterns = []
+        linguistic = features.get('linguistic', {})
+        vocab_richness = linguistic.get('vocabulary_richness', 1.0)
+        if vocab_richness < 0.3:
+            patterns.append({
+                'pattern': 'low_vocabulary_richness',
+                'score': vocab_richness,
+                'description': 'Text shows limited vocabulary variation'
+            })
