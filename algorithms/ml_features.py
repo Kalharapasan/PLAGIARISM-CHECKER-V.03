@@ -745,3 +745,13 @@ class MLFeatures:
         return None
     
     def _generate_recommendations(self, results: Dict[str, Any]) -> List[str]:
+        recommendations = []
+        
+        plagiarism_score = results.get('plagiarism_score', 0.0)
+        
+        if plagiarism_score > 0.7:
+            recommendations.append("High similarity detected. Consider extensive revision.")
+        elif plagiarism_score > 0.4:
+            recommendations.append("Moderate similarity detected. Review and cite sources.")
+        elif plagiarism_score > 0.2:
+            recommendations.append("Some similarity detected. Ensure proper attribution.")
