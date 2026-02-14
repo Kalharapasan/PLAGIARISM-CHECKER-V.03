@@ -677,6 +677,11 @@ class MLFeatures:
                 model = self.models['lof']
                 score = model.fit_predict(X)[0]
                 scores['local_outlier_factor'] = float(score)
+            mean = np.mean(feature_vector)
+            std = np.std(feature_vector)
+            z_scores = np.abs((feature_vector - mean) / (std + 1e-8))
+            scores['z_score_max'] = float(np.max(z_scores))
+            scores['z_score_mean'] = float(np.mean(z_scores))
         
         except Exception as e:    
             print(f"Warning: Anomaly score calculation failed: {e}")
