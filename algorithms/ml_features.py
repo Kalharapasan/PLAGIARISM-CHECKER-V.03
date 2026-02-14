@@ -599,6 +599,13 @@ class MLFeatures:
             
             if len(words) < 10:
                 return features
+            cooccurrence = defaultdict(int)
+            window_size = 3
+            
+            for i in range(len(words)):
+                for j in range(i + 1, min(i + window_size, len(words))):
+                    pair = tuple(sorted([words[i], words[j]]))
+                    cooccurrence[pair] += 1
         
         except Exception as e:
             print(f"Warning: Graph feature extraction failed: {e}")
