@@ -775,6 +775,7 @@ class MLFeatures:
                 importances = np.abs(model.coef_[0])
             else:
                 return []
+            feature_names = []
         
         except:
             return []
