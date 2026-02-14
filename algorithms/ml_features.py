@@ -724,3 +724,12 @@ class MLFeatures:
                 'score': sent_length_cv,
                 'description': 'Irregular sentence length variation'
             })
+        function_word_ratio = stylometric.get('function_word_ratio', 0.0)
+        if function_word_ratio > 0.4:
+            patterns.append({
+                'pattern': 'high_function_word_usage',
+                'score': function_word_ratio,
+                'description': 'High usage of function words'
+            })
+        
+        return patterns
