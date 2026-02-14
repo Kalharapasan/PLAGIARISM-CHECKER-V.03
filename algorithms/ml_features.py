@@ -785,6 +785,7 @@ class MLFeatures:
             while len(feature_names) < len(importances):
                 feature_names.append(f"feature_{len(feature_names)}")
             indices = np.argsort(importances)[::-1]
+            top_features = []
         
         except:
             return []
