@@ -594,3 +594,13 @@ class MLFeatures:
     
     def _extract_graph_features(self, text: str) -> Dict[str, float]:
         features = {}
+        try:
+            words = text.lower().split()
+            
+            if len(words) < 10:
+                return features
+        
+        except Exception as e:
+            print(f"Warning: Graph feature extraction failed: {e}")
+        
+        return features
