@@ -669,6 +669,10 @@ class MLFeatures:
         
         try:
             X = feature_vector.reshape(1, -1)
+            if 'isolation_forest' in self.models:
+                model = self.models['isolation_forest']
+                score = model.fit_predict(X)[0]
+                scores['isolation_forest'] = float(score)
         
         except Exception as e:    
             print(f"Warning: Anomaly score calculation failed: {e}")
