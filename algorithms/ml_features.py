@@ -735,3 +735,11 @@ class MLFeatures:
         return patterns
     
     def _assign_to_cluster(self, feature_vector: np.ndarray) -> Optional[int]:
+        try:
+            if 'kmeans' in self.models:
+                model = self.models['kmeans']
+                cluster_id = model.fit_predict(feature_vector.reshape(1, -1))[0]
+                return int(cluster_id)
+        except:
+            pass
+        return None
