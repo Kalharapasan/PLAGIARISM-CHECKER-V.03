@@ -538,3 +538,5 @@ class MLFeatures:
             print(f"Warning: spaCy feature extraction failed: {e}")
         
         return features
+    
+    def _extract_nltk_features(self, text: str) -> Dict[str, float]:
