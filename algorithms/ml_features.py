@@ -688,3 +688,9 @@ class MLFeatures:
         return scores
 
     def _calculate_feature_similarity(self, text1: str, text2: str) -> float:
+        try:
+            features1 = self.extract_all_features(text1)
+            features2 = self.extract_all_features(text2)
+        except Exception as e:
+            print(f"Warning: Feature similarity calculation failed: {e}")
+            return 0.0
