@@ -593,3 +593,4 @@ class MLFeatures:
         return features
     
     def _extract_graph_features(self, text: str) -> Dict[str, float]:
+        features = {}
