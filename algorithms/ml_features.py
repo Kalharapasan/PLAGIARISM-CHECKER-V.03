@@ -655,7 +655,7 @@ class MLFeatures:
         for method in ['tfidf', 'count', 'char']:
             try:
                 embedding = self.extract_embedding_features(text, method)
-                
+                vectors.append(embedding[:100])  
             except:
                 pass
     
