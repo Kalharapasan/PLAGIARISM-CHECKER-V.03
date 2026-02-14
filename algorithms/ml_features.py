@@ -685,3 +685,4 @@ class MLFeatures:
         
         except Exception as e:    
             print(f"Warning: Anomaly score calculation failed: {e}")
+        return scores
