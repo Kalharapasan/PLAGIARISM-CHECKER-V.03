@@ -658,4 +658,7 @@ class MLFeatures:
                 vectors.append(embedding[:100])  
             except:
                 pass
-        combined = np.concatenate(vectors)        
+        combined = np.concatenate(vectors) 
+        combined = (combined - np.mean(combined)) / (np.std(combined) + 1e-8)
+        
+        return combined       
