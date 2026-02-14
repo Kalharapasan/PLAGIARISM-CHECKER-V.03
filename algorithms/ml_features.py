@@ -768,3 +768,13 @@ class MLFeatures:
         return recommendations
     
     def _get_feature_importance(self, model, n_features: int) -> List[Dict[str, Any]]:
+        try:
+            if hasattr(model, 'feature_importances_'):
+                importances = model.feature_importances_
+            elif hasattr(model, 'coef_'):
+                importances = np.abs(model.coef_[0])
+            else:
+                return []
+        
+        except:
+            return []
