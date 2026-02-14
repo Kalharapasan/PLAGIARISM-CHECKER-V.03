@@ -691,6 +691,8 @@ class MLFeatures:
         try:
             features1 = self.extract_all_features(text1)
             features2 = self.extract_all_features(text2)
+            vec1 = features1['combined_vector']
+            vec2 = features2['combined_vector']
         except Exception as e:
             print(f"Warning: Feature similarity calculation failed: {e}")
             return 0.0
