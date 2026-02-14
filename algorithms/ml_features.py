@@ -561,6 +561,9 @@ class MLFeatures:
                 nltk.data.find('corpora/stopwords')
             except LookupError:
                 nltk.download('stopwords')
+            
+            words = word_tokenize(text.lower())
+            sentences = sent_tokenize(text)
         
         except ImportError:
             pass
