@@ -646,3 +646,5 @@ class MLFeatures:
         stylometric = self.extract_stylometric_features(text)
         nlp = self.extract_nlp_features(text)
         vectors = []
+        linguistic_vector = list(linguistic.values())
+        vectors.append(linguistic_vector)
