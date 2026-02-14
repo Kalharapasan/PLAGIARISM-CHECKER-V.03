@@ -633,6 +633,8 @@ class MLFeatures:
             
             academic_count = sum(1 for w in words if w in academic_words)
             features['semantic_academic_word_ratio'] = academic_count / len(words)
+            long_words = [w for w in words if len(w) > 8]
+            features['semantic_long_word_ratio'] = len(long_words) / len(words)
         
         except Exception as e:
             print(f"Warning: Semantic feature extraction failed: {e}")
