@@ -540,3 +540,17 @@ class MLFeatures:
         return features
     
     def _extract_nltk_features(self, text: str) -> Dict[str, float]:
+        features = {}
+        
+        try:
+            import nltk
+            from nltk.tokenize import word_tokenize, sent_tokenize
+            from nltk.corpus import stopwords
+            from nltk import pos_tag
+        
+        except ImportError:
+            pass
+        except Exception as e:
+            print(f"Warning: NLTK feature extraction failed: {e}")
+        
+        return features
