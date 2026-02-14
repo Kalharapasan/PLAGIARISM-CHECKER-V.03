@@ -591,3 +591,5 @@ class MLFeatures:
             print(f"Warning: NLTK feature extraction failed: {e}")
         
         return features
+    
+    def _extract_graph_features(self, text: str) -> Dict[str, float]:
