@@ -648,3 +648,5 @@ class MLFeatures:
         vectors = []
         linguistic_vector = list(linguistic.values())
         vectors.append(linguistic_vector)
+        stylometric_vector = list(stylometric.values())
+        vectors.append(stylometric_vector)
