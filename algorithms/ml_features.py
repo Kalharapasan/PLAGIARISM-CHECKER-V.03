@@ -619,6 +619,20 @@ class MLFeatures:
         features = {}
         try:
             words = text.lower().split()
+            academic_words = {
+                'analysis', 'approach', 'area', 'assessment', 'assume', 'authority', 'available',
+                'benefit', 'concept', 'consistent', 'constitutional', 'context', 'contract', 'create',
+                'data', 'definition', 'derived', 'distribution', 'economic', 'environment', 'established',
+                'estimate', 'evidence', 'export', 'factors', 'financial', 'formula', 'function',
+                'identified', 'income', 'indicate', 'individual', 'interpretation', 'involved', 'issues',
+                'labour', 'legal', 'legislation', 'major', 'method', 'occur', 'percent', 'period',
+                'policy', 'principle', 'procedure', 'process', 'required', 'research', 'response',
+                'role', 'section', 'sector', 'significant', 'similar', 'source', 'specific', 'structure',
+                'theory', 'variables'
+            }
+            
+            academic_count = sum(1 for w in words if w in academic_words)
+            features['semantic_academic_word_ratio'] = academic_count / len(words)
         
         except Exception as e:
             print(f"Warning: Semantic feature extraction failed: {e}")
