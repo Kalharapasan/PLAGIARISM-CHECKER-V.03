@@ -564,6 +564,8 @@ class MLFeatures:
             
             words = word_tokenize(text.lower())
             sentences = sent_tokenize(text)
+            pos_tags = pos_tag(words)
+            pos_counts = Counter([tag for word, tag in pos_tags])
         
         except ImportError:
             pass
