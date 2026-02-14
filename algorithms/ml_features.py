@@ -566,6 +566,21 @@ class MLFeatures:
             sentences = sent_tokenize(text)
             pos_tags = pos_tag(words)
             pos_counts = Counter([tag for word, tag in pos_tags])
+            pos_categories = {
+                'NN': 'noun', 'NNS': 'noun', 'NNP': 'noun', 'NNPS': 'noun',
+                'VB': 'verb', 'VBD': 'verb', 'VBG': 'verb', 'VBN': 'verb', 
+                'VBP': 'verb', 'VBZ': 'verb',
+                'JJ': 'adjective', 'JJR': 'adjective', 'JJS': 'adjective',
+                'RB': 'adverb', 'RBR': 'adverb', 'RBS': 'adverb'
+            }
+            
+            category_counts = defaultdict(int)
+            for tag, count in pos_counts.items():
+                category = pos_categories.get(tag, 'other')
+                category_counts[category] += count
+            
+            for category, count in category_counts.items():
+                features[f'nltk_{category}_ratio'] = count / len(words)
         
         except ImportError:
             pass
