@@ -766,3 +766,5 @@ class MLFeatures:
         recommendations.append("Consider using plagiarism detection tools before submission.")
         
         return recommendations
+    
+    def _get_feature_importance(self, model, n_features: int) -> List[Dict[str, Any]]:
