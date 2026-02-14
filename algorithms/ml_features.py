@@ -733,3 +733,5 @@ class MLFeatures:
             })
         
         return patterns
+    
+    def _assign_to_cluster(self, feature_vector: np.ndarray) -> Optional[int]:
