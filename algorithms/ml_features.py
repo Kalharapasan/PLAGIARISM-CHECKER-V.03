@@ -661,4 +661,12 @@ class MLFeatures:
         combined = np.concatenate(vectors) 
         combined = (combined - np.mean(combined)) / (np.std(combined) + 1e-8)
         
-        return combined       
+        return combined   
+    
+    def _calculate_anomaly_scores(self, feature_vector: np.ndarray) -> Dict[str, float]:
+        
+        scores = {}
+        
+        try:
+        
+        except Exception as e:    
