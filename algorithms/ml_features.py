@@ -686,3 +686,5 @@ class MLFeatures:
         except Exception as e:    
             print(f"Warning: Anomaly score calculation failed: {e}")
         return scores
+
+    def _calculate_feature_similarity(self, text1: str, text2: str) -> float:
