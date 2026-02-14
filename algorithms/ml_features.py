@@ -693,6 +693,8 @@ class MLFeatures:
             features2 = self.extract_all_features(text2)
             vec1 = features1['combined_vector']
             vec2 = features2['combined_vector']
+            similarity = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2) + 1e-8)           
+            return float(similarity)
         except Exception as e:
             print(f"Warning: Feature similarity calculation failed: {e}")
             return 0.0
