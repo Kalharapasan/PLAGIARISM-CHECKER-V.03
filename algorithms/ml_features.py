@@ -755,3 +755,9 @@ class MLFeatures:
             recommendations.append("Moderate similarity detected. Review and cite sources.")
         elif plagiarism_score > 0.2:
             recommendations.append("Some similarity detected. Ensure proper attribution.")
+        patterns = results.get('pattern_matches', [])
+        for pattern in patterns:
+            if pattern['pattern'] == 'low_vocabulary_richness':
+                recommendations.append("Consider varying vocabulary for better originality.")
+            elif pattern['pattern'] == 'high_common_word_ratio':
+                recommendations.append("Try to use more specific and varied terminology.")
