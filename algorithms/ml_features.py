@@ -709,3 +709,10 @@ class MLFeatures:
                 'score': vocab_richness,
                 'description': 'Text shows limited vocabulary variation'
             })
+        common_word_ratio = linguistic.get('common_word_ratio', 0.0)
+        if common_word_ratio > 0.4:
+            patterns.append({
+                'pattern': 'high_common_word_ratio',
+                'score': common_word_ratio,
+                'description': 'Text uses many common words'
+            })
