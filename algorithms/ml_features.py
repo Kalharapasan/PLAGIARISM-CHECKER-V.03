@@ -671,3 +671,4 @@ class MLFeatures:
             X = feature_vector.reshape(1, -1)
         
         except Exception as e:    
+            print(f"Warning: Anomaly score calculation failed: {e}")
