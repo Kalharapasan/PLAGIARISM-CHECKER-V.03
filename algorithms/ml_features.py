@@ -668,5 +668,6 @@ class MLFeatures:
         scores = {}
         
         try:
+            X = feature_vector.reshape(1, -1)
         
         except Exception as e:    
