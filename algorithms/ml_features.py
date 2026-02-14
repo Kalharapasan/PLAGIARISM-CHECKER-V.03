@@ -786,6 +786,14 @@ class MLFeatures:
                 feature_names.append(f"feature_{len(feature_names)}")
             indices = np.argsort(importances)[::-1]
             top_features = []
+            for i in indices[:20]:  
+                if i < len(feature_names):
+                    top_features.append({
+                        'feature': feature_names[i],
+                        'importance': float(importances[i])
+                    })
+            
+            return top_features
         
         except:
             return []
