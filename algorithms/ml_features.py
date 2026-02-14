@@ -716,3 +716,11 @@ class MLFeatures:
                 'score': common_word_ratio,
                 'description': 'Text uses many common words'
             })
+        stylometric = features.get('stylometric', {})
+        sent_length_cv = stylometric.get('sentence_length_cv', 0.0)
+        if sent_length_cv > 0.8:
+            patterns.append({
+                'pattern': 'irregular_sentence_length',
+                'score': sent_length_cv,
+                'description': 'Irregular sentence length variation'
+            })
