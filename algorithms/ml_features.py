@@ -934,3 +934,4 @@ def create_ml_pipeline() -> Dict[str, Any]:
         ]
     }
         
+def validate_text_for_ml(text: str, min_length: int = 100) -> Dict[str, Any]:
