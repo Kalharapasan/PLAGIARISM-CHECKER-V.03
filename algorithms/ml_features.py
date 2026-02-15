@@ -845,4 +845,6 @@ class MLFeatures:
             return "Some plagiarism indicators. Verify all sources are properly cited."
         else:
             return "Low plagiarism risk. Continue good academic practices."
+    
+    def save_models(self, directory: str = "models") -> bool:
         
