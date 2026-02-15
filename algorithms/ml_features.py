@@ -803,6 +803,10 @@ class MLFeatures:
             if hasattr(model, 'coef_'):
                 coef = model.coef_[0]
                 contributions = coef * feature_vector
+            
+                feature_names = []
+                linguistic_sample = self.extract_linguistic_features("sample")
+                feature_names.extend([f"linguistic_{k}" for k in linguistic_sample.keys()])
         
         except:
             return []
