@@ -837,4 +837,12 @@ class MLFeatures:
             return "Low"
     
     def _get_prediction_recommendation(self, probability: float) -> str:
+        if probability > 0.8:
+            return "High plagiarism risk detected. Comprehensive review recommended."
+        elif probability > 0.6:
+            return "Moderate plagiarism risk. Review and ensure proper citations."
+        elif probability > 0.4:
+            return "Some plagiarism indicators. Verify all sources are properly cited."
+        else:
+            return "Low plagiarism risk. Continue good academic practices."
         
