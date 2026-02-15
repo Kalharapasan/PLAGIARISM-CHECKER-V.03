@@ -885,7 +885,13 @@ class MLFeatures:
                     model = joblib.load(model_file)
                     self.models[model_name] = model
             
+            for vectorizer_file in dir_path.glob("*_vectorizer.joblib"):
+                vectorizer_name = vectorizer_file.stem.replace("_vectorizer", "")
+                vectorizer = joblib.load(vectorizer_file)
+                self.vectorizers[vectorizer_name] = vectorizer
             
+            print(f"✓ Models loaded from {directory}")
+            return True
         except Exception as e:
             print(f"❌ Failed to load models: {e}")
             return False
