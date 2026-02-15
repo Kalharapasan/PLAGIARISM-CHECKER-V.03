@@ -950,3 +950,7 @@ def validate_text_for_ml(text: str, min_length: int = 100) -> Dict[str, Any]:
     words = text.split()
     if len(words) < 20:
         validation['warnings'].append(f'Text has few words ({len(words)} words, minimum 20 recommended)')
+    
+    unique_chars = len(set(text.lower()))
+    if unique_chars < 10:
+        validation['warnings'].append('Low character diversity')
