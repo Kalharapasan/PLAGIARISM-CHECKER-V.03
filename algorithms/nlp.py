@@ -59,3 +59,4 @@ class NLPAnalysis:
     avg_word_length: float = 0.0
     avg_syllables_per_word: float = 0.0
     passive_voice_percentage: float = 0.0
+    lexical_density: float = 0.0
