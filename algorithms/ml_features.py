@@ -989,6 +989,16 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                     'validation': validation
                 })
                 continue
+            features = ml_features.extract_all_features(text)
+            plagiarism_results = ml_features.detect_plagiarism_patterns(text)
+            
+            results.append({
+                'index': i,
+                'success': True,
+                'features': features,
+                'plagiarism_analysis': plagiarism_results,
+                'validation': validation
+            })
             
         except Exception as e:
             results.append({
@@ -996,4 +1006,5 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                 'success': False,
                 'error': str(e)
             })
-        features = ml_features.extract_all_features(text)
+        
+        
