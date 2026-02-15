@@ -65,3 +65,10 @@ class NLPAnalysis:
     topics: List[str] = field(default_factory=list)
     key_phrases: List[Dict[str, Any]] = field(default_factory=list)
     named_entities: List[Dict[str, Any]] = field(default_factory=list)
+    
+    citation_count: int = 0
+    reference_count: int = 0
+    has_abstract: bool = False
+    has_introduction: bool = False
+    has_conclusion: bool = False
+    has_references: bool = False
