@@ -40,3 +40,8 @@ class Language(Enum):
 
 @dataclass
 class NLPAnalysis:
+    token_count: int = 0
+    sentence_count: int = 0
+    paragraph_count: int = 0
+    character_count: int = 0
+    word_count: int = 0
