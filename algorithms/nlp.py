@@ -21,3 +21,5 @@ class TextCategory(Enum):
     MEDICAL = "medical"
     SCIENTIFIC = "scientific"
     UNKNOWN = "unknown"
+
+class Language(Enum):
