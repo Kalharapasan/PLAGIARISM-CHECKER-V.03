@@ -996,3 +996,4 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                 'success': False,
                 'error': str(e)
             })
+        features = ml_features.extract_all_features(text)
