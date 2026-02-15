@@ -12,7 +12,12 @@ from datetime import datetime
 warnings.filterwarnings('ignore')
 
 class MLFeatures:
-    
+    def __init__(self, config=None):
+        self.config = config or {}
+        self.models = {}
+        self.vectorizers = {}
+        self.feature_cache = {}
+        self._initialize_ml_components()
     
     def _initialize_ml_components(self):
         try:
