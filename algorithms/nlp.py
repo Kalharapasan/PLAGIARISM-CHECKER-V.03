@@ -85,3 +85,5 @@ class NLPAnalysis:
     timestamp: str = ""
     text_hash: str = ""
     
+    def to_dict(self) -> Dict[str, Any]:
+    
