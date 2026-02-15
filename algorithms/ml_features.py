@@ -811,6 +811,8 @@ class MLFeatures:
                 feature_names.extend([f"stylometric_{k}" for k in stylometric_sample.keys()])
                 nlp_sample = self.extract_nlp_features("sample")
                 feature_names.extend([f"nlp_{k}" for k in nlp_sample.keys()])
+                while len(feature_names) < len(contributions):
+                    feature_names.append(f"feature_{len(feature_names)}")
         
         except:
             return []
