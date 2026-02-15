@@ -878,6 +878,14 @@ class MLFeatures:
                 return False
             
             import joblib
+
+            for model_file in dir_path.glob("*.joblib"):
+                if "vectorizer" not in model_file.name:
+                    model_name = model_file.stem
+                    model = joblib.load(model_file)
+                    self.models[model_name] = model
+            
+            
         except Exception as e:
             print(f"❌ Failed to load models: {e}")
             return False
