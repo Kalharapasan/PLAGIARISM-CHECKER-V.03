@@ -76,3 +76,5 @@ class NLPAnalysis:
     sentiment_score: float = 0.0  
     subjectivity_score: float = 0.0 
     formality_score: float = 0.0  
+    
+    
