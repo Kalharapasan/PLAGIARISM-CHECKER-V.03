@@ -940,3 +940,9 @@ def validate_text_for_ml(text: str, min_length: int = 100) -> Dict[str, Any]:
         'warnings': [],
         'errors': []
     }
+    if not text or len(text.strip()) == 0:
+        validation['errors'].append('Text is empty')
+        return validation
+    
+    if len(text) < min_length:
+        validation['warnings'].append(f'Text is short ({len(text)} chars, minimum {min_length} recommended)')
