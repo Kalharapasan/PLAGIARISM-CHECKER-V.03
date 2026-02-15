@@ -847,4 +847,11 @@ class MLFeatures:
             return "Low plagiarism risk. Continue good academic practices."
     
     def save_models(self, directory: str = "models") -> bool:
+         try:
+            dir_path = Path(directory)
+            dir_path.mkdir(parents=True, exist_ok=True)
+        
+        except Exception as e:
+            print(f"❌ Failed to save models: {e}")
+            return False
         
