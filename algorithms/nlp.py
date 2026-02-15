@@ -86,4 +86,64 @@ class NLPAnalysis:
     text_hash: str = ""
     
     def to_dict(self) -> Dict[str, Any]:
+        return {
+            'basic_statistics': {
+                'token_count': self.token_count,
+                'sentence_count': self.sentence_count,
+                'paragraph_count': self.paragraph_count,
+                'character_count': self.character_count,
+                'word_count': self.word_count
+            },
+            'vocabulary_analysis': {
+                'vocabulary_size': self.vocabulary_size,
+                'type_token_ratio': self.type_token_ratio,
+                'hapax_legomena': self.hapax_legomena
+            },
+            'readability_scores': {
+                'flesch_reading_ease': self.flesch_reading_ease,
+                'flesch_kincaid_grade': self.flesch_kincaid_grade,
+                'gunning_fog_index': self.gunning_fog_index,
+                'smog_index': self.smog_index,
+                'coleman_liau_index': self.coleman_liau_index,
+                'automated_readability_index': self.automated_readability_index,
+                'dale_chall_score': self.dale_chall_score
+            },
+            'style_analysis': {
+                'avg_sentence_length': self.avg_sentence_length,
+                'avg_word_length': self.avg_word_length,
+                'avg_syllables_per_word': self.avg_syllables_per_word,
+                'passive_voice_percentage': self.passive_voice_percentage,
+                'lexical_density': self.lexical_density
+            },
+            'content_analysis': {
+                'text_category': self.text_category.value,
+                'detected_language': self.detected_language.value,
+                'topics': self.topics,
+                'key_phrases': self.key_phrases,
+                'named_entities': self.named_entities
+            },
+            'academic_indicators': {
+                'citation_count': self.citation_count,
+                'reference_count': self.reference_count,
+                'has_abstract': self.has_abstract,
+                'has_introduction': self.has_introduction,
+                'has_conclusion': self.has_conclusion,
+                'has_references': self.has_references
+            },
+            'sentiment_tone': {
+                'sentiment_score': self.sentiment_score,
+                'subjectivity_score': self.subjectivity_score,
+                'formality_score': self.formality_score
+            },
+            'coherence_cohesion': {
+                'coherence_score': self.coherence_score,
+                'cohesion_score': self.cohesion_score,
+                'transition_word_density': self.transition_word_density
+            },
+            'metadata': {
+                'processing_time': self.processing_time,
+                'timestamp': self.timestamp,
+                'text_hash': self.text_hash
+            }
+        }
     
