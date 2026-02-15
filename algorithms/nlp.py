@@ -77,4 +77,5 @@ class NLPAnalysis:
     subjectivity_score: float = 0.0 
     formality_score: float = 0.0  
     
+    coherence_score: float = 0.0
     
