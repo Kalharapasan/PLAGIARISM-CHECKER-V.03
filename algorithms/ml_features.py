@@ -989,3 +989,10 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                     'validation': validation
                 })
                 continue
+            
+        except Exception as e:
+            results.append({
+                'index': i,
+                'success': False,
+                'error': str(e)
+            })
