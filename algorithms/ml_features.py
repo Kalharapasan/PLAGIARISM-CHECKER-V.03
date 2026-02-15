@@ -813,6 +813,17 @@ class MLFeatures:
                 feature_names.extend([f"nlp_{k}" for k in nlp_sample.keys()])
                 while len(feature_names) < len(contributions):
                     feature_names.append(f"feature_{len(feature_names)}")
+                indices = np.argsort(np.abs(contributions))[::-1]
+                
+                top_contributions = []
+                for i in indices[:10]:  # Top 10 contributions
+                    if i < len(feature_names):
+                        top_contributions.append({
+                            'feature': feature_names[i],
+                            'contribution': float(contributions[i])
+                        })
+                
+                return top_contributions
         
         except:
             return []
