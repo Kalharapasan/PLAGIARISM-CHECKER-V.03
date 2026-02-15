@@ -10,3 +10,5 @@ import hashlib
 from datetime import datetime
 import itertools
 import numpy as np
+
+class TextCategory(Enum):
