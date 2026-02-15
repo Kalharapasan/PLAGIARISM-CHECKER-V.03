@@ -47,3 +47,4 @@ class NLPAnalysis:
     word_count: int = 0
     vocabulary_size: int = 0
     type_token_ratio: float = 0.0
+    hapax_legomena: int = 0
