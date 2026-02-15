@@ -855,6 +855,15 @@ class MLFeatures:
                     import joblib
                     model_path = dir_path / f"{name}.joblib"
                     joblib.dump(model, model_path)
+            
+            for name, vectorizer in self.vectorizers.items():
+                if hasattr(vectorizer, '__sklearn__'):
+                    import joblib
+                    vectorizer_path = dir_path / f"{name}_vectorizer.joblib"
+                    joblib.dump(vectorizer, vectorizer_path)
+            
+            print(f"✓ Models saved to {directory}")
+            return True
         
         except Exception as e:
             print(f"❌ Failed to save models: {e}")
