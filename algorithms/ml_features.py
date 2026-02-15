@@ -797,3 +797,6 @@ class MLFeatures:
         
         except:
             return []
+
+    def _get_feature_contributions(self, model, feature_vector: np.ndarray) -> List[Dict[str, float]]:
+        
