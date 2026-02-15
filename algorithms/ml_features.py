@@ -829,4 +829,10 @@ class MLFeatures:
             return []
     
     def _calculate_confidence(self, probability: float) -> str:
+        if probability > 0.8 or probability < 0.2:
+            return "High"
+        elif probability > 0.6 or probability < 0.4:
+            return "Medium"
+        else:
+            return "Low"
         
