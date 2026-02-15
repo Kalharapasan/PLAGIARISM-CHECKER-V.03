@@ -81,3 +81,7 @@ class NLPAnalysis:
     cohesion_score: float = 0.0  
     transition_word_density: float = 0.0
     
+    processing_time: float = 0.0
+    timestamp: str = ""
+    text_hash: str = ""
+    
