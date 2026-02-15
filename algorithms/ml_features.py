@@ -897,4 +897,35 @@ class MLFeatures:
             return False
     
 def create_ml_pipeline() -> Dict[str, Any]:
+    return {
+        'feature_extractors': [
+            'linguistic',
+            'stylometric',
+            'nlp',
+            'embeddings'
+        ],
+        'classifiers': [
+            'logistic_regression',
+            'random_forest',
+            'svm',
+            'gradient_boosting',
+            'xgboost',
+            'ensemble'
+        ],
+        'embedding_methods': [
+            'tfidf',
+            'count',
+            'char',
+            'svd',
+            'lda'
+        ],
+        'anomaly_detectors': [
+            'isolation_forest',
+            'local_outlier_factor'
+        ],
+        'clustering_methods': [
+            'kmeans',
+            'dbscan'
+        ]
+    }
         
