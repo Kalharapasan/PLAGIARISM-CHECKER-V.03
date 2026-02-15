@@ -977,3 +977,15 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
         ml_features = MLFeatures()
     
     results = []
+    for i, text in enumerate(texts):
+        try:
+            validation = validate_text_for_ml(text)
+            
+            if not validation['is_valid']:
+                results.append({
+                    'index': i,
+                    'success': False,
+                    'error': 'Text validation failed',
+                    'validation': validation
+                })
+                continue
