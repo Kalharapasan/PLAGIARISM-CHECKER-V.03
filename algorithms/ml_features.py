@@ -816,7 +816,7 @@ class MLFeatures:
                 indices = np.argsort(np.abs(contributions))[::-1]
                 
                 top_contributions = []
-                for i in indices[:10]:  # Top 10 contributions
+                for i in indices[:10]:  
                     if i < len(feature_names):
                         top_contributions.append({
                             'feature': feature_names[i],
