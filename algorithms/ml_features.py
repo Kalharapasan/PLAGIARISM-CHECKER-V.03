@@ -827,4 +827,6 @@ class MLFeatures:
         
         except:
             return []
+    
+    def _calculate_confidence(self, probability: float) -> str:
         
