@@ -868,4 +868,6 @@ class MLFeatures:
         except Exception as e:
             print(f"❌ Failed to save models: {e}")
             return False
+    
+    def load_models(self, directory: str = "models") -> bool:
         
