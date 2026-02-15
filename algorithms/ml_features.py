@@ -973,3 +973,7 @@ def validate_text_for_ml(text: str, min_length: int = 100) -> Dict[str, Any]:
     return validation
 
 def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> List[Dict[str, Any]]:
+    if ml_features is None:
+        ml_features = MLFeatures()
+    
+    results = []
