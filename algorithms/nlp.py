@@ -55,3 +55,7 @@ class NLPAnalysis:
     coleman_liau_index: float = 0.0
     automated_readability_index: float = 0.0
     dale_chall_score: float = 0.0
+    avg_sentence_length: float = 0.0
+    avg_word_length: float = 0.0
+    avg_syllables_per_word: float = 0.0
+    passive_voice_percentage: float = 0.0
