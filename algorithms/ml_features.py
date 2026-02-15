@@ -835,4 +835,6 @@ class MLFeatures:
             return "Medium"
         else:
             return "Low"
+    
+    def _get_prediction_recommendation(self, probability: float) -> str:
         
