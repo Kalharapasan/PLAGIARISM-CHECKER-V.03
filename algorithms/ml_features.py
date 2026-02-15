@@ -896,5 +896,5 @@ class MLFeatures:
             print(f"❌ Failed to load models: {e}")
             return False
     
-
+def create_ml_pipeline() -> Dict[str, Any]:
         
