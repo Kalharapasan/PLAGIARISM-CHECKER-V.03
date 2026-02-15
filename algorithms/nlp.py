@@ -48,3 +48,10 @@ class NLPAnalysis:
     vocabulary_size: int = 0
     type_token_ratio: float = 0.0
     hapax_legomena: int = 0
+    flesch_reading_ease: float = 0.0
+    flesch_kincaid_grade: float = 0.0
+    gunning_fog_index: float = 0.0
+    smog_index: float = 0.0
+    coleman_liau_index: float = 0.0
+    automated_readability_index: float = 0.0
+    dale_chall_score: float = 0.0
