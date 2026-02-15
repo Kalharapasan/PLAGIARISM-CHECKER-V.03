@@ -78,4 +78,6 @@ class NLPAnalysis:
     formality_score: float = 0.0  
     
     coherence_score: float = 0.0
+    cohesion_score: float = 0.0  
+    transition_word_density: float = 0.0
     
