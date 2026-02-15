@@ -954,3 +954,20 @@ def validate_text_for_ml(text: str, min_length: int = 100) -> Dict[str, Any]:
     unique_chars = len(set(text.lower()))
     if unique_chars < 10:
         validation['warnings'].append('Low character diversity')
+    
+    if len(words) > 10:
+        word_freq = Counter(words)
+        most_common = word_freq.most_common(1)[0][1]
+        if most_common > len(words) * 0.1: 
+            validation['warnings'].append('High word repetition detected')
+    
+    validation['is_valid'] = True
+    validation['statistics'] = {
+        'characters': len(text),
+        'words': len(words),
+        'sentences': len([s for s in text.split('.') if s.strip()]),
+        'unique_words': len(set(words)),
+        'avg_word_length': sum(len(w) for w in words) / len(words) if words else 0
+    }
+    
+    return validation
