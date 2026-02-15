@@ -851,6 +851,10 @@ class MLFeatures:
             dir_path = Path(directory)
             dir_path.mkdir(parents=True, exist_ok=True)
             for name, model in self.models.items():
+                if hasattr(model, '__sklearn__'): 
+                    import joblib
+                    model_path = dir_path / f"{name}.joblib"
+                    joblib.dump(model, model_path)
         
         except Exception as e:
             print(f"❌ Failed to save models: {e}")
