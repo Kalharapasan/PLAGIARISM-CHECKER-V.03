@@ -799,4 +799,11 @@ class MLFeatures:
             return []
 
     def _get_feature_contributions(self, model, feature_vector: np.ndarray) -> List[Dict[str, float]]:
+        try:
+            if hasattr(model, 'coef_'):
+                coef = model.coef_[0]
+                contributions = coef * feature_vector
+        
+        except:
+            return []
         
