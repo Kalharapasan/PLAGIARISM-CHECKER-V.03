@@ -977,6 +977,7 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
         ml_features = MLFeatures()
     
     results = []
+    
     for i, text in enumerate(texts):
         try:
             validation = validate_text_for_ml(text)
@@ -1006,6 +1007,7 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                 'success': False,
                 'error': str(e)
             })
+    
     return results
 
 __all__ = [
