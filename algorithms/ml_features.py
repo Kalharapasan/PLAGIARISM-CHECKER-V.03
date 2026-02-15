@@ -1006,5 +1006,5 @@ def batch_process_texts(texts: List[str], ml_features: MLFeatures = None) -> Lis
                 'success': False,
                 'error': str(e)
             })
-        
+    return results
         
