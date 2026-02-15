@@ -870,4 +870,15 @@ class MLFeatures:
             return False
     
     def load_models(self, directory: str = "models") -> bool:
+        try:
+            dir_path = Path(directory)
+            
+            if not dir_path.exists():
+                print(f"⚠ Model directory not found: {directory}")
+                return False
+            
+            import joblib
+        except Exception as e:
+            print(f"❌ Failed to load models: {e}")
+            return False
         
