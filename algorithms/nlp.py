@@ -278,5 +278,5 @@ class TextProcessor:
         text = re.sub(r'\s+', ' ', text)        
         return text.strip()
     
-    
+    def tokenize(self, text: str, remove_stopwords: bool = True) -> List[str]:
     
