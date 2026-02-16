@@ -472,3 +472,5 @@ class TextProcessor:
             'references': r'\b(?:references|bibliography|works\s+cited|sources)\b'
         }
         paragraphs = self.extract_paragraphs(text)
+        for para in paragraphs:
+            para_lower = para.lower().strip()
