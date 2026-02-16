@@ -289,4 +289,11 @@ class TextProcessor:
     def extract_sentences(self, text: str) -> List[str]:
         if not text:
             return []
+        abbreviations = [
+            'dr.', 'mr.', 'mrs.', 'ms.', 'prof.', 'dr', 'mr', 'mrs', 'ms', 'prof',
+            'i.e.', 'e.g.', 'etc.', 'viz.', 'cf.', 'c.f.', 'et al.', 'et al',
+            'vs.', 'v.', 'vol.', 'no.', 'pp.', 'p.', 'ch.', 'chap.', 'ed.',
+            'trans.', 'approx.', 'appx.', 'fig.', 'ref.', 'jan.', 'feb.', 'mar.',
+            'apr.', 'jun.', 'jul.', 'aug.', 'sep.', 'sept.', 'oct.', 'nov.', 'dec.'
+        ]
     
