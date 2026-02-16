@@ -287,4 +287,6 @@ class TextProcessor:
         return words
     
     def extract_sentences(self, text: str) -> List[str]:
+        if not text:
+            return []
     
