@@ -146,4 +146,7 @@ class NLPAnalysis:
                 'text_hash': self.text_hash
             }
         }
+        
+
+class TextProcessor:
     
