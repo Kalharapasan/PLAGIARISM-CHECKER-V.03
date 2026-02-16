@@ -471,3 +471,4 @@ class TextProcessor:
             'conclusion': r'\b(?:conclusion|conclusions|summary\s+and\s+conclusions)\b',
             'references': r'\b(?:references|bibliography|works\s+cited|sources)\b'
         }
+        paragraphs = self.extract_paragraphs(text)
