@@ -421,3 +421,10 @@ class TextProcessor:
         for ngram_size in range(2, 5):
             for i in range(len(words) - ngram_size + 1):
                 phrase = ' '.join(words[i:i+ngram_size])
+                if all(word in self.stopwords for word in phrase.split()):
+                    continue
+                
+                if phrase in phrase_frequencies:
+                    phrase_frequencies[phrase] += 1
+                else:
+                    phrase_frequencies[phrase] = 1
