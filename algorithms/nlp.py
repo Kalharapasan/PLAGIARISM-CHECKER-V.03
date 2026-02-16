@@ -445,3 +445,5 @@ class TextProcessor:
                 'score': round(score, 2),
                 'length': words_in_phrase
             })
+        key_phrases.sort(key=lambda x: x['score'], reverse=True)
+        return key_phrases[:top_n]
