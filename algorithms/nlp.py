@@ -272,4 +272,5 @@ class TextProcessor:
         if not text:
             return ""
         text = text.lower()
+        text = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text)
     
