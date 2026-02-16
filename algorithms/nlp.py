@@ -435,3 +435,5 @@ class TextProcessor:
             tf = freq / total_phrases if total_phrases > 0 else 0
             words_in_phrase = len(phrase.split())
             length_bonus = 1.0 + (0.1 * (words_in_phrase - 2))
+            academic_terms = sum(1 for word in phrase.split() if word in self.ACADEMIC_WORDS)
+            academic_bonus = 1.0 + (0.15 * academic_terms)
