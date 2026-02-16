@@ -487,3 +487,5 @@ class TextProcessor:
         structure['section_count'] = len(structure['sections'])
         
         return structure
+    
+    def detect_citations(self, text: str) -> List[Dict[str, Any]]:
