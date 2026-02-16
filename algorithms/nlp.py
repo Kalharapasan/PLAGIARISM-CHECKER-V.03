@@ -299,4 +299,5 @@ class TextProcessor:
         for abbr in abbreviations:
             text = text.replace(abbr, abbr.replace('.', '@ABBR@'))
         sentences = re.split(r'[.!?]+\s+', text)
+        sentences = [s.replace('@ABBR@', '.') for s in sentences]
     
