@@ -337,4 +337,15 @@ class TextProcessor:
         return count
     
     def detect_passive_voice(self, text: str) -> int:
+        patterns = [
+            r'\b(?:is|are|was|were|be|been|being)\s+\w+ed\b',
+            r'\b(?:has|have|had)\s+been\s+\w+ed\b',
+            r'\b(?:will|would|shall|should|can|could|may|might|must)\s+be\s+\w+ed\b'
+        ]
+        
+        passive_count = 0
+        for pattern in patterns:
+            passive_count += len(re.findall(pattern, text, re.IGNORECASE))
+        
+        return passive_count
     
