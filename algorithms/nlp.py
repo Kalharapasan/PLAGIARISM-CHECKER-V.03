@@ -474,3 +474,4 @@ class TextProcessor:
         paragraphs = self.extract_paragraphs(text)
         for para in paragraphs:
             para_lower = para.lower().strip()
+            
