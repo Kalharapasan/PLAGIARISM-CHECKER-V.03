@@ -411,3 +411,7 @@ class TextProcessor:
         return entities
     
     def extract_key_phrases(self, text: str, top_n: int = 10) -> List[Dict[str, Any]]:
+        words = self.tokenize(text, remove_stopwords=True)
+        
+        if len(words) < 3:
+            return []
