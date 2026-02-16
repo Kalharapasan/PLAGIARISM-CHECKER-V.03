@@ -336,3 +336,5 @@ class TextProcessor:
         
         return count
     
+    def detect_passive_voice(self, text: str) -> int:
+    
