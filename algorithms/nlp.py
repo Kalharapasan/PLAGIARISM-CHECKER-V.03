@@ -449,3 +449,15 @@ class TextProcessor:
         return key_phrases[:top_n]
     
     def detect_academic_structure(self, text: str) -> Dict[str, Any]:
+        structure = {
+            'has_abstract': False,
+            'has_introduction': False,
+            'has_literature_review': False,
+            'has_methodology': False,
+            'has_results': False,
+            'has_discussion': False,
+            'has_conclusion': False,
+            'has_references': False,
+            'sections': [],
+            'section_count': 0
+        }
