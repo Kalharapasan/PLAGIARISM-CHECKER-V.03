@@ -320,4 +320,5 @@ class TextProcessor:
         
         for i, char in enumerate(word):
             is_vowel = char in vowels
+            if is_vowel and not previous_was_vowel:
     
