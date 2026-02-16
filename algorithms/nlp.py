@@ -391,3 +391,21 @@ class TextProcessor:
                     'start': text.find(location),
                     'end': text.find(location) + len(location)
                 })
+        
+        date_patterns = [
+            r'\b(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b',
+            r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\b',
+            r'\b\d{4}\b'
+        ]
+        
+        for pattern in date_patterns:
+            dates = re.findall(pattern, text, re.IGNORECASE)
+            for date in dates:
+                entities.append({
+                    'text': date,
+                    'type': 'DATE',
+                    'start': text.find(date),
+                    'end': text.find(date) + len(date)
+                })
+        
+        return entities
