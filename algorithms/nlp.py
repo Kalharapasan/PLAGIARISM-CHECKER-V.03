@@ -267,3 +267,6 @@ class TextProcessor:
                       'in summary', 'overall', 'all in all', 'in brief'}
     }
     
+    
+    def clean_text(self, text: str) -> str:
+    
