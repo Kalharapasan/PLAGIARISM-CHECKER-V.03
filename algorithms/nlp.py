@@ -314,4 +314,10 @@ class TextProcessor:
         word = word.lower()
         if word.endswith('es') or word.endswith('ed'):
             word = word[:-2]
+        vowels = 'aeiouy'
+        count = 0
+        previous_was_vowel = False
+        
+        for i, char in enumerate(word):
+            is_vowel = char in vowels
     
