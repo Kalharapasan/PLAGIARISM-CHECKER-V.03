@@ -771,3 +771,5 @@ class TextAnalyzer:
         analysis.processing_time = time.time() - start_time
         
         return analysis
+    
+    def _classify_text_category(self, text: str) -> TextCategory:
