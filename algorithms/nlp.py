@@ -756,3 +756,6 @@ class TextAnalyzer:
         analysis.has_introduction = academic_structure['has_introduction']
         analysis.has_conclusion = academic_structure['has_conclusion']
         analysis.has_references = academic_structure['has_references']
+        
+        citations = self.processor.detect_citations(text)
+        analysis.citation_count = len(citations)
