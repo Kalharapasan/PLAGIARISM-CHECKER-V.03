@@ -659,4 +659,6 @@ class ReadabilityAnalyzer:
         
         return round(max(0, score), 2)
     
+    def analyze_readability(self, text: str) -> Dict[str, Any]:
+    
 
