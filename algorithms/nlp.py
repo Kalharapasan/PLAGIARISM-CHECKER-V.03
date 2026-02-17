@@ -643,5 +643,10 @@ class ReadabilityAnalyzer:
         return round(max(0, ari), 2)
     
     def calculate_dale_chall_score(self, text: str) -> float:
+        sentences = self.processor.extract_sentences(text)
+        words = self.processor.tokenize(text, remove_stopwords=False)
+        
+        if not sentences or not words:
+            return 0.0
     
 
