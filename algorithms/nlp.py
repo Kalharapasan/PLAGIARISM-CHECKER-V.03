@@ -606,5 +606,10 @@ class ReadabilityAnalyzer:
         return round(max(0, fog_index), 2)
     
     def calculate_smog_index(self, text: str) -> float:
+        sentences = self.processor.extract_sentences(text)
+        words = self.processor.tokenize(text, remove_stopwords=False)
+        
+        if len(sentences) < 3:
+            return 0.0
     
 
