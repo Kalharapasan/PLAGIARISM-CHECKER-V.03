@@ -791,3 +791,4 @@ class TextAnalyzer:
             return TextCategory.UNKNOWN
     
     def _detect_language(self, text: str) -> Language:
+        text_lower = text.lower()
