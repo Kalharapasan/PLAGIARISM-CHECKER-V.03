@@ -571,5 +571,8 @@ class ReadabilityAnalyzer:
         
         avg_sentence_length = len(words) / len(sentences)
         avg_syllables_per_word = total_syllables / len(words)
+        score = 206.835 - (1.015 * avg_sentence_length) - (84.6 * avg_syllables_per_word)
+        
+        return round(max(0, min(100, score)), 2)
     
 
