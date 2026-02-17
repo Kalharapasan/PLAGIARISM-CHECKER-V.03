@@ -759,3 +759,4 @@ class TextAnalyzer:
         
         citations = self.processor.detect_citations(text)
         analysis.citation_count = len(citations)
+        analysis.reference_count = len(citations)
