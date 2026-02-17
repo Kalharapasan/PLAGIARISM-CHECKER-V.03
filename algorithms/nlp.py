@@ -698,3 +698,13 @@ class TextAnalyzer:
         analysis = NLPAnalysis()
         analysis.timestamp = datetime.now().isoformat()
         analysis.text_hash = hashlib.md5(text.encode()).hexdigest()
+        analysis.character_count = len(text)
+        words = self.processor.tokenize(text, remove_stopwords=False)
+        analysis.word_count = len(words)
+        analysis.token_count = len(words)
+        
+        sentences = self.processor.extract_sentences(text)
+        analysis.sentence_count = len(sentences)
+        
+        paragraphs = self.processor.extract_paragraphs(text)
+        analysis.paragraph_count = len(paragraphs)
