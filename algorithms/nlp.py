@@ -648,5 +648,10 @@ class ReadabilityAnalyzer:
         
         if not sentences or not words:
             return 0.0
+        difficult_words = sum(1 for word in words if word in self.processor.ACADEMIC_WORDS)
+        
+        percent_difficult = (difficult_words / len(words)) * 100
+        avg_sentence_length = len(words) / len(sentences)
+        
     
 
