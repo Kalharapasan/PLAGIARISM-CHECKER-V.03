@@ -815,3 +815,5 @@ class TextAnalyzer:
         topics = []
         for phrase in key_phrases[:top_n]:
             topics.append(phrase['phrase'])
+        entity_types = set(entity['type'] for entity in named_entities)
+        topics.extend(f"{entity_type}s" for entity_type in entity_types)
