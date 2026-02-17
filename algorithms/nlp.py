@@ -561,5 +561,15 @@ class TextProcessor:
 class ReadabilityAnalyzer:
     
     def calculate_flesch_reading_ease(self, text: str) -> float:
+        sentences = self.processor.extract_sentences(text)
+        words = self.processor.tokenize(text, remove_stopwords=False)
+        
+        if not sentences or not words:
+            return 0.0
+        
+        total_syllables = sum(self.processor.count_syllables(word) for word in words)
+        
+        avg_sentence_length = len(words) / len(sentences)
+        avg_syllables_per_word = total_syllables / len(words)
     
 
