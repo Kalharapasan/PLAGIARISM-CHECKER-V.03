@@ -744,3 +744,9 @@ class TextAnalyzer:
         content_words = [w for w in words if w not in self.processor.stopwords]
         if analysis.word_count > 0:
             analysis.lexical_density = len(content_words) / analysis.word_count
+        
+        analysis.text_category = self._classify_text_category(text)
+        analysis.detected_language = self._detect_language(text)
+        analysis.topics = self._extract_topics(text)
+        analysis.key_phrases = self.processor.extract_key_phrases(text)
+        analysis.named_entities = self.processor.extract_named_entities(text)
