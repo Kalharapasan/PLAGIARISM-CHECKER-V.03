@@ -775,3 +775,5 @@ class TextAnalyzer:
     def _classify_text_category(self, text: str) -> TextCategory:
         words = self.processor.tokenize(text, remove_stopwords=True)
         word_freq = Counter(words)
+        academic_words = sum(word_freq[word] for word in self.processor.ACADEMIC_WORDS if word in word_freq)
+        academic_ratio = academic_words / len(words) if words else 0
