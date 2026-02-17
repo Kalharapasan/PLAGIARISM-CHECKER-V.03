@@ -691,3 +691,4 @@ class TextAnalyzer:
         except ImportError:
             pass
     
+    def analyze_text(self, text: str) -> NLPAnalysis:
