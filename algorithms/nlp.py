@@ -560,4 +560,6 @@ class TextProcessor:
     
 class ReadabilityAnalyzer:
     
+    def calculate_flesch_reading_ease(self, text: str) -> float:
+    
 
