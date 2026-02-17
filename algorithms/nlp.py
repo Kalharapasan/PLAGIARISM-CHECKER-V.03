@@ -638,5 +638,8 @@ class ReadabilityAnalyzer:
         chars = len(text)
         avg_chars_per_word = chars / len(words)
         avg_sentence_length = len(words) / len(sentences)
+        ari = (4.71 * avg_chars_per_word) + (0.5 * avg_sentence_length) - 21.43
+        
+        return round(max(0, ari), 2)
     
 
