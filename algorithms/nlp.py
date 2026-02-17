@@ -799,3 +799,6 @@ class TextAnalyzer:
         spanish_words = {'el', 'la', 'de', 'que', 'y', 'en', 'los', 'del', 'se', 'las'}
         spanish_score = sum(1 for word in spanish_words if word in text_lower)
         language_scores[Language.SPANISH] = spanish_score
+        french_words = {'le', 'la', 'de', 'et', 'à', 'les', 'des', 'en', 'un', 'une'}
+        french_score = sum(1 for word in french_words if word in text_lower)
+        language_scores[Language.FRENCH] = french_score
