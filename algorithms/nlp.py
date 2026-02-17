@@ -692,3 +692,9 @@ class TextAnalyzer:
             pass
     
     def analyze_text(self, text: str) -> NLPAnalysis:
+        import time
+        start_time = time.time()
+        
+        analysis = NLPAnalysis()
+        analysis.timestamp = datetime.now().isoformat()
+        analysis.text_hash = hashlib.md5(text.encode()).hexdigest()
