@@ -768,3 +768,6 @@ class TextAnalyzer:
         analysis.coherence_score = self._calculate_coherence(text)
         analysis.cohesion_score = self._calculate_cohesion(text)
         analysis.transition_word_density = self._calculate_transition_density(text)
+        analysis.processing_time = time.time() - start_time
+        
+        return analysis
