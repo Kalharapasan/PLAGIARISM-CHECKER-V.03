@@ -810,3 +810,5 @@ class TextAnalyzer:
         return Language.UNKNOWN
     
     def _extract_topics(self, text: str, top_n: int = 5) -> List[str]:
+        key_phrases = self.processor.extract_key_phrases(text, top_n=top_n * 2)
+        named_entities = self.processor.extract_named_entities(text)
