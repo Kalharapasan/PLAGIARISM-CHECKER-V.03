@@ -635,5 +635,6 @@ class ReadabilityAnalyzer:
         
         if not sentences or not words:
             return 0.0
+        chars = len(text)
     
 
