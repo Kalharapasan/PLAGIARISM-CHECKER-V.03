@@ -817,3 +817,5 @@ class TextAnalyzer:
             topics.append(phrase['phrase'])
         entity_types = set(entity['type'] for entity in named_entities)
         topics.extend(f"{entity_type}s" for entity_type in entity_types)
+        unique_topics = list(dict.fromkeys(topics))[:top_n]        
+        return unique_topics
