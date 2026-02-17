@@ -652,6 +652,11 @@ class ReadabilityAnalyzer:
         
         percent_difficult = (difficult_words / len(words)) * 100
         avg_sentence_length = len(words) / len(sentences)
+        score = (0.1579 * percent_difficult) + (0.0496 * avg_sentence_length)
         
+        if percent_difficult > 5:
+            score += 3.6365
+        
+        return round(max(0, score), 2)
     
 
