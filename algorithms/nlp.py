@@ -672,5 +672,7 @@ class ReadabilityAnalyzer:
             'automated_readability_index': self.calculate_automated_readability_index(text),
             'dale_chall_score': self.calculate_dale_chall_score(text)
         }
+
+class TextAnalyzer:
     
 
