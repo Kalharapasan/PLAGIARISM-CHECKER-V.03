@@ -590,4 +590,6 @@ class ReadabilityAnalyzer:
         
         return round(max(0, grade), 2)
     
+    def calculate_gunning_fog_index(self, text: str) -> float:
+    
 
