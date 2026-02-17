@@ -558,4 +558,6 @@ class TextProcessor:
         
         return citations
     
+class ReadabilityAnalyzer:
+    
 
