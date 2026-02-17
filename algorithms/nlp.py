@@ -642,4 +642,6 @@ class ReadabilityAnalyzer:
         
         return round(max(0, ari), 2)
     
+    def calculate_dale_chall_score(self, text: str) -> float:
+    
 
