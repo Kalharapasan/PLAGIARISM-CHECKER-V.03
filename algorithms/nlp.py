@@ -676,4 +676,8 @@ class ReadabilityAnalyzer:
 class TextAnalyzer:
     
     def _load_models(self):
+        try:
+            import spacy
+        except ImportError:
+            pass
     
