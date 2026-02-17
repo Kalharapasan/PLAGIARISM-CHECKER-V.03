@@ -596,5 +596,10 @@ class ReadabilityAnalyzer:
         
         if not sentences or not words:
             return 0.0
+        
+        complex_words = sum(1 for word in words if self.processor.count_syllables(word) >= 3)
+        
+        avg_sentence_length = len(words) / len(sentences)
+        percent_complex = (complex_words / len(words)) * 100
     
 
