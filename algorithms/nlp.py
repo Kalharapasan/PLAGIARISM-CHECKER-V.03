@@ -792,3 +792,4 @@ class TextAnalyzer:
     
     def _detect_language(self, text: str) -> Language:
         text_lower = text.lower()
+        language_scores = {}
