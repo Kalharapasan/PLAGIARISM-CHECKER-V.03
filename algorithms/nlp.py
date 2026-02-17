@@ -813,3 +813,5 @@ class TextAnalyzer:
         key_phrases = self.processor.extract_key_phrases(text, top_n=top_n * 2)
         named_entities = self.processor.extract_named_entities(text)
         topics = []
+        for phrase in key_phrases[:top_n]:
+            topics.append(phrase['phrase'])
