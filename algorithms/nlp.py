@@ -726,3 +726,13 @@ class TextAnalyzer:
         analysis.coleman_liau_index = readability_scores['coleman_liau_index']
         analysis.automated_readability_index = readability_scores['automated_readability_index']
         analysis.dale_chall_score = readability_scores['dale_chall_score']
+        
+        if analysis.sentence_count > 0:
+            analysis.avg_sentence_length = analysis.word_count / analysis.sentence_count
+        
+        if analysis.word_count > 0:
+            total_chars = sum(len(word) for word in words)
+            analysis.avg_word_length = total_chars / analysis.word_count
+            
+            total_syllables = sum(self.processor.count_syllables(word) for word in words)
+            analysis.avg_syllables_per_word = total_syllables / analysis.word_count
