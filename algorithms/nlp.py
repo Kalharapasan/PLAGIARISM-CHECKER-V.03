@@ -895,4 +895,6 @@ class TextAnalyzer:
         avg_coherence = coherence_score / (len(sentences) - 1) if len(sentences) > 1 else 0
         
         return max(0.0, min(1.0, avg_coherence))
+    
+    def _calculate_cohesion(self, text: str) -> float:
         
