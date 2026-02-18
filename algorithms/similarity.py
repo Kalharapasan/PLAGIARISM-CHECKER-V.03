@@ -7,3 +7,6 @@ from dataclasses import dataclass, field
 import hashlib
 import heapq
 from functools import lru_cache
+
+@dataclass
+class SimilarityConfig:
