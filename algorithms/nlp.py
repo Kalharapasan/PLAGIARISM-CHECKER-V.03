@@ -1001,4 +1001,6 @@ def detect_language(text: str) -> str:
     analyzer = TextAnalyzer()
     language = analyzer._detect_language(text)
     return language.value
+
+def calculate_readability(text: str) -> Dict[str, float]:
         
