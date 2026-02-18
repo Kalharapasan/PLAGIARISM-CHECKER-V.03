@@ -918,4 +918,6 @@ class TextAnalyzer:
         cohesion = min(1.0, transition_density / 0.05)
         
         return max(0.0, min(1.0, cohesion))
+    
+    def _calculate_transition_density(self, text: str) -> float:
         
