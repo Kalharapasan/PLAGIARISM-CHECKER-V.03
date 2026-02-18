@@ -868,3 +868,8 @@ class TextAnalyzer:
                                 if word in {'really', 'very', 'so', 'just', 'like', 'got', 'get'})
         }
         
+        total_words = len(self.processor.tokenize(text))
+        
+        if total_words == 0:
+            return 0.5
+        
