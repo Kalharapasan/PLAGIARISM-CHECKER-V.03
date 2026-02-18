@@ -992,4 +992,5 @@ def summarize_text(text: str, max_sentences: int = 3) -> str:
 def extract_keywords(text: str, top_n: int = 10) -> List[str]:
     processor = TextProcessor()
     words = processor.tokenize(text, remove_stopwords=True)
+    words = [w for w in words if len(w) > 3]
         
