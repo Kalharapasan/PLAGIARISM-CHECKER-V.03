@@ -46,3 +46,8 @@ class SimilarityConfig:
         'overlap': 0.05,
         'dice': 0.05
     })
+    
+    enable_caching: bool = True
+    cache_size: int = 1000
+    parallel_processing: bool = False
+    max_workers: int = 4
