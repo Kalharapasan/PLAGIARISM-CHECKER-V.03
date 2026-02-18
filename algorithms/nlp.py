@@ -980,4 +980,8 @@ def summarize_text(text: str, max_sentences: int = 3) -> str:
         sentence_length = len(processor.tokenize(sentence))
         if 15 <= sentence_length <= 30:
             score += 1
+        words = processor.tokenize(sentence, remove_stopwords=True)
+        score += len(words) * 0.5
+        
+        sentence_scores.append((score, i, sentence))
         
