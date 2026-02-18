@@ -852,4 +852,6 @@ class TextAnalyzer:
     def _calculate_formality(self, text: str) -> float:
         formal_indicators = {
             'passive': self.processor.detect_passive_voice(text),
+            'academic': sum(1 for word in self.processor.tokenize(text) 
+                          if word in self.processor.ACADEMIC_WORDS),
         }
