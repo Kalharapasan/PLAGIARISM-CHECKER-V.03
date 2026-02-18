@@ -28,3 +28,7 @@ class SimilarityConfig:
     sequence_threshold: float = 0.05
     overlap_threshold: float = 0.1
     dice_threshold: float = 0.1
+    
+    levenshtein_threshold: float = 0.8  
+    tfidf_threshold: float = 0.1
+    semantic_threshold: float = 0.1
