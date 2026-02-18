@@ -949,4 +949,17 @@ class TextAnalyzer:
             'passive_voice': analysis2.passive_voice_percentage - analysis1.passive_voice_percentage,
             'lexical_density': analysis2.lexical_density - analysis1.lexical_density
         }
+        readability_differences = {
+            'flesch_reading_ease': analysis2.flesch_reading_ease - analysis1.flesch_reading_ease,
+            'flesch_kincaid_grade': analysis2.flesch_kincaid_grade - analysis1.flesch_kincaid_grade
+        }
+        
+        return {
+            'jaccard_similarity': jaccard_similarity,
+            'style_differences': style_differences,
+            'readability_differences': readability_differences,
+            'analysis1': analysis1.to_dict(),
+            'analysis2': analysis2.to_dict(),
+            'comparison_timestamp': datetime.now().isoformat()
+        }
         
