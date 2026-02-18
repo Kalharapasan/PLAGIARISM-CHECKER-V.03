@@ -872,4 +872,6 @@ class TextAnalyzer:
         
         if total_words == 0:
             return 0.5
+        formal_score = sum(formal_indicators.values()) / total_words
+        informal_score = sum(informal_indicators.values()) / total_words
         
