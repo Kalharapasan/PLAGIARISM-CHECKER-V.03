@@ -883,4 +883,6 @@ class TextAnalyzer:
     
     def _calculate_coherence(self, text: str) -> float:
         sentences = self.processor.extract_sentences(text)
+        if len(sentences) < 2:
+            return 1.0 
         
