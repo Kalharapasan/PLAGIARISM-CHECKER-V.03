@@ -855,4 +855,7 @@ class TextAnalyzer:
             'academic': sum(1 for word in self.processor.tokenize(text) 
                           if word in self.processor.ACADEMIC_WORDS),
             'third_person': len(re.findall(r'\b(?:he|she|it|they|them|their|his|her|its)\b', text, re.IGNORECASE)),
+            'formal_transitions': sum(1 for word in self.processor.tokenize(text)
+                                    if word in {'furthermore', 'moreover', 'however', 'therefore', 
+                                               'consequently', 'nevertheless', 'nonetheless'})
         }
