@@ -964,4 +964,11 @@ class TextAnalyzer:
         }
     
 def summarize_text(text: str, max_sentences: int = 3) -> str:
+    processor = TextProcessor()
+    analyzer = TextAnalyzer()
+    
+    sentences = processor.extract_sentences(text)
+    
+    if len(sentences) <= max_sentences:
+        return ' '.join(sentences)
         
