@@ -937,4 +937,8 @@ class TextAnalyzer:
         analysis2 = self.analyze_text(text2)
         words1 = set(self.processor.tokenize(text1))
         words2 = set(self.processor.tokenize(text2))
+        if words1 or words2:
+            intersection = len(words1.intersection(words2))
+            union = len(words1.union(words2))
+            jaccard_similarity = intersection / union if union > 0 else 0
         
