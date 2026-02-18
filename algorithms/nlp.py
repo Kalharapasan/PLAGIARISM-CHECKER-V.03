@@ -924,4 +924,11 @@ class TextAnalyzer:
         
         if not words:
             return 0.0
+        all_transition_words = set()
+        for category in self.processor.TRANSITION_WORDS.values():
+            all_transition_words.update(category)
+        
+        transition_count = sum(1 for word in words if word in all_transition_words)
+        
+        return transition_count / len(words)
         
