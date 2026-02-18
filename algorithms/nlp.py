@@ -931,4 +931,6 @@ class TextAnalyzer:
         transition_count = sum(1 for word in words if word in all_transition_words)
         
         return transition_count / len(words)
+    
+    def compare_texts(self, text1: str, text2: str) -> Dict[str, Any]:
         
