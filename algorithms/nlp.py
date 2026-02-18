@@ -971,4 +971,8 @@ def summarize_text(text: str, max_sentences: int = 3) -> str:
     
     if len(sentences) <= max_sentences:
         return ' '.join(sentences)
+    sentence_scores = []
+    
+    for i, sentence in enumerate(sentences):
+        score = 0
         
