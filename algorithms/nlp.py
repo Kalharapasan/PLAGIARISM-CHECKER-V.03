@@ -886,4 +886,5 @@ class TextAnalyzer:
         if len(sentences) < 2:
             return 1.0 
         coherence_score = 0.0
+        for i in range(len(sentences) - 1):
         
