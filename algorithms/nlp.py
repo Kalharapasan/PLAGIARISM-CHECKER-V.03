@@ -854,4 +854,5 @@ class TextAnalyzer:
             'passive': self.processor.detect_passive_voice(text),
             'academic': sum(1 for word in self.processor.tokenize(text) 
                           if word in self.processor.ACADEMIC_WORDS),
+            'third_person': len(re.findall(r'\b(?:he|she|it|they|them|their|his|her|its)\b', text, re.IGNORECASE)),
         }
