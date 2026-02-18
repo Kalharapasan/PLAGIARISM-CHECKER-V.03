@@ -860,5 +860,7 @@ class TextAnalyzer:
                                                'consequently', 'nevertheless', 'nonetheless'})
         }
         
-        informal_indicators = {}
+        informal_indicators = {
+            'first_person': len(re.findall(r'\b(?:i|me|my|mine|we|us|our|ours)\b', text, re.IGNORECASE)),
+        }
         
