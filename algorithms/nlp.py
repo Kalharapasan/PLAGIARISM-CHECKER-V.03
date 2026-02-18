@@ -674,7 +674,12 @@ class ReadabilityAnalyzer:
         }
 
 class TextAnalyzer:
-    
+    def __init__(self, language: str = 'en'):
+        self.language = language
+        self.processor = TextProcessor(language)
+        self.readability = ReadabilityAnalyzer(language)
+        
+        
     def _load_models(self):
         try:
             import spacy
