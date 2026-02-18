@@ -851,5 +851,5 @@ class TextAnalyzer:
     
     def _calculate_formality(self, text: str) -> float:
         formal_indicators = {
-            
+            'passive': self.processor.detect_passive_voice(text),
         }
