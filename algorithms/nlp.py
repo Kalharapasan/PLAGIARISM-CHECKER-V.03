@@ -998,4 +998,7 @@ def extract_keywords(text: str, top_n: int = 10) -> List[str]:
     return [word for word, _ in top_words]
 
 def detect_language(text: str) -> str:
+    analyzer = TextAnalyzer()
+    language = analyzer._detect_language(text)
+    return language.value
         
