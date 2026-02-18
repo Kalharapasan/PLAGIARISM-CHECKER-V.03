@@ -10,3 +10,12 @@ from functools import lru_cache
 
 @dataclass
 class SimilarityConfig:
+    use_cosine: bool = True
+    use_jaccard: bool = True
+    use_ngram: bool = True
+    use_sequence: bool = True
+    use_overlap: bool = False
+    use_dice: bool = False
+    use_levenshtein: bool = False
+    use_tfidf: bool = False
+    use_semantic: bool = False
