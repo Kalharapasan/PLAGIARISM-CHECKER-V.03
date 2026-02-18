@@ -20,7 +20,7 @@ class SimilarityConfig:
     use_tfidf: bool = False
     use_semantic: bool = False
     
-    
+    cosine_threshold: float = 0.1  
     jaccard_threshold: float = 0.1
     ngram_size: int = 3
     ngram_threshold: float = 0.1
