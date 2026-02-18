@@ -986,4 +986,6 @@ def summarize_text(text: str, max_sentences: int = 3) -> str:
         sentence_scores.append((score, i, sentence))
     sentence_scores.sort(reverse=True)
     selected_indices = sorted([idx for _, idx, _ in sentence_scores[:max_sentences]])
+    summary_sentences = [sentences[idx] for idx in selected_indices]
+    return ' '.join(summary_sentences)
         
