@@ -32,3 +32,8 @@ class SimilarityConfig:
     levenshtein_threshold: float = 0.8  
     tfidf_threshold: float = 0.1
     semantic_threshold: float = 0.1
+    
+    remove_stopwords: bool = True
+    normalize_text: bool = True
+    min_word_length: int = 3
+    language: str = 'english'
