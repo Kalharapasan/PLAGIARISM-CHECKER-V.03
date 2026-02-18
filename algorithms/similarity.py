@@ -37,3 +37,12 @@ class SimilarityConfig:
     normalize_text: bool = True
     min_word_length: int = 3
     language: str = 'english'
+    
+    weights: Dict[str, float] = field(default_factory=lambda: {
+        'cosine': 0.25,
+        'jaccard': 0.20,
+        'ngram': 0.20,
+        'sequence': 0.25,
+        'overlap': 0.05,
+        'dice': 0.05
+    })
