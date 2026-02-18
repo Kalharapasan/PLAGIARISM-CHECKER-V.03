@@ -819,3 +819,5 @@ class TextAnalyzer:
         topics.extend(f"{entity_type}s" for entity_type in entity_types)
         unique_topics = list(dict.fromkeys(topics))[:top_n]        
         return unique_topics
+    
+    def _analyze_sentiment(self, text: str) -> Dict[str, float]:
