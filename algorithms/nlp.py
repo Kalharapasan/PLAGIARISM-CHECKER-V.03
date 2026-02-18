@@ -962,4 +962,6 @@ class TextAnalyzer:
             'analysis2': analysis2.to_dict(),
             'comparison_timestamp': datetime.now().isoformat()
         }
+    
+    
         
