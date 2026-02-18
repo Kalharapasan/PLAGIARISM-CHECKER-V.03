@@ -680,7 +680,7 @@ class TextAnalyzer:
         self.readability = ReadabilityAnalyzer(language)
         self.spacy_model = None
         self.nltk_available = False
-        
+        self._load_models()
         
     def _load_models(self):
         try:
