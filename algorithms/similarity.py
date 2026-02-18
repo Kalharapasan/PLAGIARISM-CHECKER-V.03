@@ -19,3 +19,12 @@ class SimilarityConfig:
     use_levenshtein: bool = False
     use_tfidf: bool = False
     use_semantic: bool = False
+    
+    
+    jaccard_threshold: float = 0.1
+    ngram_size: int = 3
+    ngram_threshold: float = 0.1
+    sequence_min_length: int = 5
+    sequence_threshold: float = 0.05
+    overlap_threshold: float = 0.1
+    dice_threshold: float = 0.1
