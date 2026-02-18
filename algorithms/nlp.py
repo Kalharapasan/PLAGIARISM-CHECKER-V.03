@@ -902,3 +902,6 @@ class TextAnalyzer:
         if len(sentences) < 2:
             return 1.0
         
+        transition_count = 0
+        all_words = self.processor.tokenize(text)
+        
