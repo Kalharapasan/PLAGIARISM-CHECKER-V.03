@@ -920,4 +920,8 @@ class TextAnalyzer:
         return max(0.0, min(1.0, cohesion))
     
     def _calculate_transition_density(self, text: str) -> float:
+        words = self.processor.tokenize(text)
+        
+        if not words:
+            return 0.0
         
