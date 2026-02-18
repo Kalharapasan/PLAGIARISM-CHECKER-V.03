@@ -864,5 +864,7 @@ class TextAnalyzer:
             'first_person': len(re.findall(r'\b(?:i|me|my|mine|we|us|our|ours)\b', text, re.IGNORECASE)),
             'contractions': len(re.findall(r"\b(?:i'm|you're|he's|she's|it's|we're|they're|"
                                          r"can't|don't|won't|isn't|aren't|wasn't|weren't)\b", text, re.IGNORECASE)),
+            'informal_words': sum(1 for word in self.processor.tokenize(text)
+                                if word in {'really', 'very', 'so', 'just', 'like', 'got', 'get'})
         }
         
