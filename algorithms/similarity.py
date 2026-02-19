@@ -62,3 +62,5 @@ class TextPreprocessor:
         'him', 'her', 'us', 'them', 'my', 'your', 'his', 'its', 'our', 'their',
         'mine', 'yours', 'hers', 'ours', 'theirs'
     }
+    
+    def _setup_caches(self):
