@@ -72,3 +72,6 @@ class TextPreprocessor:
             self._normalize_cache = self._normalize_uncached
     
     def preprocess(self, text: str) -> str:
+        if self.config.normalize_text:
+            text = self._normalize_cache(text)
+        return text
