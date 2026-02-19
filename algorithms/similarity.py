@@ -145,6 +145,9 @@ class SimilarityCalculator:
     def __init__(self, config: SimilarityConfig = None):
         self.config = config or SimilarityConfig()
         self.preprocessor = TextPreprocessor(config)
+        self.tfidf_vectorizer = None
+        if self.config.use_tfidf:
+            self._init_tfidf()
     
     def _init_tfidf(self):
         try:
