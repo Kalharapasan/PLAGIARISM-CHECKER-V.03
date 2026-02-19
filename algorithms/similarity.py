@@ -120,3 +120,5 @@ class TextPreprocessor:
             ngrams.append(ngram)
         
         return ngrams
+    
+    def get_character_ngrams(self, text: str, n: int = 3) -> List[str]:
