@@ -261,3 +261,8 @@ class SimilarityCalculator:
                 else:
                     dp[i][j] = 0
         sequences = []
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if dp[i][j] >= min_length:
+                    
+        
