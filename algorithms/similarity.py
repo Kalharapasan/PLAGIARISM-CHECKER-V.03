@@ -179,4 +179,4 @@ class SimilarityCalculator:
             print("Warning: spaCy not installed. Semantic similarity disabled.")
             self.config.use_semantic = False
     
-    
+    def calculate_cosine_similarity(self, text1: str, text2: str) -> float:
