@@ -97,3 +97,4 @@ class TextPreprocessor:
             return []
         if self.config.normalize_text:
             text = self._normalize_uncached(text)
+        words = re.findall(r'\b[a-z0-9][a-z0-9\'-]*\b', text.lower())
