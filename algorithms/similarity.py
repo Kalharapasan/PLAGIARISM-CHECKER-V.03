@@ -180,3 +180,8 @@ class SimilarityCalculator:
             self.config.use_semantic = False
     
     def calculate_cosine_similarity(self, text1: str, text2: str) -> float:
+        words1 = self.preprocessor.tokenize(text1)
+        words2 = self.preprocessor.tokenize(text2)
+        
+        if not words1 or not words2:
+            return 0.0
