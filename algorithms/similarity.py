@@ -143,4 +143,4 @@ class TextPreprocessor:
 
 class SimilarityCalculator:
     
-    
+    def _init_tfidf(self):
