@@ -233,4 +233,8 @@ class SimilarityCalculator:
             return 1.0
         if not ngrams1 or not ngrams2:
             return 0.0 
+        intersection = len(ngrams1.intersection(ngrams2))
+        union = len(ngrams1.union(ngrams2))
+        
+        return intersection / union if union > 0 else 0.0
         
