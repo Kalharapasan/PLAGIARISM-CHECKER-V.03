@@ -125,3 +125,14 @@ class TextPreprocessor:
         if not text:
             return []
         text = self._normalize_uncached(text)
+        text = text.replace(' ', '')
+        
+        if len(text) < n:
+            return []
+        
+        ngrams = []
+        for i in range(len(text) - n + 1):
+            ngram = text[i:i+n]
+            ngrams.append(ngram)
+        
+        return ngrams
