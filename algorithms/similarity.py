@@ -185,3 +185,5 @@ class SimilarityCalculator:
         
         if not words1 or not words2:
             return 0.0
+        freq1 = Counter(words1)
+        freq2 = Counter(words2)
