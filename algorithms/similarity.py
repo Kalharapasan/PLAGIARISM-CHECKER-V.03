@@ -140,3 +140,7 @@ class TextPreprocessor:
             ngrams.append(ngram)
         
         return ngrams
+
+class SimilarityCalculator:
+    
+    
