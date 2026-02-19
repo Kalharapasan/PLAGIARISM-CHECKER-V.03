@@ -305,3 +305,4 @@ class SimilarityCalculator:
         if not sequences:
             return 0.0
         total_matched = sum(seq['length'] for seq in sequences)
+        total_words = len(words1) + len(words2)
