@@ -205,3 +205,5 @@ class SimilarityCalculator:
         words2 = set(self.preprocessor.tokenize(text2))
         if not words1 and not words2:
             return 1.0
+        if not words1 or not words2:
+            return 0.0
