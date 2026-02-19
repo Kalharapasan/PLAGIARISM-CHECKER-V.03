@@ -106,3 +106,17 @@ class TextPreprocessor:
         return words
     
     def get_ngrams(self, text: str, n: int = None) -> List[str]:
+        if n is None:
+            n = self.config.ngram_size
+        
+        words = self.tokenize(text)
+        
+        if len(words) < n:
+            return []
+        
+        ngrams = []
+        for i in range(len(words) - n + 1):
+            ngram = ' '.join(words[i:i+n])
+            ngrams.append(ngram)
+        
+        return ngrams
