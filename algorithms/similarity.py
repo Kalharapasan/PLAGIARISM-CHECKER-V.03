@@ -247,3 +247,4 @@ class SimilarityCalculator:
         if not words1 or not words2:
             return []
         m, n = len(words1), len(words2)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
