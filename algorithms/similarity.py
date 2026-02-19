@@ -264,5 +264,19 @@ class SimilarityCalculator:
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 if dp[i][j] >= min_length:
-                    
+                    if i == m or j == n or words1[i] != words2[j]:
+                        length = dp[i][j]
+                        start1 = i - length
+                        start2 = j - length
+                        
+                        sequence_text = ' '.join(words1[start1:i])
+                        
+                        sequences.append({
+                            'text': sequence_text,
+                            'length': length,
+                            'position1': start1,
+                            'position2': start2,
+                            'words1': words1[start1:i],
+                            'words2': words2[start2:j]
+                        })
         
