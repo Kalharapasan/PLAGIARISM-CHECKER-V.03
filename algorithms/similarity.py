@@ -155,3 +155,5 @@ class SimilarityCalculator:
         except ImportError:
             print("Warning: scikit-learn not installed. TF-IDF disabled.")
             self.config.use_tfidf = False
+    
+    def _init_semantic(self):
