@@ -288,4 +288,10 @@ class SimilarityCalculator:
                 if pos in used_positions:
                     overlap = True
                     break
+            if not overlap:
+                filtered_sequences.append(seq)
+                for pos in range(seq['position1'], seq['position1'] + seq['length']):
+                    used_positions.add(pos)
+        
+        return filtered_sequences
         
