@@ -51,3 +51,5 @@ class SimilarityConfig:
     cache_size: int = 1000
     parallel_processing: bool = False
     max_workers: int = 4
+    
+class TextPreprocessor:
