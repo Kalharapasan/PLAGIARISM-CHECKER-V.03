@@ -296,4 +296,6 @@ class SimilarityCalculator:
         return filtered_sequences
     
     def calculate_sequence_similarity(self, text1: str, text2: str) -> float:
+        words1 = self.preprocessor.tokenize(text1)
+        words2 = self.preprocessor.tokenize(text2)
         
