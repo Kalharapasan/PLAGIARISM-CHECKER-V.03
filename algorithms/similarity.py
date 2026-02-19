@@ -260,4 +260,4 @@ class SimilarityCalculator:
                         end_pos = i
                 else:
                     dp[i][j] = 0
-        
+        sequences = []
