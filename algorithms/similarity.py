@@ -213,3 +213,5 @@ class SimilarityCalculator:
         return intersection / union if union > 0 else 0.0
     
     def calculate_ngram_similarity(self, text1: str, text2: str, n: int = None) -> float:
+        if n is None:
+            n = self.config.ngram_size
