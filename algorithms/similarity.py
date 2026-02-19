@@ -83,3 +83,5 @@ class TextPreprocessor:
         text = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', '', text)
         text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '', text)
         text = re.sub(r'[^\w\s\'-]', ' ', text)
+        text = re.sub(r'\s+', ' ', text)       
+        return text.strip()
