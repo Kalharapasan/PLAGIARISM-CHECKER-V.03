@@ -98,3 +98,5 @@ class TextPreprocessor:
         if self.config.normalize_text:
             text = self._normalize_uncached(text)
         words = re.findall(r'\b[a-z0-9][a-z0-9\'-]*\b', text.lower())
+        if self.config.min_word_length > 1:
+            words = [w for w in words if len(w) >= self.config.min_word_length]
