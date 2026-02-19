@@ -246,4 +246,4 @@ class SimilarityCalculator:
         
         if not words1 or not words2:
             return []
-        
+        m, n = len(words1), len(words2)
