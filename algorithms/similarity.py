@@ -217,3 +217,5 @@ class SimilarityCalculator:
             n = self.config.ngram_size
         ngrams1 = set(self.preprocessor.get_ngrams(text1, n))
         ngrams2 = set(self.preprocessor.get_ngrams(text2, n))
+        if not ngrams1 and not ngrams2:
+            return 1.0
