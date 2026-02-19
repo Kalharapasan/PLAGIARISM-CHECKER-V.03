@@ -188,3 +188,5 @@ class SimilarityCalculator:
         freq1 = Counter(words1)
         freq2 = Counter(words2)
         all_words = set(freq1.keys()).union(set(freq2.keys()))
+        vec1 = [freq1.get(word, 0) for word in all_words]
+        vec2 = [freq2.get(word, 0) for word in all_words]
