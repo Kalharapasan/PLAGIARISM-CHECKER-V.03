@@ -203,3 +203,5 @@ class SimilarityCalculator:
     def calculate_jaccard_similarity(self, text1: str, text2: str) -> float:
         words1 = set(self.preprocessor.tokenize(text1))
         words2 = set(self.preprocessor.tokenize(text2))
+        if not words1 and not words2:
+            return 1.0
