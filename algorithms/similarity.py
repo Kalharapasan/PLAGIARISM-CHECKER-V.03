@@ -225,3 +225,5 @@ class SimilarityCalculator:
         union = len(ngrams1.union(ngrams2))
         
         return intersection / union if union > 0 else 0.0
+    
+    def calculate_character_ngram_similarity(self, text1: str, text2: str, n: int = 3) -> float:
