@@ -294,4 +294,6 @@ class SimilarityCalculator:
                     used_positions.add(pos)
         
         return filtered_sequences
+    
+    def calculate_sequence_similarity(self, text1: str, text2: str) -> float:
         
