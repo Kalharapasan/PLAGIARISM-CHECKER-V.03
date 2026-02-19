@@ -161,3 +161,11 @@ class SimilarityCalculator:
             import spacy
             try:
                 self.semantic_model = spacy.load('en_core_web_sm')
+            except:
+                import subprocess
+                import sys
+                subprocess.check_call([sys.executable, '-m', 'spacy', 'download', 'en_core_web_sm'])
+                self.semantic_model = spacy.load('en_core_web_sm')
+        except ImportError:
+            print("Warning: spaCy not installed. Semantic similarity disabled.")
+            self.config.use_semantic = False
