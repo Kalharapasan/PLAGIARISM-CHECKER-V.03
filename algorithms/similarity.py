@@ -199,3 +199,5 @@ class SimilarityCalculator:
         similarity = dot_product / (magnitude1 * magnitude2)
         
         return max(0.0, min(1.0, similarity))
+    
+    def calculate_jaccard_similarity(self, text1: str, text2: str) -> float:
