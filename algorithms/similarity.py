@@ -142,6 +142,9 @@ class TextPreprocessor:
         return ngrams
 
 class SimilarityCalculator:
+    def __init__(self, config: SimilarityConfig = None):
+        self.config = config or SimilarityConfig()
+        self.preprocessor = TextPreprocessor(config)
     
     def _init_tfidf(self):
         try:
@@ -169,3 +172,5 @@ class SimilarityCalculator:
         except ImportError:
             print("Warning: spaCy not installed. Semantic similarity disabled.")
             self.config.use_semantic = False
+    
+    
