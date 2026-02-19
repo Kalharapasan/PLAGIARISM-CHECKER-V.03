@@ -300,4 +300,7 @@ class SimilarityCalculator:
         words2 = self.preprocessor.tokenize(text2)
         if not words1 or not words2:
             return 0.0
+        sequences = self.find_common_sequences(text1, text2)
         
+        if not sequences:
+            return 0.0
