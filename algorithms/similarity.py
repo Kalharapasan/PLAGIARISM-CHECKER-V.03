@@ -77,3 +77,5 @@ class TextPreprocessor:
         return text
     
     def _normalize_uncached(self, text: str) -> str:
+        if not text:
+            return ""
