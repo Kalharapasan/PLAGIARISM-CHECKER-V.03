@@ -239,4 +239,6 @@ class SimilarityCalculator:
         return intersection / union if union > 0 else 0.0
     
     def find_common_sequences(self, text1: str, text2: str, min_length: int = None) -> List[Dict[str, Any]]:
+        if min_length is None:
+            min_length = self.config.sequence_min_length
         
