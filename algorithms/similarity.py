@@ -104,3 +104,5 @@ class TextPreprocessor:
             words = [w for w in words if w not in self.ENGLISH_STOPWORDS]
         
         return words
+    
+    def get_ngrams(self, text: str, n: int = None) -> List[str]:
