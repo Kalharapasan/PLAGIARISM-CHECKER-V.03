@@ -241,4 +241,9 @@ class SimilarityCalculator:
     def find_common_sequences(self, text1: str, text2: str, min_length: int = None) -> List[Dict[str, Any]]:
         if min_length is None:
             min_length = self.config.sequence_min_length
+        words1 = self.preprocessor.tokenize(text1)
+        words2 = self.preprocessor.tokenize(text2)
+        
+        if not words1 or not words2:
+            return []
         
