@@ -207,3 +207,7 @@ class SimilarityCalculator:
             return 1.0
         if not words1 or not words2:
             return 0.0
+        intersection = len(words1.intersection(words2))
+        union = len(words1.union(words2))
+        
+        return intersection / union if union > 0 else 0.0
