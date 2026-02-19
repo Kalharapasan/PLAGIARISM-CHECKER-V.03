@@ -215,3 +215,5 @@ class SimilarityCalculator:
     def calculate_ngram_similarity(self, text1: str, text2: str, n: int = None) -> float:
         if n is None:
             n = self.config.ngram_size
+        ngrams1 = set(self.preprocessor.get_ngrams(text1, n))
+        ngrams2 = set(self.preprocessor.get_ngrams(text2, n))
