@@ -79,3 +79,4 @@ class TextPreprocessor:
     def _normalize_uncached(self, text: str) -> str:
         if not text:
             return ""
+        text = text.lower()
