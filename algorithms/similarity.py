@@ -279,4 +279,7 @@ class SimilarityCalculator:
                             'words1': words1[start1:i],
                             'words2': words2[start2:j]
                         })
+        sequences.sort(key=lambda x: x['length'], reverse=True)
+        filtered_sequences = []
+        used_positions = set()
         
