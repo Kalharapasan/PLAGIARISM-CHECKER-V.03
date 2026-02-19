@@ -70,3 +70,5 @@ class TextPreprocessor:
         else:
             self._tokenize_cache = self._tokenize_uncached
             self._normalize_cache = self._normalize_uncached
+    
+    def preprocess(self, text: str) -> str:
