@@ -64,3 +64,9 @@ class TextPreprocessor:
     }
     
     def _setup_caches(self):
+        if self.config.enable_caching:
+            self._tokenize_cache = lru_cache(maxsize=self.config.cache_size)(self._tokenize_uncached)
+            self._normalize_cache = lru_cache(maxsize=self.config.cache_size)(self._normalize_uncached)
+        else:
+            self._tokenize_cache = self._tokenize_uncached
+            self._normalize_cache = self._normalize_uncached
