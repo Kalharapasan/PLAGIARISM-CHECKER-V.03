@@ -63,6 +63,10 @@ class TextPreprocessor:
         'mine', 'yours', 'hers', 'ours', 'theirs'
     }
     
+    def __init__(self, config: SimilarityConfig = None):
+        self.config = config or SimilarityConfig()
+        self._setup_caches()
+    
     def _setup_caches(self):
         if self.config.enable_caching:
             self._tokenize_cache = lru_cache(maxsize=self.config.cache_size)(self._tokenize_uncached)
