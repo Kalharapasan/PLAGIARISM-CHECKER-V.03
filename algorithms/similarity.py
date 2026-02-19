@@ -91,3 +91,5 @@ class TextPreprocessor:
             remove_stopwords = self.config.remove_stopwords
         
         return self._tokenize_cache(text, remove_stopwords)
+    
+    def _tokenize_uncached(self, text: str, remove_stopwords: bool) -> List[str]:
