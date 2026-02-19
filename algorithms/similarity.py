@@ -53,3 +53,12 @@ class SimilarityConfig:
     max_workers: int = 4
     
 class TextPreprocessor:
+    ENGLISH_STOPWORDS = {
+        'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+        'of', 'with', 'by', 'as', 'is', 'was', 'are', 'were', 'be', 'been',
+        'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would',
+        'could', 'should', 'may', 'might', 'must', 'can', 'this', 'that',
+        'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me',
+        'him', 'her', 'us', 'them', 'my', 'your', 'his', 'its', 'our', 'their',
+        'mine', 'yours', 'hers', 'ours', 'theirs'
+    }
