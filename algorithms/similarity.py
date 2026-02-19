@@ -306,3 +306,5 @@ class SimilarityCalculator:
             return 0.0
         total_matched = sum(seq['length'] for seq in sequences)
         total_words = len(words1) + len(words2)
+        similarity = (2 * total_matched) / total_words if total_words > 0 else 0.0     
+        return min(1.0, similarity)
