@@ -87,3 +87,7 @@ class TextPreprocessor:
         return text.strip()
     
     def tokenize(self, text: str, remove_stopwords: bool = None) -> List[str]:
+        if remove_stopwords is None:
+            remove_stopwords = self.config.remove_stopwords
+        
+        return self._tokenize_cache(text, remove_stopwords)
