@@ -148,6 +148,9 @@ class SimilarityCalculator:
         self.tfidf_vectorizer = None
         if self.config.use_tfidf:
             self._init_tfidf()
+        self.semantic_model = None
+        if self.config.use_semantic:
+            self._init_semantic()
     
     def _init_tfidf(self):
         try:
