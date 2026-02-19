@@ -100,3 +100,7 @@ class TextPreprocessor:
         words = re.findall(r'\b[a-z0-9][a-z0-9\'-]*\b', text.lower())
         if self.config.min_word_length > 1:
             words = [w for w in words if len(w) >= self.config.min_word_length]
+        if remove_stopwords:
+            words = [w for w in words if w not in self.ENGLISH_STOPWORDS]
+        
+        return words
