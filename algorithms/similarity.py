@@ -95,3 +95,5 @@ class TextPreprocessor:
     def _tokenize_uncached(self, text: str, remove_stopwords: bool) -> List[str]:
         if not text:
             return []
+        if self.config.normalize_text:
+            text = self._normalize_uncached(text)
