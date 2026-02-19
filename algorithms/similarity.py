@@ -193,3 +193,9 @@ class SimilarityCalculator:
         dot_product = sum(v1 * v2 for v1, v2 in zip(vec1, vec2))
         magnitude1 = math.sqrt(sum(v ** 2 for v in vec1))
         magnitude2 = math.sqrt(sum(v ** 2 for v in vec2))
+        if magnitude1 == 0 or magnitude2 == 0:
+            return 0.0
+        
+        similarity = dot_product / (magnitude1 * magnitude2)
+        
+        return max(0.0, min(1.0, similarity))
