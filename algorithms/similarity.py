@@ -85,3 +85,5 @@ class TextPreprocessor:
         text = re.sub(r'[^\w\s\'-]', ' ', text)
         text = re.sub(r'\s+', ' ', text)       
         return text.strip()
+    
+    def tokenize(self, text: str, remove_stopwords: bool = None) -> List[str]:
