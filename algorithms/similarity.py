@@ -144,3 +144,14 @@ class TextPreprocessor:
 class SimilarityCalculator:
     
     def _init_tfidf(self):
+        try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            self.tfidf_vectorizer = TfidfVectorizer(
+                max_features=10000,
+                stop_words='english',
+                ngram_range=(1, 2),
+                analyzer='word'
+            )
+        except ImportError:
+            print("Warning: scikit-learn not installed. TF-IDF disabled.")
+            self.config.use_tfidf = False
