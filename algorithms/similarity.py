@@ -124,3 +124,4 @@ class TextPreprocessor:
     def get_character_ngrams(self, text: str, n: int = 3) -> List[str]:
         if not text:
             return []
+        text = self._normalize_uncached(text)
