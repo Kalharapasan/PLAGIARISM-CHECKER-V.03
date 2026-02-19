@@ -157,3 +157,7 @@ class SimilarityCalculator:
             self.config.use_tfidf = False
     
     def _init_semantic(self):
+        try:
+            import spacy
+            try:
+                self.semantic_model = spacy.load('en_core_web_sm')
