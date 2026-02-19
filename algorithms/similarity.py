@@ -282,4 +282,10 @@ class SimilarityCalculator:
         sequences.sort(key=lambda x: x['length'], reverse=True)
         filtered_sequences = []
         used_positions = set()
+        for seq in sequences:
+            overlap = False
+            for pos in range(seq['position1'], seq['position1'] + seq['length']):
+                if pos in used_positions:
+                    overlap = True
+                    break
         
