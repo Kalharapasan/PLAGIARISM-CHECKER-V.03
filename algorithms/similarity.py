@@ -485,3 +485,15 @@ class SimilarityCalculator:
                     combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)
                 
                 results['combined_score'] = combined_score
+                passed_algorithms = [a for a, data in results['algorithms'].items() 
+                               if data.get('passed', False)]
+            
+                if len(passed_algorithms) >= 3:
+                    results['confidence'] = 'high'
+                elif len(passed_algorithms) >= 2:
+                    results['confidence'] = 'medium'
+                else:
+                    results['confidence'] = 'low'
+        
+        return results
+                
