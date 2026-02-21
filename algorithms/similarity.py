@@ -322,3 +322,5 @@ class SimilarityCalculator:
         return intersection / min_size if min_size > 0 else 0.0
     
     def calculate_dice_coefficient(self, text1: str, text2: str) -> float:
+        words1 = set(self.preprocessor.tokenize(text1))
+        words2 = set(self.preprocessor.tokenize(text2))
