@@ -352,3 +352,7 @@ class SimilarityCalculator:
                 current_row.append(min(insertions, deletions, substitutions))
             previous_row = current_row
         distance = previous_row[-1]
+        max_len = max(len(text1), len(text2))
+        similarity = 1 - (distance / max_len) if max_len > 0 else 1.0
+        
+        return max(0.0, similarity)
