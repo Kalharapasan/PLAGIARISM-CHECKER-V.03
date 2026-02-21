@@ -360,3 +360,8 @@ class SimilarityCalculator:
     def calculate_tfidf_similarity(self, text1: str, text2: str) -> float:
         if self.tfidf_vectorizer is None:
             return 0.0
+        try:
+            from sklearn.metrics.pairwise import cosine_similarity
+        except Exception as e:
+            print(f"Warning: TF-IDF similarity calculation failed: {e}")
+            return 0.0
