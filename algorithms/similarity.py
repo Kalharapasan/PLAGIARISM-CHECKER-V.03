@@ -340,3 +340,5 @@ class SimilarityCalculator:
             return 1.0
         if len(text1) == 0 or len(text2) == 0:
             return 0.0
+        if len(text1) > len(text2):
+            text1, text2 = text2, text1
