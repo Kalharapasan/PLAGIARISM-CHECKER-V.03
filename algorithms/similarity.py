@@ -381,4 +381,6 @@ class SimilarityCalculator:
         except Exception as e:
             print(f"Warning: Semantic similarity calculation failed: {e}")
             return 0.0
-        
+    
+    def calculate_combined_similarity(self, text1: str, text2: str, 
+                                    algorithms: List[str] = None) -> Dict[str, Any]:
