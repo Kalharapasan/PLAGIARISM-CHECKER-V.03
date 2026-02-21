@@ -404,6 +404,7 @@ class SimilarityCalculator:
                 algorithms.append('tfidf')
             if self.config.use_semantic:
                 algorithms.append('semantic')
+        
         results = {
             'algorithms': {},
             'combined_score': 0.0,
@@ -411,6 +412,7 @@ class SimilarityCalculator:
             'text1_stats': {},
             'text2_stats': {}
         }
+        
         words1 = self.preprocessor.tokenize(text1)
         words2 = self.preprocessor.tokenize(text2)
         
@@ -465,35 +467,32 @@ class SimilarityCalculator:
                     'error': str(e),
                     'passed': False
                 }
-            
-            if algorithm_scores:
-                if hasattr(self.config, 'weights'):
-                    total_weight = 0
-                    weighted_sum = 0
-                    
-                    for algo, score in algorithm_scores.items():
-                        weight = self.config.weights.get(algo, 0)
-                        weighted_sum += score * weight
-                        total_weight += weight
-                    
-                    if total_weight > 0:
-                        combined_score = weighted_sum / total_weight
-                    else:
-                        combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)
-                else:
-
-                    combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)
+        
+        if algorithm_scores:
+            if hasattr(self.config, 'weights'):
+                total_weight = 0
+                weighted_sum = 0
                 
-                results['combined_score'] = combined_score
-                passed_algorithms = [a for a, data in results['algorithms'].items() 
+                for algo, score in algorithm_scores.items():
+                    weight = self.config.weights.get(algo, 0)
+                    weighted_sum += score * weight
+                    total_weight += weight
+                
+                if total_weight > 0:
+                    combined_score = weighted_sum / total_weight
+                else:
+                    combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)
+            else:
+                combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)           
+            results['combined_score'] = combined_score
+            passed_algorithms = [a for a, data in results['algorithms'].items() 
                                if data.get('passed', False)]
             
-                if len(passed_algorithms) >= 3:
-                    results['confidence'] = 'high'
-                elif len(passed_algorithms) >= 2:
-                    results['confidence'] = 'medium'
-                else:
-                    results['confidence'] = 'low'
-        
+            if len(passed_algorithms) >= 3:
+                results['confidence'] = 'high'
+            elif len(passed_algorithms) >= 2:
+                results['confidence'] = 'medium'
+            else:
+                results['confidence'] = 'low'
         return results
                 
