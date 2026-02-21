@@ -336,3 +336,7 @@ class SimilarityCalculator:
     def calculate_levenshtein_similarity(self, text1: str, text2: str) -> float:
         text1 = self.preprocessor.preprocess(text1)
         text2 = self.preprocessor.preprocess(text2)
+        if len(text1) == 0 and len(text2) == 0:
+            return 1.0
+        if len(text1) == 0 or len(text2) == 0:
+            return 0.0
