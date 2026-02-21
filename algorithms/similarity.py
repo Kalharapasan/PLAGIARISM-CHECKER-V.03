@@ -384,3 +384,23 @@ class SimilarityCalculator:
     
     def calculate_combined_similarity(self, text1: str, text2: str, 
                                     algorithms: List[str] = None) -> Dict[str, Any]:
+        if algorithms is None:
+            algorithms = []
+            if self.config.use_cosine:
+                algorithms.append('cosine')
+            if self.config.use_jaccard:
+                algorithms.append('jaccard')
+            if self.config.use_ngram:
+                algorithms.append('ngram')
+            if self.config.use_sequence:
+                algorithms.append('sequence')
+            if self.config.use_overlap:
+                algorithms.append('overlap')
+            if self.config.use_dice:
+                algorithms.append('dice')
+            if self.config.use_levenshtein:
+                algorithms.append('levenshtein')
+            if self.config.use_tfidf:
+                algorithms.append('tfidf')
+            if self.config.use_semantic:
+                algorithms.append('semantic')
