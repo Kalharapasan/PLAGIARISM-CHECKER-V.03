@@ -425,3 +425,43 @@ class SimilarityCalculator:
             'unique_words': len(set(words2)),
             'char_count': len(text2)
         }
+        algorithm_scores = {}
+        
+        for algo in algorithms:
+            try:
+                if algo == 'cosine':
+                    score = self.calculate_cosine_similarity(text1, text2)
+                elif algo == 'jaccard':
+                    score = self.calculate_jaccard_similarity(text1, text2)
+                elif algo == 'ngram':
+                    score = self.calculate_ngram_similarity(text1, text2)
+                elif algo == 'sequence':
+                    score = self.calculate_sequence_similarity(text1, text2)
+                elif algo == 'overlap':
+                    score = self.calculate_overlap_coefficient(text1, text2)
+                elif algo == 'dice':
+                    score = self.calculate_dice_coefficient(text1, text2)
+                elif algo == 'levenshtein':
+                    score = self.calculate_levenshtein_similarity(text1, text2)
+                elif algo == 'tfidf':
+                    score = self.calculate_tfidf_similarity(text1, text2)
+                elif algo == 'semantic':
+                    score = self.calculate_semantic_similarity(text1, text2)
+                else:
+                    print(f"Warning: Unknown algorithm '{algo}'")
+                    continue
+                
+                algorithm_scores[algo] = score
+                results['algorithms'][algo] = {
+                    'score': score,
+                    'threshold': getattr(self.config, f'{algo}_threshold', 0.1),
+                    'passed': score >= getattr(self.config, f'{algo}_threshold', 0.1)
+                }
+                
+            except Exception as e:
+                print(f"Warning: Algorithm '{algo}' failed: {e}")
+                results['algorithms'][algo] = {
+                    'score': 0.0,
+                    'error': str(e),
+                    'passed': False
+                }
