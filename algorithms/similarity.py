@@ -351,3 +351,4 @@ class SimilarityCalculator:
                 substitutions = previous_row[j] + (c1 != c2)
                 current_row.append(min(insertions, deletions, substitutions))
             previous_row = current_row
+        distance = previous_row[-1]
