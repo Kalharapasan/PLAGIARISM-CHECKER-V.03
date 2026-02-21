@@ -369,3 +369,5 @@ class SimilarityCalculator:
         except Exception as e:
             print(f"Warning: TF-IDF similarity calculation failed: {e}")
             return 0.0
+    
+    def calculate_semantic_similarity(self, text1: str, text2: str) -> float:
