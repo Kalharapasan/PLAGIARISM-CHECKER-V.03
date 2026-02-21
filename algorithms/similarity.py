@@ -404,3 +404,10 @@ class SimilarityCalculator:
                 algorithms.append('tfidf')
             if self.config.use_semantic:
                 algorithms.append('semantic')
+        results = {
+            'algorithms': {},
+            'combined_score': 0.0,
+            'confidence': 'low',
+            'text1_stats': {},
+            'text2_stats': {}
+        }
