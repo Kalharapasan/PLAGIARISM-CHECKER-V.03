@@ -467,3 +467,14 @@ class SimilarityCalculator:
                 }
             
             if algorithm_scores:
+                if hasattr(self.config, 'weights'):
+                total_weight = 0
+                weighted_sum = 0
+                
+                for algo, score in algorithm_scores.items():
+                    weight = self.config.weights.get(algo, 0)
+                    weighted_sum += score * weight
+                    total_weight += weight
+                
+                if total_weight > 0:
+                    combined_score = weighted_sum / total_weight
