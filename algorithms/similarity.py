@@ -332,3 +332,5 @@ class SimilarityCalculator:
         total = len(words1) + len(words2)
         
         return (2 * intersection) / total if total > 0 else 0.0
+    
+    def calculate_levenshtein_similarity(self, text1: str, text2: str) -> float:
