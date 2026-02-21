@@ -356,3 +356,5 @@ class SimilarityCalculator:
         similarity = 1 - (distance / max_len) if max_len > 0 else 1.0
         
         return max(0.0, similarity)
+    
+    def calculate_tfidf_similarity(self, text1: str, text2: str) -> float:
