@@ -373,3 +373,9 @@ class SimilarityCalculator:
     def calculate_semantic_similarity(self, text1: str, text2: str) -> float:
         if self.semantic_model is None:
             return 0.0
+        try:
+            doc1 = self.semantic_model(text1)
+            doc2 = self.semantic_model(text2)
+        except Exception as e:
+            print(f"Warning: Semantic similarity calculation failed: {e}")
+            return 0.0
