@@ -411,3 +411,17 @@ class SimilarityCalculator:
             'text1_stats': {},
             'text2_stats': {}
         }
+        words1 = self.preprocessor.tokenize(text1)
+        words2 = self.preprocessor.tokenize(text2)
+        
+        results['text1_stats'] = {
+            'word_count': len(words1),
+            'unique_words': len(set(words1)),
+            'char_count': len(text1)
+        }
+        
+        results['text2_stats'] = {
+            'word_count': len(words2),
+            'unique_words': len(set(words2)),
+            'char_count': len(text2)
+        }
