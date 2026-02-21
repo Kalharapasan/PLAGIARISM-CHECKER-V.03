@@ -343,3 +343,5 @@ class SimilarityCalculator:
         if len(text1) > len(text2):
             text1, text2 = text2, text1
         previous_row = list(range(len(text2) + 1))
+        for i, c1 in enumerate(text1):
+            current_row = [i + 1]
