@@ -363,6 +363,9 @@ class SimilarityCalculator:
         try:
             from sklearn.metrics.pairwise import cosine_similarity
             tfidf_matrix = self.tfidf_vectorizer.fit_transform([text1, text2])
+            similarity_matrix = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
+            
+            return float(similarity_matrix[0][0])
         except Exception as e:
             print(f"Warning: TF-IDF similarity calculation failed: {e}")
             return 0.0
