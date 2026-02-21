@@ -478,3 +478,5 @@ class SimilarityCalculator:
                 
                 if total_weight > 0:
                     combined_score = weighted_sum / total_weight
+                else:
+                    combined_score = sum(algorithm_scores.values()) / len(algorithm_scores)
