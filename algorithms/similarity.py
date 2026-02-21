@@ -376,6 +376,9 @@ class SimilarityCalculator:
         try:
             doc1 = self.semantic_model(text1)
             doc2 = self.semantic_model(text2)
+            similarity = doc1.similarity(doc2)           
+            return max(0.0, min(1.0, similarity))
         except Exception as e:
             print(f"Warning: Semantic similarity calculation failed: {e}")
             return 0.0
+        
