@@ -308,3 +308,5 @@ class SimilarityCalculator:
         total_words = len(words1) + len(words2)
         similarity = (2 * total_matched) / total_words if total_words > 0 else 0.0     
         return min(1.0, similarity)
+    
+    def calculate_overlap_coefficient(self, text1: str, text2: str) -> float:
