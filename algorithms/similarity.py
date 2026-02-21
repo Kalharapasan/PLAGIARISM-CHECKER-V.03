@@ -358,3 +358,5 @@ class SimilarityCalculator:
         return max(0.0, similarity)
     
     def calculate_tfidf_similarity(self, text1: str, text2: str) -> float:
+        if self.tfidf_vectorizer is None:
+            return 0.0
