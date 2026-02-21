@@ -310,3 +310,5 @@ class SimilarityCalculator:
         return min(1.0, similarity)
     
     def calculate_overlap_coefficient(self, text1: str, text2: str) -> float:
+        words1 = set(self.preprocessor.tokenize(text1))
+        words2 = set(self.preprocessor.tokenize(text2))
