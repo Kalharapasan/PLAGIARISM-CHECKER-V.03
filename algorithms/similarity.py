@@ -345,3 +345,7 @@ class SimilarityCalculator:
         previous_row = list(range(len(text2) + 1))
         for i, c1 in enumerate(text1):
             current_row = [i + 1]
+            for j, c2 in enumerate(text2):
+                insertions = previous_row[j + 1] + 1
+                deletions = current_row[j] + 1
+                substitutions = previous_row[j] + (c1 != c2)
