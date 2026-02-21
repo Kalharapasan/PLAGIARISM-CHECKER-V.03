@@ -465,3 +465,5 @@ class SimilarityCalculator:
                     'error': str(e),
                     'passed': False
                 }
+            
+            if algorithm_scores:
