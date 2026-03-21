@@ -127,3 +127,4 @@ class TestBaseEngine(unittest.TestCase):
             self.test_text, 
             self.different_text
         )
+        self.assertLess(low_similarity, 50.0)
