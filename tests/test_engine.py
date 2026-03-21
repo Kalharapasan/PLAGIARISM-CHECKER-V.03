@@ -36,3 +36,11 @@ try:
         SIMILARITY_AVAILABLE = True
     except ImportError:
         SIMILARITY_AVAILABLE = False
+
+    try:
+        from algorithms.ml_features import MLFeatures
+        ML_FEATURES_AVAILABLE = True
+    except ImportError:
+        ML_FEATURES_AVAILABLE = False
+        
+    IMPORT_SUCCESS = True
