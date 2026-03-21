@@ -153,3 +153,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertIsInstance(similarity, float)
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
+    
+    def test_07_generate_document_hash(self):
