@@ -146,3 +146,10 @@ class TestBaseEngine(unittest.TestCase):
                 self.assertGreaterEqual(seq['length'], 3)
     
     def test_06_calculate_jaccard_similarity(self):
+        similarity = self.engine.calculate_jaccard_similarity(
+            self.test_text, 
+            self.similar_text
+        )
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
