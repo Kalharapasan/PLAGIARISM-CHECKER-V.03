@@ -342,3 +342,11 @@ class TestAdvancedEngine(unittest.TestCase):
         mock_text = "Sample text for testing statistics calculation."
         
         stats = self.engine._calculate_statistics(mock_results, mock_text)
+        required_stats = [
+            'total_words', 'matched_words', 'unique_words',
+            'unique_percentage', 'total_sources', 'high_risk_sources',
+            'total_sequences', 'average_sequence_length', 'longest_sequence'
+        ]
+        
+        for stat in required_stats:
+            self.assertIn(stat, stats)
