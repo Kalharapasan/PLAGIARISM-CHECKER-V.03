@@ -122,4 +122,4 @@ class TestBaseEngine(unittest.TestCase):
             self.similar_text
         )
         self.assertIsInstance(high_similarity, float)
-        
+        self.assertGreater(high_similarity, 10.0)
