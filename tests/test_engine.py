@@ -294,3 +294,4 @@ class TestAdvancedEngine(unittest.TestCase):
             self.assertIn('algorithm_scores', match)
             self.assertIn('confidence', match)
             self.assertIn('risk_level', match)
+            self.assertIn(match['confidence'], ['High', 'Medium', 'Low'])
