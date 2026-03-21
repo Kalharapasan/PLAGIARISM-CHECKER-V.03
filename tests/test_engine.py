@@ -123,3 +123,7 @@ class TestBaseEngine(unittest.TestCase):
         )
         self.assertIsInstance(high_similarity, float)
         self.assertGreater(high_similarity, 10.0)
+        low_similarity = self.engine.calculate_cosine_similarity(
+            self.test_text, 
+            self.different_text
+        )
