@@ -255,3 +255,23 @@ class TestAdvancedEngine(unittest.TestCase):
     
 
     def test_04_analyze_text(self):
+        database = [
+            {
+                'source': 'ML Textbook',
+                'url': 'https://example.com/ml',
+                'category': 'Technical',
+                'text': self.plagiarized_text
+            },
+            {
+                'source': 'AI Research Paper',
+                'url': 'https://example.com/ai',
+                'category': 'Academic',
+                'text': 'Artificial intelligence is the simulation of human intelligence processes by machines.'
+            }
+        ]
+        
+        results = self.engine.analyze_text(
+            self.test_text, 
+            database,
+            algorithms=['cosine', 'jaccard', 'ngram']
+        )
