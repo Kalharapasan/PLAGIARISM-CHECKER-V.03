@@ -245,4 +245,11 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertLessEqual(similarity, 100.0)
     
     def test_03_dice_coefficient(self):
+        similarity = self.engine.calculate_dice_coefficient(
+            self.test_text, 
+            self.plagiarized_text
+        )
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
     
