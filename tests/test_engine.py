@@ -91,3 +91,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertNotIn('is', tokens)
         self.assertIn('plagiarism', tokens)
         self.assertIn('academic', tokens)
+
+    def test_02_get_sentences(self):
