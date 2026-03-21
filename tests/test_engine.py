@@ -51,3 +51,34 @@ except ImportError as e:
 class TestBaseEngine(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
+        
+        cls.config = {
+            'detection.basic.min_match_length': 5,
+            'detection.basic.threshold': 5.0
+        }
+        cls.engine = BasePlagiarismEngine(cls.config)
+        cls.test_text = """
+        Plagiarism is the representation of another author's language, thoughts, 
+        ideas, or expressions as one's own original work. In educational contexts, 
+        there are differing definitions of plagiarism depending on the institution.
+        
+        Academic integrity is the moral code or ethical policy of academia. 
+        This includes values such as avoidance of cheating or plagiarism.
+        """
+        
+        cls.similar_text = """
+        Plagiarism involves using another author's language, thoughts, ideas, 
+        or expressions as one's own original work. Different educational 
+        institutions have varying definitions of plagiarism.
+        
+        The moral code of academia, known as academic integrity, encompasses 
+        values like avoiding cheating or plagiarism.
+        """
+        
+        cls.different_text = """
+        The quick brown fox jumps over the lazy dog. This sentence contains 
+        all letters of the English alphabet. It is often used for typing 
+        practice and testing keyboards.
+        """
