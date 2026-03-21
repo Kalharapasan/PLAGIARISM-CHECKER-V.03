@@ -117,3 +117,9 @@ class TestBaseEngine(unittest.TestCase):
             self.assertIsInstance(citation['position'], int)
         
     def test_04_calculate_cosine_similarity(self):
+        high_similarity = self.engine.calculate_cosine_similarity(
+            self.test_text, 
+            self.similar_text
+        )
+        self.assertIsInstance(high_similarity, float)
+        
