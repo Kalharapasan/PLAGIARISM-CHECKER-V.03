@@ -130,3 +130,17 @@ class TestBaseEngine(unittest.TestCase):
         self.assertLess(low_similarity, 50.0)
     
     def test_05_find_common_sequences(self):
+        sequences = self.engine.find_common_sequences(
+            self.test_text, 
+            self.similar_text,
+            min_length=3
+        )
+        self.assertIsInstance(sequences, list)
+        
+        if sequences:
+            for seq in sequences:
+                self.assertIn('text', seq)
+                self.assertIn('length', seq)
+                self.assertIn('position', seq)
+                self.assertIn('similarity', seq)
+                self.assertGreaterEqual(seq['length'], 3)
