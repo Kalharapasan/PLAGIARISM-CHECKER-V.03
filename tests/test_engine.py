@@ -24,3 +24,9 @@ try:
         format_file_size,
         format_percentage
     )
+    try:
+        from file_handlers.text_extractor import TextExtractor
+        from file_handlers.docx_handler import DOCXHandler
+        TEXT_EXTRACTOR_AVAILABLE = True
+    except ImportError:
+        TEXT_EXTRACTOR_AVAILABLE = False
