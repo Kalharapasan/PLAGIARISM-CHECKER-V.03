@@ -84,3 +84,6 @@ class TestBaseEngine(unittest.TestCase):
         """
 
     def test_01_tokenize(self):
+        tokens = self.engine.tokenize(self.test_text)
+        self.assertIsInstance(tokens, list)
+        self.assertGreater(len(tokens), 10)
