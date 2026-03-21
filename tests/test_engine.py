@@ -128,3 +128,5 @@ class TestBaseEngine(unittest.TestCase):
             self.different_text
         )
         self.assertLess(low_similarity, 50.0)
+    
+    def test_05_find_common_sequences(self):
