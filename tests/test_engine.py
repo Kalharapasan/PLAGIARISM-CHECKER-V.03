@@ -224,3 +224,4 @@ class TestAdvancedEngine(unittest.TestCase):
         direct experience, or instruction, to search for patterns in data and 
         make improved decisions later based on the examples we provide.
         """
+    def test_01_ngram_similarity(self):
