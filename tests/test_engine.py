@@ -184,3 +184,8 @@ class TestBaseEngine(unittest.TestCase):
                         'citations_found', 'matches']
         for key in required_keys:
             self.assertIn(key, results)
+        self.assertIsInstance(results['overall_similarity'], float)
+        self.assertIsInstance(results['total_words'], int)
+        self.assertIsInstance(results['total_sentences'], int)
+        self.assertIsInstance(results['citations_found'], int)
+        self.assertIsInstance(results['matches'], list)
