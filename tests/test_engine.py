@@ -179,3 +179,8 @@ class TestBaseEngine(unittest.TestCase):
         ]
         
         results = self.engine.analyze_basic(self.test_text, database)
+        self.assertIsInstance(results, dict)
+        required_keys = ['overall_similarity', 'total_words', 'total_sentences', 
+                        'citations_found', 'matches']
+        for key in required_keys:
+            self.assertIn(key, results)
