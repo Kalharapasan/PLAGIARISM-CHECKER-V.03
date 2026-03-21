@@ -320,3 +320,25 @@ class TestAdvancedEngine(unittest.TestCase):
             self.assertEqual(risk_level, expected_risk)
 
     def test_07_statistics_calculation(self):
+        mock_results = {
+            'total_words': 100,
+            'matches': [
+                {
+                    'matched_sequences': [
+                        {'length': 10},
+                        {'length': 5},
+                        {'length': 3}
+                    ]
+                },
+                {
+                    'matched_sequences': [
+                        {'length': 7},
+                        {'length': 4}
+                    ]
+                }
+            ]
+        }
+        
+        mock_text = "Sample text for testing statistics calculation."
+        
+        stats = self.engine._calculate_statistics(mock_results, mock_text)
