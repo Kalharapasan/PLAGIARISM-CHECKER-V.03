@@ -253,3 +253,5 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
     
+
+    def test_04_analyze_text(self):
