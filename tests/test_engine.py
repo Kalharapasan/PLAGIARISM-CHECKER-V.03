@@ -298,3 +298,6 @@ class TestAdvancedEngine(unittest.TestCase):
             self.assertIn(match['risk_level'], ['Critical', 'High', 'Medium', 'Low', 'Minimal'])
     
     def test_05_confidence_calculation(self):
+        consistent_scores = {'cosine': 75.0, 'jaccard': 72.0, 'ngram': 78.0}
+        confidence = self.engine._calculate_confidence(consistent_scores)
+        self.assertIn(confidence, ['High', 'Medium', 'Low'])
