@@ -304,3 +304,5 @@ class TestAdvancedEngine(unittest.TestCase):
         inconsistent_scores = {'cosine': 20.0, 'jaccard': 75.0, 'ngram': 10.0}
         confidence = self.engine._calculate_confidence(inconsistent_scores)
         self.assertIn(confidence, ['High', 'Medium', 'Low'])
+    
+    def test_06_risk_level_calculation(self):
