@@ -98,3 +98,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertGreaterEqual(len(sentences), 2)
         for sentence in sentences:
             self.assertGreater(len(sentence), 10)
+    
+    def test_03_detect_citations(self):
