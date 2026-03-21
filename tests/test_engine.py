@@ -306,3 +306,15 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertIn(confidence, ['High', 'Medium', 'Low'])
     
     def test_06_risk_level_calculation(self):
+        test_cases = [
+            (45.0, 'Critical'),
+            (35.0, 'High'),
+            (20.0, 'Medium'),
+            (10.0, 'Low'),
+            (2.0, 'Minimal'),
+            (0.0, 'Minimal')
+        ]
+        
+        for similarity, expected_risk in test_cases:
+            risk_level = self.engine._calculate_risk_level(similarity)
+            self.assertEqual(risk_level, expected_risk)
