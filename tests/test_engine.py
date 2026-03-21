@@ -144,3 +144,5 @@ class TestBaseEngine(unittest.TestCase):
                 self.assertIn('position', seq)
                 self.assertIn('similarity', seq)
                 self.assertGreaterEqual(seq['length'], 3)
+    
+    def test_06_calculate_jaccard_similarity(self):
