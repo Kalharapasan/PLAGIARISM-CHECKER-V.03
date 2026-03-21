@@ -233,3 +233,5 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertIsInstance(similarity, float)
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
+        self.assertGreater(similarity, 20.0)
+    
