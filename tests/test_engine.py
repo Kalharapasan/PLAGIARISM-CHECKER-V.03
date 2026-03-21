@@ -93,3 +93,8 @@ class TestBaseEngine(unittest.TestCase):
         self.assertIn('academic', tokens)
 
     def test_02_get_sentences(self):
+        sentences = self.engine.get_sentences(self.test_text)
+        self.assertIsInstance(sentences, list)
+        self.assertGreaterEqual(len(sentences), 2)
+        for sentence in sentences:
+            self.assertGreater(len(sentence), 10)
