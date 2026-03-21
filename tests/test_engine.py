@@ -296,3 +296,5 @@ class TestAdvancedEngine(unittest.TestCase):
             self.assertIn('risk_level', match)
             self.assertIn(match['confidence'], ['High', 'Medium', 'Low'])
             self.assertIn(match['risk_level'], ['Critical', 'High', 'Medium', 'Low', 'Minimal'])
+    
+    def test_05_confidence_calculation(self):
