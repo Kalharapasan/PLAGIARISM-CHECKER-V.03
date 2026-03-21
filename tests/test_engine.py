@@ -109,3 +109,9 @@ class TestBaseEngine(unittest.TestCase):
         citations = self.engine.detect_citations(text_with_citations)
         self.assertIsInstance(citations, list)
         self.assertGreaterEqual(len(citations), 2)
+        for citation in citations:
+            self.assertIn('text', citation)
+            self.assertIn('position', citation)
+            self.assertIn('type', citation)
+            self.assertIsInstance(citation['text'], str)
+            self.assertIsInstance(citation['position'], int)
