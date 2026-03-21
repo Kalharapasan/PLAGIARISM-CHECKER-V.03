@@ -275,3 +275,12 @@ class TestAdvancedEngine(unittest.TestCase):
             database,
             algorithms=['cosine', 'jaccard', 'ngram']
         )
+    
+    self.assertIsInstance(results, dict)
+        required_keys = [
+            'overall_similarity', 'total_words', 'total_sentences',
+            'citations_found', 'matches', 'algorithm_scores',
+            'statistics', 'metadata'
+        ]
+        for key in required_keys:
+            self.assertIn(key, results)
