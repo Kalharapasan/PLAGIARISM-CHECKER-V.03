@@ -30,3 +30,9 @@ try:
         TEXT_EXTRACTOR_AVAILABLE = True
     except ImportError:
         TEXT_EXTRACTOR_AVAILABLE = False
+    
+    try:
+        from algorithms.similarity import SimilarityAlgorithms
+        SIMILARITY_AVAILABLE = True
+    except ImportError:
+        SIMILARITY_AVAILABLE = False
