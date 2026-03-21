@@ -47,3 +47,5 @@ try:
 except ImportError as e:
     print(f"⚠ Warning: Some imports failed: {e}")
     IMPORT_SUCCESS = False
+
+class TestBaseEngine(unittest.TestCase):
