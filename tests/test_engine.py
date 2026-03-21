@@ -161,3 +161,4 @@ class TestBaseEngine(unittest.TestCase):
         
         self.assertIsInstance(hash1, str)
         self.assertEqual(len(hash1), 32)
+        self.assertEqual(hash1, hash3)
