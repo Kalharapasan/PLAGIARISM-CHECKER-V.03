@@ -163,3 +163,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertEqual(len(hash1), 32)
         self.assertEqual(hash1, hash3)
         self.assertNotEqual(hash1, hash2)
+
+    def test_08_analyze_basic(self):
