@@ -160,3 +160,4 @@ class TestBaseEngine(unittest.TestCase):
         hash3 = self.engine.generate_document_hash(self.test_text)
         
         self.assertIsInstance(hash1, str)
+        self.assertEqual(len(hash1), 32)
