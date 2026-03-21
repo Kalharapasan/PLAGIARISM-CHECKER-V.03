@@ -194,3 +194,33 @@ class TestBaseEngine(unittest.TestCase):
 class TestAdvancedEngine(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
+        
+        cls.config = {
+            'detection.advanced.algorithms': ['cosine', 'jaccard', 'ngram', 'sequence'],
+            'detection.advanced.threshold': 10.0
+        }
+        cls.engine = AdvancedPlagiarismEngine(cls.config)
+        
+        cls.test_text = """
+        Machine learning is a subset of artificial intelligence that provides 
+        systems the ability to automatically learn and improve from experience 
+        without being explicitly programmed. It focuses on the development of 
+        computer programs that can access data and use it to learn for themselves.
+        
+        The process of learning begins with observations or data, such as examples, 
+        direct experience, or instruction, in order to look for patterns in data 
+        and make better decisions in the future based on the examples that we provide.
+        """
+        
+        cls.plagiarized_text = """
+        Machine learning is a branch of artificial intelligence that gives 
+        systems the capability to automatically learn and improve from experience 
+        without being explicitly programmed. It concentrates on the creation of 
+        computer programs that can access data and use it to learn independently.
+        
+        The learning process starts with observations or data, like examples, 
+        direct experience, or instruction, to search for patterns in data and 
+        make improved decisions later based on the examples we provide.
+        """
