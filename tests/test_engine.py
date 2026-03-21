@@ -82,3 +82,5 @@ class TestBaseEngine(unittest.TestCase):
         all letters of the English alphabet. It is often used for typing 
         practice and testing keyboards.
         """
+
+    def test_01_tokenize(self):
