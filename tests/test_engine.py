@@ -100,3 +100,12 @@ class TestBaseEngine(unittest.TestCase):
             self.assertGreater(len(sentence), 10)
     
     def test_03_detect_citations(self):
+        text_with_citations = """
+        According to Smith (2020), plagiarism is a serious offense.
+        Other researchers (Johnson & Lee, 2019) have noted similar findings.
+        Recent studies [1] have confirmed these results.
+        """
+        
+        citations = self.engine.detect_citations(text_with_citations)
+        self.assertIsInstance(citations, list)
+        self.assertGreaterEqual(len(citations), 2)
