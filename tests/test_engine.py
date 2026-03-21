@@ -225,3 +225,11 @@ class TestAdvancedEngine(unittest.TestCase):
         make improved decisions later based on the examples we provide.
         """
     def test_01_ngram_similarity(self):
+        similarity = self.engine.calculate_ngram_similarity(
+            self.test_text, 
+            self.plagiarized_text,
+            n=3
+        )
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
