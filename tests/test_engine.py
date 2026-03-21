@@ -89,3 +89,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertGreater(len(tokens), 10)
         self.assertNotIn('the', tokens)
         self.assertNotIn('is', tokens)
+        self.assertIn('plagiarism', tokens)
+        self.assertIn('academic', tokens)
