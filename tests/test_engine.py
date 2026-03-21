@@ -236,4 +236,11 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertGreater(similarity, 20.0)
     
     def test_02_overlap_coefficient(self):
+        similarity = self.engine.calculate_overlap_coefficient(
+            self.test_text, 
+            self.plagiarized_text
+        )
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
     
