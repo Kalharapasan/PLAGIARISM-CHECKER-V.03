@@ -350,3 +350,9 @@ class TestAdvancedEngine(unittest.TestCase):
         
         for stat in required_stats:
             self.assertIn(stat, stats)
+        
+        self.assertEqual(stats['total_words'], 100)
+        self.assertEqual(stats['matched_words'], 10 + 5 + 3 + 7 + 4) 
+        self.assertEqual(stats['unique_words'], 100 - 29) 
+        self.assertEqual(stats['total_sources'], 2)
+        self.assertEqual(stats['total_sequences'], 5)
