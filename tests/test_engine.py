@@ -192,3 +192,5 @@ class TestBaseEngine(unittest.TestCase):
         self.assertGreaterEqual(len(results['matches']), 0)
 
 class TestAdvancedEngine(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
