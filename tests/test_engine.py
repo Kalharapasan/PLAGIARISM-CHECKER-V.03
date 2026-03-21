@@ -284,3 +284,6 @@ class TestAdvancedEngine(unittest.TestCase):
         ]
         for key in required_keys:
             self.assertIn(key, results)
+    
+    self.assertIn('algorithms_used', results['metadata'])
+    self.assertIn('database_size', results['metadata'])
