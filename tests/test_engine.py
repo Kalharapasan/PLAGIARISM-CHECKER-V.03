@@ -155,3 +155,8 @@ class TestBaseEngine(unittest.TestCase):
         self.assertLessEqual(similarity, 100.0)
     
     def test_07_generate_document_hash(self):
+        hash1 = self.engine.generate_document_hash(self.test_text)
+        hash2 = self.engine.generate_document_hash(self.similar_text)
+        hash3 = self.engine.generate_document_hash(self.test_text)
+        
+        self.assertIsInstance(hash1, str)
