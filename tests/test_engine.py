@@ -165,3 +165,17 @@ class TestBaseEngine(unittest.TestCase):
         self.assertNotEqual(hash1, hash2)
 
     def test_08_analyze_basic(self):
+        database = [
+            {
+                'source': 'Wikipedia - Plagiarism',
+                'url': 'https://en.wikipedia.org/wiki/Plagiarism',
+                'text': self.similar_text
+            },
+            {
+                'source': 'Academic Integrity Guide',
+                'url': 'https://example.com/integrity',
+                'text': self.different_text
+            }
+        ]
+        
+        results = self.engine.analyze_basic(self.test_text, database)
