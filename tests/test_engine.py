@@ -318,3 +318,5 @@ class TestAdvancedEngine(unittest.TestCase):
         for similarity, expected_risk in test_cases:
             risk_level = self.engine._calculate_risk_level(similarity)
             self.assertEqual(risk_level, expected_risk)
+
+    def test_07_statistics_calculation(self):
