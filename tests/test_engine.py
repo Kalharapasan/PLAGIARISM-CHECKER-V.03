@@ -49,3 +49,5 @@ except ImportError as e:
     IMPORT_SUCCESS = False
 
 class TestBaseEngine(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
