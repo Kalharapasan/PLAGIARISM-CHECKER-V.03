@@ -189,3 +189,4 @@ class TestBaseEngine(unittest.TestCase):
         self.assertIsInstance(results['total_sentences'], int)
         self.assertIsInstance(results['citations_found'], int)
         self.assertIsInstance(results['matches'], list)
+        self.assertGreaterEqual(len(results['matches']), 0)
