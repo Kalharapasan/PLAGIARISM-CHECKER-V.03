@@ -44,3 +44,6 @@ try:
         ML_FEATURES_AVAILABLE = False
         
     IMPORT_SUCCESS = True
+except ImportError as e:
+    print(f"⚠ Warning: Some imports failed: {e}")
+    IMPORT_SUCCESS = False
