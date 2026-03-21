@@ -87,3 +87,5 @@ class TestBaseEngine(unittest.TestCase):
         tokens = self.engine.tokenize(self.test_text)
         self.assertIsInstance(tokens, list)
         self.assertGreater(len(tokens), 10)
+        self.assertNotIn('the', tokens)
+        self.assertNotIn('is', tokens)
