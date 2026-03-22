@@ -360,3 +360,32 @@ class TestAdvancedEngine(unittest.TestCase):
 class TestUltimateEngine(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
+        
+        cls.config = {
+            'detection.ultimate.algorithms': ['cosine_tfidf', 'semantic', 'lsi'],
+            'detection.ultimate.enable_ml': True,
+            'detection.ultimate.enable_nlp': True,
+            'detection.ultimate.enable_readability': True
+        }
+        cls.engine = UltimatePlagiarismEngine(cls.config)
+        
+        cls.test_text = """
+        Natural language processing (NLP) is a subfield of linguistics, 
+        computer science, and artificial intelligence concerned with the 
+        interactions between computers and human language.
+        
+        NLP techniques are used to analyze, understand, and derive meaning 
+        from human language in a smart and useful way. Applications include 
+        machine translation, sentiment analysis, and chatbots.
+        """
+        
+        cls.paraphrased_text = """
+        Natural language processing, a branch of linguistics, computer science, 
+        and AI, focuses on computer-human language interactions.
+        
+        Methods in NLP help computers analyze, comprehend, and extract meaning 
+        from human language intelligently. Uses encompass translation by machines, 
+        analysis of sentiments, and conversational agents.
+        """
