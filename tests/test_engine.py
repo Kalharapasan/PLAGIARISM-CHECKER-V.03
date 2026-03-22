@@ -422,3 +422,8 @@ class TestUltimateEngine(unittest.TestCase):
         self.assertIsInstance(similarity, float)
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
+        identical_similarity = self.engine.calculate_levenshtein_distance(
+            self.test_text[:100],  
+            self.test_text[:100]
+        )
+        self.assertAlmostEqual(identical_similarity, 100.0, delta=0.1)
