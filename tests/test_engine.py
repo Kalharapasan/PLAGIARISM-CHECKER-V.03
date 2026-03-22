@@ -391,3 +391,11 @@ class TestUltimateEngine(unittest.TestCase):
         """
     
     def test_01_cosine_similarity_tfidf(self):
+        try:
+            similarity = self.engine.calculate_cosine_similarity_tfidf(
+                self.test_text,
+                self.paraphrased_text
+            )
+            self.assertIsInstance(similarity, float)
+            self.assertGreaterEqual(similarity, 0.0)
+            self.assertLessEqual(similarity, 100.0)
