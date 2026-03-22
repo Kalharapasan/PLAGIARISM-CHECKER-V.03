@@ -389,3 +389,5 @@ class TestUltimateEngine(unittest.TestCase):
         from human language intelligently. Uses encompass translation by machines, 
         analysis of sentiments, and conversational agents.
         """
+    
+    def test_01_cosine_similarity_tfidf(self):
