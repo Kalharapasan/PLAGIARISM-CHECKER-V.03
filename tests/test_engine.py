@@ -356,3 +356,5 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertEqual(stats['unique_words'], 100 - 29) 
         self.assertEqual(stats['total_sources'], 2)
         self.assertEqual(stats['total_sequences'], 5)
+
+class TestUltimateEngine(unittest.TestCase):
