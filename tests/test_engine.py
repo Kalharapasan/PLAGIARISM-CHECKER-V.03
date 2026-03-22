@@ -415,3 +415,10 @@ class TestUltimateEngine(unittest.TestCase):
             print(f"Note: Semantic similarity test skipped: {e}")
     
     def test_03_levenshtein_distance(self):
+        text1 = "kitten"
+        text2 = "sitting"
+        
+        similarity = self.engine.calculate_levenshtein_distance(text1, text2)
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
