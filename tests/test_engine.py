@@ -413,3 +413,5 @@ class TestUltimateEngine(unittest.TestCase):
             self.assertLessEqual(similarity, 100.0)
         except Exception as e:
             print(f"Note: Semantic similarity test skipped: {e}")
+    
+    def test_03_levenshtein_distance(self):
