@@ -401,3 +401,5 @@ class TestUltimateEngine(unittest.TestCase):
             self.assertLessEqual(similarity, 100.0)
         except Exception as e:
             print(f"Note: TF-IDF similarity test skipped: {e}")
+    
+    def test_02_semantic_similarity(self):
