@@ -358,3 +358,5 @@ class TestAdvancedEngine(unittest.TestCase):
         self.assertEqual(stats['total_sequences'], 5)
 
 class TestUltimateEngine(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
