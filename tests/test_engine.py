@@ -897,3 +897,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertEqual(deleted_count, 5)
         history = self.db_manager.get_check_history()
         self.assertEqual(len(history), 0)
+    
+    def test_10_backup_database(self):
