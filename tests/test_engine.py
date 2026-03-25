@@ -541,4 +541,4 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         )
         self.assertGreater(len(tokens_with_stopwords), len(tokens_without_stopwords))
 
-    
+    def test_02_extract_sentences(self):
