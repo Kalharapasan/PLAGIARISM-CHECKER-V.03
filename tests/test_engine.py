@@ -764,3 +764,5 @@ class TestDatabaseManager(unittest.TestCase):
             url=self.sample_docs[0]['url'],
             category=self.sample_docs[0]['category']
         )
+
+        self.assertFalse(success)
