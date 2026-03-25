@@ -890,3 +890,6 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertEqual(stats['total_checks'], 2)
     
     def test_09_clear_history(self):
+        results = {'overall_similarity': 30.0, 'total_words': 100, 'matches': []}
+        for i in range(5):
+            self.db_manager.save_check_history(f'test{i}.txt', results)
