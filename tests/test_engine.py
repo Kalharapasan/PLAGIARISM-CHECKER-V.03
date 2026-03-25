@@ -457,3 +457,5 @@ class TestUltimateEngine(unittest.TestCase):
                 self.assertIsInstance(phrase, str)
                 self.assertIsInstance(freq, int)
                 self.assertGreater(freq, 0)
+    
+    def test_06_detect_advanced_citations(self):
