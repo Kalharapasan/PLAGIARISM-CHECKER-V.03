@@ -654,3 +654,4 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         
         for metric in expected_metrics:
             self.assertIn(metric, style)
+        self.assertIsInstance(style['academic_indicators'], dict)
