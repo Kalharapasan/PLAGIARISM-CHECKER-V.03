@@ -530,8 +530,15 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
             remove_stopwords=True
         )
         self.assertIsInstance(tokens_without_stopwords, list)
+        
         common_stopwords = {'the', 'a', 'an', 'and', 'of', 'to', 'in'}
         for stopword in common_stopwords:
             self.assertNotIn(stopword, tokens_without_stopwords)
+        
+        tokens_with_stopwords = self.analyzer.tokenize_advanced(
+            self.test_text, 
+            remove_stopwords=False
+        )
+        self.assertGreater(len(tokens_with_stopwords), len(tokens_without_stopwords))
 
     
