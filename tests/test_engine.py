@@ -657,3 +657,15 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         self.assertIsInstance(style['academic_indicators'], dict)
 
     def test_08_detect_paraphrasing_patterns(self):
+        patterns = self.analyzer.detect_paraphrasing_patterns(self.test_text)
+        
+        self.assertIsInstance(patterns, list)
+        
+        if patterns:
+            for pattern in patterns:
+                self.assertIn('name', pattern)
+                self.assertIn('description', pattern)
+                self.assertIn('count', pattern)
+                self.assertIn('examples', pattern)
+                self.assertIsInstance(pattern['count'], int)
+                self.assertIsInstance(pattern['examples'], list)
