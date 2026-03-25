@@ -792,3 +792,5 @@ class TestDatabaseManager(unittest.TestCase):
             )
         tech_docs = self.db_manager.get_all_documents(category='Technical')
         self.assertIsInstance(tech_docs, list)
+        tech_count = sum(1 for doc in self.sample_docs if doc['category'] == 'Technical')
+        self.assertEqual(len(tech_docs), tech_count)
