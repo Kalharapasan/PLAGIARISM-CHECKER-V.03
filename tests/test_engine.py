@@ -635,3 +635,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         self.assertIn('sections', structure)
         self.assertIn('section_count', structure)
         self.assertGreater(structure['section_count'], 0)
+    
+    def test_07_analyze_writing_style(self):
