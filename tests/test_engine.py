@@ -804,3 +804,4 @@ class TestDatabaseManager(unittest.TestCase):
             )
         results = self.db_manager.search_documents("machine learning")
         self.assertIsInstance(results, list)
+        self.assertGreaterEqual(len(results), 1)
