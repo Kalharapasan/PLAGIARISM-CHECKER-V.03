@@ -624,5 +624,14 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         """
         
         structure = self.analyzer.detect_academic_structure(academic_text)
-        
         self.assertIsInstance(structure, dict)
+        self.assertTrue(structure['abstract'])
+        self.assertTrue(structure['introduction'])
+        self.assertTrue(structure['methodology'])
+        self.assertTrue(structure['results'])
+        self.assertTrue(structure['conclusion'])
+        self.assertTrue(structure['references'])
+        
+        self.assertIn('sections', structure)
+        self.assertIn('section_count', structure)
+        self.assertGreater(structure['section_count'], 0)
