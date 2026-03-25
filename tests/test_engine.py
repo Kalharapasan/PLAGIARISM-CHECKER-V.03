@@ -655,3 +655,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         for metric in expected_metrics:
             self.assertIn(metric, style)
         self.assertIsInstance(style['academic_indicators'], dict)
+
+    def test_08_detect_paraphrasing_patterns(self):
