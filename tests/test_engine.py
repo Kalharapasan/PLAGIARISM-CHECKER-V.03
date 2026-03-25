@@ -796,3 +796,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertEqual(len(tech_docs), tech_count)
         for doc in tech_docs:
             self.assertEqual(doc['category'], 'Technical')
+    
+    def test_04_search_documents(self):
