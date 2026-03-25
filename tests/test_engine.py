@@ -602,3 +602,27 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                 self.assertGreater(score, 0.0)
     
     def test_06_detect_academic_structure(self):
+        academic_text = """
+        ABSTRACT
+        This paper examines the impact of machine learning on business analytics.
+        
+        INTRODUCTION
+        Machine learning has revolutionized data analysis in recent years.
+        
+        METHODOLOGY
+        We conducted a survey of 500 companies using structured questionnaires.
+        
+        RESULTS
+        Our findings indicate a 40% improvement in decision-making accuracy.
+        
+        CONCLUSION
+        Machine learning significantly enhances business analytics capabilities.
+        
+        REFERENCES
+        1. Smith, J. (2020). Machine Learning in Business. Journal of Analytics.
+        2. Johnson, A. (2021). Data-Driven Decision Making. Business Review.
+        """
+        
+        structure = self.analyzer.detect_academic_structure(academic_text)
+        
+        self.assertIsInstance(structure, dict)
