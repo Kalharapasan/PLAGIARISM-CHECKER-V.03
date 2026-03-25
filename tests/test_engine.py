@@ -807,3 +807,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertGreaterEqual(len(results), 1)
         results = self.db_manager.search_documents("data", category="Academic")
         self.assertIsInstance(results, list)
+    
+    def test_05_delete_document(self):
