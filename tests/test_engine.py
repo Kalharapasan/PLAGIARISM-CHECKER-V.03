@@ -689,3 +689,6 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         char_dist = basic_stats['character_distribution']
         for char_type in ['alphabetic', 'numeric', 'spaces', 'punctuation', 'other']:
             self.assertIn(char_type, char_dist)
+        
+    
+    def test_10_compare_texts(self):
