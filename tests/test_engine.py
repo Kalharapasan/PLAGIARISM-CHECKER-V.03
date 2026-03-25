@@ -870,3 +870,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertEqual(entry['similarity'], 25.5)
             self.assertEqual(entry['words'], 350)
             self.assertEqual(entry['sources'], 2)
+    
+    def test_08_get_statistics(self):
