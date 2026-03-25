@@ -798,3 +798,7 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertEqual(doc['category'], 'Technical')
     
     def test_04_search_documents(self):
+        for doc in self.sample_docs:
+            self.db_manager.add_document(
+                doc['source'], doc['text'], doc['url'], doc['category']
+            )
