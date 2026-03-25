@@ -692,3 +692,9 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         
     
     def test_10_compare_texts(self):
+        text1 = "Machine learning algorithms can identify patterns in data."
+        text2 = "Patterns in data can be identified using machine learning algorithms."
+        
+        comparison = self.analyzer.compare_texts(text1, text2)
+        
+        self.assertIsInstance(comparison, dict)
