@@ -910,3 +910,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertTrue(success)
         self.assertTrue(backup_path.exists())
         self.assertGreater(backup_path.stat().st_size, 0)
+    
+    def test_11_optimize_database(self):
