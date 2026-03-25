@@ -523,5 +523,7 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         effectively use data science outperform their competitors. The researchers 
         found a 25% increase in productivity and a 30% reduction in costs.
         """
+    
+    def test_01_tokenize_advanced(self):
 
     
