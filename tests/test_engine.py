@@ -600,3 +600,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                 self.assertIsInstance(score, float)
                 self.assertGreater(freq, 0)
                 self.assertGreater(score, 0.0)
+    
+    def test_06_detect_academic_structure(self):
