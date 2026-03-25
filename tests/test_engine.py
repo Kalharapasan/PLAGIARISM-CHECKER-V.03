@@ -802,3 +802,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.db_manager.add_document(
                 doc['source'], doc['text'], doc['url'], doc['category']
             )
+        results = self.db_manager.search_documents("machine learning")
+        self.assertIsInstance(results, list)
