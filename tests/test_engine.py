@@ -742,3 +742,5 @@ class TestDatabaseManager(unittest.TestCase):
                 'category': 'Technical'
             }
         ]
+    
+    def setUp(self):
