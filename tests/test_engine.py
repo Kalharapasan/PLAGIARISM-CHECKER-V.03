@@ -553,3 +553,14 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
 
     
     def test_03_detect_citations(self):
+                citations = self.analyzer.detect_citations(self.test_text)
+        
+        self.assertIsInstance(citations, list)
+        self.assertGreaterEqual(len(citations), 1)
+        
+        if citations:
+            citation = citations[0]
+            self.assertIn('text', citation)
+            self.assertIn('position', citation)
+            self.assertIn('type', citation)
+            self.assertIn('name', citation)
