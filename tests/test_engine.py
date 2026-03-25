@@ -772,3 +772,7 @@ class TestDatabaseManager(unittest.TestCase):
             self.db_manager.add_document(
                 doc['source'], doc['text'], doc['url'], doc['category']
             )
+        docs = self.db_manager.get_all_documents()
+        
+        self.assertIsInstance(docs, list)
+        self.assertEqual(len(docs), len(self.sample_docs))
