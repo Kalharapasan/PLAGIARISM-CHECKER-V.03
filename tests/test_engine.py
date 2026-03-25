@@ -776,3 +776,11 @@ class TestDatabaseManager(unittest.TestCase):
         
         self.assertIsInstance(docs, list)
         self.assertEqual(len(docs), len(self.sample_docs))
+        for doc in docs:
+            self.assertIn('source', doc)
+            self.assertIn('text', doc)
+            self.assertIn('url', doc)
+            self.assertIn('category', doc)
+            self.assertIn('added_date', doc)
+            self.assertIn('word_count', doc)
+            self.assertIn('metadata', doc)
