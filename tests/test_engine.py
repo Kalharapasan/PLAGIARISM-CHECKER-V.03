@@ -459,3 +459,20 @@ class TestUltimateEngine(unittest.TestCase):
                 self.assertGreater(freq, 0)
     
     def test_06_detect_advanced_citations(self):
+        text_with_citations = """
+        According to Smith (2020), natural language processing has advanced significantly.
+        Recent studies (Johnson et al., 2021) show promising results.
+        As noted by Brown (2019, p. 45), machine learning is crucial for NLP.
+        Other researchers [1, 2, 3] have confirmed these findings.
+        """
+        
+        citations = self.engine.detect_advanced_citations(text_with_citations)
+        self.assertIsInstance(citations, list)
+        
+        if citations:
+            for citation in citations:
+                self.assertIn('text', citation)
+                self.assertIn('position', citation)
+                self.assertIn('type', citation)
+                self.assertIn('name', citation)
+                self.assertIsInstance(citation['text'], str)
