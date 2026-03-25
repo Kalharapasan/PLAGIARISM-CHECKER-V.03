@@ -478,5 +478,18 @@ class TestUltimateEngine(unittest.TestCase):
                 self.assertIsInstance(citation['text'], str)
     
     def test_07_analyze_comprehensive(self):
+        database = [
+            {
+                'source': 'NLP Textbook',
+                'url': 'https://example.com/nlp',
+                'text': self.paraphrased_text
+            }
+        ]
+        
+        results = self.engine.analyze_comprehensive(
+            self.test_text,
+            database,
+            selected_algorithms=['cosine', 'jaccard']
+        )
 
     
