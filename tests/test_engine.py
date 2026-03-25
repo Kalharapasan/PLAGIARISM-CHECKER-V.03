@@ -525,5 +525,10 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         """
     
     def test_01_tokenize_advanced(self):
+        tokens_without_stopwords = self.analyzer.tokenize_advanced(
+            self.test_text, 
+            remove_stopwords=True
+        )
+        self.assertIsInstance(tokens_without_stopwords, list)
 
     
