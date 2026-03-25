@@ -588,3 +588,15 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                 self.assertIsInstance(scores[metric], float)
     
     def test_05_extract_key_phrases(self):
+        key_phrases = self.analyzer.extract_key_phrases(self.test_text, n=5)
+        
+        self.assertIsInstance(key_phrases, list)
+        self.assertLessEqual(len(key_phrases), 5)
+        
+        if key_phrases:
+            for phrase, freq, score in key_phrases:
+                self.assertIsInstance(phrase, str)
+                self.assertIsInstance(freq, int)
+                self.assertIsInstance(score, float)
+                self.assertGreater(freq, 0)
+                self.assertGreater(score, 0.0)
