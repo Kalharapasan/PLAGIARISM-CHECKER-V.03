@@ -876,3 +876,7 @@ class TestDatabaseManager(unittest.TestCase):
             self.db_manager.add_document(
                 doc['source'], doc['text'], doc['url'], doc['category']
             )
+        
+        results = {'overall_similarity': 30.0, 'total_words': 100, 'matches': []}
+        self.db_manager.save_check_history('test1.txt', results)
+        self.db_manager.save_check_history('test2.txt', results)
