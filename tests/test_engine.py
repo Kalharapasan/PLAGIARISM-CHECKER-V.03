@@ -586,3 +586,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         for metric in expected_metrics:
             if metric in scores:
                 self.assertIsInstance(scores[metric], float)
+    
+    def test_05_extract_key_phrases(self):
