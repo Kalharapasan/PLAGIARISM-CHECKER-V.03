@@ -847,3 +847,8 @@ class TestDatabaseManager(unittest.TestCase):
                 {'source': 'Test Source 2', 'similarity': 20.0}
             ]
         }
+        self.db_manager.save_check_history(
+            filename='test_document.txt',
+            results=results,
+            report_path='reports/test_report.txt'
+        )
