@@ -819,3 +819,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertEqual(len(docs), 0)
         success = self.db_manager.delete_document("Non-existent Document")
         self.assertFalse(success)
+    
+    def test_06_get_categories(self):
