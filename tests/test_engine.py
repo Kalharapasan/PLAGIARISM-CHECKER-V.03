@@ -722,3 +722,23 @@ class TestDatabaseManager(unittest.TestCase):
         }
         
         cls.db_manager = DatabaseManager(cls.config)
+        cls.sample_docs = [
+            {
+                'source': 'Test Document 1',
+                'text': 'This is a test document about machine learning.',
+                'url': 'https://example.com/doc1',
+                'category': 'Technical'
+            },
+            {
+                'source': 'Test Document 2',
+                'text': 'Another test document about data science.',
+                'url': 'https://example.com/doc2',
+                'category': 'Academic'
+            },
+            {
+                'source': 'Test Document 3',
+                'text': 'Test document about artificial intelligence.',
+                'url': 'https://example.com/doc3',
+                'category': 'Technical'
+            }
+        ]
