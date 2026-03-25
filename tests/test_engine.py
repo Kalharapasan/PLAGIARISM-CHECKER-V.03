@@ -790,3 +790,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.db_manager.add_document(
                 doc['source'], doc['text'], doc['url'], doc['category']
             )
+        tech_docs = self.db_manager.get_all_documents(category='Technical')
+        self.assertIsInstance(tech_docs, list)
