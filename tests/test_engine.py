@@ -768,3 +768,7 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertFalse(success)
     
     def test_02_get_all_documents(self):
+        for doc in self.sample_docs:
+            self.db_manager.add_document(
+                doc['source'], doc['text'], doc['url'], doc['category']
+            )
