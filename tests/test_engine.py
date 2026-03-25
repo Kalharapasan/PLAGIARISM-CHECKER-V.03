@@ -895,3 +895,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.db_manager.save_check_history(f'test{i}.txt', results)
         deleted_count = self.db_manager.clear_history()
         self.assertEqual(deleted_count, 5)
+        history = self.db_manager.get_check_history()
+        self.assertEqual(len(history), 0)
