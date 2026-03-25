@@ -883,3 +883,6 @@ class TestDatabaseManager(unittest.TestCase):
         stats = self.db_manager.get_statistics(days=30)
         
         self.assertIsInstance(stats, dict)
+        for key in ['total_documents', 'total_checks', 'avg_similarity',
+                   'daily_stats', 'category_stats', 'analysis_period_days']:
+            self.assertIn(key, stats)
