@@ -888,3 +888,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertIn(key, stats)
         self.assertEqual(stats['total_documents'], len(self.sample_docs))
         self.assertEqual(stats['total_checks'], 2)
+    
+    def test_09_clear_history(self):
