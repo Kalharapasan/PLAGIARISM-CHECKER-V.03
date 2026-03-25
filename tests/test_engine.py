@@ -505,4 +505,6 @@ class TestUltimateEngine(unittest.TestCase):
             self.assertIn('key_phrases', results)
             self.assertIn('advanced_citations', results)
 
+class TestAdvancedTextAnalyzer(unittest.TestCase):
+
     
