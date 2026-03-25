@@ -852,3 +852,21 @@ class TestDatabaseManager(unittest.TestCase):
             results=results,
             report_path='reports/test_report.txt'
         )
+        history = self.db_manager.get_check_history(limit=10)
+        
+        self.assertIsInstance(history, list)
+        self.assertEqual(len(history), 1)
+        
+        if history:
+            entry = history[0]
+            self.assertIn('filename', entry)
+            self.assertIn('date', entry)
+            self.assertIn('similarity', entry)
+            self.assertIn('words', entry)
+            self.assertIn('sources', entry)
+            self.assertIn('report', entry)
+            
+            self.assertEqual(entry['filename'], 'test_document.txt')
+            self.assertEqual(entry['similarity'], 25.5)
+            self.assertEqual(entry['words'], 350)
+            self.assertEqual(entry['sources'], 2)
