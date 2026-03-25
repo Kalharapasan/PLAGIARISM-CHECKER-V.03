@@ -709,3 +709,7 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
             self.assertIn(metric, similarity_metrics)
 
 class TestDatabaseManager(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
