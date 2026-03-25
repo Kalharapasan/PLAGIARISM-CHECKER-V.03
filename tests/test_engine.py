@@ -674,3 +674,8 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         stats = self.analyzer.generate_text_statistics(self.test_text)
         
         self.assertIsInstance(stats, dict)
+        for section in ['basic_statistics', 'averages', 'readability', 
+                       'writing_style', 'citations', 'key_phrases',
+                       'academic_structure', 'paraphrasing_patterns',
+                       'analysis_timestamp']:
+            self.assertIn(section, stats)
