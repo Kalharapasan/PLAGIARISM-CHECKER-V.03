@@ -886,3 +886,5 @@ class TestDatabaseManager(unittest.TestCase):
         for key in ['total_documents', 'total_checks', 'avg_similarity',
                    'daily_stats', 'category_stats', 'analysis_period_days']:
             self.assertIn(key, stats)
+        self.assertEqual(stats['total_documents'], len(self.sample_docs))
+        self.assertEqual(stats['total_checks'], 2)
