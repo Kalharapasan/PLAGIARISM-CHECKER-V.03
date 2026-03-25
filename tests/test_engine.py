@@ -276,7 +276,7 @@ class TestAdvancedEngine(unittest.TestCase):
             algorithms=['cosine', 'jaccard', 'ngram']
         )
     
-    self.assertIsInstance(results, dict)
+        self.assertIsInstance(results, dict)
         required_keys = [
             'overall_similarity', 'total_words', 'total_sentences',
             'citations_found', 'matches', 'algorithm_scores',
@@ -553,7 +553,7 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
 
     
     def test_03_detect_citations(self):
-                citations = self.analyzer.detect_citations(self.test_text)
+        citations = self.analyzer.detect_citations(self.test_text)
         
         self.assertIsInstance(citations, list)
         self.assertGreaterEqual(len(citations), 1)
@@ -908,3 +908,5 @@ class TestDatabaseManager(unittest.TestCase):
         
         success = self.db_manager.backup_database(str(backup_path))
         self.assertTrue(success)
+        self.assertTrue(backup_path.exists())
+        self.assertGreater(backup_path.stat().st_size, 0)
