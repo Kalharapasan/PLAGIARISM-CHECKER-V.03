@@ -912,3 +912,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertGreater(backup_path.stat().st_size, 0)
     
     def test_11_optimize_database(self):
+        success = self.db_manager.optimize_database()
+        self.assertTrue(success)
