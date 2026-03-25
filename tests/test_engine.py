@@ -766,3 +766,5 @@ class TestDatabaseManager(unittest.TestCase):
         )
 
         self.assertFalse(success)
+    
+    def test_02_get_all_documents(self):
