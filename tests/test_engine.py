@@ -815,3 +815,5 @@ class TestDatabaseManager(unittest.TestCase):
         )
         success = self.db_manager.delete_document(doc['source'])
         self.assertTrue(success)
+        docs = self.db_manager.get_all_documents()
+        self.assertEqual(len(docs), 0)
