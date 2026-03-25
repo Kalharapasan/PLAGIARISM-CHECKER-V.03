@@ -679,3 +679,9 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                        'academic_structure', 'paraphrasing_patterns',
                        'analysis_timestamp']:
             self.assertIn(section, stats)
+        
+        basic_stats = stats['basic_statistics']
+        self.assertIn('total_characters', basic_stats)
+        self.assertIn('total_words', basic_stats)
+        self.assertIn('total_sentences', basic_stats)
+        self.assertIn('total_paragraphs', basic_stats)
