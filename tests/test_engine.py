@@ -698,3 +698,7 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         comparison = self.analyzer.compare_texts(text1, text2)
         
         self.assertIsInstance(comparison, dict)
+        for section in ['similarity_metrics', 'readability_comparison',
+                       'writing_style_comparison', 'text1_statistics',
+                       'text2_statistics', 'key_differences']:
+            self.assertIn(section, comparison)
