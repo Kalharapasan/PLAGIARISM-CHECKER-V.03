@@ -508,5 +508,20 @@ class TestUltimateEngine(unittest.TestCase):
 class TestAdvancedTextAnalyzer(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
+        
+        cls.analyzer = AdvancedTextAnalyzer()
+        
+        cls.test_text = """
+        The field of data science combines domain expertise, programming skills, 
+        and knowledge of mathematics and statistics to extract meaningful insights 
+        from data. Data scientists use machine learning algorithms to identify 
+        patterns and make predictions.
+        
+        According to a recent study (Smith et al., 2022), organizations that 
+        effectively use data science outperform their competitors. The researchers 
+        found a 25% increase in productivity and a 30% reduction in costs.
+        """
 
     
