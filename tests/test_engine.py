@@ -498,5 +498,11 @@ class TestUltimateEngine(unittest.TestCase):
         self.assertIn('ml_enabled', metadata)
         self.assertIn('nlp_enabled', metadata)
         self.assertIn('readability_enabled', metadata)
+        if metadata.get('readability_enabled'):
+            self.assertIn('readability', results)
+        
+        if metadata.get('nlp_enabled'):
+            self.assertIn('key_phrases', results)
+            self.assertIn('advanced_citations', results)
 
     
