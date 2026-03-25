@@ -637,3 +637,20 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         self.assertGreater(structure['section_count'], 0)
     
     def test_07_analyze_writing_style(self):
+        style = self.analyzer.analyze_writing_style(self.test_text)
+        
+        self.assertIsInstance(style, dict)
+        self.assertGreater(len(style), 0)
+        
+        expected_metrics = [
+            'avg_sentence_length',
+            'max_sentence_length',
+            'min_sentence_length',
+            'vocabulary_richness',
+            'avg_word_length',
+            'passive_voice_percentage',
+            'academic_indicators'
+        ]
+        
+        for metric in expected_metrics:
+            self.assertIn(metric, style)
