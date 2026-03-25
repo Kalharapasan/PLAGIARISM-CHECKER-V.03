@@ -671,3 +671,6 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                 self.assertIsInstance(pattern['examples'], list)
     
     def test_09_generate_text_statistics(self):
+        stats = self.analyzer.generate_text_statistics(self.test_text)
+        
+        self.assertIsInstance(stats, dict)
