@@ -893,3 +893,5 @@ class TestDatabaseManager(unittest.TestCase):
         results = {'overall_similarity': 30.0, 'total_words': 100, 'matches': []}
         for i in range(5):
             self.db_manager.save_check_history(f'test{i}.txt', results)
+        deleted_count = self.db_manager.clear_history()
+        self.assertEqual(deleted_count, 5)
