@@ -880,3 +880,6 @@ class TestDatabaseManager(unittest.TestCase):
         results = {'overall_similarity': 30.0, 'total_words': 100, 'matches': []}
         self.db_manager.save_check_history('test1.txt', results)
         self.db_manager.save_check_history('test2.txt', results)
+        stats = self.db_manager.get_statistics(days=30)
+        
+        self.assertIsInstance(stats, dict)
