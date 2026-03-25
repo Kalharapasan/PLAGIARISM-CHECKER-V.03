@@ -837,3 +837,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertIn('color', category)
             self.assertIn('count', category)
             self.assertIsInstance(category['count'], int)
+    
+    def test_07_save_check_history(self):
