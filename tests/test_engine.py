@@ -713,3 +713,12 @@ class TestDatabaseManager(unittest.TestCase):
     def setUpClass(cls):
         if not IMPORT_SUCCESS:
             raise unittest.SkipTest("Required imports not available")
+
+        cls.temp_dir = tempfile.mkdtemp()
+        cls.db_path = Path(cls.temp_dir) / 'test_database.sqlite'
+        
+        cls.config = {
+            'paths.database': str(cls.db_path)
+        }
+        
+        cls.db_manager = DatabaseManager(cls.config)
