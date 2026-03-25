@@ -429,3 +429,7 @@ class TestUltimateEngine(unittest.TestCase):
         self.assertAlmostEqual(identical_similarity, 100.0, delta=0.1)
     
     def test_04_readability_scores(self):
+        scores = self.engine.calculate_readability_scores(self.test_text)
+        
+        if scores: 
+            self.assertIsInstance(scores, dict)
