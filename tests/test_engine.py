@@ -872,3 +872,7 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertEqual(entry['sources'], 2)
     
     def test_08_get_statistics(self):
+        for doc in self.sample_docs:
+            self.db_manager.add_document(
+                doc['source'], doc['text'], doc['url'], doc['category']
+            )
