@@ -542,3 +542,11 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         self.assertGreater(len(tokens_with_stopwords), len(tokens_without_stopwords))
 
     def test_02_extract_sentences(self):
+        sentences = self.analyzer.extract_sentences(self.test_text)
+        
+        self.assertIsInstance(sentences, list)
+        self.assertGreaterEqual(len(sentences), 2)
+        
+        for sentence in sentences:
+            self.assertIsInstance(sentence, str)
+            self.assertGreater(len(sentence.strip()), 20)
