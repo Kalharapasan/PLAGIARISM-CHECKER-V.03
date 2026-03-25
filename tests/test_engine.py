@@ -747,3 +747,5 @@ class TestDatabaseManager(unittest.TestCase):
         if self.db_path.exists():
             self.db_path.unlink()
         self.db_manager = DatabaseManager(self.config)
+    
+    def test_01_add_document(self):
