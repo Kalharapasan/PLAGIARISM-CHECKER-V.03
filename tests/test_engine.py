@@ -813,3 +813,5 @@ class TestDatabaseManager(unittest.TestCase):
         self.db_manager.add_document(
             doc['source'], doc['text'], doc['url'], doc['category']
         )
+        success = self.db_manager.delete_document(doc['source'])
+        self.assertTrue(success)
