@@ -839,3 +839,11 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertIsInstance(category['count'], int)
     
     def test_07_save_check_history(self):
+        results = {
+            'overall_similarity': 25.5,
+            'total_words': 350,
+            'matches': [
+                {'source': 'Test Source 1', 'similarity': 30.0},
+                {'source': 'Test Source 2', 'similarity': 20.0}
+            ]
+        }
