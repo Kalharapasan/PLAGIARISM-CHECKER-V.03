@@ -685,3 +685,7 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         self.assertIn('total_words', basic_stats)
         self.assertIn('total_sentences', basic_stats)
         self.assertIn('total_paragraphs', basic_stats)
+        self.assertIn('character_distribution', basic_stats)
+        char_dist = basic_stats['character_distribution']
+        for char_type in ['alphabetic', 'numeric', 'spaces', 'punctuation', 'other']:
+            self.assertIn(char_type, char_dist)
