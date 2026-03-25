@@ -899,3 +899,7 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertEqual(len(history), 0)
     
     def test_10_backup_database(self):
+        doc = self.sample_docs[0]
+        self.db_manager.add_document(
+            doc['source'], doc['text'], doc['url'], doc['category']
+        )
