@@ -433,3 +433,15 @@ class TestUltimateEngine(unittest.TestCase):
         
         if scores: 
             self.assertIsInstance(scores, dict)
+            expected_metrics = [
+                'flesch_reading_ease',
+                'flesch_kincaid_grade', 
+                'gunning_fog_index',
+                'avg_sentence_length',
+                'avg_syllables_per_word',
+                'complex_word_percentage'
+            ]
+            
+            for metric in expected_metrics:
+                if metric in scores:
+                    self.assertIsInstance(scores[metric], float)
