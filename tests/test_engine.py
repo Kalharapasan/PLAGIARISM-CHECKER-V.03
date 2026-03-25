@@ -564,3 +564,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
             self.assertIn('position', citation)
             self.assertIn('type', citation)
             self.assertIn('name', citation)
+            self.assertIn('year', citation)
+            self.assertEqual(citation['year'], 2022)
