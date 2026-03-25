@@ -707,3 +707,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         for metric in ['jaccard_similarity', 'overlap_coefficient', 
                       'dice_coefficient', 'shared_words']:
             self.assertIn(metric, similarity_metrics)
+
+class TestDatabaseManager(unittest.TestCase):
