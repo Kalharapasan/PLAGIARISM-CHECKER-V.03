@@ -566,3 +566,5 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
             self.assertIn('name', citation)
             self.assertIn('year', citation)
             self.assertEqual(citation['year'], 2022)
+    
+    def test_04_calculate_readability_scores(self):
