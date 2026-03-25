@@ -550,3 +550,6 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
         for sentence in sentences:
             self.assertIsInstance(sentence, str)
             self.assertGreater(len(sentence.strip()), 20)
+
+    
+    def test_03_detect_citations(self):
