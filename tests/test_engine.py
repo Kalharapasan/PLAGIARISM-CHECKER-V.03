@@ -757,3 +757,10 @@ class TestDatabaseManager(unittest.TestCase):
                 category=doc['category']
             )
             self.assertTrue(success)
+        
+        success = self.db_manager.add_document(
+            source=self.sample_docs[0]['source'],
+            text=self.sample_docs[0]['text'],
+            url=self.sample_docs[0]['url'],
+            category=self.sample_docs[0]['category']
+        )
