@@ -914,3 +914,6 @@ class TestDatabaseManager(unittest.TestCase):
     def test_11_optimize_database(self):
         success = self.db_manager.optimize_database()
         self.assertTrue(success)
+    
+    @classmethod
+    def tearDownClass(cls):
