@@ -784,3 +784,5 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertIn('added_date', doc)
             self.assertIn('word_count', doc)
             self.assertIn('metadata', doc)
+    
+    def test_03_get_documents_by_category(self):
