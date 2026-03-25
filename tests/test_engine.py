@@ -809,3 +809,7 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertIsInstance(results, list)
     
     def test_05_delete_document(self):
+        doc = self.sample_docs[0]
+        self.db_manager.add_document(
+            doc['source'], doc['text'], doc['url'], doc['category']
+        )
