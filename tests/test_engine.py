@@ -702,3 +702,8 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
                        'writing_style_comparison', 'text1_statistics',
                        'text2_statistics', 'key_differences']:
             self.assertIn(section, comparison)
+        
+        similarity_metrics = comparison['similarity_metrics']
+        for metric in ['jaccard_similarity', 'overlap_coefficient', 
+                      'dice_coefficient', 'shared_words']:
+            self.assertIn(metric, similarity_metrics)
