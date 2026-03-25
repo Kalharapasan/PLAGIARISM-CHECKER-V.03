@@ -917,3 +917,6 @@ class TestDatabaseManager(unittest.TestCase):
     
     @classmethod
     def tearDownClass(cls):
+        import shutil
+        if cls.temp_dir and Path(cls.temp_dir).exists():
+            shutil.rmtree(cls.temp_dir)
