@@ -568,3 +568,21 @@ class TestAdvancedTextAnalyzer(unittest.TestCase):
             self.assertEqual(citation['year'], 2022)
     
     def test_04_calculate_readability_scores(self):
+        scores = self.analyzer.calculate_readability_scores(self.test_text)
+        
+        self.assertIsInstance(scores, dict)
+        self.assertGreater(len(scores), 0)
+        
+        expected_metrics = [
+            'flesch_reading_ease',
+            'flesch_kincaid_grade',
+            'gunning_fog_index',
+            'smog_index',
+            'coleman_liau_index',
+            'automated_readability_index',
+            'dale_chall_score'
+        ]
+        
+        for metric in expected_metrics:
+            if metric in scores:
+                self.assertIsInstance(scores[metric], float)
