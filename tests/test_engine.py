@@ -491,5 +491,7 @@ class TestUltimateEngine(unittest.TestCase):
             database,
             selected_algorithms=['cosine', 'jaccard']
         )
+        self.assertIsInstance(results, dict)
+        self.assertIn('metadata', results)
 
     
