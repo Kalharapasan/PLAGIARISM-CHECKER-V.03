@@ -493,5 +493,10 @@ class TestUltimateEngine(unittest.TestCase):
         )
         self.assertIsInstance(results, dict)
         self.assertIn('metadata', results)
+        metadata = results['metadata']
+        self.assertEqual(metadata['engine_version'], 'ultimate')
+        self.assertIn('ml_enabled', metadata)
+        self.assertIn('nlp_enabled', metadata)
+        self.assertIn('readability_enabled', metadata)
 
     
