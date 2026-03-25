@@ -749,3 +749,11 @@ class TestDatabaseManager(unittest.TestCase):
         self.db_manager = DatabaseManager(self.config)
     
     def test_01_add_document(self):
+        for doc in self.sample_docs:
+            success = self.db_manager.add_document(
+                source=doc['source'],
+                text=doc['text'],
+                url=doc['url'],
+                category=doc['category']
+            )
+            self.assertTrue(success)
