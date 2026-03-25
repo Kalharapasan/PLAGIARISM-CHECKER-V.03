@@ -786,3 +786,7 @@ class TestDatabaseManager(unittest.TestCase):
             self.assertIn('metadata', doc)
     
     def test_03_get_documents_by_category(self):
+        for doc in self.sample_docs:
+            self.db_manager.add_document(
+                doc['source'], doc['text'], doc['url'], doc['category']
+            )
