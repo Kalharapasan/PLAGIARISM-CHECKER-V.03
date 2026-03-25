@@ -903,3 +903,8 @@ class TestDatabaseManager(unittest.TestCase):
         self.db_manager.add_document(
             doc['source'], doc['text'], doc['url'], doc['category']
         )
+        backup_dir = Path(self.temp_dir) / 'backups'
+        backup_path = backup_dir / 'test_backup.sqlite'
+        
+        success = self.db_manager.backup_database(str(backup_path))
+        self.assertTrue(success)
