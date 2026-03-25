@@ -821,3 +821,19 @@ class TestDatabaseManager(unittest.TestCase):
         self.assertFalse(success)
     
     def test_06_get_categories(self):
+        for doc in self.sample_docs:
+            self.db_manager.add_document(
+                doc['source'], doc['text'], doc['url'], doc['category']
+            )
+        
+        categories = self.db_manager.get_categories()
+        
+        self.assertIsInstance(categories, list)
+        self.assertGreater(len(categories), 0)
+        
+        for category in categories:
+            self.assertIn('name', category)
+            self.assertIn('description', category)
+            self.assertIn('color', category)
+            self.assertIn('count', category)
+            self.assertIsInstance(category['count'], int)
