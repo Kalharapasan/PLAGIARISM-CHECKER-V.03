@@ -946,3 +946,6 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(callback_args, (30, 100, "Halfway there"))
     
     def test_02_file_processor(self):
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
+            f.write("Test content for file processing")
+            temp_file = f.name
