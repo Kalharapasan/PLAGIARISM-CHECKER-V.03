@@ -983,3 +983,5 @@ class TestUtils(unittest.TestCase):
         
         "Quoted text" and 'single quotes' too.
         """
+        normalized = TextNormalizer.normalize(test_text)
+        self.assertIsInstance(normalized, str)
