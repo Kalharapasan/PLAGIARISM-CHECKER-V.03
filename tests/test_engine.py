@@ -953,6 +953,15 @@ class TestUtils(unittest.TestCase):
         try:
             file_hash = FileProcessor.get_file_hash(temp_file)
             self.assertIsInstance(file_hash, str)
+            file_info = FileProcessor.get_file_info(temp_file)
+            self.assertIsInstance(file_info, dict)
+            
+            expected_keys = ['name', 'stem', 'suffix', 'size', 'created', 'modified', 'hash']
+            for key in expected_keys:
+                self.assertIn(key, file_info)
+            
+            self.assertEqual(file_info['suffix'], '.txt')
+            self.assertGreater(file_info['size'], 0)
         
         finally:
 
