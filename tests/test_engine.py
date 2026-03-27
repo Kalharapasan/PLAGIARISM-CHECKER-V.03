@@ -944,3 +944,5 @@ class TestUtils(unittest.TestCase):
         
         self.assertTrue(callback_called)
         self.assertEqual(callback_args, (30, 100, "Halfway there"))
+    
+    def test_02_file_processor(self):
