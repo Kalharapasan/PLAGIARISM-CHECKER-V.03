@@ -922,6 +922,7 @@ class TestDatabaseManager(unittest.TestCase):
             shutil.rmtree(cls.temp_dir)
 
 class TestUtils(unittest.TestCase):
+     
      def test_01_progress_tracker(self):
         tracker = ProgressTracker(total=100)
         self.assertEqual(tracker.current, 0)
