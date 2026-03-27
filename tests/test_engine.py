@@ -987,3 +987,8 @@ class TestUtils(unittest.TestCase):
         self.assertIsInstance(normalized, str)
         self.assertNotIn("   ", normalized)
         self.assertNotIn("\n\n", normalized) 
+        clean_text = TextNormalizer.remove_formatting(test_text)
+        self.assertIsInstance(clean_text, str)
+        self.assertNotIn("<html>", clean_text)
+        self.assertNotIn("http://example.com", clean_text)
+        self.assertNotIn("test@example.com", clean_text)
