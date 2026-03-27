@@ -924,3 +924,6 @@ class TestDatabaseManager(unittest.TestCase):
 class TestUtils(unittest.TestCase):
      def test_01_progress_tracker(self):
         tracker = ProgressTracker(total=100)
+        self.assertEqual(tracker.current, 0)
+        self.assertEqual(tracker.total, 100)
+        self.assertEqual(tracker.message, "")
