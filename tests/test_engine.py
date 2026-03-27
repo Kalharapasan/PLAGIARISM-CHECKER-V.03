@@ -974,3 +974,12 @@ class TestUtils(unittest.TestCase):
             os.unlink(temp_file)
     
     def test_03_text_normalizer(self):
+        test_text = """
+        This    is   a  test   text with   multiple   spaces
+        and    newlines.
+        
+        It also has <html>tags</html> and http://example.com URLs.
+        Email: test@example.com
+        
+        "Quoted text" and 'single quotes' too.
+        """
