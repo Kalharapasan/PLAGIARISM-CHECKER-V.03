@@ -930,3 +930,5 @@ class TestUtils(unittest.TestCase):
         tracker.update(10, "Processing...")
         self.assertEqual(tracker.current, 10)
         self.assertEqual(tracker.message, "Processing...")
+        callback_called = False
+        callback_args = None
