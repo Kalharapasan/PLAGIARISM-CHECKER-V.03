@@ -927,3 +927,6 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(tracker.current, 0)
         self.assertEqual(tracker.total, 100)
         self.assertEqual(tracker.message, "")
+        tracker.update(10, "Processing...")
+        self.assertEqual(tracker.current, 10)
+        self.assertEqual(tracker.message, "Processing...")
