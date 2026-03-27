@@ -933,3 +933,5 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(tracker.message, "Processing...")
         callback_called = False
         callback_args = None
+
+    def test_callback(current, total, message):
