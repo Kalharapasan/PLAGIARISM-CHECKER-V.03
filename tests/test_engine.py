@@ -934,4 +934,13 @@ class TestUtils(unittest.TestCase):
         callback_called = False
         callback_args = None
 
-    def test_callback(current, total, message):
+        def test_callback(current, total, message):
+            nonlocal callback_called, callback_args
+            callback_called = True
+            callback_args = (current, total, message)
+        
+        tracker.set_callback(test_callback)
+        tracker.update(20, "Halfway there")
+        
+        self.assertTrue(callback_called)
+        self.assertEqual(callback_args, (30, 100, "Halfway there"))
