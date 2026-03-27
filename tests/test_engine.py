@@ -962,6 +962,12 @@ class TestUtils(unittest.TestCase):
             
             self.assertEqual(file_info['suffix'], '.txt')
             self.assertGreater(file_info['size'], 0)
+            self.assertTrue(
+                FileProcessor.is_supported_format(temp_file, ['.txt', '.docx', '.pdf'])
+            )
+            self.assertFalse(
+                FileProcessor.is_supported_format(temp_file, ['.docx', '.pdf'])
+            )
         
         finally:
 
