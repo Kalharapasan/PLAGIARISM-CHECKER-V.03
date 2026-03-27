@@ -972,3 +972,5 @@ class TestUtils(unittest.TestCase):
         finally:
 
             os.unlink(temp_file)
+    
+    def test_03_text_normalizer(self):
