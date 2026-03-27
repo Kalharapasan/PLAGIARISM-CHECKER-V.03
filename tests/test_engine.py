@@ -985,3 +985,4 @@ class TestUtils(unittest.TestCase):
         """
         normalized = TextNormalizer.normalize(test_text)
         self.assertIsInstance(normalized, str)
+        self.assertNotIn("   ", normalized)
