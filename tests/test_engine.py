@@ -949,3 +949,7 @@ class TestUtils(unittest.TestCase):
         with tempfile.NamedTemporaryFile(mode='w', suffix='.txt', delete=False) as f:
             f.write("Test content for file processing")
             temp_file = f.name
+        
+        try:
+            file_hash = FileProcessor.get_file_hash(temp_file)
+            self.assertIsInstance(file_hash, str)
