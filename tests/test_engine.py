@@ -953,3 +953,7 @@ class TestUtils(unittest.TestCase):
         try:
             file_hash = FileProcessor.get_file_hash(temp_file)
             self.assertIsInstance(file_hash, str)
+        
+        finally:
+
+            os.unlink(temp_file)
