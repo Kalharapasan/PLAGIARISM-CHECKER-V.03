@@ -1170,3 +1170,21 @@ class TestTextExtractor(unittest.TestCase):
 class TestSimilarityAlgorithms(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        
+        cls.text1 = """
+        Artificial intelligence is transforming industries across the globe.
+        Machine learning algorithms enable computers to learn from data and 
+        make predictions or decisions without being explicitly programmed.
+        """
+        
+        cls.text2 = """
+        AI is revolutionizing various sectors worldwide. Through machine 
+        learning, systems can learn from information and make predictions 
+        or choices without direct programming.
+        """
+        
+        cls.text3 = """
+        The quick brown fox jumps over the lazy dog. This sentence contains 
+        all letters of the English alphabet and is often used for typing 
+        practice and testing keyboards.
+        """
