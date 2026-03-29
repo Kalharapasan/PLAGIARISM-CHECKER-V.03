@@ -1168,3 +1168,5 @@ class TestTextExtractor(unittest.TestCase):
 
 @unittest.skipIf(not SIMILARITY_AVAILABLE, "SimilarityAlgorithms not available")
 class TestSimilarityAlgorithms(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
