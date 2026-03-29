@@ -995,3 +995,10 @@ class TestUtils(unittest.TestCase):
 
     def test_04_cache_manager(self):
         cache = CacheManager(max_size=3)
+        cache.set('key1', 'value1')
+        cache.set('key2', 'value2')
+        cache.set('key3', 'value3')
+        
+        self.assertEqual(cache.get('key1'), 'value1')
+        self.assertEqual(cache.get('key2'), 'value2')
+        self.assertEqual(cache.get('key3'), 'value3')
