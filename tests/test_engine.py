@@ -1026,3 +1026,5 @@ class TestUtils(unittest.TestCase):
             log_file = Path("logs/errors.log")
             if log_file.exists():
                 log_file.unlink()
+    
+    def test_06_config_functions(self):
