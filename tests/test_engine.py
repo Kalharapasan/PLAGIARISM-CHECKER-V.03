@@ -1165,3 +1165,6 @@ class TestTextExtractor(unittest.TestCase):
         import shutil
         if cls.temp_dir and Path(cls.temp_dir).exists():
             shutil.rmtree(cls.temp_dir)
+
+@unittest.skipIf(not SIMILARITY_AVAILABLE, "SimilarityAlgorithms not available")
+class TestSimilarityAlgorithms(unittest.TestCase):
