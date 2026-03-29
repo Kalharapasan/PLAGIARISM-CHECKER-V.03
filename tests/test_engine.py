@@ -1139,3 +1139,5 @@ class TestTextExtractor(unittest.TestCase):
         self.assertGreater(metrics['words'], 0)
         self.assertGreater(metrics['lines'], 0)
         self.assertGreater(metrics['paragraphs'], 0)
+    
+    def test_05_batch_extract(self):
