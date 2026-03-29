@@ -1014,3 +1014,7 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(len(cache.cache), 0)
     
     def test_05_error_handler(self):
+        try:
+            raise ValueError("Test error")
+        except ValueError as e:
+            error_info = ErrorHandler.handle_error(e, "Test context")
