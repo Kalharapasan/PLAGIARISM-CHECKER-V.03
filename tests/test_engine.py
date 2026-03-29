@@ -1126,3 +1126,5 @@ class TestTextExtractor(unittest.TestCase):
         self.assertIn('test text file', result)
         self.assertIn('multiple lines', result)
         self.assertIn('paragraphs', result)
+    
+    def test_04_extract_with_metadata(self):
