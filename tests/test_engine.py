@@ -1018,3 +1018,8 @@ class TestUtils(unittest.TestCase):
             raise ValueError("Test error")
         except ValueError as e:
             error_info = ErrorHandler.handle_error(e, "Test context")
+            self.assertIsInstance(error_info, dict)
+            self.assertEqual(error_info['error'], 'Test error')
+            self.assertEqual(error_info['type'], 'ValueError')
+            self.assertEqual(error_info['context'], 'Test context')
+            self.assertIn('timestamp', error_info)
