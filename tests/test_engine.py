@@ -1056,3 +1056,6 @@ class TestUtils(unittest.TestCase):
             os.unlink(temp_config)
     
     def test_07_format_functions(self):
+        self.assertEqual(format_file_size(1024), "1024.00 B")
+        self.assertEqual(format_file_size(1024 * 1024), "1.00 MB")
+        self.assertEqual(format_file_size(1024 * 1024 * 1024), "1.00 GB")
