@@ -1028,3 +1028,12 @@ class TestUtils(unittest.TestCase):
                 log_file.unlink()
     
     def test_06_config_functions(self):
+        test_config = {
+            'application': {
+                'name': 'Test App',
+                'version': '1.0.0'
+            },
+            'database': {
+                'path': 'test.db'
+            }
+        }
