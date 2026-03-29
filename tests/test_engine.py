@@ -1100,3 +1100,5 @@ class TestTextExtractor(unittest.TestCase):
         self.assertTrue(self.extractor.is_supported_format('document.pdf'))
         self.assertTrue(self.extractor.is_supported_format('report.docx'))
         self.assertFalse(self.extractor.is_supported_format('unknown.xyz'))
+    
+    def test_02_get_file_info(self):
