@@ -1146,3 +1146,12 @@ class TestTextExtractor(unittest.TestCase):
             f.write("Second test file content.")
         
         filepaths = [str(self.text_file), str(text_file2)]
+        progress_updates = []
+        
+        def progress_callback(progress, filename, success):
+            progress_updates.append((progress, filename, success))
+        
+        results = self.extractor.batch_extract(filepaths, progress_callback)
+        
+        self.assertIsInstance(results, list)
+        self.assertEqual(len(results), 2)
