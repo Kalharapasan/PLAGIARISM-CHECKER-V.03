@@ -1003,3 +1003,4 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(cache.get('key2'), 'value2')
         self.assertEqual(cache.get('key3'), 'value3')
         
+        cache.get('key1')
