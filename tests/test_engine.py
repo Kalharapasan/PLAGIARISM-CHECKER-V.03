@@ -1134,3 +1134,8 @@ class TestTextExtractor(unittest.TestCase):
         self.assertTrue(result['success'])
         for key in ['success', 'text', 'metadata', 'text_metrics', 'extraction_timestamp']:
             self.assertIn(key, result)
+        metrics = result['text_metrics']
+        self.assertGreater(metrics['characters'], 0)
+        self.assertGreater(metrics['words'], 0)
+        self.assertGreater(metrics['lines'], 0)
+        self.assertGreater(metrics['paragraphs'], 0)
