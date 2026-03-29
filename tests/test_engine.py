@@ -1090,3 +1090,4 @@ class TestTextExtractor(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.extractor = TextExtractor()
+        cls.temp_dir = tempfile.mkdtemp()
