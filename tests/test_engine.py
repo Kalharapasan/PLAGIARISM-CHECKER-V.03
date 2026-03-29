@@ -1119,3 +1119,10 @@ class TestTextExtractor(unittest.TestCase):
         self.assertTrue(file_info['is_readable'])
     
     def test_03_extract_text_from_txt(self):
+        result = self.extractor.extract_text(str(self.text_file))
+        
+        self.assertIsInstance(result, str)
+        self.assertGreater(len(result), 0)
+        self.assertIn('test text file', result)
+        self.assertIn('multiple lines', result)
+        self.assertIn('paragraphs', result)
