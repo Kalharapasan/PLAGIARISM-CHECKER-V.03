@@ -1059,3 +1059,6 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(format_file_size(1024), "1024.00 B")
         self.assertEqual(format_file_size(1024 * 1024), "1.00 MB")
         self.assertEqual(format_file_size(1024 * 1024 * 1024), "1.00 GB")
+        self.assertEqual(format_percentage(25.5555), "25.56%")
+        self.assertEqual(format_percentage(0), "0.00%")
+        self.assertEqual(format_percentage(100), "100.00%")
