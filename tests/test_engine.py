@@ -1110,3 +1110,10 @@ class TestTextExtractor(unittest.TestCase):
             'filename', 'extension', 'filepath', 'file_size',
             'created', 'modified', 'mime_type', 'is_supported', 'is_readable'
         ]
+        for key in expected_keys:
+            self.assertIn(key, file_info)
+        
+        self.assertEqual(file_info['filename'], 'test.txt')
+        self.assertEqual(file_info['extension'], '.txt')
+        self.assertTrue(file_info['is_supported'])
+        self.assertTrue(file_info['is_readable'])
