@@ -1037,3 +1037,6 @@ class TestUtils(unittest.TestCase):
                 'path': 'test.db'
             }
         }
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+            json.dump(test_config, f)
+            temp_config = f.name
