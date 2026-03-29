@@ -1117,3 +1117,5 @@ class TestTextExtractor(unittest.TestCase):
         self.assertEqual(file_info['extension'], '.txt')
         self.assertTrue(file_info['is_supported'])
         self.assertTrue(file_info['is_readable'])
+    
+    def test_03_extract_text_from_txt(self):
