@@ -1132,3 +1132,5 @@ class TestTextExtractor(unittest.TestCase):
         
         self.assertIsInstance(result, dict)
         self.assertTrue(result['success'])
+        for key in ['success', 'text', 'metadata', 'text_metrics', 'extraction_timestamp']:
+            self.assertIn(key, result)
