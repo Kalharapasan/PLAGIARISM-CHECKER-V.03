@@ -1102,3 +1102,11 @@ class TestTextExtractor(unittest.TestCase):
         self.assertFalse(self.extractor.is_supported_format('unknown.xyz'))
     
     def test_02_get_file_info(self):
+        file_info = self.extractor.get_file_info(str(self.text_file))
+        
+        self.assertIsInstance(file_info, dict)
+        
+        expected_keys = [
+            'filename', 'extension', 'filepath', 'file_size',
+            'created', 'modified', 'mime_type', 'is_supported', 'is_readable'
+        ]
