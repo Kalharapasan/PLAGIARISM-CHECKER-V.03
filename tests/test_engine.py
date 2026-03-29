@@ -1040,3 +1040,10 @@ class TestUtils(unittest.TestCase):
         with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
             json.dump(test_config, f)
             temp_config = f.name
+        
+        try:
+            loaded_config = load_config(temp_config)
+            self.assertEqual(loaded_config['application']['name'], 'Test App')
+            self.assertEqual(loaded_config['database']['path'], 'test.db')
+        finally:
+            os.unlink(temp_config)
