@@ -1159,3 +1159,6 @@ class TestTextExtractor(unittest.TestCase):
             self.assertTrue(result['success'])
         self.assertGreater(len(progress_updates), 0)
         self.assertEqual(progress_updates[-1][0], 100.0)
+
+    @classmethod
+    def tearDownClass(cls):
