@@ -1054,3 +1054,5 @@ class TestUtils(unittest.TestCase):
             os.unlink(temp_save)
         finally:
             os.unlink(temp_config)
+    
+    def test_07_format_functions(self):
