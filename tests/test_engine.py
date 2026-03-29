@@ -1094,3 +1094,5 @@ class TestTextExtractor(unittest.TestCase):
         cls.text_file = Path(cls.temp_dir) / 'test.txt'
         with open(cls.text_file, 'w', encoding='utf-8') as f:
             f.write("This is a test text file.\nIt contains multiple lines.\n\nAnd paragraphs.")
+    
+    def test_01_is_supported_format(self):
