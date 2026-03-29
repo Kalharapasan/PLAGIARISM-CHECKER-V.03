@@ -1024,3 +1024,5 @@ class TestUtils(unittest.TestCase):
             self.assertEqual(error_info['context'], 'Test context')
             self.assertIn('timestamp', error_info)
             log_file = Path("logs/errors.log")
+            if log_file.exists():
+                log_file.unlink()
