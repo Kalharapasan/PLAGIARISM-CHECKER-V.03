@@ -1051,5 +1051,6 @@ class TestUtils(unittest.TestCase):
                 saved_config = json.load(f)
             
             self.assertEqual(saved_config['application']['name'], 'Test App')
+            os.unlink(temp_save)
         finally:
             os.unlink(temp_config)
