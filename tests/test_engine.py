@@ -1096,3 +1096,7 @@ class TestTextExtractor(unittest.TestCase):
             f.write("This is a test text file.\nIt contains multiple lines.\n\nAnd paragraphs.")
     
     def test_01_is_supported_format(self):
+        self.assertTrue(self.extractor.is_supported_format(str(self.text_file)))
+        self.assertTrue(self.extractor.is_supported_format('document.pdf'))
+        self.assertTrue(self.extractor.is_supported_format('report.docx'))
+        self.assertFalse(self.extractor.is_supported_format('unknown.xyz'))
