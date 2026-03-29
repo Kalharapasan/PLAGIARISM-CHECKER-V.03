@@ -1089,3 +1089,4 @@ class TestUtils(unittest.TestCase):
 class TestTextExtractor(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.extractor = TextExtractor()
