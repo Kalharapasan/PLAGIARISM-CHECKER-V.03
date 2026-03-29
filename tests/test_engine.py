@@ -992,3 +992,5 @@ class TestUtils(unittest.TestCase):
         self.assertNotIn("<html>", clean_text)
         self.assertNotIn("http://example.com", clean_text)
         self.assertNotIn("test@example.com", clean_text)
+
+    def test_04_cache_manager(self):
