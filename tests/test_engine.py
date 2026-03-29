@@ -1084,3 +1084,6 @@ class TestUtils(unittest.TestCase):
             safe_get(test_dict, ['level1', 'nonexistent'], 'default'),
             'default'
         )
+
+@unittest.skipIf(not TEXT_EXTRACTOR_AVAILABLE, "TextExtractor not available")
+class TestTextExtractor(unittest.TestCase):
