@@ -994,3 +994,4 @@ class TestUtils(unittest.TestCase):
         self.assertNotIn("test@example.com", clean_text)
 
     def test_04_cache_manager(self):
+        cache = CacheManager(max_size=3)
