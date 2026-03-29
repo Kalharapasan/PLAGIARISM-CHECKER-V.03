@@ -1012,3 +1012,5 @@ class TestUtils(unittest.TestCase):
         cache.clear()
         self.assertIsNone(cache.get('key1'))
         self.assertEqual(len(cache.cache), 0)
+    
+    def test_05_error_handler(self):
