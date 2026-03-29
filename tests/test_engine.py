@@ -1047,5 +1047,9 @@ class TestUtils(unittest.TestCase):
             self.assertEqual(loaded_config['database']['path'], 'test.db')
             emp_save = tempfile.mktemp(suffix='.json')
             save_config(test_config, temp_save)
+            with open(temp_save, 'r') as f:
+                saved_config = json.load(f)
+            
+            self.assertEqual(saved_config['application']['name'], 'Test App')
         finally:
             os.unlink(temp_config)
