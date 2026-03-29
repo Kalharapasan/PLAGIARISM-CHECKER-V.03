@@ -1155,3 +1155,5 @@ class TestTextExtractor(unittest.TestCase):
         
         self.assertIsInstance(results, list)
         self.assertEqual(len(results), 2)
+        for result in results:
+            self.assertTrue(result['success'])
