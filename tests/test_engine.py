@@ -1128,3 +1128,7 @@ class TestTextExtractor(unittest.TestCase):
         self.assertIn('paragraphs', result)
     
     def test_04_extract_with_metadata(self):
+        result = self.extractor.extract_with_metadata(str(self.text_file))
+        
+        self.assertIsInstance(result, dict)
+        self.assertTrue(result['success'])
