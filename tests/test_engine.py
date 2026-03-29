@@ -1091,3 +1091,6 @@ class TestTextExtractor(unittest.TestCase):
     def setUpClass(cls):
         cls.extractor = TextExtractor()
         cls.temp_dir = tempfile.mkdtemp()
+        cls.text_file = Path(cls.temp_dir) / 'test.txt'
+        with open(cls.text_file, 'w', encoding='utf-8') as f:
+            f.write("This is a test text file.\nIt contains multiple lines.\n\nAnd paragraphs.")
