@@ -1141,3 +1141,8 @@ class TestTextExtractor(unittest.TestCase):
         self.assertGreater(metrics['paragraphs'], 0)
     
     def test_05_batch_extract(self):
+        text_file2 = Path(self.temp_dir) / 'test2.txt'
+        with open(text_file2, 'w', encoding='utf-8') as f:
+            f.write("Second test file content.")
+        
+        filepaths = [str(self.text_file), str(text_file2)]
