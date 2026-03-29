@@ -1157,3 +1157,4 @@ class TestTextExtractor(unittest.TestCase):
         self.assertEqual(len(results), 2)
         for result in results:
             self.assertTrue(result['success'])
+        self.assertGreater(len(progress_updates), 0)
