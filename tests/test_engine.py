@@ -1087,3 +1087,5 @@ class TestUtils(unittest.TestCase):
 
 @unittest.skipIf(not TEXT_EXTRACTOR_AVAILABLE, "TextExtractor not available")
 class TestTextExtractor(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
