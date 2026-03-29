@@ -1065,3 +1065,22 @@ class TestUtils(unittest.TestCase):
         timestamp = "2023-12-25T10:30:45"
         formatted = format_timestamp(timestamp)
         self.assertEqual(formatted, "2023-12-25 10:30:45")
+        test_dict = {
+            'level1': {
+                'level2': {
+                    'level3': 'value'
+                }
+            }
+        }
+        
+        self.assertEqual(
+            safe_get(test_dict, ['level1', 'level2', 'level3']),
+            'value'
+        )
+        self.assertIsNone(
+            safe_get(test_dict, ['level1', 'nonexistent'])
+        )
+        self.assertEqual(
+            safe_get(test_dict, ['level1', 'nonexistent'], 'default'),
+            'default'
+        )
