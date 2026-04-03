@@ -1507,4 +1507,13 @@ class TestIntegration(unittest.TestCase):
         self.assertGreater(cosine_sim, 20.0)
         self.assertGreater(jaccard_sim, 20.0)
         self.assertGreater(ngram_sim, 20.0)
+
+        cosine_diff = self.advanced_engine.calculate_cosine_similarity(
+            self.original_text,
+            self.unrelated_text
+        )
         
+        jaccard_diff = self.advanced_engine.calculate_jaccard_similarity(
+            self.original_text,
+            self.unrelated_text
+        )
