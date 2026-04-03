@@ -1281,4 +1281,8 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertNotEqual(fingerprint1, fingerprint2)
     
     def test_09_analyze_similarity_distribution(self):
+        analysis = self.similarity.analyze_similarity_distribution(
+            self.text1, self.text2
+        )
         
+        self.assertIsInstance(analysis, dict)
