@@ -1355,3 +1355,6 @@ class TestMLFeatures(unittest.TestCase):
     def test_05_extract_all_features(self):
         features = self.ml.extract_all_features(self.test_text)
         self.assertIsInstance(features, dict)
+        for category in ['linguistic', 'stylometric', 'nlp', 'embeddings',
+                        'combined_vector', 'metadata']:
+            self.assertIn(category, features)
