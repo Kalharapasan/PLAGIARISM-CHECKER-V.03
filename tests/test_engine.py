@@ -1286,3 +1286,6 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         )
         
         self.assertIsInstance(analysis, dict)
+        for key in ['word_level_similarity', 'sentence_level_similarity',
+                   'paragraph_level_similarity', 'similarity_distribution']:
+            self.assertIn(key, analysis)
