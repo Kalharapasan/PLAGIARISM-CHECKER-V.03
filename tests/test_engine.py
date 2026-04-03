@@ -1517,3 +1517,5 @@ class TestIntegration(unittest.TestCase):
             self.original_text,
             self.unrelated_text
         )
+        self.assertLess(cosine_diff, 50.0)
+        self.assertLess(jaccard_diff, 50.0)
