@@ -1537,3 +1537,11 @@ def run_tests(test_classes=None, verbosity=2):
             TestUtils,
             TestIntegration
         ]
+        if TEXT_EXTRACTOR_AVAILABLE:
+            test_classes.append(TestTextExtractor)
+        
+        if SIMILARITY_AVAILABLE:
+            test_classes.append(TestSimilarityAlgorithms)
+        
+        if ML_FEATURES_AVAILABLE:
+            test_classes.append(TestMLFeatures)
