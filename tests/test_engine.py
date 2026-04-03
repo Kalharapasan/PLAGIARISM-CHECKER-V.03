@@ -1198,3 +1198,5 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
         self.assertGreater(similarity, 30.0)
+    
+    def test_02_jaccard_similarity(self):
