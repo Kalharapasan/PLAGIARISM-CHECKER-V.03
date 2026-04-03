@@ -1561,3 +1561,15 @@ def run_tests(test_classes=None, verbosity=2):
     
     runner = unittest.TextTestRunner(verbosity=verbosity)
     results = runner.run(suite)
+    print("\n" + "="*70)
+    print("Test Summary")
+    print("="*70)
+    print(f"Tests Run: {results.testsRun}")
+    print(f"Failures: {len(results.failures)}")
+    print(f"Errors: {len(results.errors)}")
+    print(f"Skipped: {len(results.skipped)}")
+    
+    if results.wasSuccessful():
+        print("\n✅ All tests passed!")
+    else:
+        print("\n❌ Some tests failed.")
