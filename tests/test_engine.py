@@ -1369,4 +1369,6 @@ class TestMLFeatures(unittest.TestCase):
         for key in ['plagiarism_score', 'pattern_matches', 'anomaly_scores',
                    'cluster_assignment', 'recommendations']:
             self.assertIn(key, results)
+        anomaly_scores = results['anomaly_scores']
+        self.assertIsInstance(anomaly_scores, dict)
 
