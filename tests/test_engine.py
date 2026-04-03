@@ -1251,3 +1251,7 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         )
         
         self.assertIsInstance(results, dict)
+
+        for key in ['individual_scores', 'weighted_average', 'confidence',
+                   'common_sequences', 'total_sequences', 'algorithms_used']:
+            self.assertIn(key, results)
