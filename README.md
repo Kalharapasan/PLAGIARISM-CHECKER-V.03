@@ -48,10 +48,22 @@ Key entry points:
 - Python 3.8+
 - Windows, Linux, or macOS
 
+Recommended:
+
+- Use a virtual environment (`.venv`)
+- Keep `pip` updated before install
+
 Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Optional NLP/download steps (only if you use those features):
+
+```bash
+python -m nltk.downloader punkt stopwords
+python -m spacy download en_core_web_sm
 ```
 
 Optional for PDF export:
@@ -95,6 +107,22 @@ python main.py --mode batch --input-dir "path/to/folder"
 python main.py --mode server
 ```
 
+Create and activate a virtual environment manually:
+
+Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Linux/macOS:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
 Useful options:
 
 ```bash
@@ -107,6 +135,49 @@ python main.py --mode batch --input-dir "docs" --output "exports/batch_reports"
 
 - If `--input-dir` is omitted, batch mode defaults to `data/sample_documents`.
 - If the folder does not exist or has no supported files, the app prints a message and exits cleanly.
+- Reports are saved to `exports/batch_reports` when `--output` is not provided.
+
+## Configuration
+
+Main configuration file: `config.json`
+
+Useful keys:
+
+- `detection.basic.threshold`
+- `detection.advanced.algorithms`
+- `detection.ultimate.algorithms`
+- `ui.basic.window_size`
+- `ui.advanced.window_size`
+- `ui.ultimate.window_size`
+- `paths.database`
+- `paths.reports`
+
+Run with custom config:
+
+```bash
+python main.py --mode advanced --config config.json
+```
+
+## Server Mode
+
+Server mode starts a lightweight HTTP endpoint from `api/server.py`.
+
+Default address:
+
+- `http://127.0.0.1:8080/`
+- `http://127.0.0.1:8080/health`
+
+Example:
+
+```bash
+python main.py --mode server
+```
+
+Health response format:
+
+```json
+{"status":"ok","service":"plagiarism-checker"}
+```
 
 ## Supported Input Formats
 
@@ -124,6 +195,28 @@ Additional formats may appear in config and future handlers, but the active batc
 - GUI issues: ensure Tkinter is available in your Python install.
 - PDF export failure: install `reportlab`.
 - Empty batch results: verify your folder contains `.txt`, `.docx`, or `.pdf` files.
+- If dependencies fail to install, upgrade pip: `python -m pip install --upgrade pip`.
+- If database seems corrupted, back up then delete `data/database.sqlite` and restart app.
+
+## Development Notes
+
+Run a quick syntax check:
+
+```bash
+python -m compileall -q .
+```
+
+Run tests (if available in your environment):
+
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+
+## Current Limitations
+
+- Some advanced/ultimate features rely on optional third-party libraries.
+- Supported extraction in active CLI/batch flow is focused on `.txt`, `.docx`, and `.pdf`.
+- Server mode currently provides health endpoint only (not full analysis API).
 
 ## Example Commands
 
