@@ -1337,3 +1337,5 @@ class TestMLFeatures(unittest.TestCase):
         self.assertIn('sophisticated_word_ratio', features)
         for value in features.values():
             self.assertIsInstance(value, float)
+    
+    def test_03_extract_nlp_features(self):
