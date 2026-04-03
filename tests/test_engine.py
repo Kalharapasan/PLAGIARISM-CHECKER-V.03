@@ -1262,3 +1262,7 @@ class TestSimilarityAlgorithms(unittest.TestCase):
             self.assertIsInstance(score, float)
             self.assertGreaterEqual(score, 0.0)
             self.assertLessEqual(score, 100.0)
+        
+        self.assertIsInstance(results['weighted_average'], float)
+        self.assertGreaterEqual(results['weighted_average'], 0.0)
+        self.assertLessEqual(results['weighted_average'], 100.0)
