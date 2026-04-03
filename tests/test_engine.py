@@ -1634,3 +1634,7 @@ if __name__ == '__main__':
         except KeyError:
             print(f"Error: Test class '{test_class_name}' not found")
             sys.exit(1)
+
+    else:
+        run_tests(verbosity=args.verbosity)
+        sys.exit(0 if run_tests().wasSuccessful() else 1)
