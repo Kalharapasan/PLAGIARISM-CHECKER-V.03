@@ -1525,3 +1525,5 @@ class TestIntegration(unittest.TestCase):
 def run_tests(test_classes=None, verbosity=2):
     if not IMPORT_SUCCESS:
         print("⚠ Warning: Some imports failed. Running reduced test suite.")
+    
+    suite = unittest.TestSuite()
