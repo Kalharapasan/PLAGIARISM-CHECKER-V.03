@@ -60,3 +60,38 @@ Examples:
 
     from core.utils import load_config
     config = load_config(args.config)
+    if args.mode == "cli":
+        from ui.cli_interface import CLIMode
+        app = CLIMode(config)
+        if args.document:
+            app.check_document(args.document, args.output)
+        else:
+            app.interactive_mode()
+    
+    elif args.mode == "basic":
+        from ui.basic_gui import BasicPlagiarismChecker
+        app = BasicPlagiarismChecker(config)
+        app.run()
+    
+    elif args.mode == "advanced":
+        from ui.advanced_gui import AdvancedPlagiarismChecker
+        app = AdvancedPlagiarismChecker(config)
+        app.run()
+    
+    elif args.mode == "ultimate":
+        from ui.ultimate_gui import UltimatePlagiarismChecker
+        app = UltimatePlagiarismChecker(config)
+        app.run()
+    
+    elif args.mode == "batch":
+        from core.batch_processor import BatchProcessor
+        processor = BatchProcessor(config)
+        processor.process_directory(args.input_dir, args.output)
+    
+    elif args.mode == "server":
+        from api.server import start_server
+        start_server(config)
+    
+    else:
+        print(f"Unknown mode: {args.mode}")
+        sys.exit(1)
