@@ -1266,3 +1266,5 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertIsInstance(results['weighted_average'], float)
         self.assertGreaterEqual(results['weighted_average'], 0.0)
         self.assertLessEqual(results['weighted_average'], 100.0)
+
+        self.assertIn(results['confidence'], ['High', 'Medium', 'Low'])
