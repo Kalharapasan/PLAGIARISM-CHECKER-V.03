@@ -1335,3 +1335,5 @@ class TestMLFeatures(unittest.TestCase):
         self.assertIn('function_word_ratio', features)
         self.assertIn('sentence_length_mean', features)
         self.assertIn('sophisticated_word_ratio', features)
+        for value in features.values():
+            self.assertIsInstance(value, float)
