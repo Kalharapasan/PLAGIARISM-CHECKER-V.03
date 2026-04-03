@@ -1218,3 +1218,10 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertLessEqual(similarity, 100.0)
     
     def test_04_levenshtein_similarity(self):
+        similarity = self.similarity.calculate_levenshtein_similarity(
+            "kitten", "sitting"
+        )
+        
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
