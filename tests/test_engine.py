@@ -1586,3 +1586,5 @@ def run_tests(test_classes=None, verbosity=2):
                 print(traceback)
     
     return results
+
+if __name__ == '__main__':
