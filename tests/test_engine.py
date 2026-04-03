@@ -1317,3 +1317,12 @@ class TestMLFeatures(unittest.TestCase):
         
         self.assertIsInstance(features, dict)
         self.assertGreater(len(features), 0)
+        expected_features = [
+            'char_count', 'word_count', 'sentence_count', 'paragraph_count',
+            'avg_word_length', 'max_word_length', 'unique_word_ratio',
+            'vocabulary_richness', 'common_word_ratio'
+        ]
+        
+        for feature in expected_features:
+            self.assertIn(feature, features)
+            self.assertIsInstance(features[feature], float)
