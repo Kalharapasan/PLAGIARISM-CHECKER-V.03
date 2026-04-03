@@ -5,6 +5,7 @@ A multi-mode plagiarism detection project with desktop UIs, CLI usage, batch pro
 ## Features
 
 ### Interfaces
+
 - Basic GUI (`--mode basic`) for quick checks
 - Advanced GUI (`--mode advanced`) with algorithm selection, database management, and batch tab
 - Ultimate GUI (`--mode ultimate`) with extended analysis tools
@@ -13,17 +14,20 @@ A multi-mode plagiarism detection project with desktop UIs, CLI usage, batch pro
 - Server mode (`--mode server`) for a simple HTTP health endpoint
 
 ### Detection Engines
+
 - `BasePlagiarismEngine`: cosine-based baseline checks
 - `AdvancedPlagiarismEngine`: cosine, jaccard, n-gram, sequence, and stats
 - `UltimatePlagiarismEngine`: extended algorithms and optional NLP/readability paths
 
 ### Reports
+
 - Basic text reports
 - Advanced text and HTML reports
 - JSON report export
 - PDF export when `reportlab` is installed
 
 ### Storage
+
 - SQLite-backed reference document database
 - Check history tracking
 - Category organization for source documents
@@ -31,6 +35,7 @@ A multi-mode plagiarism detection project with desktop UIs, CLI usage, batch pro
 ## Project Structure
 
 Key entry points:
+
 - `main.py` - main launcher and mode routing
 - `run.bat` / `run.sh` - interactive startup scripts
 - `core/` - engines, database, utilities, batch processor
@@ -73,6 +78,7 @@ chmod +x run.sh
 ```
 
 Script menu provides:
+
 1. Basic GUI
 2. Advanced GUI
 3. CLI
@@ -105,6 +111,7 @@ python main.py --mode batch --input-dir "docs" --output "exports/batch_reports"
 ## Supported Input Formats
 
 Currently handled in processing paths:
+
 - `.txt`
 - `.docx`
 - `.pdf`
