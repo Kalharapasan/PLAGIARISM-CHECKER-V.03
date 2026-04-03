@@ -1489,3 +1489,18 @@ class TestIntegration(unittest.TestCase):
         )
 
     def test_03_multiple_algorithm_agreement(self):
+        cosine_sim = self.advanced_engine.calculate_cosine_similarity(
+            self.original_text,
+            self.plagiarized_text
+        )
+        
+        jaccard_sim = self.advanced_engine.calculate_jaccard_similarity(
+            self.original_text,
+            self.plagiarized_text
+        )
+        
+        ngram_sim = self.advanced_engine.calculate_ngram_similarity(
+            self.original_text,
+            self.plagiarized_text,
+            n=3
+        )
