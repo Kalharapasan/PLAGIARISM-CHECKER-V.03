@@ -1483,3 +1483,7 @@ class TestIntegration(unittest.TestCase):
             self.original_text,
             self.unrelated_text
         )
+        self.assertLess(
+            unrelated_comparison['similarity_metrics']['jaccard_similarity'],
+            similarity_metrics['jaccard_similarity']
+        )
