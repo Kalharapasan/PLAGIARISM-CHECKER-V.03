@@ -1378,4 +1378,6 @@ class TestMLFeatures(unittest.TestCase):
         for recommendation in recommendations:
             self.assertIsInstance(recommendation, str)
 
-class TestIntegration(unittest.TestCase):    
+class TestIntegration(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):    
