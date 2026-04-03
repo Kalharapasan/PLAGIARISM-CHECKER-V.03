@@ -1268,3 +1268,5 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertLessEqual(results['weighted_average'], 100.0)
 
         self.assertIn(results['confidence'], ['High', 'Medium', 'Low'])
+    
+    def test_08_generate_text_fingerprint(self):
