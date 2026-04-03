@@ -1616,3 +1616,11 @@ if __name__ == '__main__':
             print(f"  {class_name}: {description}")
         
         sys.exit(0)
+    
+    if args.test:
+        # Run single test
+        test_name = args.test
+        test = unittest.TestLoader().loadTestsFromName(f'test_engine.{test_name}')
+        runner = unittest.TextTestRunner(verbosity=args.verbosity)
+        runner.run(test)
+
