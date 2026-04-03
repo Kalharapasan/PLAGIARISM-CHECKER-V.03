@@ -1450,3 +1450,11 @@ class TestIntegration(unittest.TestCase):
         self.assertIn('overall_similarity', results)
         self.assertIn('matches', results)
         self.assertGreater(len(results['matches']), 0)
+        climate_match = None
+        for match in results['matches']:
+            if "Climate Change" in match['source']:
+                climate_match = match
+                break
+        
+        self.assertIsNotNone(climate_match)
+        self.assertGreater(climate_match['similarity'], 30.0)
