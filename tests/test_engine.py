@@ -1504,3 +1504,7 @@ class TestIntegration(unittest.TestCase):
             self.plagiarized_text,
             n=3
         )
+        self.assertGreater(cosine_sim, 20.0)
+        self.assertGreater(jaccard_sim, 20.0)
+        self.assertGreater(ngram_sim, 20.0)
+        
