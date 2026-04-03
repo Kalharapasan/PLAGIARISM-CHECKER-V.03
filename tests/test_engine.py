@@ -1487,3 +1487,5 @@ class TestIntegration(unittest.TestCase):
             unrelated_comparison['similarity_metrics']['jaccard_similarity'],
             similarity_metrics['jaccard_similarity']
         )
+
+    def test_03_multiple_algorithm_agreement(self):
