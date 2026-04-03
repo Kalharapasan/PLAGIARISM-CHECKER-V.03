@@ -12,12 +12,17 @@ class BatchProcessor:
         self.db_manager = DatabaseManager(config)
 
     def process_directory(self, input_dir, output_dir=None):
-        if not input_dir:
-            raise ValueError("input_dir is required for batch mode")
+        if input_dir:
+            input_path = Path(input_dir)
+        else:
+            default_input = self.config.get("paths.sample_documents", "data/sample_documents")
+            input_path = Path(default_input)
+            print(f"No input directory provided. Using default: {input_path}")
 
-        input_path = Path(input_dir)
         if not input_path.exists() or not input_path.is_dir():
-            raise ValueError(f"Invalid input directory: {input_dir}")
+            print(f"Invalid input directory: {input_path}")
+            print("Use --input-dir <folder> for batch mode.")
+            return []
 
         out_path = Path(output_dir) if output_dir else Path("exports/batch_reports")
         out_path.mkdir(parents=True, exist_ok=True)
