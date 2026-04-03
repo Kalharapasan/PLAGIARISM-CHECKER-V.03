@@ -1422,3 +1422,5 @@ class TestIntegration(unittest.TestCase):
         Telemedicine has also expanded access to healthcare, particularly in 
         rural areas where medical facilities are limited.
         """
+    
+    def test_01_complete_plagiarism_check_workflow(self):
