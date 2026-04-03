@@ -1477,3 +1477,5 @@ class TestIntegration(unittest.TestCase):
         )
         
         self.assertIsInstance(comparison, dict)
+        similarity_metrics = comparison['similarity_metrics']
+        self.assertGreater(similarity_metrics['jaccard_similarity'], 20.0)
