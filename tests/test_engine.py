@@ -1393,3 +1393,32 @@ class TestIntegration(unittest.TestCase):
         cls.db_manager = DatabaseManager(cls.config)
         cls.advanced_engine = AdvancedPlagiarismEngine(cls.config)
         cls.analyzer = AdvancedTextAnalyzer()
+        cls.original_text = """
+        Climate change refers to long-term shifts in temperatures and weather 
+        patterns. These shifts may be natural, but since the 1800s, human 
+        activities have been the main driver of climate change.
+        
+        The primary cause is the burning of fossil fuels like coal, oil, and gas, 
+        which produces heat-trapping gases. According to the IPCC (2021), global 
+        temperatures have risen by approximately 1.1°C since the pre-industrial era.
+        """
+        
+        cls.plagiarized_text = """
+        Climate change means long-term changes in temperatures and weather 
+        patterns. While these changes can occur naturally, human activities 
+        have been the primary cause since the 1800s.
+        
+        Burning fossil fuels such as coal, oil, and gas creates greenhouse 
+        gases that trap heat. The Intergovernmental Panel on Climate Change 
+        (IPCC) reported in 2021 that global temperatures have increased by 
+        about 1.1°C compared to pre-industrial times.
+        """
+        
+        cls.unrelated_text = """
+        Artificial intelligence is revolutionizing healthcare by enabling 
+        faster and more accurate diagnoses. Machine learning algorithms can 
+        analyze medical images and identify patterns that humans might miss.
+        
+        Telemedicine has also expanded access to healthcare, particularly in 
+        rural areas where medical facilities are limited.
+        """
