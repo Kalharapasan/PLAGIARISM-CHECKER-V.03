@@ -1471,3 +1471,9 @@ class TestIntegration(unittest.TestCase):
         self.assertEqual(history[0]['filename'], "test_plagiarism_check.txt")
 
     def test_02_text_comparison_workflow(self):
+        comparison = self.analyzer.compare_texts(
+            self.original_text,
+            self.plagiarized_text
+        )
+        
+        self.assertIsInstance(comparison, dict)
