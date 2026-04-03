@@ -1445,3 +1445,7 @@ class TestIntegration(unittest.TestCase):
             documents,
             algorithms=['cosine', 'jaccard', 'ngram']
         )
+
+        self.assertIsInstance(results, dict)
+        self.assertIn('overall_similarity', results)
+        self.assertIn('matches', results)
