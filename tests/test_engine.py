@@ -1343,3 +1343,9 @@ class TestMLFeatures(unittest.TestCase):
         self.assertIsInstance(features, dict)
     
     def test_04_extract_embedding_features(self):
+        try:
+            embedding = self.ml.extract_embedding_features(
+                self.test_text, method='tfidf'
+            )
+            self.assertIsInstance(embedding, np.ndarray)
+            self.assertGreater(len(embedding), 0)
