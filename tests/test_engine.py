@@ -1573,3 +1573,16 @@ def run_tests(test_classes=None, verbosity=2):
         print("\n✅ All tests passed!")
     else:
         print("\n❌ Some tests failed.")
+        if results.failures:
+            print("\nFailures:")
+            for test, traceback in results.failures:
+                print(f"\n{test}:")
+                print(traceback)
+        
+        if results.errors:
+            print("\nErrors:")
+            for test, traceback in results.errors:
+                print(f"\n{test}:")
+                print(traceback)
+    
+    return results
