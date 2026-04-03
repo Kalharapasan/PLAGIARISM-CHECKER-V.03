@@ -917,6 +917,7 @@ This is the final paragraph of the sample document."""
         
         elif format == '.html':
             filepath = dir_path / 'sample.html'
+            sample_content_html = sample_content.replace('\n', '<br>')
             html_content = f"""
             <!DOCTYPE html>
             <html>
@@ -925,7 +926,7 @@ This is the final paragraph of the sample document."""
             </head>
             <body>
                 <h1>Sample HTML Document</h1>
-                <p>{sample_content.replace('\n', '<br>')}</p>
+                <p>{sample_content_html}</p>
             </body>
             </html>
             """
