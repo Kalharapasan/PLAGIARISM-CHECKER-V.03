@@ -122,6 +122,8 @@ class Config:
         }
     
     def load_config(self) -> Dict[str, Any]:
+        config_path = Path(self.config_file)
+
         if config_path.exists():
             try:
                 with open(config_path, 'r', encoding='utf-8') as f:
