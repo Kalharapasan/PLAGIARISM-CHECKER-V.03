@@ -1245,3 +1245,9 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertLessEqual(similarity, 100.0)
 
     def test_07_combined_similarity(self):
+        results = self.similarity.calculate_combined_similarity(
+            self.text1, self.text2,
+            algorithms=['cosine', 'jaccard', 'ngram']
+        )
+        
+        self.assertIsInstance(results, dict)
