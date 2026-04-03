@@ -1363,3 +1363,4 @@ class TestMLFeatures(unittest.TestCase):
         self.assertIn('feature_extraction_time', metadata)
         self.assertIn('total_features', metadata)
     
+    def test_06_detect_plagiarism_patterns(self):
