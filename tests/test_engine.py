@@ -1624,3 +1624,13 @@ if __name__ == '__main__':
         runner = unittest.TextTestRunner(verbosity=args.verbosity)
         runner.run(test)
 
+    elif args.test_class:
+        test_class_name = args.test_class
+        try:
+            test_class = globals()[test_class_name]
+            suite = unittest.TestLoader().loadTestsFromTestCase(test_class)
+            runner = unittest.TextTestRunner(verbosity=args.verbosity)
+            runner.run(suite)
+        except KeyError:
+            print(f"Error: Test class '{test_class_name}' not found")
+            sys.exit(1)
