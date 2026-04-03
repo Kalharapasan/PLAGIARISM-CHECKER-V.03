@@ -1440,3 +1440,8 @@ class TestIntegration(unittest.TestCase):
 
         documents = self.db_manager.get_all_documents()
         self.assertEqual(len(documents), 2)
+        results = self.advanced_engine.analyze_text(
+            self.plagiarized_text,
+            documents,
+            algorithms=['cosine', 'jaccard', 'ngram']
+        )
