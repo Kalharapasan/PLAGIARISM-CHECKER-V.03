@@ -1197,3 +1197,4 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertIsInstance(similarity, float)
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
+        self.assertGreater(similarity, 30.0)
