@@ -1458,3 +1458,5 @@ class TestIntegration(unittest.TestCase):
         
         self.assertIsNotNone(climate_match)
         self.assertGreater(climate_match['similarity'], 30.0)
+        detailed_analysis = self.analyzer.generate_text_statistics(self.plagiarized_text)
+        self.assertIsInstance(detailed_analysis, dict)
