@@ -1276,5 +1276,6 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         
         self.assertIsInstance(fingerprint1, str)
         self.assertEqual(len(fingerprint1), 64)
-        
+
         self.assertEqual(fingerprint1, fingerprint3)
+        self.assertNotEqual(fingerprint1, fingerprint2)
