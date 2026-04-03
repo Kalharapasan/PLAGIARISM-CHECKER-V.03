@@ -1554,3 +1554,10 @@ def run_tests(test_classes=None, verbosity=2):
             suite.addTest(tests)
         except Exception as e:
             print(f"⚠ Failed to load tests from {test_class.__name__}: {e}")
+    
+    print("\n" + "="*70)
+    print("Running Plagiarism Checker Pro Test Suite")
+    print("="*70 + "\n")
+    
+    runner = unittest.TextTestRunner(verbosity=verbosity)
+    results = runner.run(suite)
