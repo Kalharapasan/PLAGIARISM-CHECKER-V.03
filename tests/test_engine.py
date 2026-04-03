@@ -1545,3 +1545,12 @@ def run_tests(test_classes=None, verbosity=2):
         
         if ML_FEATURES_AVAILABLE:
             test_classes.append(TestMLFeatures)
+    
+    loader = unittest.TestLoader()
+    
+    for test_class in test_classes:
+        try:
+            tests = loader.loadTestsFromTestCase(test_class)
+            suite.addTest(tests)
+        except Exception as e:
+            print(f"⚠ Failed to load tests from {test_class.__name__}: {e}")
