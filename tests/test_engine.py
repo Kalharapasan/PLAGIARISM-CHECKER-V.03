@@ -1270,3 +1270,10 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertIn(results['confidence'], ['High', 'Medium', 'Low'])
     
     def test_08_generate_text_fingerprint(self):
+        fingerprint1 = self.similarity.generate_text_fingerprint(self.text1)
+        fingerprint2 = self.similarity.generate_text_fingerprint(self.text2)
+        fingerprint3 = self.similarity.generate_text_fingerprint(self.text1)
+        
+        self.assertIsInstance(fingerprint1, str)
+        self.assertEqual(len(fingerprint1), 64)
+        self.assertEqual(fingerprint1, fingerprint3)
