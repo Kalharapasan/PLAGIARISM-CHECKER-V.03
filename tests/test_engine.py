@@ -1339,3 +1339,6 @@ class TestMLFeatures(unittest.TestCase):
             self.assertIsInstance(value, float)
     
     def test_03_extract_nlp_features(self):
+        features = self.ml.extract_nlp_features(self.test_text)
+        
+        self.assertIsInstance(features, dict)
