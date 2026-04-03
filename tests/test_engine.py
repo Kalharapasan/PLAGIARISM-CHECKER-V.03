@@ -1424,3 +1424,16 @@ class TestIntegration(unittest.TestCase):
         """
     
     def test_01_complete_plagiarism_check_workflow(self):
+        self.db_manager.add_document(
+            source="Climate Change Report 2023",
+            text=self.original_text,
+            url="https://example.com/climate-report",
+            category="Research"
+        )
+        
+        self.db_manager.add_document(
+            source="AI in Healthcare Study",
+            text=self.unrelated_text,
+            url="https://example.com/ai-healthcare",
+            category="Academic"
+        )
