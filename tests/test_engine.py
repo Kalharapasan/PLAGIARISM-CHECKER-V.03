@@ -1296,3 +1296,5 @@ class TestSimilarityAlgorithms(unittest.TestCase):
             self.assertGreaterEqual(similarity, 0.0)
             self.assertLessEqual(similarity, 100.0)
 
+@unittest.skipIf(not ML_FEATURES_AVAILABLE, "MLFeatures not available")
+class TestMLFeatures(unittest.TestCase):
