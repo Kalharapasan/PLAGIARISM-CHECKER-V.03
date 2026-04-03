@@ -1597,3 +1597,22 @@ if __name__ == '__main__':
     parser.add_argument('--list', action='store_true', help="List all available test classes")
     
     args = parser.parse_args()
+    if args.list:
+        print("Available test classes:")
+        test_classes = [
+            ('TestBaseEngine', 'Base engine functionality'),
+            ('TestAdvancedEngine', 'Advanced engine with multiple algorithms'),
+            ('TestUltimateEngine', 'Ultimate engine with ML features'),
+            ('TestAdvancedTextAnalyzer', 'Advanced text analysis'),
+            ('TestDatabaseManager', 'Database operations'),
+            ('TestUtils', 'Utility functions'),
+            ('TestTextExtractor', 'Text extraction from files'),
+            ('TestSimilarityAlgorithms', 'Similarity algorithms'),
+            ('TestMLFeatures', 'Machine learning features'),
+            ('TestIntegration', 'Integration tests')
+        ]
+        
+        for class_name, description in test_classes:
+            print(f"  {class_name}: {description}")
+        
+        sys.exit(0)
