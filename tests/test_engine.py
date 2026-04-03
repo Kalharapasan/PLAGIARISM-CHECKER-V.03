@@ -1449,3 +1449,4 @@ class TestIntegration(unittest.TestCase):
         self.assertIsInstance(results, dict)
         self.assertIn('overall_similarity', results)
         self.assertIn('matches', results)
+        self.assertGreater(len(results['matches']), 0)
