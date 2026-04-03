@@ -1371,4 +1371,10 @@ class TestMLFeatures(unittest.TestCase):
             self.assertIn(key, results)
         anomaly_scores = results['anomaly_scores']
         self.assertIsInstance(anomaly_scores, dict)
+        recommendations = results['recommendations']
+        self.assertIsInstance(recommendations, list)
+        self.assertGreater(len(recommendations), 0)
+        
+        for recommendation in recommendations:
+            self.assertIsInstance(recommendation, str)
 
