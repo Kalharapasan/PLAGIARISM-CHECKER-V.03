@@ -1,0 +1,2 @@
+This is a temporary CLI test document.
+It has multiple lines for plagiarism scanning.
