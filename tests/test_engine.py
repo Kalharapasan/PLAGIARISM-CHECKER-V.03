@@ -1437,3 +1437,6 @@ class TestIntegration(unittest.TestCase):
             url="https://example.com/ai-healthcare",
             category="Academic"
         )
+
+        documents = self.db_manager.get_all_documents()
+        self.assertEqual(len(documents), 2)
