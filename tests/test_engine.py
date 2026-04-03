@@ -1255,3 +1255,10 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         for key in ['individual_scores', 'weighted_average', 'confidence',
                    'common_sequences', 'total_sequences', 'algorithms_used']:
             self.assertIn(key, results)
+        scores = results['individual_scores']
+        self.assertGreater(len(scores), 0)
+        
+        for algo, score in scores.items():
+            self.assertIsInstance(score, float)
+            self.assertGreaterEqual(score, 0.0)
+            self.assertLessEqual(score, 100.0)
