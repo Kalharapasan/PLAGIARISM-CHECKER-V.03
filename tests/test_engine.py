@@ -1208,3 +1208,4 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
 
+    def test_03_ngram_similarity(self):
