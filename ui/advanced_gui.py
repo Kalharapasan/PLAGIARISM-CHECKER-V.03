@@ -64,17 +64,18 @@ class AdvancedPlagiarismChecker:
         help_menu.add_command(label="About", command=self.show_about)
     
     def _create_ui(self):
+        self.status_bar = tk.Label(self.root, 
+                                  text=f"Ready | Database: {len(self.database)} documents loaded", 
+                                  bd=1, relief='sunken', anchor='w', 
+                                  bg='#e2e8f0', font=('Arial', 9))
+        self.status_bar.pack(side='bottom', fill='x')
+
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill='both', expand=True, padx=10, pady=10)
         self.create_checker_tab()
         self.create_batch_tab()
         self.create_database_tab()
         self.create_analytics_tab()
-        self.status_bar = tk.Label(self.root, 
-                                  text=f"Ready | Database: {len(self.database)} documents loaded", 
-                                  bd=1, relief='sunken', anchor='w', 
-                                  bg='#e2e8f0', font=('Arial', 9))
-        self.status_bar.pack(side='bottom', fill='x')
     
     def create_checker_tab(self):
         tab = ttk.Frame(self.notebook)
@@ -501,7 +502,8 @@ Algorithm Performance:
             self.db_tree.insert('', 'end', text=str(idx),
                                values=(doc['source'], doc.get('category', 'General'), word_count))
         
-        self.status_bar.config(text=f"Database: {len(self.database)} documents loaded")
+        if hasattr(self, 'status_bar'):
+            self.status_bar.config(text=f"Database: {len(self.database)} documents loaded")
     
     def add_to_database(self):
         dialog = tk.Toplevel(self.root)
