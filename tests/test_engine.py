@@ -1469,3 +1469,5 @@ class TestIntegration(unittest.TestCase):
         history = self.db_manager.get_check_history(limit=1)
         self.assertEqual(len(history), 1)
         self.assertEqual(history[0]['filename'], "test_plagiarism_check.txt")
+
+    def test_02_text_comparison_workflow(self):
