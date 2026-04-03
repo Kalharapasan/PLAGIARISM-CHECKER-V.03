@@ -1527,3 +1527,13 @@ def run_tests(test_classes=None, verbosity=2):
         print("⚠ Warning: Some imports failed. Running reduced test suite.")
     
     suite = unittest.TestSuite()
+    if test_classes is None:
+        test_classes = [
+            TestBaseEngine,
+            TestAdvancedEngine,
+            TestUltimateEngine,
+            TestAdvancedTextAnalyzer,
+            TestDatabaseManager,
+            TestUtils,
+            TestIntegration
+        ]
