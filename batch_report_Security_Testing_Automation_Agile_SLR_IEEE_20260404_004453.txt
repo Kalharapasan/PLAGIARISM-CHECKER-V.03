@@ -1,0 +1,70 @@
+================================================================================
+ADVANCED PLAGIARISM DETECTION REPORT
+================================================================================
+
+Generated: 2026-04-04 00:44:53
+Document: Security_Testing_Automation_Agile_SLR_IEEE.docx
+Analysis Algorithms: cosine, jaccard, ngram, sequence
+
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+Overall Similarity Score: 0%
+Total Words: 3092
+Total Sentences: 255
+Citations Detected: 141
+Sources Matched: 0
+Matched Words: 0
+Unique Content: 100.0%
+Longest Match: 0 words
+
+RISK ASSESSMENT
+--------------------------------------------------------------------------------
+Risk Level: LOW RISK
+
+Interpretation: The document shows minimal similarity to reference sources. This level is generally acceptable for academic submissions.
+
+Recommendation: Continue maintaining good citation practices.
+
+ALGORITHM ANALYSIS
+--------------------------------------------------------------------------------
+
+DETAILED MATCH ANALYSIS
+--------------------------------------------------------------------------------
+
+✓ No significant matches found.
+The document appears to contain primarily original content.
+
+
+STATISTICAL ANALYSIS
+--------------------------------------------------------------------------------
+Total Words Analyzed: 3092
+Matched Words: 0
+Unique Words: 3092
+Unique Percentage: 100.0%
+Average Match Length: 0 words
+Longest Single Match: 0 words
+Total Sources Found: 0
+High Risk Sources: 0
+
+
+RECOMMENDATIONS
+--------------------------------------------------------------------------------
+✓ Document is acceptable for submission
+✓ Continue maintaining good academic practices
+• Double-check that all citations are properly formatted
+
+
+ANALYSIS METADATA
+--------------------------------------------------------------------------------
+Database Size: 0 documents
+Algorithms Used: cosine, jaccard, ngram, sequence
+Analysis Timestamp: 2026-04-04T00:44:53.779729
+
+================================================================================
+DISCLAIMER
+--------------------------------------------------------------------------------
+This is an automated analysis tool. Results should be reviewed by a human.
+Proper citation, quotation, and paraphrasing are essential for academic integrity.
+This tool is for educational purposes and should not be the sole basis for
+academic integrity decisions. Always consult institutional policies and guidelines.
+================================================================================
