@@ -1298,3 +1298,5 @@ class TestSimilarityAlgorithms(unittest.TestCase):
 
 @unittest.skipIf(not ML_FEATURES_AVAILABLE, "MLFeatures not available")
 class TestMLFeatures(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
