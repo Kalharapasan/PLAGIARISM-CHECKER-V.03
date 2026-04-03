@@ -1366,3 +1366,7 @@ class TestMLFeatures(unittest.TestCase):
     def test_06_detect_plagiarism_patterns(self):
         results = self.ml.detect_plagiarism_patterns(self.test_text)
         self.assertIsInstance(results, dict)
+        for key in ['plagiarism_score', 'pattern_matches', 'anomaly_scores',
+                   'cluster_assignment', 'recommendations']:
+            self.assertIn(key, results)
+
