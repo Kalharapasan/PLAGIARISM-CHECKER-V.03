@@ -1188,3 +1188,6 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         all letters of the English alphabet and is often used for typing 
         practice and testing keyboards.
         """
+    
+    def test_01_cosine_similarity(self):
+        
