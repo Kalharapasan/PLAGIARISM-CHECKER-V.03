@@ -1460,3 +1460,8 @@ class TestIntegration(unittest.TestCase):
         self.assertGreater(climate_match['similarity'], 30.0)
         detailed_analysis = self.analyzer.generate_text_statistics(self.plagiarized_text)
         self.assertIsInstance(detailed_analysis, dict)
+        self.db_manager.save_check_history(
+            filename="test_plagiarism_check.txt",
+            results=results,
+            report_path="reports/test_report.txt"
+        )
