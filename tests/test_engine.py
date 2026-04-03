@@ -1358,3 +1358,8 @@ class TestMLFeatures(unittest.TestCase):
         for category in ['linguistic', 'stylometric', 'nlp', 'embeddings',
                         'combined_vector', 'metadata']:
             self.assertIn(category, features)
+        metadata = features['metadata']
+        self.assertIn('text_length', metadata)
+        self.assertIn('feature_extraction_time', metadata)
+        self.assertIn('total_features', metadata)
+    
