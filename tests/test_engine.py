@@ -1279,3 +1279,6 @@ class TestSimilarityAlgorithms(unittest.TestCase):
 
         self.assertEqual(fingerprint1, fingerprint3)
         self.assertNotEqual(fingerprint1, fingerprint2)
+    
+    def test_09_analyze_similarity_distribution(self):
+        
