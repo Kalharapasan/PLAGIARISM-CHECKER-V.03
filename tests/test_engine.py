@@ -1351,3 +1351,5 @@ class TestMLFeatures(unittest.TestCase):
             self.assertGreater(len(embedding), 0)
         except Exception as e:
             print(f"Note: TF-IDF embedding test skipped: {e}")
+    
+    def test_05_extract_all_features(self):
