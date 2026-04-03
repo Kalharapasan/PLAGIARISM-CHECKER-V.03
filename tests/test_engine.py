@@ -1326,3 +1326,5 @@ class TestMLFeatures(unittest.TestCase):
         for feature in expected_features:
             self.assertIn(feature, features)
             self.assertIsInstance(features[feature], float)
+            
+    def test_02_extract_stylometric_features(self):
