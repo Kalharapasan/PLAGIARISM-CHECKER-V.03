@@ -1523,3 +1523,5 @@ class TestIntegration(unittest.TestCase):
         self.assertGreater(jaccard_sim, jaccard_diff)
 
 def run_tests(test_classes=None, verbosity=2):
+    if not IMPORT_SUCCESS:
+        print("⚠ Warning: Some imports failed. Running reduced test suite.")
