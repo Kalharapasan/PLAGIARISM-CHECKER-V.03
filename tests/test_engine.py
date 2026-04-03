@@ -1381,3 +1381,15 @@ class TestMLFeatures(unittest.TestCase):
 class TestIntegration(unittest.TestCase):
     @classmethod
     def setUpClass(cls):    
+        if not IMPORT_SUCCESS:
+            raise unittest.SkipTest("Required imports not available")
+        
+        cls.config = {
+            'paths.database': ':memory:',  # Use in-memory database for tests
+            'detection.advanced.algorithms': ['cosine', 'jaccard', 'ngram'],
+            'detection.advanced.threshold': 10.0
+        }
+        
+        cls.db_manager = DatabaseManager(cls.config)
+        cls.advanced_engine = AdvancedPlagiarismEngine(cls.config)
+        cls.analyzer = AdvancedTextAnalyzer()
