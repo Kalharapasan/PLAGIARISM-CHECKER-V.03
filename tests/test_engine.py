@@ -1588,3 +1588,12 @@ def run_tests(test_classes=None, verbosity=2):
     return results
 
 if __name__ == '__main__':
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Run Plagiarism Checker Pro tests")
+    parser.add_argument('--test', type=str, help="Run specific test (e.g., TestBaseEngine.test_01_tokenize)")
+    parser.add_argument('--class', dest='test_class', type=str, help="Run all tests in a specific class")
+    parser.add_argument('--verbosity', type=int, choices=[0, 1, 2], default=2, help="Test output verbosity")
+    parser.add_argument('--list', action='store_true', help="List all available test classes")
+    
+    args = parser.parse_args()
