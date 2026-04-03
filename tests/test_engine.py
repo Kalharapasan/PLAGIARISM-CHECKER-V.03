@@ -1244,4 +1244,4 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         self.assertGreaterEqual(similarity, 0.0)
         self.assertLessEqual(similarity, 100.0)
 
-        
+    def test_07_combined_similarity(self):
