@@ -1190,4 +1190,10 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         """
     
     def test_01_cosine_similarity(self):
+        similarity = self.similarity.calculate_cosine_similarity(
+            self.text1, self.text2
+        )
         
+        self.assertIsInstance(similarity, float)
+        self.assertGreaterEqual(similarity, 0.0)
+        self.assertLessEqual(similarity, 100.0)
