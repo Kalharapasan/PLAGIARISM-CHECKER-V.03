@@ -1300,3 +1300,14 @@ class TestSimilarityAlgorithms(unittest.TestCase):
 class TestMLFeatures(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        cls.ml = MLFeatures()
+        
+        cls.test_text = """
+        Deep learning is a subset of machine learning that uses neural networks 
+        with multiple layers. These neural networks attempt to simulate the 
+        behavior of the human brain, albeit far from matching its ability.
+        
+        Convolutional neural networks are particularly effective for image 
+        recognition tasks, while recurrent neural networks excel at sequence 
+        data such as text or time series.
+        """
