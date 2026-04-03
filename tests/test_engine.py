@@ -1353,3 +1353,5 @@ class TestMLFeatures(unittest.TestCase):
             print(f"Note: TF-IDF embedding test skipped: {e}")
     
     def test_05_extract_all_features(self):
+        features = self.ml.extract_all_features(self.test_text)
+        self.assertIsInstance(features, dict)
