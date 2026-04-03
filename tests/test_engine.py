@@ -1519,3 +1519,5 @@ class TestIntegration(unittest.TestCase):
         )
         self.assertLess(cosine_diff, 50.0)
         self.assertLess(jaccard_diff, 50.0)
+        self.assertGreater(cosine_sim, cosine_diff)
+        self.assertGreater(jaccard_sim, jaccard_diff)
