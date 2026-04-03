@@ -1332,3 +1332,6 @@ class TestMLFeatures(unittest.TestCase):
         
         self.assertIsInstance(features, dict)
         self.assertGreater(len(features), 0)
+        self.assertIn('function_word_ratio', features)
+        self.assertIn('sentence_length_mean', features)
+        self.assertIn('sophisticated_word_ratio', features)
