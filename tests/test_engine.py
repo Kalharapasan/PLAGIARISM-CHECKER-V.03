@@ -1289,3 +1289,10 @@ class TestSimilarityAlgorithms(unittest.TestCase):
         for key in ['word_level_similarity', 'sentence_level_similarity',
                    'paragraph_level_similarity', 'similarity_distribution']:
             self.assertIn(key, analysis)
+        for key in ['word_level_similarity', 'sentence_level_similarity',
+                   'paragraph_level_similarity']:
+            similarity = analysis[key]
+            self.assertIsInstance(similarity, float)
+            self.assertGreaterEqual(similarity, 0.0)
+            self.assertLessEqual(similarity, 100.0)
+
